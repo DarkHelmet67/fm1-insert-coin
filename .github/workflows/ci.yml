@@ -1,11 +1,15 @@
-# On every push and pull request: format, unit tests and every game in Dinghy's host mode (no FM-1 needed), then
-# every game built as an FM-1 firmware (.fwsc), downloadable from the run's artifacts.
+# On every push and pull request: format, unit tests and every game in Dinghy's host mode (no FM-1 needed), every
+# game built as an FM-1 firmware (.fwsc) and as a browser simulator, all downloadable from the run's artifacts.
+# On main the simulators go to GitHub Pages.
 # The JieLi toolchain comes from pkgman.jieliapp.com and the AC79 SDK from gitee.com, as in Dinghy's own workflow.
 name: ci
 
 on:
   push:
   pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   host:
@@ -68,3 +72,44 @@ jobs:
           name: firmware
           path: build/*/*.fwsc
           if-no-files-found: error
+
+  simulator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tools
+        run: sudo apt-get install -y clang lld
+
+      - name: Every game as a browser simulator
+        run: |
+          for g in games/*/sim/sim.c; do
+            game="$(basename "$(dirname "$(dirname "$g")")")"
+            make sim GAME="$game"
+            node tools/sim/smoke.mjs "build/sim/$game.wasm"
+          done
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: simulator
+          path: build/site
+          if-no-files-found: error
+
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          path: build/site
+
+  pages:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [host, simulator]
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -17,9 +17,14 @@ static void moving_follows_the_keys_held(void)
 
 static void fire_is_a_press_not_a_hold(void)
 {
-    CHECK(input_controls(&CONTROLS, OP4, 0, 0, COIN_BUTTON).fire);
-    CHECK(!input_controls(&CONTROLS, OP4, OP4, 0, COIN_BUTTON).fire);
-    CHECK(input_controls(&CONTROLS, OP4 | OP5, OP4, 0, COIN_BUTTON).fire);
+    CHECK(input_controls(&CONTROLS, OP4, OP4, 0, COIN_BUTTON).fire);
+    CHECK(!input_controls(&CONTROLS, OP4, 0, 0, COIN_BUTTON).fire);
+    CHECK(input_controls(&CONTROLS, OP4 | OP5, OP5, 0, COIN_BUTTON).fire);
+}
+
+static void a_tap_shorter_than_a_frame_still_fires(void)
+{
+    CHECK(input_controls(&CONTROLS, 0, OP5, 0, COIN_BUTTON).fire);
 }
 
 static void the_coin_is_a_press_of_its_button(void)
@@ -32,6 +37,7 @@ int main(void)
 {
     RUN(moving_follows_the_keys_held);
     RUN(fire_is_a_press_not_a_hold);
+    RUN(a_tap_shorter_than_a_frame_still_fires);
     RUN(the_coin_is_a_press_of_its_button);
     return check_report();
 }

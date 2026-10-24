@@ -4,6 +4,7 @@
 #   make host GAME=space-invaders the game on a fake FM-1 (Dinghy's host mode): screens as PNG, sound as WAV
 #   make format / format-check   clang-format on our sources (platform/ is Dinghy's and keeps its style)
 #   make traces INSERT_COIN=dir  the reference traces, recorded again from a checkout of insert-coin
+#   make sim GAME=space-invaders  the browser simulator: build/site/<game>/index.html (needs clang and wasm-ld)
 #   make sounds INSERT_COIN=dir  the sound effects of C and web side by side, measured (docs/06-suoni.md)
 # The firmware itself (.fwsc): python3 tools/build.py GAME (see README.md).
 
@@ -23,7 +24,7 @@ endif
 SOURCES := $(shell find libs games -name '*.[ch]')
 TESTS := $(shell find libs games -name '*_test.c')
 
-.PHONY: test host format format-check traces sounds clean
+.PHONY: test host format format-check traces sounds sim clean
 
 test: $(TESTS:%.c=$(OUT)/%)
 	@set -e; for t in $^; do echo "== $$t"; $$t; done
@@ -46,6 +47,16 @@ host:
 		$(filter-out %/main.c %_test.c,$(wildcard games/$(GAME)/src/*.c) $(shell find libs -name '*.c'))
 	$(OUT)/$(GAME) $(OUT)/$(GAME) $(SCRIPT)
 	python3 tools/ppm_to_png.py $(OUT)/$(GAME)
+
+# the browser simulator: the game's C (not main.c) for WebAssembly, then one self-contained page
+WASM_CC ?= clang
+sim:
+	@mkdir -p build/sim
+	$(WASM_CC) --target=wasm32 -std=c99 -O2 -Wall -Wextra -Werror -nostdlib -ffreestanding \
+		-Ilibs -Igames/$(GAME)/src -Wl,--no-entry -Wl,-z,stack-size=131072 \
+		-o build/sim/$(GAME).wasm games/$(GAME)/sim/sim.c sim/libc.c \
+		$(filter-out %/main.c %_test.c,$(wildcard games/$(GAME)/src/*.c)) $(LIB_SOURCES)
+	python3 tools/sim/bundle.py $(GAME) build/sim/$(GAME).wasm build/site
 
 # every sound effect of the game from the C synthesizer and from the web version, then compared
 sounds:

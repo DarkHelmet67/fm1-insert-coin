@@ -10,7 +10,7 @@ L'FM-1 è un synth FM da pochi euro con uno schermo a colori 240 × 240, 27 tast
 
 | Gioco | Stato | Comandi |
 | --- | --- | --- |
-| Space Invaders (Taito, 1978) | In sviluppo: giocabile, con i suoni; manca il simulatore nel browser | OP1 OP2 OP3 sinistra, OP4 OP5 fuoco, OP6 PIT GLO destra, PLAY per iniziare, FX colori |
+| Space Invaders (Taito, 1978) | Giocabile, con i suoni e il simulatore nel browser | OP1 OP2 OP3 sinistra, OP4 OP5 fuoco, OP6 PIT GLO destra, PLAY per iniziare, FX colori |
 | Galaga (Namco, 1981) | Previsto | Come Space Invaders |
 | Breakout (Atari, 1976) | Previsto | Encoder SELECT (destrorsi) o KNOB1 (mancini) |
 
@@ -28,15 +28,18 @@ Se qualcosa va storto, tieni premuto **OCT-** mentre accendi: l'FM-1 parte nella
 
 ## Provare senza synth
 
-La modalità host di [Dinghy](https://github.com/zvenson/dinghy) fa girare lo stesso codice sul computer: lo schermo diventa una serie di PNG, il suono un WAV, i tasti arrivano da uno script.
+**Nel browser.** Il [simulatore](https://darkhelmet67.github.io/fm1-insert-coin/) fa girare lo stesso codice C del firmware, compilato in WebAssembly: schermo, tastiera, pulsanti e suono dell'FM-1, con il mouse, le dita o la tastiera del computer ([guida 07](docs/07-simulatore.md)).
+
+**Sul computer.** La modalità host di [Dinghy](https://github.com/zvenson/dinghy) fa girare il firmware: lo schermo diventa una serie di PNG, il suono un WAV, i tasti arrivano da uno script.
 
 ```sh
 pip3 install Pillow
 make test                         # i test unitari
 make host GAME=space-invaders     # -> build/host/space-invaders-*.png e .wav
+make sim GAME=space-invaders      # -> build/site/space-invaders/index.html (serve clang con lld)
 ```
 
-Serve solo un compilatore C (Linux o macOS). Un simulatore nel browser arriverà come ultimo passo del primo gioco.
+Serve solo un compilatore C (Linux o macOS).
 
 ## Costruire il firmware
 
@@ -74,6 +77,7 @@ docs/       le guide, passo dopo passo
 | [04 La logica](docs/04-logica.md) | Space Invaders in C, modulo per modulo, identico alla versione web su 32.000 fotogrammi |
 | [05 Grafica e comandi](docs/05-grafica-e-controlli.md) | Disegnare tutto e inviare poco, i tasti del synth, il record nella flash |
 | [06 I suoni](docs/06-suoni.md) | Un sintetizzatore a interi con gli stessi numeri del web, misurato contro Web Audio |
+| [07 Il simulatore](docs/07-simulatore.md) | Lo stesso C in WebAssembly, in una pagina che si apre anche dal disco |
 | [Diario AI](docs/ai-workflow.md) | Le decisioni prese con Claude |
 | [Prompt unico](docs/prompt-unico.md) | Il prompt che ricrea il progetto |
 

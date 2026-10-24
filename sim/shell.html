@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}} · simulatore FM-1</title>
+<style>
+{{STYLE}}
+</style>
+</head>
+<body>
+<main class="synth" aria-label="M-Vave FM-1 simulato">
+  <header class="top">
+    <a class="back" href="../">fm1-insert-coin</a>
+    <h1>{{TITLE}}</h1>
+  </header>
+  <div class="panel">
+    <canvas id="screen" width="240" height="240" aria-label="Lo schermo del synth"></canvas>
+    <div class="buttons" id="buttons"></div>
+  </div>
+  <div class="keyboard" id="keyboard" aria-label="La tastiera"></div>
+  <p class="help">{{HELP}}</p>
+  <p class="sound" id="sound">Tocca un tasto o premi un pulsante per avere il suono.</p>
+</main>
+<script>
+const WASM_BASE64 = "{{WASM}}";
+const GAME_ID = "{{GAME}}";
+{{SCRIPT}}
+</script>
+</body>
+</html>

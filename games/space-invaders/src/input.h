@@ -13,11 +13,11 @@
  * (holding a fire key does not fire again); the coin is a press of `coin_button`.
  * @param map the game keys
  * @param notes the keys held now (fm1_in.notes)
- * @param previous_notes the keys held in the previous frame
+ * @param note_presses the keys pressed since the previous frame, even if already let go
  * @param button_presses the buttons pressed since the previous frame (fm1_input_edges)
  * @param coin_button the id of the button that inserts the coin
  */
-Controls input_controls(const KeyMap *map, uint32_t notes, uint32_t previous_notes,
+Controls input_controls(const KeyMap *map, uint32_t notes, uint32_t note_presses,
                         uint32_t button_presses, uint32_t coin_button);
 
 #endif

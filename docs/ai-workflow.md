@@ -4,6 +4,10 @@ Le decisioni significative prese con Claude, dalla più recente.
 
 | Data | Decisione | Perché |
 | --- | --- | --- |
+| 2026-10-24 | Simulatore: il ciclo del fotogramma spostato in `app.c`, condiviso da firmware e WebAssembly; pagina generica che chiede al gioco tasti e pulsanti | Il simulatore gioca esattamente il firmware; Galaga e Breakout riusano la pagina |
+| 2026-10-24 | WebAssembly con il clang di sistema (`--target=wasm32 -nostdlib`), niente Emscripten; pagina unica con il wasm in base64 | Nessuno strumento in più in CI e in locale; la pagina dell'artefatto si apre dal disco |
+| 2026-10-24 | Pressioni di tasti e pulsanti accumulate fra un fotogramma e l'altro (anche sul firmware) | Un tocco più breve di un fotogramma andava perso |
+| 2026-10-24 | Pubblicazione su GitHub Pages solo da `main`; per le PR l'artefatto `simulator` | Pages ha un solo sito; la pagina unica si prova scaricandola |
 | 2026-10-24 | Sintetizzatore a interi condiviso (`libs/audio`) con gli stessi dati di `sound-bank.ts`; curve esponenziali in ottave con tabelle di 2^x e log2 | Il chip non ha FPU; i suoni del web sono già pochi numeri, basta suonarli allo stesso modo |
 | 2026-10-24 | Confronto misurato: il vero `synth.ts` in un `OfflineAudioContext` di Chromium contro il C, inviluppo, volume e altezza (`make sounds`) | "Suona uguale" diventa un numero; ha portato alle correzioni del livello dell'onda quadra (−1,5 dB) e del filtro (poli a 1,5 × il taglio) |
 | 2026-10-24 | Coda a 16 posti fra ciclo principale e interrupt audio; record salvato solo a suoni finiti | Niente interrupt da disattivare; la cancellazione della flash ferma anche l'audio |
