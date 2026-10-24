@@ -4,6 +4,7 @@ Le decisioni significative prese con Claude, dalla più recente.
 
 | Data | Decisione | Perché |
 | --- | --- | --- |
+| 2026-10-24 | Guida 08 di riepilogo con la ricetta per i prossimi giochi; Galaga (224 × 288 sullo schermo) e il suono WSG restano decisioni aperte | Chi riprende il progetto, persona o AI, sa da dove partire |
 | 2026-10-24 | Simulatore: il ciclo del fotogramma spostato in `app.c`, condiviso da firmware e WebAssembly; pagina generica che chiede al gioco tasti e pulsanti | Il simulatore gioca esattamente il firmware; Galaga e Breakout riusano la pagina |
 | 2026-10-24 | WebAssembly con il clang di sistema (`--target=wasm32 -nostdlib`), niente Emscripten; pagina unica con il wasm in base64 | Nessuno strumento in più in CI e in locale; la pagina dell'artefatto si apre dal disco |
 | 2026-10-24 | Pressioni di tasti e pulsanti accumulate fra un fotogramma e l'altro (anche sul firmware) | Un tocco più breve di un fotogramma andava perso |

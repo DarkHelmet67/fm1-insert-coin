@@ -16,6 +16,18 @@ L'FM-1 è un synth FM da pochi euro con uno schermo a colori 240 × 240, 27 tast
 
 I giochi sono il porting in C della versione web di [insert-coin](https://github.com/DarkHelmet67/insert-coin), giocabile su [darkhelmet67.github.io/insert-coin](https://darkhelmet67.github.io/insert-coin/). La logica TypeScript è la specifica: il C deve fare la stessa partita, fotogramma per fotogramma.
 
+## Come si gioca a Space Invaders
+
+| Comando | Sul synth | Nel simulatore, dal computer |
+| --- | --- | --- |
+| Sinistra | OP1, OP2, OP3 | Freccia sinistra, A |
+| Fuoco | OP4, OP5 | Spazio, W |
+| Destra | OP6, PIT, GLO | Freccia destra, D |
+| Inizia la partita | PLAY (lampeggia) | Invio, C |
+| Colori o bianco e nero | FX | V |
+
+Il record resta nella memoria del synth anche da spento.
+
 ## Installare un gioco sul synth
 
 > Installare un firmware di terze parti è a tuo rischio. Prima salva i tuoi progetti e i suoni con il Workbench ufficiale.
@@ -60,9 +72,13 @@ GitHub Actions fa lo stesso a ogni push e allega i `.fwsc` all'esecuzione.
 
 ```
 platform/   Dinghy: avvio, USB, aggiornamento, tasti, schermo, audio, flash, modalità host (non si tocca)
-libs/       il nostro codice condiviso tra i giochi, in C puro e testato
-games/      un gioco per cartella: src/main.c parla con l'FM-1, il resto è logica pura
-tools/      build.py (il firmware di un gioco), ppm_to_png.py (gli screenshot), traces/ (il registratore delle tracce)
+libs/       il codice condiviso tra i giochi, in C puro e testato: screen, font, sprite, input, clock,
+            audio, storage, trace
+games/      un gioco per cartella: src/main.c parla con l'FM-1, sim/sim.c con il browser, il resto è
+            logica pura; traces/ le partite registrate dalla versione web
+sim/        la pagina del simulatore, uguale per tutti i giochi
+tools/      build.py (il firmware), ppm_to_png.py (gli screenshot), traces/ (il registratore delle
+            tracce), sounds/ (il confronto dei suoni), sim/ (pagina e prove del simulatore)
 docs/       le guide, passo dopo passo
 ```
 
@@ -78,6 +94,7 @@ docs/       le guide, passo dopo passo
 | [05 Grafica e comandi](docs/05-grafica-e-controlli.md) | Disegnare tutto e inviare poco, i tasti del synth, il record nella flash |
 | [06 I suoni](docs/06-suoni.md) | Un sintetizzatore a interi con gli stessi numeri del web, misurato contro Web Audio |
 | [07 Il simulatore](docs/07-simulatore.md) | Lo stesso C in WebAssembly, in una pagina che si apre anche dal disco |
+| [08 Riepilogo](docs/08-riepilogo.md) | Come si tiene insieme, cosa è verificato, come aggiungere un gioco |
 | [Diario AI](docs/ai-workflow.md) | Le decisioni prese con Claude |
 | [Prompt unico](docs/prompt-unico.md) | Il prompt che ricrea il progetto |
 

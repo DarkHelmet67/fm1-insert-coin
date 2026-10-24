@@ -26,13 +26,15 @@ Resta la strada più onesta: riscrivere la logica in C, tenendo il TypeScript co
 
 ## Il piano del primo gioco
 
-1. Il monorepo, Dinghy, la build host e la build del firmware in CI; il primo firmware con il titolo e i tasti accesi.
-2. Le librerie condivise: schermo, comandi, suono, record.
-3. Le tracce di riferimento registrate dalla versione TypeScript.
-4. La logica di Space Invaders in C, modulo per modulo, con la parità verde.
-5. Disegno, comandi, attract, partita, record: il primo `.fwsc` giocabile.
-6. I suoni.
-7. Il simulatore nel browser.
-8. La documentazione finale.
+Completato il 24 ottobre 2026; ogni passo ha la sua guida.
+
+1. Il monorepo, Dinghy, la build host e la build del firmware in CI; il primo firmware con il titolo e i tasti accesi ([guida 01](01-piattaforma.md)).
+2. Le librerie condivise: schermo e orologio a 60 Hz ([guida 02](02-schermo.md)).
+3. Le tracce di riferimento registrate dalla versione TypeScript ([guida 03](03-tracce.md)).
+4. La logica di Space Invaders in C, modulo per modulo, con la parità verde ([guida 04](04-logica.md)).
+5. Disegno, comandi, attract, partita, record: il primo `.fwsc` giocabile ([guida 05](05-grafica-e-controlli.md)).
+6. I suoni ([guida 06](06-suoni.md)).
+7. Il simulatore nel browser ([guida 07](07-simulatore.md)).
+8. La documentazione finale ([guida 08](08-riepilogo.md)).
 
 Le analisi e le decisioni prese prima di cominciare sono nel [diario AI](ai-workflow.md).
