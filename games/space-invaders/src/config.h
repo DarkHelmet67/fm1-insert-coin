@@ -2,7 +2,8 @@
 /**
  * @file
  * The values of the FM-1 port that are a choice rather than a fact of the original, in one place
- * so they are easy to change and to test (as tuning.config.ts in the web version).
+ * so they are easy to change and to test (as tuning.config.ts and colors.config.ts in the web
+ * version). The tables are in config.c.
  */
 #ifndef SPACE_INVADERS_CONFIG_H
 #define SPACE_INVADERS_CONFIG_H
@@ -17,11 +18,15 @@
  * fire, the next three move right, so the left hand steers left, the right hand steers right and
  * either thumb can fire.
  */
-static const KeyMap CONTROLS = {
-    .left = FM1_KEY_BIT(FM1_KEY_OP1) | FM1_KEY_BIT(FM1_KEY_OP2) | FM1_KEY_BIT(FM1_KEY_OP3),
-    .fire = FM1_KEY_BIT(FM1_KEY_OP4) | FM1_KEY_BIT(FM1_KEY_OP5),
-    .right = FM1_KEY_BIT(FM1_KEY_OP6) | FM1_KEY_BIT(FM1_KEY_PIT) | FM1_KEY_BIT(FM1_KEY_GLO),
-};
+extern const KeyMap CONTROLS;
+
+/**
+ * The buttons of the cabinet that are not on the keys, as ids of fm1_in.buttons (see
+ * platform/docs/API.md): PLAY inserts the coin and starts a game; FX switches between the
+ * coloured film and the black and white monitor, as V on the web.
+ */
+#define COIN_BUTTON 12u /* BTN_PLAY */
+#define COLOR_BUTTON 2u /* BTN_FX */
 
 /** The original screen, in pixels (the monitor turned upright). */
 #define GAME_WIDTH 224u
@@ -32,7 +37,7 @@ static const KeyMap CONTROLS = {
  * original, and between the ground line (row 239) and the reserve cannons (rows 243-250) three
  * empty rows go. 232 + 8 = 240.
  */
-static const RowRange SHOWN_ROWS[] = {{8u, 239u}, {243u, 250u}};
+extern const RowRange SHOWN_ROWS[2];
 
 /** The colour indexes of the game's screen. */
 enum {
@@ -46,17 +51,22 @@ enum {
     COLOR_ALIEN_BOTTOM,
 };
 
-/** The colours of the coloured film on the cabinet's glass, as colors.config.ts of the web version.
+/** The colours of the coloured film on the cabinet's glass, as colors.config.ts. */
+extern const uint16_t COLORS[FB_COLORS];
+
+/** Every object in the black and white monitor's single colour. */
+extern const uint16_t MONO_COLORS[FB_COLORS];
+
+/**
+ * The lines at the bottom of the attract screen: the web version names the computer's keys
+ * (<C> COIN, <V> MONO-COLOR), here the FM-1's. Rows 234-240 of the web version would lose their
+ * last row on the display (row 240 is not shown), so the lines sit a little higher.
  */
-static const uint16_t COLORS[FB_COLORS] = {
-    [COLOR_BACKGROUND] = RGB565(0x00, 0x00, 0x00),
-    [COLOR_TEXT] = RGB565(0xFF, 0xFF, 0xFF),
-    [COLOR_CANNON] = RGB565(0x30, 0xFF, 0x30),
-    [COLOR_UFO] = RGB565(0xFF, 0x30, 0x30),
-    [COLOR_SHOTS] = RGB565(0xFF, 0xFF, 0xFF),
-    [COLOR_ALIEN_TOP] = RGB565(0x40, 0xC8, 0xFF),
-    [COLOR_ALIEN_MIDDLE] = RGB565(0x30, 0xFF, 0x30),
-    [COLOR_ALIEN_BOTTOM] = RGB565(0xC0, 0x50, 0xFF),
-};
+#define ATTRACT_PRESS_TEXT "PRESS PLAY"
+#define ATTRACT_KEYS_TEXT "<OP1-3 FIRE OP4-5 OP6-GLO>"
+#define ATTRACT_COLOR_TEXT "<FX> MONO-COLOR"
+#define ATTRACT_PRESS_Y 200
+#define ATTRACT_KEYS_Y 214
+#define ATTRACT_COLOR_Y 226
 
 #endif

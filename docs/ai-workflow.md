@@ -4,6 +4,10 @@ Le decisioni significative prese con Claude, dalla più recente.
 
 | Data | Decisione | Perché |
 | --- | --- | --- |
+| 2026-10-24 | Ogni fotogramma ridisegnato da zero in un secondo framebuffer, poi `fb_present` copia solo le righe cambiate | Lo stesso disegno semplice del canvas web; al display vanno solo le righe diverse |
+| 2026-10-24 | PLAY per moneta e partenza, FX per colori e bianco e nero; legende dell'attract coi tasti del synth, più in alto di 8 pixel | Pulsanti con LED vicini alla tastiera; la riga 240 non arriva sul display |
+| 2026-10-24 | Record nella flash con `settings_save`, salvato solo dopo la partita, `STORE_MAGIC` "INVD" | Cancellare la flash ferma il gioco per 50 ms; la magia propria evita di leggere i dati di altri firmware |
+| 2026-10-24 | Tabelle di `config.h` spostate in `config.c` | Includere `config.h` nei moduli di disegno senza avvisi di costanti inutilizzate |
 | 2026-10-24 | Logica di Space Invaders in C con gli stessi moduli e nomi del TypeScript; struct per `const *`, restituite per valore; array fissi | Chi conosce insert-coin si ritrova; lo stile funzionale resta senza allocazioni. Parità completa sulle tre tracce al primo tentativo |
 | 2026-10-24 | Sprite come stringhe ASCII (`SPRITE_DEFINE`), convertite in bitmap a 32 bit per riga solo per le collisioni (`libs/sprite`) | Disegni leggibili come nel TypeScript; la conversione costa poco e la libreria serve anche a Galaga e Breakout |
 | 2026-10-24 | Nessuna modalità debug nel porting | Serve a provare i round avanzati nel browser; sul synth complicherebbe senza aiutare |

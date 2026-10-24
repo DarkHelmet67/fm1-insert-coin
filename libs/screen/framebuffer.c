@@ -72,3 +72,25 @@ void fb_clear_dirty(Framebuffer *fb)
     for (uint32_t i = 0; i < sizeof fb->dirty / sizeof fb->dirty[0]; i++)
         fb->dirty[i] = 0;
 }
+
+/** Whether row y of the two screens holds the same pixels. */
+static int same_row(const uint8_t *a, const uint8_t *b, uint32_t width)
+{
+    for (uint32_t x = 0; x < width; x++)
+        if (a[x] != b[x])
+            return 0;
+    return 1;
+}
+
+void fb_present(Framebuffer *front, const Framebuffer *back)
+{
+    for (int32_t y = 0; y < front->height; y++) {
+        uint8_t *to = &front->pixels[y * front->width];
+        const uint8_t *from = &back->pixels[y * back->width];
+        if (same_row(to, from, front->width))
+            continue;
+        for (uint32_t x = 0; x < front->width; x++)
+            to[x] = from[x];
+        mark_row(front, y);
+    }
+}

@@ -73,6 +73,27 @@ static void every_row_can_be_marked(void)
     CHECK(fb_row_dirty(&fb, 131));
 }
 
+/** A second screen, for fb_present. */
+static Framebuffer back;
+
+static void present_copies_and_marks_only_the_rows_that_differ(void)
+{
+    fb_init(&fb, 224u, 256u);
+    fb_init(&back, 224u, 256u);
+    fb_clear_dirty(&fb);
+    fb_set(&back, 10, 40, 3);
+    fb_set(&back, 11, 200, 5);
+    fb_present(&fb, &back);
+    CHECK_EQ(fb_get(&fb, 10, 40), 3);
+    CHECK_EQ(fb_get(&fb, 11, 200), 5);
+    CHECK(fb_row_dirty(&fb, 40));
+    CHECK(fb_row_dirty(&fb, 200));
+    CHECK(!fb_row_dirty(&fb, 41));
+    fb_clear_dirty(&fb);
+    fb_present(&fb, &back);
+    CHECK(!fb_row_dirty(&fb, 40));
+}
+
 int main(void)
 {
     RUN(a_new_screen_is_blank_and_all_changed);
@@ -82,5 +103,6 @@ int main(void)
     RUN(outside_the_screen_nothing_happens);
     RUN(a_rectangle_is_clipped);
     RUN(every_row_can_be_marked);
+    RUN(present_copies_and_marks_only_the_rows_that_differ);
     return check_report();
 }

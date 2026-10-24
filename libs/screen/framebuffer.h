@@ -55,4 +55,13 @@ void fb_mark_all_dirty(Framebuffer *fb);
 /** Forgets the changes: call it once the rows have been sent to the display. */
 void fb_clear_dirty(Framebuffer *fb);
 
+/**
+ * Brings `front` (what the display shows) up to date with `back` (the frame just drawn):
+ * copies only the rows that differ and marks them changed. A game redraws its whole frame in
+ * `back` every time, and only the rows that really changed travel to the display.
+ * @param front the screen that is pushed to the display; same size as `back`
+ * @param back the frame drawn from scratch
+ */
+void fb_present(Framebuffer *front, const Framebuffer *back);
+
 #endif

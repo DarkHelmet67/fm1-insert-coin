@@ -4,13 +4,13 @@ Giochi arcade degli anni '80 come firmware per il sintetizzatore tascabile **M-V
 
 L'FM-1 è un synth FM da pochi euro con uno schermo a colori 240 × 240, 27 tasti, 14 pulsanti e 7 encoder. Da quando il produttore ha aperto il firmware, la community ne ha scritti più di cento, quasi tutti strumenti musicali; qualcuno ci ha fatto girare Doom. Qui ci girano i classici arcade, ricostruiti fedelmente a partire dalle ricerche su hardware e software originali.
 
-<p align="center"><img src="docs/images/space-invaders-passo1.png" width="240" alt="La schermata del titolo di Space Invaders sull'FM-1, in modalità host"></p>
+<p align="center"><img src="docs/images/space-invaders-partita.png" width="240" alt="Una partita di Space Invaders sull'FM-1, in modalità host"></p>
 
 ## I giochi
 
 | Gioco | Stato | Comandi |
 | --- | --- | --- |
-| Space Invaders (Taito, 1978) | In sviluppo: passo 3, tracce di riferimento | OP1 OP2 OP3 sinistra, OP4 OP5 fuoco, OP6 PIT GLO destra |
+| Space Invaders (Taito, 1978) | In sviluppo: giocabile, mancano i suoni | OP1 OP2 OP3 sinistra, OP4 OP5 fuoco, OP6 PIT GLO destra, PLAY per iniziare, FX colori |
 | Galaga (Namco, 1981) | Previsto | Come Space Invaders |
 | Breakout (Atari, 1976) | Previsto | Encoder SELECT (destrorsi) o KNOB1 (mancini) |
 
@@ -72,6 +72,7 @@ docs/       le guide, passo dopo passo
 | [02 Lo schermo](docs/02-schermo.md) | Risoluzioni diverse sul display 240 × 240, solo le righe cambiate, 60 Hz |
 | [03 Le tracce](docs/03-tracce.md) | Partite registrate dalla versione web, per dimostrare che il C è lo stesso gioco |
 | [04 La logica](docs/04-logica.md) | Space Invaders in C, modulo per modulo, identico alla versione web su 32.000 fotogrammi |
+| [05 Grafica e comandi](docs/05-grafica-e-controlli.md) | Disegnare tutto e inviare poco, i tasti del synth, il record nella flash |
 | [Diario AI](docs/ai-workflow.md) | Le decisioni prese con Claude |
 | [Prompt unico](docs/prompt-unico.md) | Il prompt che ricrea il progetto |
 

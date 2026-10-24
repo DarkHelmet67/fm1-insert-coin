@@ -1,10 +1,25 @@
-# Step 2: the test card, then the block moved right (OP6 = 1 << 13), fired (OP4 = 1 << 8), moved left (OP1 = 1 << 1)
-300 shot
-400 keys 0x2000
-1400 shot
-1500 keys 0x2100
+# The attract screen, PLAY (button 12) for a game, then a few shots (OP4 = 1 << 8) while moving
+# right (OP6 = 1 << 13) and left (OP1 = 1 << 1). Times in ms.
+700 shot
+1000 btn 12
 1600 shot
-1700 keys 0x2
-2500 shot
-2600 keys 0
-2700 end
+1700 keys 0x100
+1750 keys 0
+1900 shot
+2000 keys 0x2000
+2600 keys 0x2100
+2650 keys 0x2000
+3400 keys 0x2100
+3450 keys 0x2000
+4200 keys 0x2100
+4250 keys 0x2000
+4700 shot
+5000 keys 0x2
+5600 keys 0x102
+5650 keys 0x2
+6400 keys 0x102
+6450 keys 0x2
+7200 shot
+7300 btn 2
+7400 shot
+7500 end
