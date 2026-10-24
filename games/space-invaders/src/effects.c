@@ -13,6 +13,11 @@ static int32_t floor_div(int32_t a, int32_t b)
     return (a % b != 0 && (a < 0) != (b < 0)) ? q - 1 : q;
 }
 
+uint32_t effect_frames(EffectKind kind)
+{
+    return EFFECT_FRAMES[kind];
+}
+
 Effects effects_none(void)
 {
     Effects effects;

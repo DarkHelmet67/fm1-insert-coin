@@ -4,6 +4,9 @@ Le decisioni significative prese con Claude, dalla più recente.
 
 | Data | Decisione | Perché |
 | --- | --- | --- |
+| 2026-10-24 | Sintetizzatore a interi condiviso (`libs/audio`) con gli stessi dati di `sound-bank.ts`; curve esponenziali in ottave con tabelle di 2^x e log2 | Il chip non ha FPU; i suoni del web sono già pochi numeri, basta suonarli allo stesso modo |
+| 2026-10-24 | Confronto misurato: il vero `synth.ts` in un `OfflineAudioContext` di Chromium contro il C, inviluppo, volume e altezza (`make sounds`) | "Suona uguale" diventa un numero; ha portato alle correzioni del livello dell'onda quadra (−1,5 dB) e del filtro (poli a 1,5 × il taglio) |
+| 2026-10-24 | Coda a 16 posti fra ciclo principale e interrupt audio; record salvato solo a suoni finiti | Niente interrupt da disattivare; la cancellazione della flash ferma anche l'audio |
 | 2026-10-24 | Ogni fotogramma ridisegnato da zero in un secondo framebuffer, poi `fb_present` copia solo le righe cambiate | Lo stesso disegno semplice del canvas web; al display vanno solo le righe diverse |
 | 2026-10-24 | PLAY per moneta e partenza, FX per colori e bianco e nero; legende dell'attract coi tasti del synth, più in alto di 8 pixel | Pulsanti con LED vicini alla tastiera; la riga 240 non arriva sul display |
 | 2026-10-24 | Record nella flash con `settings_save`, salvato solo dopo la partita, `STORE_MAGIC` "INVD" | Cancellare la flash ferma il gioco per 50 ms; la magia propria evita di leggere i dati di altri firmware |

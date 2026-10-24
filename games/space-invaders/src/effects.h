@@ -35,6 +35,9 @@ typedef struct {
     uint8_t count;
 } Effects;
 
+/** How many frames an effect of `kind` stays on screen: a new one has exactly these left. */
+uint32_t effect_frames(EffectKind kind);
+
 /** No effects. */
 Effects effects_none(void);
 

@@ -28,6 +28,7 @@ Il codice di questo progetto sarà letto da persone: **code for humans, not for 
 - **`main.c` è il guscio imperativo.** Il ciclo principale, lo schermo, i LED e l'interrupt audio tengono stato in variabili `static`: è il confine con l'hardware, come il game loop della versione web.
 - **I file `*_fm1.h`.** Il codice di collegamento riusato da più giochi (per esempio l'invio dello schermo al display) sta in `libs/<modulo>/<nome>_fm1.h`, con funzioni `static`: si include solo da `main.c`, dopo `platform.c`, e non si compila da solo.
 - **Il framebuffer.** Disegnare significa scrivere pixel in un buffer: le funzioni di disegno ricevono il buffer da modificare, e solo quello.
+- **Le voci del sintetizzatore.** `voice_render()` e `mixer_render()` girano nell'interrupt audio, 44.100 volte al secondo: ricevono la voce (o il mixer) e il buffer da modificare, come il disegno. La scelta di *quali* suoni suonare resta pura (`sounds_for()`).
 - **`platform/` è di Dinghy.** Si copia com'è dal progetto originale e non segue le nostre regole né il nostro stile; ogni modifica va annotata in `platform/UPSTREAM.md`.
 - **Test.** Nei file `*_test.c` le fixture mutabili sono ammesse.
 - **Il registratore delle tracce.** `tools/traces/*.mjs` è JavaScript per Node: carica la versione TypeScript da una copia di insert-coin e scrive le tracce. Non fa parte del firmware.

@@ -10,7 +10,7 @@ L'FM-1 è un synth FM da pochi euro con uno schermo a colori 240 × 240, 27 tast
 
 | Gioco | Stato | Comandi |
 | --- | --- | --- |
-| Space Invaders (Taito, 1978) | In sviluppo: giocabile, mancano i suoni | OP1 OP2 OP3 sinistra, OP4 OP5 fuoco, OP6 PIT GLO destra, PLAY per iniziare, FX colori |
+| Space Invaders (Taito, 1978) | In sviluppo: giocabile, con i suoni; manca il simulatore nel browser | OP1 OP2 OP3 sinistra, OP4 OP5 fuoco, OP6 PIT GLO destra, PLAY per iniziare, FX colori |
 | Galaga (Namco, 1981) | Previsto | Come Space Invaders |
 | Breakout (Atari, 1976) | Previsto | Encoder SELECT (destrorsi) o KNOB1 (mancini) |
 
@@ -73,6 +73,7 @@ docs/       le guide, passo dopo passo
 | [03 Le tracce](docs/03-tracce.md) | Partite registrate dalla versione web, per dimostrare che il C è lo stesso gioco |
 | [04 La logica](docs/04-logica.md) | Space Invaders in C, modulo per modulo, identico alla versione web su 32.000 fotogrammi |
 | [05 Grafica e comandi](docs/05-grafica-e-controlli.md) | Disegnare tutto e inviare poco, i tasti del synth, il record nella flash |
+| [06 I suoni](docs/06-suoni.md) | Un sintetizzatore a interi con gli stessi numeri del web, misurato contro Web Audio |
 | [Diario AI](docs/ai-workflow.md) | Le decisioni prese con Claude |
 | [Prompt unico](docs/prompt-unico.md) | Il prompt che ricrea il progetto |
 

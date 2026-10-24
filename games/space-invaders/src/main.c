@@ -10,18 +10,21 @@
  *
  * Every frame (60 Hz): read the keys, advance the game (game_step), draw the whole frame from
  * scratch into `back` (render_game), copy the rows that changed into `front` (fb_present) and
- * send only those to the display (screen_push).
+ * send only those to the display (screen_push). The sounds come from comparing the state before
+ * and after each frame (sounds_for), and the sound interrupt mixes them (audio_render).
  */
 #define APP_NAME "INVADERS"     /* the rescue and the crash screens */
 #define STORE_MAGIC 0x494E5644u /* "INVD": the saved record is ours, not another firmware's */
 #include "platform.c"
 
+#include "audio/audio_fm1.h"
 #include "clock/frame_clock.h"
 #include "config.h"
 #include "game.h"
 #include "input.h"
 #include "render.h"
 #include "screen/screen_fm1.h"
+#include "sounds.h"
 #include "storage/hi_score_fm1.h"
 
 /** The most frames the loop catches up at once, after the main loop was held up (a flash save). */
@@ -55,8 +58,15 @@ static void light_keys(uint32_t notes)
 
 static void app_audio(int32_t *out, uint32_t n)
 {
-    (void)out; /* silent for now: out is already zero */
-    (void)n;
+    audio_render(out, n);
+}
+
+/** Starts the sounds of a frame. */
+static void play_sounds(uint32_t mask)
+{
+    for (uint32_t name = 0; name < SOUND_COUNT; name++)
+        if (mask & SOUND_BIT(name))
+            audio_play(&SOUND_EFFECTS[name]);
 }
 
 static void app_main(void)
@@ -92,12 +102,18 @@ static void app_main(void)
         for (; done != due; done++) {
             const Controls controls =
                 input_controls(&CONTROLS, notes, previous_notes, presses, COIN_BUTTON);
-            game = game_step(&game, &controls);
+            const GameState previous = game;
+            game = game_step(&previous, &controls);
+            play_sounds(sounds_for(&previous, &game));
             previous_notes = notes; /* a press counts in the first frame only */
             presses = 0;
         }
-        /* a new record is saved after the game, never while playing: saving holds up the loop */
-        if (game.screen != SCREEN_PLAYING && game.hi_score > saved_hi_score) {
+        /*
+         * a new record is saved after the game, when nothing sounds: erasing the flash holds up
+         * the loop and the sound interrupt for about 50 ms
+         */
+        if (game.screen != SCREEN_PLAYING && game.hi_score > saved_hi_score &&
+            !audio_is_playing()) {
             hi_score_save(game.hi_score);
             saved_hi_score = game.hi_score;
         }
