@@ -71,6 +71,7 @@ docs/       le guide, passo dopo passo
 | [01 La piattaforma](docs/01-piattaforma.md) | Dinghy, la modalità host, la build, il primo firmware |
 | [02 Lo schermo](docs/02-schermo.md) | Risoluzioni diverse sul display 240 × 240, solo le righe cambiate, 60 Hz |
 | [03 Le tracce](docs/03-tracce.md) | Partite registrate dalla versione web, per dimostrare che il C è lo stesso gioco |
+| [04 La logica](docs/04-logica.md) | Space Invaders in C, modulo per modulo, identico alla versione web su 32.000 fotogrammi |
 | [Diario AI](docs/ai-workflow.md) | Le decisioni prese con Claude |
 | [Prompt unico](docs/prompt-unico.md) | Il prompt che ricrea il progetto |
 

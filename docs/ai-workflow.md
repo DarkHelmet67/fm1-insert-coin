@@ -4,6 +4,9 @@ Le decisioni significative prese con Claude, dalla più recente.
 
 | Data | Decisione | Perché |
 | --- | --- | --- |
+| 2026-10-24 | Logica di Space Invaders in C con gli stessi moduli e nomi del TypeScript; struct per `const *`, restituite per valore; array fissi | Chi conosce insert-coin si ritrova; lo stile funzionale resta senza allocazioni. Parità completa sulle tre tracce al primo tentativo |
+| 2026-10-24 | Sprite come stringhe ASCII (`SPRITE_DEFINE`), convertite in bitmap a 32 bit per riga solo per le collisioni (`libs/sprite`) | Disegni leggibili come nel TypeScript; la conversione costa poco e la libreria serve anche a Galaga e Breakout |
+| 2026-10-24 | Nessuna modalità debug nel porting | Serve a provare i round avanzati nel browser; sul synth complicherebbe senza aiutare |
 | 2026-10-24 | Tracce: riga per fotogramma con comandi e hash FNV-1a della stringa di stato; tre partite (idle, restless, aiming) | La logica web è deterministica: stessi comandi, stessa partita; l'hash tiene i file piccoli (1 MB) |
 | 2026-10-24 | Registratore in Node fuori da insert-coin, che carica il TypeScript con il Vite di insert-coin | Il TypeScript resta in insert-coin; Vite serve perché il gioco legge `import.meta.env` |
 | 2026-10-24 | Giocatore automatico con schivata (bomba sotto riga 120, entro 18 pixel) | Fra cinque prove è l'unico che arriva al secondo round |
