@@ -1,0 +1,70 @@
+# On every push and pull request: format, unit tests and every game in Dinghy's host mode (no FM-1 needed), then
+# every game built as an FM-1 firmware (.fwsc), downloadable from the run's artifacts.
+# The JieLi toolchain comes from pkgman.jieliapp.com and the AC79 SDK from gitee.com, as in Dinghy's own workflow.
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  host:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tools
+        run: |
+          sudo apt-get install -y clang-format
+          python3 -m pip install Pillow
+
+      - name: Format
+        run: make format-check
+
+      - name: Unit tests
+        run: make test
+
+      - name: Every game on a fake FM-1
+        run: |
+          for g in games/*/firmware.json; do
+            make host GAME="$(basename "$(dirname "$g")")"
+          done
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: host-screens
+          path: build/host/*.png
+
+  firmware:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Python packages
+        run: python3 -m pip install Pillow
+
+      - name: JieLi toolchain (pkgman.jieliapp.com)
+        run: sh platform/tools/get_toolchain.sh
+
+      - name: JieLi AC79 SDK (three files of it go into each package)
+        run: |
+          for i in 1 2 3; do                     # (gitee.com drops a clone now and then: try again)
+            git clone --depth 1 --branch AC79NN_SDK_V1.2.1_2023-12-13 \
+                https://gitee.com/Jieli-Tech/fw-AC79_AIoT_SDK.git ~/fw-AC79_AIoT_SDK && break
+            rm -rf ~/fw-AC79_AIoT_SDK
+            sleep 20
+          done
+          test -d ~/fw-AC79_AIoT_SDK
+
+      - name: Every game as a firmware
+        run: |
+          export JIELI_TOOLCHAIN="$HOME/.jieli/toolchain" AC79_SDK="$HOME/fw-AC79_AIoT_SDK"
+          for g in games/*/firmware.json; do
+            python3 tools/build.py "$(basename "$(dirname "$g")")"
+          done
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: firmware
+          path: build/*/*.fwsc
+          if-no-files-found: error
