@@ -4,6 +4,9 @@ Le decisioni significative prese con Claude, dalla più recente.
 
 | Data | Decisione | Perché |
 | --- | --- | --- |
+| 2026-10-24 | Tracce: riga per fotogramma con comandi e hash FNV-1a della stringa di stato; tre partite (idle, restless, aiming) | La logica web è deterministica: stessi comandi, stessa partita; l'hash tiene i file piccoli (1 MB) |
+| 2026-10-24 | Registratore in Node fuori da insert-coin, che carica il TypeScript con il Vite di insert-coin | Il TypeScript resta in insert-coin; Vite serve perché il gioco legge `import.meta.env` |
+| 2026-10-24 | Giocatore automatico con schivata (bomba sotto riga 120, entro 18 pixel) | Fra cinque prove è l'unico che arriva al secondo round |
 | 2026-10-24 | Schermo: framebuffer a indici alla risoluzione originale, mappa riga per riga verso il display, invio delle sole righe cambiate con due buffer | Un'immagine intera costa 31 ms, un fotogramma ne ha 16,7; la mappa per righe copre centratura, taglio e salto di righe con un solo meccanismo |
 | 2026-10-24 | Space Invaders a pixel 1:1: righe 8-239 e 243-250 | Le 8 righe in alto e le 3 sotto la linea verde sono vuote nell'originale |
 | 2026-10-24 | Modalità host su macOS: il `Makefile` rinomina la sezione `.pool` | Mach-O rifiuta i nomi di sezione senza segmento, e `platform/` non si tocca |

@@ -30,6 +30,7 @@ Il codice di questo progetto sarà letto da persone: **code for humans, not for 
 - **Il framebuffer.** Disegnare significa scrivere pixel in un buffer: le funzioni di disegno ricevono il buffer da modificare, e solo quello.
 - **`platform/` è di Dinghy.** Si copia com'è dal progetto originale e non segue le nostre regole né il nostro stile; ogni modifica va annotata in `platform/UPSTREAM.md`.
 - **Test.** Nei file `*_test.c` le fixture mutabili sono ammesse.
+- **Il registratore delle tracce.** `tools/traces/*.mjs` è JavaScript per Node: carica la versione TypeScript da una copia di insert-coin e scrive le tracce. Non fa parte del firmware.
 
 Se una regola diventa un ostacolo reale, si discute e si aggiorna questo file.
 

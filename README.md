@@ -10,7 +10,7 @@ L'FM-1 è un synth FM da pochi euro con uno schermo a colori 240 × 240, 27 tast
 
 | Gioco | Stato | Comandi |
 | --- | --- | --- |
-| Space Invaders (Taito, 1978) | In sviluppo: passo 2, schermo e tempo | OP1 OP2 OP3 sinistra, OP4 OP5 fuoco, OP6 PIT GLO destra |
+| Space Invaders (Taito, 1978) | In sviluppo: passo 3, tracce di riferimento | OP1 OP2 OP3 sinistra, OP4 OP5 fuoco, OP6 PIT GLO destra |
 | Galaga (Namco, 1981) | Previsto | Come Space Invaders |
 | Breakout (Atari, 1976) | Previsto | Encoder SELECT (destrorsi) o KNOB1 (mancini) |
 
@@ -59,7 +59,7 @@ GitHub Actions fa lo stesso a ogni push e allega i `.fwsc` all'esecuzione.
 platform/   Dinghy: avvio, USB, aggiornamento, tasti, schermo, audio, flash, modalità host (non si tocca)
 libs/       il nostro codice condiviso tra i giochi, in C puro e testato
 games/      un gioco per cartella: src/main.c parla con l'FM-1, il resto è logica pura
-tools/      build.py (il firmware di un gioco), ppm_to_png.py (gli screenshot della modalità host)
+tools/      build.py (il firmware di un gioco), ppm_to_png.py (gli screenshot), traces/ (il registratore delle tracce)
 docs/       le guide, passo dopo passo
 ```
 
@@ -70,6 +70,7 @@ docs/       le guide, passo dopo passo
 | [00 Introduzione](docs/00-introduzione.md) | Perché un synth, perché il C, il piano |
 | [01 La piattaforma](docs/01-piattaforma.md) | Dinghy, la modalità host, la build, il primo firmware |
 | [02 Lo schermo](docs/02-schermo.md) | Risoluzioni diverse sul display 240 × 240, solo le righe cambiate, 60 Hz |
+| [03 Le tracce](docs/03-tracce.md) | Partite registrate dalla versione web, per dimostrare che il C è lo stesso gioco |
 | [Diario AI](docs/ai-workflow.md) | Le decisioni prese con Claude |
 | [Prompt unico](docs/prompt-unico.md) | Il prompt che ricrea il progetto |
 
