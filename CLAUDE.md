@@ -15,7 +15,7 @@ Il codice di questo progetto sarà letto da persone: **code for humans, not for 
 
 | Regola | Come si applica | Controllo |
 | --- | --- | --- |
-| Logica pura, separata dall'hardware | Solo `main.c` di ogni gioco parla con l'FM-1 (include `platform.c`). Tutto il resto di `games/*/src/` e `libs/` è C senza hardware, compilato a parte e testato sul computer | `tools/build.py` compila questi moduli uno per uno; i registri si toccano solo in `platform/firmware/hal/` |
+| Logica pura, separata dall'hardware | Solo `main.c` di ogni gioco parla con l'FM-1 (include `platform.c`), aiutato dai file `libs/*/*_fm1.h` che include dopo `platform.c`. Tutti i file `.c` di `games/*/src/` e `libs/` sono C senza hardware, compilati a parte e testati sul computer | `tools/build.py` compila questi moduli uno per uno; i registri si toccano solo in `platform/firmware/hal/` |
 | Stile funzionale | Lo stato si passa come `const T *` e una funzione restituisce il nuovo stato (`GameState game_step(const GameState *s, uint32_t actions)`); niente variabili globali nei moduli puri | Revisione |
 | Solo numeri interi | Niente `float` né `double`, niente divisione a 64 bit: il chip non ha FPU né libgcc. Punto fisso (Q15, Q16) dove serve | Il link del firmware fallisce |
 | Ogni funzione, struct ed enum ha un commento Doxygen | `/** ... */` con una riga che dice cosa fa; `@param`/`@returns` quando non sono ovvi | Revisione |
@@ -26,6 +26,7 @@ Il codice di questo progetto sarà letto da persone: **code for humans, not for 
 ### Eccezioni consentite
 
 - **`main.c` è il guscio imperativo.** Il ciclo principale, lo schermo, i LED e l'interrupt audio tengono stato in variabili `static`: è il confine con l'hardware, come il game loop della versione web.
+- **I file `*_fm1.h`.** Il codice di collegamento riusato da più giochi (per esempio l'invio dello schermo al display) sta in `libs/<modulo>/<nome>_fm1.h`, con funzioni `static`: si include solo da `main.c`, dopo `platform.c`, e non si compila da solo.
 - **Il framebuffer.** Disegnare significa scrivere pixel in un buffer: le funzioni di disegno ricevono il buffer da modificare, e solo quello.
 - **`platform/` è di Dinghy.** Si copia com'è dal progetto originale e non segue le nostre regole né il nostro stile; ogni modifica va annotata in `platform/UPSTREAM.md`.
 - **Test.** Nei file `*_test.c` le fixture mutabili sono ammesse.

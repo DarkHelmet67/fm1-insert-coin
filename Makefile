@@ -8,8 +8,14 @@
 CC ?= cc
 CFLAGS := -std=c99 -O1 -Wall -Wextra -Werror -Ilibs
 GAME ?= space-invaders
-SCRIPT ?= games/$(GAME)/scripts/title.txt
+SCRIPT ?= games/$(GAME)/scripts/demo.txt
 OUT := build/host
+
+# macOS: a Mach-O section attribute wants "segment,section", and Dinghy's gfx.c (like our buffers in the memory
+# pool) says ".pool". On the host the pool means nothing: rename it so the same sources compile.
+ifeq ($(shell uname -s),Darwin)
+HOST_DEFS := -D'section(x)=section("__DATA,__pool")'
+endif
 
 # our code only: platform/ is Dinghy's, kept as it comes
 SOURCES := $(shell find libs games -name '*.[ch]')
@@ -28,7 +34,7 @@ $(OUT)/%_test: %_test.c $(SOURCES)
 # the game on the host: main.c includes platform.c, which includes platform/tests/host.c
 host:
 	@mkdir -p $(OUT)
-	$(CC) -O2 -Wall -Wno-unused-function -DDINGHY_HOST \
+	$(CC) -O2 -Wall -Wno-unused-function -DDINGHY_HOST $(HOST_DEFS) \
 		-Iplatform/firmware/hal -Iplatform/firmware/src -Iplatform/firmware/gen -Ilibs \
 		-o $(OUT)/$(GAME) games/$(GAME)/src/main.c \
 		$(filter-out %/main.c %_test.c,$(wildcard games/$(GAME)/src/*.c) $(shell find libs -name '*.c'))

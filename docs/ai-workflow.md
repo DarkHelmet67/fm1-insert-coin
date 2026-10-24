@@ -4,6 +4,9 @@ Le decisioni significative prese con Claude, dalla più recente.
 
 | Data | Decisione | Perché |
 | --- | --- | --- |
+| 2026-10-24 | Schermo: framebuffer a indici alla risoluzione originale, mappa riga per riga verso il display, invio delle sole righe cambiate con due buffer | Un'immagine intera costa 31 ms, un fotogramma ne ha 16,7; la mappa per righe copre centratura, taglio e salto di righe con un solo meccanismo |
+| 2026-10-24 | Space Invaders a pixel 1:1: righe 8-239 e 243-250 | Le 8 righe in alto e le 3 sotto la linea verde sono vuote nell'originale |
+| 2026-10-24 | Modalità host su macOS: il `Makefile` rinomina la sezione `.pool` | Mach-O rifiuta i nomi di sezione senza segmento, e `platform/` non si tocca |
 | 2026-10-24 | Passo 1 direttamente su `main`; dal passo 2 branch e pull request | Un repository vuoto non accetta pull request: il primo commit fa da base |
 | 2026-10-24 | Moduli puri compilati uno per uno, solo `main.c` include `platform.c` | Testare la logica sul computer senza la piattaforma; la build controlla che i moduli non tocchino registri |
 | 2026-10-24 | Identità del pacchetto `FM-1_95N` per Space Invaders | Libera nell'elenco di Dinghy; da confermare con il Firmware Hub prima del rilascio |

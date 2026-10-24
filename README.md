@@ -10,7 +10,7 @@ L'FM-1 è un synth FM da pochi euro con uno schermo a colori 240 × 240, 27 tast
 
 | Gioco | Stato | Comandi |
 | --- | --- | --- |
-| Space Invaders (Taito, 1978) | In sviluppo: passo 1, titolo e tasti | OP1 OP2 OP3 sinistra, OP4 OP5 fuoco, OP6 PIT GLO destra |
+| Space Invaders (Taito, 1978) | In sviluppo: passo 2, schermo e tempo | OP1 OP2 OP3 sinistra, OP4 OP5 fuoco, OP6 PIT GLO destra |
 | Galaga (Namco, 1981) | Previsto | Come Space Invaders |
 | Breakout (Atari, 1976) | Previsto | Encoder SELECT (destrorsi) o KNOB1 (mancini) |
 
@@ -69,6 +69,7 @@ docs/       le guide, passo dopo passo
 | --- | --- |
 | [00 Introduzione](docs/00-introduzione.md) | Perché un synth, perché il C, il piano |
 | [01 La piattaforma](docs/01-piattaforma.md) | Dinghy, la modalità host, la build, il primo firmware |
+| [02 Lo schermo](docs/02-schermo.md) | Risoluzioni diverse sul display 240 × 240, solo le righe cambiate, 60 Hz |
 | [Diario AI](docs/ai-workflow.md) | Le decisioni prese con Claude |
 | [Prompt unico](docs/prompt-unico.md) | Il prompt che ricrea il progetto |
 

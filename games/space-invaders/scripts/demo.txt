@@ -1,0 +1,10 @@
+# Step 2: the test card, then the block moved right (OP6 = 1 << 13), fired (OP4 = 1 << 8), moved left (OP1 = 1 << 1)
+300 shot
+400 keys 0x2000
+1400 shot
+1500 keys 0x2100
+1600 shot
+1700 keys 0x2
+2500 shot
+2600 keys 0
+2700 end

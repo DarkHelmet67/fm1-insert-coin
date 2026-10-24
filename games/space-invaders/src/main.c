@@ -8,40 +8,55 @@
  * app_main(), the main loop, and app_audio(), the sound interrupt. Everything else in src/ and
  * libs/ is plain C with no hardware in it, so it is tested on a computer.
  *
- * Step 1: the title, and the eight game keys lit; a key held shows its action.
+ * Step 2: a test card at the original resolution, drawn through the shared screen library: the
+ * playfield's edges, the ground line, the reserve row, and a block the game keys move at 60 Hz.
  */
 #define APP_NAME "INVADERS" /* the rescue and the crash screens */
 #include "platform.c"
 
+#include "clock/frame_clock.h"
 #include "config.h"
+#include "screen/screen_fm1.h"
 
-/** The arcade green of the web version's cannon. */
-#define C_GREEN RGB(0x20, 0xFF, 0x20)
+/** The most frames the loop catches up at once, after the main loop was held up (a flash save). */
+#define MAX_CATCH_UP 4u
 
-/** Draws what never changes: the title and the key legend. */
-static void draw_title(void)
+/** The game's screen, in the memory pool (about 70 KB). */
+static Framebuffer screen __attribute__((section(".pool")));
+
+/** Where the block is, and its size. */
+static int32_t block_x = 8;
+#define BLOCK_Y 216
+#define BLOCK_W 13
+#define BLOCK_H 8
+
+/** Draws what does not move: the playfield's corners, the ground line, the reserve row. */
+static void draw_test_card(Framebuffer *fb)
 {
-    lcd_fill(0, 0, 240, 240, C_BLACK);
-    draw_text_box(0, 48, 240, &FONT_L, "SPACE", C_WHITE, 1);
-    draw_text_box(0, 84, 240, &FONT_L, "INVADERS", C_WHITE, 1);
-    draw_text_box(0, 132, 240, &FONT_S, "FM-1 EDITION", C_GREEN, 1);
-    draw_text_box(0, 216, 240, &FONT_S, "OP1-3  OP4-5  OP6-GLO", C_GRAY, 1);
+    fb_fill_rect(fb, 0, 8, GAME_WIDTH, 1, COLOR_TEXT);       /* first shown row */
+    fb_fill_rect(fb, 0, 8, 1, 232, COLOR_TEXT);              /* left edge */
+    fb_fill_rect(fb, GAME_WIDTH - 1, 8, 1, 232, COLOR_TEXT); /* right edge */
+    fb_fill_rect(fb, 0, 239, GAME_WIDTH, 1, COLOR_CANNON);   /* ground line */
+    for (int32_t i = 0; i < 3; i++)                          /* reserve cannons */
+        fb_fill_rect(fb, 24 + i * 16, 243, BLOCK_W, BLOCK_H, COLOR_CANNON);
+    for (int32_t i = 0; i < 5; i++) /* the invader colours, one bar each */
+        fb_fill_rect(fb, 40 + i * 30, 64, 16, 8, (uint8_t)(COLOR_UFO + i));
 }
 
 /**
- * Shows the actions asked for now, in the line above the legend.
+ * One frame: the block moves one pixel a frame, as the cannon does.
  * @param actions ACTION_* bits
  */
-static void draw_actions(uint32_t actions)
+static void step(uint32_t actions)
 {
-    char text[] = "  <   FIRE   >  ";
-    if (!(actions & ACTION_LEFT))
-        text[2] = ' ';
-    if (!(actions & ACTION_FIRE))
-        memcpy(&text[6], "    ", 4);
-    if (!(actions & ACTION_RIGHT))
-        text[13] = ' ';
-    draw_text_box(0, 184, 240, &FONT_S, text, C_GREEN, 1);
+    const int32_t dx = (actions & ACTION_LEFT) ? -1 : (actions & ACTION_RIGHT) ? 1 : 0;
+    const int32_t x = block_x + dx;
+    if (x < 1 || x + BLOCK_W > (int32_t)GAME_WIDTH - 1)
+        return;
+    const uint8_t color = (actions & ACTION_FIRE) ? COLOR_TEXT : COLOR_CANNON;
+    fb_fill_rect(&screen, block_x, BLOCK_Y, BLOCK_W, BLOCK_H, COLOR_BACKGROUND);
+    fb_fill_rect(&screen, x, BLOCK_Y, BLOCK_W, BLOCK_H, color);
+    block_x = x;
 }
 
 /**
@@ -67,17 +82,23 @@ static void app_audio(int32_t *out, uint32_t n)
 
 static void app_main(void)
 {
-    uint32_t shown = 0xFFFFFFFFu; /* nothing drawn yet: the first pass draws */
-    palette_set(0);
-    draw_title();
+    const ScreenMap map = screen_map_rows(GAME_WIDTH, SHOWN_ROWS, 2u);
+    uint16_t palette[FB_COLORS];
+    screen_palette(COLORS, palette);
+    fb_init(&screen, GAME_WIDTH, GAME_HEIGHT);
+    draw_test_card(&screen);
+    step(0u);
+    screen_clear();
+    uint32_t done = frame_clock_frames(fm1_ms);
     for (;;) {
         platform_poll();
+        const uint32_t due = frame_clock_frames(fm1_ms);
+        if (due - done > MAX_CATCH_UP)
+            done = due - MAX_CATCH_UP;
         const uint32_t notes = fm1_in.notes;
-        const uint32_t actions = keymap_actions(&CONTROLS, notes);
+        for (; done != due; done++)
+            step(keymap_actions(&CONTROLS, notes));
         light_keys(notes);
-        if (actions != shown) {
-            draw_actions(actions);
-            shown = actions;
-        }
+        screen_push(&screen, &map, palette);
     }
 }
