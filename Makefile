@@ -27,10 +27,14 @@ TESTS := $(shell find libs games -name '*_test.c')
 test: $(TESTS:%.c=$(OUT)/%)
 	@set -e; for t in $^; do echo "== $$t"; $$t; done
 
-# a test links its own module (keymap_test.c -> keymap.c) and the other modules of its folder
+# the shared modules: every test links them
+LIB_SOURCES := $(shell find libs -name '*.c' ! -name '*_test.c')
+
+# a test links the shared modules and, in a game, the other modules of its folder (not main.c)
 $(OUT)/%_test: %_test.c $(SOURCES)
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -o $@ $< $(filter-out $(dir $<)main.c %_test.c,$(wildcard $(dir $<)*.c))
+	$(CC) $(CFLAGS) -o $@ $< $(LIB_SOURCES) \
+		$(filter-out $(dir $<)main.c %_test.c $(LIB_SOURCES),$(wildcard $(dir $<)*.c))
 
 # the game on the host: main.c includes platform.c, which includes platform/tests/host.c
 host:
