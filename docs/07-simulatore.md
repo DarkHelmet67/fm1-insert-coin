@@ -51,10 +51,10 @@ Il tempo è quello del browser (`requestAnimationFrame`), diviso in fotogrammi d
 ## Provarlo e controllarlo
 
 - **Nel browser:** `build/site/space-invaders/index.html`; dopo il merge su `main`, su GitHub Pages.
-- **Da una pull request:** l'artefatto `simulator` di GitHub Actions contiene la pagina; si scarica, si scompatta e si apre.
+- **Da una pull request:** l'anteprima della PR su GitHub Pages, in `pr-<numero>/` ([guida 09](09-installer.md)); oppure l'artefatto `simulator` di GitHub Actions, che si scarica, si scompatta e si apre.
 - **In automatico, in CI:** `tools/sim/smoke.mjs` carica il WebAssembly in Node, preme PLAY, spara e controlla schermo e suono.
 - **In automatico, in locale:** `tools/sim/test.mjs` apre la pagina in Chromium con Playwright, gioca qualche secondo con la tastiera, controlla che giri a 60 fotogrammi al secondo senza errori e salva le schermate in `build/sim/`.
 
 ## GitHub Pages
 
-Il workflow pubblica `build/site` a ogni push su `main` (lavoro `pages`, con `actions/deploy-pages`). Una volta sola va scelto **GitHub Actions** come sorgente in Settings → Pages del repository.
+Il workflow pubblica il sito a ogni push su `main` (lavori `publish` e `pages`, con `actions/deploy-pages`), e le pull request in `pr-<numero>/` (`preview.yml`, [guida 09](09-installer.md)). Una volta sola va scelto **GitHub Actions** come sorgente in Settings → Pages del repository.

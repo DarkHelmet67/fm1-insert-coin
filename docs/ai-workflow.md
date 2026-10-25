@@ -4,6 +4,7 @@ Le decisioni significative prese con Claude, dalla più recente.
 
 | Data | Decisione | Perché |
 | --- | --- | --- |
+| 2026-10-25 | Anteprima di ogni PR su GitHub Pages in `pr-<numero>/`, come in insert-coin: archivio sul branch `gh-pages`, `preview.yml` su `workflow_run` di `ci` (riusa l'artefatto `site`, niente seconda build) e `pull_request_target` alla chiusura; arrivata con una PR a parte su `main` | Richiesta di Luca: provare installer e simulatore prima del merge. GitHub esegue questi workflow solo dalla copia di `main`, quindi dovevano arrivarci prima della PR di Space Invaders |
 | 2026-10-25 | Installer nel browser (richiesta di Luca sulla PR): protocollo di Felucca copiato da Skiff in `installer/vendor/`, pagina nostra unica per tutti i giochi, `.fwsc` sul sito con `games.json` (SHA-256, identità) | Come SLOOP e Skiff: si installa con Chrome e un cavo, senza Python; il protocollo è lo stesso che Dinghy ha già nel firmware, quindi niente da inventare |
 | 2026-10-25 | Abbinamento delle porte MIDI per nome contenuto, come SLOOP, unica modifica ai file di Skiff | Su Windows l'uscita si chiama "MIDIOUT2 (Felucca)": la copia di Skiff non trovava l'FM-1 |
 | 2026-10-25 | Nessuna scrittura su un caricatore che non sia il nostro (`ota-FM-1_9NN`), niente ritorno al firmware ufficiale dalla pagina | Prudenza di SLOOP: il caricatore ufficiale può disporre la flash diversamente; per il ritorno c'è M-UPGRADE |

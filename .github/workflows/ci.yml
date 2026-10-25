@@ -1,6 +1,7 @@
 # On every push and pull request: format, unit tests and every game in Dinghy's host mode (no FM-1 needed), every
 # game built as an FM-1 firmware (.fwsc) and as a browser simulator, then the site (simulators, web installer and
-# packages), all downloadable from the run's artifacts. On main the site goes to GitHub Pages.
+# packages), all downloadable from the run's artifacts. On main the site goes to GitHub Pages; the site of a pull
+# request goes to <site>/pr-<number>/ (preview.yml).
 # The JieLi toolchain comes from pkgman.jieliapp.com and the AC79 SDK from gitee.com, as in Dinghy's own workflow.
 name: ci
 
@@ -123,18 +124,44 @@ jobs:
           path: build/site
           if-no-files-found: error
 
-      - uses: actions/upload-pages-artifact@v3
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        with:
-          path: build/site
-
-  pages:
+  # main's site at the root of the published tree (the gh-pages branch), keeping the previews of the pull
+  # requests in their pr-<number> folders (preview.yml)
+  publish:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: [host, site]
     runs-on: ubuntu-latest
     permissions:
+      contents: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: build/site
+
+      - uses: ./.github/actions/publish-pages
+        with:
+          site: build/site
+          target: .
+          message: Publish main at ${{ github.sha }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _pages
+
+  pages:
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
       pages: write
       id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}

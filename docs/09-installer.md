@@ -46,12 +46,12 @@ La pagina non conosce Space Invaders. Legge `games.json`, scritto da `tools/inst
 Il sito di GitHub Pages ora si costruisce in tre lavori della CI:
 
 ```
-firmware ──┐
-           ├── site ── pages (solo su main)
-simulator ─┘
+firmware ──┐                     ┌── publish ── pages          (push su main: la radice del sito)
+           ├── site (artefatto) ─┤
+simulator ─┘                     └── preview.yml               (PR pronta: la cartella pr-<numero>/)
 ```
 
-Il lavoro `site` scarica gli artefatti `simulator` e `firmware`, aggiunge installer e pacchetti con `bundle.py` e carica il risultato (artefatto `site`, e su `main` GitHub Pages). Struttura:
+Il lavoro `site` scarica gli artefatti `simulator` e `firmware`, aggiunge installer e pacchetti con `bundle.py` e carica il risultato come artefatto `site`. Struttura:
 
 ```
 index.html                  l'elenco dei giochi e il link all'installer
@@ -59,6 +59,17 @@ space-invaders/index.html   il simulatore
 installer/                  la pagina, i suoi moduli, games.json
 firmware/space-invaders.fwsc
 ```
+
+### L'anteprima di una pull request
+
+Per provare sul synth prima del merge (richiesta di Luca), ogni pull request pronta per la revisione ha il suo sito in `https://darkhelmet67.github.io/fm1-insert-coin/pr-<numero>/`, con simulatore, installer e pacchetti della PR; un commento sulla PR dà il link. È lo schema delle anteprime di insert-coin:
+
+- **Un archivio.** Pages pubblica una cartella intera per volta: per tenere insieme il sito di `main` e le anteprime, il sito pubblicato vive sul branch `gh-pages`. `.github/actions/publish-pages` cambia solo la sua parte: la radice per `main` (lavoro `publish` di `ci.yml`), `pr-<numero>/` per una PR, poi si pubblica tutto l'archivio.
+- **Chi pubblica.** `.github/workflows/preview.yml` parte quando `ci` finisce verde su una PR di questo repository, aperta e non in bozza, ancora al commit costruito: scarica l'artefatto `site` di quell'esecuzione e lo copia in `pr-<numero>/`. Quando la PR si chiude, toglie la cartella e aggiorna il commento.
+- **Sicurezza.** `preview.yml` gira sempre nella copia di `main` (`workflow_run` e `pull_request_target`), con i permessi di scrittura, e non esegue mai il codice della PR: copia solo i file costruiti. Le PR dai fork non hanno anteprima.
+- **Un passo alla volta.** Tutte le pubblicazioni condividono il gruppo di concorrenza `pages`.
+
+L'installer funziona anche dall'anteprima: WebMIDI vuole HTTPS, e Pages lo è.
 
 La pagina carica moduli JavaScript e il `.fwsc` con `fetch`, quindi vuole un server: da GitHub Pages funziona, aperta dal disco no. In locale:
 
