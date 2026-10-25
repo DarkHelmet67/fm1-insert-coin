@@ -10,7 +10,7 @@ L'FM-1 è un synth FM da pochi euro con uno schermo a colori 240 × 240, 27 tast
 
 | Gioco | Stato | Comandi |
 | --- | --- | --- |
-| Space Invaders (Taito, 1978) | Giocabile, con i suoni e il simulatore nel browser | OP1 OP2 OP3 sinistra, OP4 OP5 fuoco, OP6 PIT GLO destra, PLAY per iniziare, FX colori |
+| Space Invaders (Taito, 1978) | Giocabile, con i suoni, il simulatore e l'installer nel browser | OP1 OP2 OP3 sinistra, OP4 OP5 fuoco, OP6 PIT GLO destra, PLAY per iniziare, FX colori |
 | Galaga (Namco, 1981) | Previsto | Come Space Invaders |
 | Breakout (Atari, 1976) | Previsto | Encoder SELECT (destrorsi) o KNOB1 (mancini) |
 
@@ -32,9 +32,11 @@ Il record resta nella memoria del synth anche da spento.
 
 > Installare un firmware di terze parti è a tuo rischio. Prima salva i tuoi progetti e i suoni con il Workbench ufficiale.
 
-1. Scarica il file `.fwsc` del gioco dagli artefatti dell'ultima esecuzione di [GitHub Actions](../../actions) (le release arriveranno con il primo gioco completo).
-2. Collega l'FM-1 al computer via USB e installa con `python3 platform/tools/fm1_install.py space-invaders.fwsc`, oppure dal [FM-1 Firmware Hub](https://thefirmwarehub.com) in Chrome o Edge.
-3. Per tornare al firmware ufficiale V15: lo stesso hub, voce "FM-1 V15".
+**Dal browser (il modo più semplice).** Apri l'[installer](https://darkhelmet67.github.io/fm1-insert-coin/installer/) con Chrome o Edge sul computer, collega l'FM-1 acceso con un cavo USB dati, scegli il gioco e premi **Installa**. Parte anche dal firmware ufficiale V15 e, se il cavo si stacca, riprende da dove era ([guida 09](docs/09-installer.md)).
+
+**Da riga di comando.** Scarica il `.fwsc` del gioco dall'installer (o dagli artefatti di [GitHub Actions](../../actions)) e installa con `python3 platform/tools/fm1_install.py space-invaders.fwsc` (serve `pip3 install mido python-rtmidi`). Funziona anche dal [FM-1 Firmware Hub](https://thefirmwarehub.com).
+
+**Per tornare al firmware ufficiale V15:** M-UPGRADE di M-VAVE con il file FM-1 V15 dal loro sito, oppure lo stesso hub, voce "FM-1 V15".
 
 Se qualcosa va storto, tieni premuto **OCT-** mentre accendi: l'FM-1 parte nella modalità di recupero USB, dove l'installazione funziona sempre.
 
@@ -77,8 +79,10 @@ libs/       il codice condiviso tra i giochi, in C puro e testato: screen, font,
 games/      un gioco per cartella: src/main.c parla con l'FM-1, sim/sim.c con il browser, il resto è
             logica pura; traces/ le partite registrate dalla versione web
 sim/        la pagina del simulatore, uguale per tutti i giochi
+installer/  la pagina dell'installer web; vendor/ il protocollo di aggiornamento di Felucca (da Skiff)
 tools/      build.py (il firmware), ppm_to_png.py (gli screenshot), traces/ (il registratore delle
-            tracce), sounds/ (il confronto dei suoni), sim/ (pagina e prove del simulatore)
+            tracce), sounds/ (il confronto dei suoni), sim/ (pagina e prove del simulatore),
+            installer/ (il sito con i pacchetti, l'FM-1 finto per le prove)
 docs/       le guide, passo dopo passo
 ```
 
@@ -95,6 +99,7 @@ docs/       le guide, passo dopo passo
 | [06 I suoni](docs/06-suoni.md) | Un sintetizzatore a interi con gli stessi numeri del web, misurato contro Web Audio |
 | [07 Il simulatore](docs/07-simulatore.md) | Lo stesso C in WebAssembly, in una pagina che si apre anche dal disco |
 | [08 Riepilogo](docs/08-riepilogo.md) | Come si tiene insieme, cosa è verificato, come aggiungere un gioco |
+| [09 L'installer](docs/09-installer.md) | Installare dal browser con WebMIDI, il protocollo di Felucca, le prove con un FM-1 finto |
 | [Diario AI](docs/ai-workflow.md) | Le decisioni prese con Claude |
 | [Prompt unico](docs/prompt-unico.md) | Il prompt che ricrea il progetto |
 

@@ -6,6 +6,8 @@
 #   make traces INSERT_COIN=dir  the reference traces, recorded again from a checkout of insert-coin
 #   make sim GAME=space-invaders  the browser simulator: build/site/<game>/index.html (needs clang and wasm-ld)
 #   make sounds INSERT_COIN=dir  the sound effects of C and web side by side, measured (docs/06-suoni.md)
+#   make installer               the web installer and the built packages on the site: build/site/installer/
+#   make installer-test          the installer against a fake FM-1 (needs node)
 # The firmware itself (.fwsc): python3 tools/build.py GAME (see README.md).
 
 CC ?= cc
@@ -24,7 +26,7 @@ endif
 SOURCES := $(shell find libs games -name '*.[ch]')
 TESTS := $(shell find libs games -name '*_test.c')
 
-.PHONY: test host format format-check traces sounds sim clean
+.PHONY: test host format format-check traces sounds sim installer installer-test clean
 
 test: $(TESTS:%.c=$(OUT)/%)
 	@set -e; for t in $^; do echo "== $$t"; $$t; done
@@ -57,6 +59,14 @@ sim:
 		-o build/sim/$(GAME).wasm games/$(GAME)/sim/sim.c sim/libc.c \
 		$(filter-out %/main.c %_test.c,$(wildcard games/$(GAME)/src/*.c)) $(LIB_SOURCES)
 	python3 tools/sim/bundle.py $(GAME) build/sim/$(GAME).wasm build/site
+
+# the web installer (installer/) with every package built by tools/build.py (docs/09-installer.md)
+FWSC ?= $(wildcard build/*/*.fwsc)
+installer:
+	python3 tools/installer/bundle.py build/site $(FWSC)
+
+installer-test:
+	node tools/installer/test.mjs
 
 # every sound effect of the game from the C synthesizer and from the web version, then compared
 sounds:

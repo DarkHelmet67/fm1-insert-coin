@@ -4,6 +4,10 @@ Le decisioni significative prese con Claude, dalla più recente.
 
 | Data | Decisione | Perché |
 | --- | --- | --- |
+| 2026-10-25 | Installer nel browser (richiesta di Luca sulla PR): protocollo di Felucca copiato da Skiff in `installer/vendor/`, pagina nostra unica per tutti i giochi, `.fwsc` sul sito con `games.json` (SHA-256, identità) | Come SLOOP e Skiff: si installa con Chrome e un cavo, senza Python; il protocollo è lo stesso che Dinghy ha già nel firmware, quindi niente da inventare |
+| 2026-10-25 | Abbinamento delle porte MIDI per nome contenuto, come SLOOP, unica modifica ai file di Skiff | Su Windows l'uscita si chiama "MIDIOUT2 (Felucca)": la copia di Skiff non trovava l'FM-1 |
+| 2026-10-25 | Nessuna scrittura su un caricatore che non sia il nostro (`ota-FM-1_9NN`), niente ritorno al firmware ufficiale dalla pagina | Prudenza di SLOOP: il caricatore ufficiale può disporre la flash diversamente; per il ritorno c'è M-UPGRADE |
+| 2026-10-25 | Prove con un FM-1 finto in JavaScript (dal finto di `install_test.py` di Dinghy): protocollo in Node in CI, pagina in Chromium in locale | Nessun synth nella CI; il finto confronta ogni risposta byte per byte |
 | 2026-10-24 | Guida 08 di riepilogo con la ricetta per i prossimi giochi; Galaga (224 × 288 sullo schermo) e il suono WSG restano decisioni aperte | Chi riprende il progetto, persona o AI, sa da dove partire |
 | 2026-10-24 | Simulatore: il ciclo del fotogramma spostato in `app.c`, condiviso da firmware e WebAssembly; pagina generica che chiede al gioco tasti e pulsanti | Il simulatore gioca esattamente il firmware; Galaga e Breakout riusano la pagina |
 | 2026-10-24 | WebAssembly con il clang di sistema (`--target=wasm32 -nostdlib`), niente Emscripten; pagina unica con il wasm in base64 | Nessuno strumento in più in CI e in locale; la pagina dell'artefatto si apre dal disco |

@@ -37,4 +37,6 @@ Completato il 24 ottobre 2026; ogni passo ha la sua guida.
 7. Il simulatore nel browser ([guida 07](07-simulatore.md)).
 8. La documentazione finale ([guida 08](08-riepilogo.md)).
 
+Dopo il piano, chiesto da Luca guardando la pull request: l'installer nel browser, per installare senza riga di comando ([guida 09](09-installer.md)).
+
 Le analisi e le decisioni prese prima di cominciare sono nel [diario AI](ai-workflow.md).

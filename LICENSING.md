@@ -8,6 +8,7 @@ fm1-insert-coin è software libero sotto la GNU General Public License, versione
 | --- | --- |
 | `platform/`: la piattaforma del firmware (avvio, USB, aggiornamento, MIDI, audio, schermo, flash, modalità host) | [Dinghy](https://github.com/zvenson/dinghy) di zvenson, su [Felucca](https://github.com/hugelton/Felucca) di Leo Kuroshita (Hügelton Instruments) con le modifiche di [SLOOP](https://github.com/isod89/sloop-fm1) (isod89) e il livello SMK-37 di M. Geisler (genkigenki); dettagli in [platform/LICENSING.md](platform/LICENSING.md) |
 | `tools/build.py` | Adattato da `platform/tools/build.py` (Leo Kuroshita, zvenson) |
+| `installer/vendor/`: il protocollo di aggiornamento USB-MIDI e i pacchetti `.fwsc` per il browser | Leo Kuroshita (Hügelton Instruments), copiati da [Skiff](https://github.com/illuminus5/skiff); dettagli in [installer/UPSTREAM.md](installer/UPSTREAM.md) |
 | `libs/`, `games/`, `docs/`, il resto | Luca (DarkHelmet67), con Claude |
 
 I giochi sono porting della versione web di [insert-coin](https://github.com/DarkHelmet67/insert-coin) (MIT, stesso autore): disegni, suoni e regole sono ricostruiti dalle ricerche su hardware e software originali, senza ROM.

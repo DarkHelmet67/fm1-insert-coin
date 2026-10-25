@@ -33,7 +33,8 @@ Space Invaders gira sull'FM-1: stessa logica della versione web dimostrata su 32
 | I suoni | `make sounds`: inviluppo, volume e altezza contro il vero `synth.ts` in Chromium |
 | Il firmware si costruisce | Lavoro `firmware` in CI, con la toolchain JieLi (artefatto `firmware`) |
 | Il simulatore funziona | `tools/sim/smoke.mjs` in CI, `tools/sim/test.mjs` con Playwright in locale |
-| Sul synth vero | Da provare: installare il `.fwsc` dell'artefatto `firmware` |
+| L'installer web parla il protocollo | `make installer-test` in CI con un FM-1 finto, `tools/installer/page-test.mjs` con Playwright in locale ([guida 09](09-installer.md)) |
+| Sul synth vero | Da provare: installare il `.fwsc` dell'artefatto `firmware`, o dall'installer web dopo il merge |
 
 Sul synth restano da confermare le cose che nessun test sul computer può dire: la fluidità a 60 Hz con il display reale, la luminosità dei LED, il volume dell'altoparlante. L'identità del pacchetto (`FM-1_95`) va concordata con il FM-1 Firmware Hub prima di pubblicarlo lì.
 
@@ -47,4 +48,4 @@ Galaga e Breakout seguiranno la stessa strada; ogni passo riusa ciò che c'è gi
 4. **Schermo e comandi.** `screen_map_centered()` o `screen_map_rows()` decide come la risoluzione del gioco sta nei 240 × 240 (Breakout 228 × 208 entra centrato; Galaga 224 × 288 va tagliato o compresso: è la decisione aperta). Breakout legge gli encoder SELECT e KNOB1 con `fm1_enc_take()`.
 5. **Suoni.** I numeri del suo `sound-bank.ts` in `sounds.c`; Galaga usa il chip sonoro WSG di Namco (`@arcade/wsg` nella versione web), che servirà portare in `libs/audio`.
 6. **`app.c`, `main.c`, `sim/sim.c`.** Copiati da Space Invaders e adattati: sono gusci sottili.
-7. **CI.** Niente da fare: i lavori girano su ogni `games/*/firmware.json` e `games/*/sim/sim.c`.
+7. **CI.** Niente da fare: i lavori girano su ogni `games/*/firmware.json` e `games/*/sim/sim.c`, e il gioco compare da solo nell'installer web.

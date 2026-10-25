@@ -32,6 +32,7 @@ Il codice di questo progetto sarà letto da persone: **code for humans, not for 
 - **`platform/` è di Dinghy.** Si copia com'è dal progetto originale e non segue le nostre regole né il nostro stile; ogni modifica va annotata in `platform/UPSTREAM.md`.
 - **Test.** Nei file `*_test.c` le fixture mutabili sono ammesse.
 - **Il simulatore.** `games/<gioco>/sim/sim.c` è il guscio per il browser, come `main.c` per il synth: stato in variabili `static`, funzioni esportate con `SIM_EXPORT`. `sim/sim.js` è JavaScript per la pagina.
+- **L'installer web.** `installer/*.js` è JavaScript per la pagina; `installer/vendor/` è di Felucca (da Skiff) e, come `platform/`, si copia com'è: ogni modifica va annotata in `installer/UPSTREAM.md`.
 - **Il registratore delle tracce.** `tools/traces/*.mjs` è JavaScript per Node: carica la versione TypeScript da una copia di insert-coin e scrive le tracce. Non fa parte del firmware.
 
 Se una regola diventa un ostacolo reale, si discute e si aggiorna questo file.

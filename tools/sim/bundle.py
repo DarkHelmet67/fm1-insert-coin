@@ -4,7 +4,8 @@
 
     python3 tools/sim/bundle.py GAME WASM OUT_DIR
 
-Writes OUT_DIR/GAME/index.html and OUT_DIR/index.html, the list of every game in OUT_DIR.
+Writes OUT_DIR/GAME/index.html and OUT_DIR/index.html, the list of every game in OUT_DIR (and the link to the
+installer, when tools/installer/bundle.py has put it in OUT_DIR).
 """
 import base64
 import html
@@ -37,11 +38,17 @@ def page(game, wasm):
 
 
 def index(out):
-    games = sorted(p.parent.name for p in out.glob("*/index.html"))
+    games = sorted(p.parent.name for p in out.glob("*/index.html") if (ROOT / "games" / p.parent.name).is_dir())
     items = "\n".join(
         '<li><a href="%s/">%s</a></li>'
         % (g, html.escape(json.loads((ROOT / "games" / g / "firmware.json").read_text())["screen_name"]))
         for g in games
+    )
+    # the installer is on the site once tools/installer/bundle.py has put it there (with the packages)
+    installer = (
+        '<p><a href="installer/">Installa un gioco sul tuo FM-1</a>: dal browser, con il cavo USB.</p>\n'
+        if (out / "installer" / "index.html").exists()
+        else ""
     )
     return f"""<!doctype html>
 <html lang="it">
@@ -61,7 +68,7 @@ con lo stesso codice C del firmware compilato in WebAssembly.</p>
 <ul>
 {items}
 </ul>
-<p><a href="https://github.com/DarkHelmet67/fm1-insert-coin">Il codice su GitHub</a></p>
+{installer}<p><a href="https://github.com/DarkHelmet67/fm1-insert-coin">Il codice su GitHub</a></p>
 </main></body></html>
 """
 

@@ -1,6 +1,6 @@
 # On every push and pull request: format, unit tests and every game in Dinghy's host mode (no FM-1 needed), every
-# game built as an FM-1 firmware (.fwsc) and as a browser simulator, all downloadable from the run's artifacts.
-# On main the simulators go to GitHub Pages.
+# game built as an FM-1 firmware (.fwsc) and as a browser simulator, then the site (simulators, web installer and
+# packages), all downloadable from the run's artifacts. On main the site goes to GitHub Pages.
 # The JieLi toolchain comes from pkgman.jieliapp.com and the AC79 SDK from gitee.com, as in Dinghy's own workflow.
 name: ci
 
@@ -27,6 +27,9 @@ jobs:
 
       - name: Unit tests
         run: make test
+
+      - name: Web installer on a fake FM-1
+        run: node tools/installer/test.mjs
 
       - name: Every game on a fake FM-1
         run: |
@@ -95,6 +98,31 @@ jobs:
           path: build/site
           if-no-files-found: error
 
+  site:
+    needs: [firmware, simulator]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: simulator
+          path: build/site
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: firmware
+          path: build/firmware
+
+      - name: Web installer with every package
+        run: python3 tools/installer/bundle.py build/site $(find build/firmware -name "*.fwsc")
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: build/site
+          if-no-files-found: error
+
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
@@ -102,7 +130,7 @@ jobs:
 
   pages:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: [host, simulator]
+    needs: [host, site]
     runs-on: ubuntu-latest
     permissions:
       pages: write
