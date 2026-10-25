@@ -3,6 +3,7 @@
 
 const Cartridge *const CARTRIDGES[] = {
     &SPACE_INVADERS_CARTRIDGE,
+    &BREAKOUT_CARTRIDGE,
 };
 
 const uint32_t CARTRIDGE_COUNT = sizeof CARTRIDGES / sizeof CARTRIDGES[0];

@@ -4,6 +4,7 @@
   "screen_name": "INSERT COIN",
   "screen_colour": "0x07E0",
   "games": {
-    "space-invaders": "SPACE INVADERS"
+    "space-invaders": "SPACE INVADERS",
+    "breakout": "BREAKOUT"
   }
 }

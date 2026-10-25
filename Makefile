@@ -85,6 +85,7 @@ sounds:
 
 traces:
 	node tools/traces/record-space-invaders.mjs $(INSERT_COIN)
+	node tools/traces/record-breakout.mjs $(INSERT_COIN)
 
 format:
 	clang-format -i $(SOURCES)
