@@ -18,6 +18,10 @@
 /** The sound program ticks twice a frame (at lines 64 and 192 of the screen, MAME). */
 #define WSG_TICKS 2
 
+/** Samples of one 60 Hz frame (44,100 / 60): the first tick plays for half of them, the second
+ * after. */
+#define WSG_FRAME_SAMPLES 735u
+
 /** Samples in one waveform, and bytes of the waveform PROM (8 waveforms). */
 #define WSG_WAVE_LENGTH 32
 #define WSG_PROM_SIZE 256
@@ -37,7 +41,7 @@ typedef struct {
 /** The chip between two calls: where each voice is in its waveform. */
 typedef struct {
     uint32_t counters[WSG_VOICES]; /**< 20-bit counters with 4 more bits of fraction */
-    uint32_t position;             /**< samples played of the current frame */
+    uint32_t position; /**< samples played of the current frame, up to WSG_FRAME_SAMPLES */
 } Wsg;
 
 /** A frame of silence. */
@@ -58,10 +62,14 @@ int32_t wsg_sample(const uint8_t prom[WSG_PROM_SIZE], int32_t waveform, int32_t 
 
 /**
  * Adds `n` samples of `frame` to `mix` (Q15): the first tick for the first half of the frame,
- * the second after it, which holds until wsg_start_frame() is called again.
+ * the second after it, which holds past the frame's end until wsg_start_frame() is called again.
  */
 void wsg_render(Wsg *wsg, const WsgFrame *frame, const uint8_t prom[WSG_PROM_SIZE], int32_t *mix,
                 uint32_t n);
+
+/** Samples left before the current frame ends: 0 once it has played whole (the second tick holds).
+ */
+uint32_t wsg_frame_left(const Wsg *wsg);
 
 /** A new frame of voices begins: the first tick plays again. */
 void wsg_start_frame(Wsg *wsg);

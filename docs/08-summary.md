@@ -14,7 +14,7 @@ Space Invaders runs on the FM-1: the same logic as the web version, proven over 
   │                     playing_step ──┼── fleet, bombs, ufo,          draw, font            │
   │                                    │   shields, collisions        (libs/screen, font)    │
   │                                    │                                  │                  │
-  │                                    └── parity with TypeScript     fb_present → screen_push│
+  │                                    └── parity with TypeScript     fb_present → bands out │
   │                                        (traces, parity_test)      mixer → audio_render   │
   └─────────────────────────────────────────────────────────────────────────────────────────┘
 ```

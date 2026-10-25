@@ -8,6 +8,9 @@
  * DMA is still reading its buffer, so there are two buffers: the next band is coloured in one
  * while the other is on its way. The next lcd_blit() waits for the previous transfer before it
  * starts, so a buffer is never rewritten while it is being sent.
+ *
+ * screen_push_band() sends one band at a time, so the main loop can run the game's frames on time
+ * between two bands: a whole screen takes longer than a frame (guide 02).
  */
 #ifndef SCREEN_FM1_H
 #define SCREEN_FM1_H
@@ -21,6 +24,9 @@
 
 /** The two band buffers, in the memory pool. */
 static uint16_t screen_band_px[2][SCREEN_SIZE * SCREEN_BAND_ROWS] __attribute__((section(".pool")));
+
+/** The band buffer to colour next, and the display row the next band is looked for from. */
+static uint32_t screen_which, screen_from;
 
 /**
  * Turns RGB565 colours into the byte order the display takes (gfx.c's swap16).
@@ -36,27 +42,33 @@ static void screen_palette(const uint16_t rgb565[FB_COLORS], uint16_t out[FB_COL
 /** Clears the whole display to black: the margins around the game are never drawn again. */
 static void screen_clear(void)
 {
+    screen_from = 0;
     lcd_fill(0, 0, SCREEN_SIZE, SCREEN_SIZE, C_BLACK);
 }
 
 /**
- * Sends the rows that changed since the last call, then forgets the changes.
+ * Sends the next band of the rows that changed; once there is none left, forgets the changes.
  * @param fb      the game's screen
  * @param map     where it lands on the display
  * @param palette FB_COLORS colours from screen_palette()
+ * @returns whether a band was sent (rows may still be waiting)
  */
-static void screen_push(Framebuffer *fb, const ScreenMap *map, const uint16_t palette[FB_COLORS])
+static int screen_push_band(Framebuffer *fb, const ScreenMap *map,
+                            const uint16_t palette[FB_COLORS])
 {
-    uint32_t which = 0;
-    for (ScreenBand band = screen_next_band(fb, map, 0u, SCREEN_BAND_ROWS); band.count;
-         band = screen_next_band(fb, map, band.y + band.count, SCREEN_BAND_ROWS)) {
-        uint16_t *px = screen_band_px[which];
-        for (uint32_t r = 0; r < band.count; r++)
-            screen_render_row(fb, map, band.y + r, palette, &px[r * map->width]);
-        lcd_blit(map->dest_x, band.y, map->width, band.count, px);
-        which ^= 1u;
+    const ScreenBand band = screen_next_band(fb, map, screen_from, SCREEN_BAND_ROWS);
+    if (band.count == 0) {
+        fb_clear_dirty(fb);
+        screen_from = 0;
+        return 0;
     }
-    fb_clear_dirty(fb);
+    uint16_t *px = screen_band_px[screen_which];
+    for (uint32_t r = 0; r < band.count; r++)
+        screen_render_row(fb, map, band.y + r, palette, &px[r * map->width]);
+    lcd_blit(map->dest_x, band.y, map->width, band.count, px);
+    screen_which ^= 1u;
+    screen_from = band.y + band.count;
+    return 1;
 }
 
 #endif

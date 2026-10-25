@@ -14,12 +14,12 @@ The web version redraws the whole canvas every frame: it is the simplest way and
 
 1. `render_game()` draws the frame **from scratch** into a framebuffer, `back`, like `renderGame` on the canvas;
 2. `fb_present(&front, &back)` compares the two images row by row and copies into `front` only the rows that differ, marking them as changed;
-3. `screen_push()` sends only those to the display.
+3. `screen_push_band()` sends only those to the display, a band of rows at a time (since [guide 12](12-galaga.md); in this step it was `screen_push()`, all the bands at once).
 
 ```c
 render_game(&back, &game);
 fb_present(&front, &back);
-screen_push(&front, &map, palette);
+screen_push_band(&front, &map, palette); /* again and again, until it returns 0 */
 ```
 
 In a game few rows change per frame: the invader that moved, the shot, the bombs, the cannon. Comparing 57,000 bytes costs a fraction of a millisecond; the transfer it saves is worth tens of milliseconds.

@@ -20,7 +20,7 @@ One frame of the cabinet: from keys to controls (`input_controls`), the game (`g
 | --- | --- | --- |
 | Keys | `fm1_in.notes`, `fm1_input_edges()` | browser events, from `sim.js` |
 | Frame | `app_step` | `app_step` |
-| Drawing | `render_game` → `fb_present` → `screen_push` (SPI) | `render_game` → `screen_render_row` → RGBA for the canvas |
+| Drawing | `render_game` → `fb_present` → `screen_push_band` (SPI) | `render_game` → `screen_render_row` → RGBA for the canvas |
 | Sound | `audio_render` in the interrupt | `mixer_render` in a `ScriptProcessor` |
 | High score | flash, `settings_save` | the browser's `localStorage` |
 

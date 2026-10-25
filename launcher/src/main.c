@@ -10,9 +10,9 @@
  *
  * Every frame (60 Hz): read the panel, advance the launcher (console_step: the menu or the game),
  * draw the whole frame from scratch into `back` (console_render), copy the rows that changed
- * into `front` (fb_present) and send only those to the display (screen_push). The sound
- * interrupt mixes the sounds asked for (audio_render). The browser simulator (sim/) runs the
- * same console.
+ * into `front` (fb_present) and send only those to the display, a band at a time between frames
+ * (screen_push_band). The sound interrupt mixes the sounds asked for (audio_render). The browser
+ * simulator (sim/) runs the same console.
  */
 #define APP_NAME "INSERT COIN" /* the rescue and the crash screens */
 /*
@@ -130,51 +130,71 @@ static ScreenMap show(void)
     return console_screen_map(&console);
 }
 
+/**
+ * Draws the latest frame into `front`, ready to be sent; the panel's lights follow it.
+ * @param shown_palette the colours on the display, updated to the game's now
+ */
+static void draw_frame(uint16_t shown_palette[FB_COLORS])
+{
+    uint16_t colors[FB_COLORS], palette[FB_COLORS];
+    console_colors(&console, colors);
+    screen_palette(colors, palette);
+    for (uint32_t i = 0; i < FB_COLORS; i++) {
+        if (palette[i] != shown_palette[i])
+            fb_mark_all_dirty(&front); /* same pixels, new colours: send everything again */
+        shown_palette[i] = palette[i];
+    }
+    console_render(&console, &back, &spare);
+    fb_present(&front, &back);
+    light_panel(panel.notes);
+}
+
 static void app_main(void)
 {
     Records saved = records_load();
     console_start(&console, CARTRIDGES, CARTRIDGE_COUNT, &saved);
-    uint16_t colors[FB_COLORS], palette[FB_COLORS], shown_palette[FB_COLORS] = {0};
+    uint16_t shown_palette[FB_COLORS] = {0};
     int shown_menu = console_in_menu(&console);
     ScreenMap map = show();
     uint32_t done = frame_clock_frames(fm1_ms);
+    int drawn = 1;   /* the latest frame is drawn */
+    int sending = 0; /* bands of the drawn frame may still be on their way to the display */
     for (;;) {
         platform_poll();
         read_panel();
         const uint32_t due = frame_clock_frames(fm1_ms);
         if (due - done > MAX_CATCH_UP)
             done = due - MAX_CATCH_UP;
-        if (done == due) {
-            screen_push(&front, &map, shown_palette);
-            continue;
-        }
-        for (; done != due; done++) {
-            console_step(&console, &panel);
-            play_sounds();
-            panel_used(); /* a press counts in one frame only */
+        if (done != due) {
+            for (; done != due; done++) {
+                console_step(&console, &panel);
+                play_sounds();
+                panel_used(); /* a press counts in one frame only */
+            }
+            drawn = 0;
+            /*
+             * a new record is saved after the game, when nothing sounds: erasing the flash holds
+             * up the loop and the sound interrupt for about 50 ms
+             */
+            if (!records_equal(&console.records, &saved) && !audio_is_playing()) {
+                saved = console.records;
+                (void)settings_save(&saved, sizeof saved);
+            }
+            if (console_in_menu(&console) != shown_menu) { /* a game is entered from the menu */
+                shown_menu = console_in_menu(&console);
+                map = show();
+                sending = 0;
+            }
         }
         /*
-         * a new record is saved after the game, when nothing sounds: erasing the flash holds up
-         * the loop and the sound interrupt for about 50 ms
+         * A frame is drawn once the previous one is all on the display. A screen that changes
+         * everywhere (Galaga's stars) takes several frames to send: it shows whole, never torn,
+         * fewer times a second, while the game and its sound keep their pace between the bands.
          */
-        if (!records_equal(&console.records, &saved) && !audio_is_playing()) {
-            saved = console.records;
-            (void)settings_save(&saved, sizeof saved);
+        if (!drawn && !sending) {
+            draw_frame(shown_palette);
+            drawn = 1;
         }
-        if (console_in_menu(&console) != shown_menu) { /* a game is always entered from the menu */
-            shown_menu = console_in_menu(&console);
-            map = show();
-        }
-        console_colors(&console, colors);
-        screen_palette(colors, palette);
-        for (uint32_t i = 0; i < FB_COLORS; i++) {
-            if (palette[i] != shown_palette[i])
-                fb_mark_all_dirty(&front); /* same pixels, new colours: send everything again */
-            shown_palette[i] = palette[i];
-        }
-        console_render(&console, &back, &spare);
-        fb_present(&front, &back);
-        light_panel(panel.notes);
-        screen_push(&front, &map, shown_palette);
+        sending = screen_push_band(&front, &map, shown_palette);
     }
 }

@@ -69,6 +69,20 @@ static void the_second_tick_follows_the_first(void)
     CHECK_EQ(wsg.position, 0);
 }
 
+static void a_frame_lasts_a_sixtieth_of_a_second(void)
+{
+    Wsg wsg = wsg_new();
+    WsgFrame frame = wsg_silent_frame();
+    int32_t mix[1000] = {0};
+    CHECK_EQ(wsg_frame_left(&wsg), 735);
+    wsg_render(&wsg, &frame, prom, mix, 700);
+    CHECK_EQ(wsg_frame_left(&wsg), 35);
+    wsg_render(&wsg, &frame, prom, mix, 300); /* past the end: the second tick holds */
+    CHECK_EQ(wsg_frame_left(&wsg), 0);
+    wsg_start_frame(&wsg);
+    CHECK_EQ(wsg_frame_left(&wsg), 735);
+}
+
 int main(void)
 {
     make_prom();
@@ -77,5 +91,6 @@ int main(void)
     RUN(a_silent_frame_adds_nothing);
     RUN(a_voice_plays_its_waveform_at_its_volume);
     RUN(the_second_tick_follows_the_first);
+    RUN(a_frame_lasts_a_sixtieth_of_a_second);
     return check_report();
 }

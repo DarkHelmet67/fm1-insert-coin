@@ -1,16 +1,14 @@
 /* SPDX-License-Identifier: GPL-3.0-only */
 #include "wsg.h"
 
-#include "voice.h"
-
 /** The voice counters are 20 bits, kept here with 4 bits of fraction: 24 bits in all. */
 #define COUNTER_MASK 0xffffffu
 
 /** The top 5 bits of the counter pick the sample of the waveform. */
 #define SAMPLE_SHIFT 19
 
-/** Samples of one tick at 44.1 kHz: 120 ticks a second. */
-#define TICK_SAMPLES ((AUDIO_RATE + 119) / 120)
+/** Samples of the first tick: half a frame, rounded up. */
+#define TICK_SAMPLES ((WSG_FRAME_SAMPLES + 1u) / 2u)
 
 /**
  * Loudness: three voices of samples from -8 to 7 at volume 15 give at most 360, which this gain
@@ -60,9 +58,14 @@ void wsg_render(Wsg *wsg, const WsgFrame *frame, const uint8_t prom[WSG_PROM_SIZ
                        voices[v].volume;
         }
         mix[i] += sum * WSG_GAIN;
-        if (wsg->position < 2u * TICK_SAMPLES)
+        if (wsg->position < WSG_FRAME_SAMPLES)
             wsg->position++;
     }
+}
+
+uint32_t wsg_frame_left(const Wsg *wsg)
+{
+    return WSG_FRAME_SAMPLES - wsg->position;
 }
 
 void wsg_start_frame(Wsg *wsg)
