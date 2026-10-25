@@ -1,0 +1,15 @@
+[
+  {
+    "game": "insert-coin",
+    "name": "INSERT COIN",
+    "games": [
+      "SPACE INVADERS",
+      "BREAKOUT",
+      "GALAGA"
+    ],
+    "product": "FM-1_950",
+    "pkg": "../firmware/insert-coin.fwsc",
+    "sha256": "6367bb383a8284f0bba80bb92e0a455229d6ffb0b8b9b2e6035e9e2833e1370a",
+    "size": 612196
+  }
+]
