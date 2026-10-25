@@ -9,8 +9,9 @@
 
 #include <stdint.h>
 
-/** Room for the longest state string (55 invaders and four shields take about 2 KB). */
-#define TEXT_CAPACITY 4096u
+/** Room for the longest state string (55 invaders and four shields take about 2 KB, a Galaga
+ * stage about 3 KB). */
+#define TEXT_CAPACITY 8192u
 
 /** Text being built; `overflow` says that something did not fit and was cut. */
 typedef struct {
