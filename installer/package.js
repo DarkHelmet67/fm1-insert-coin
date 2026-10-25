@@ -8,10 +8,11 @@ import { logicalImage, productOf, sha256hex } from "./vendor/fm1pkg.js";
 /**
  * One game of games.json (written by tools/installer/bundle.py).
  * @typedef {object} GameEntry
- * @property {string} game the folder in games/ ("space-invaders")
- * @property {string} name the name on the synth's screen ("SPACE INVADERS")
+ * @property {string} game the package's file name without .fwsc ("insert-coin")
+ * @property {string} name the name on the synth's update screen ("INSERT COIN")
+ * @property {string[]} games the games inside, as the menu names them
  * @property {string} product the package identity ("FM-1_950"), what the FM-1 reports once it is installed
- * @property {string} pkg where the .fwsc is, from the installer's page ("../firmware/space-invaders.fwsc")
+ * @property {string} pkg where the .fwsc is, from the installer's page ("../firmware/insert-coin.fwsc")
  * @property {string} sha256 the .fwsc's digest: a damaged or stale download is never offered
  * @property {number} size the .fwsc's size in bytes
  */

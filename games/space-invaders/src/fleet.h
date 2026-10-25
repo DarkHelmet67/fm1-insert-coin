@@ -11,6 +11,7 @@
 #define FLEET_H
 
 #include "aliens.h"
+#include "cartridge/private.h"
 
 /** Pixels moved sideways at each step; the very last invader moves 3 to the right. */
 #define STEP_X 2
@@ -38,18 +39,18 @@ typedef struct {
 } Fleet;
 
 /** The formation at the start of `round`, marching right. */
-Fleet fleet_create(uint32_t round);
+GAME_PRIVATE Fleet fleet_create(uint32_t round);
 
 /** Whether any invader has reached the side of the screen it is marching towards. */
-int fleet_touches_edge(const Fleet *fleet);
+GAME_PRIVATE int fleet_touches_edge(const Fleet *fleet);
 
 /** Advances the formation by one frame: moves exactly one invader. */
-Fleet fleet_step(const Fleet *fleet);
+GAME_PRIVATE Fleet fleet_step(const Fleet *fleet);
 
 /** Removes the invader at `index`, keeping the cursor on the one due to move next. */
-Fleet fleet_remove(const Fleet *fleet, uint32_t index);
+GAME_PRIVATE Fleet fleet_remove(const Fleet *fleet, uint32_t index);
 
 /** The lowest edge reached by the formation, in screen pixels (INT32_MIN when empty). */
-int32_t fleet_bottom(const Fleet *fleet);
+GAME_PRIVATE int32_t fleet_bottom(const Fleet *fleet);
 
 #endif

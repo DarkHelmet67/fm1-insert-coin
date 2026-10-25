@@ -5,6 +5,8 @@
 
 #include <stdint.h>
 
+#include "cartridge/private.h"
+
 /** Cannon width in pixels, as in the original sprite. */
 #define CANNON_WIDTH 13
 
@@ -35,15 +37,15 @@ typedef struct {
 #define NO_SHOT ((Shot){0, 0, 0})
 
 /** The cannon's left edge after one frame moving `direction` (-1, 0, 1), within the edges. */
-int32_t cannon_move(int32_t x, int32_t direction);
+GAME_PRIVATE int32_t cannon_move(int32_t x, int32_t direction);
 
 /** Horizontal centre of the cannon: where the shot leaves and what the rolling bomb aims at. */
-int32_t cannon_center(int32_t x);
+GAME_PRIVATE int32_t cannon_center(int32_t x);
 
 /** A new shot leaving the tip of the cannon. */
-Shot shot_fire(int32_t cannon_x);
+GAME_PRIVATE Shot shot_fire(int32_t cannon_x);
 
 /** The shot one frame later: gone once it has left the playfield. */
-Shot shot_move(const Shot *shot);
+GAME_PRIVATE Shot shot_move(const Shot *shot);
 
 #endif

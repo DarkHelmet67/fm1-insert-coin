@@ -7,13 +7,14 @@
 #ifndef TRACE_STATE_H
 #define TRACE_STATE_H
 
+#include "cartridge/private.h"
 #include "game.h"
 #include "trace/text.h"
 
 /** Writes the state string of `state` into `out`, replacing what was there. */
-void trace_state(const GameState *state, Text *out);
+GAME_PRIVATE void trace_state(const GameState *state, Text *out);
 
 /** The screen letter of a trace line: 'A' attract, 'P' playing, 'G' game over. */
-char trace_screen_letter(const GameState *state);
+GAME_PRIVATE char trace_screen_letter(const GameState *state);
 
 #endif

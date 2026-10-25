@@ -5,6 +5,7 @@
 
 #include <stdint.h>
 
+#include "cartridge/private.h"
 #include "sprites.h"
 
 /** Rows and columns of the formation: 55 invaders. */
@@ -33,21 +34,21 @@ typedef struct {
 } Alien;
 
 /** Width in pixels of an invader's sprite. */
-int32_t alien_width(const Alien *alien);
+GAME_PRIVATE int32_t alien_width(const Alien *alien);
 
 /** Points scored for destroying an invader. */
-int32_t alien_points(const Alien *alien);
+GAME_PRIVATE int32_t alien_points(const Alien *alien);
 
 /**
  * Height of the bottom row at the start of `round` (1-based). From round 10 the original's
  * table starts over at its first entry: the first round's height is never used again.
  */
-int32_t start_bottom_y(uint32_t round);
+GAME_PRIVATE int32_t start_bottom_y(uint32_t round);
 
 /**
  * The invader at `index` of the formation at the start of `round`. The formation is in
  * marching order, as in the original: bottom row first, left to right.
  */
-Alien formation_alien(uint32_t index, uint32_t round);
+GAME_PRIVATE Alien formation_alien(uint32_t index, uint32_t round);
 
 #endif

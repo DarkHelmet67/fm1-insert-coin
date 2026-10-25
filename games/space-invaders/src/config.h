@@ -8,6 +8,7 @@
 #ifndef SPACE_INVADERS_CONFIG_H
 #define SPACE_INVADERS_CONFIG_H
 
+#include "cartridge/private.h"
 #include "input/fm1_keys.h"
 #include "input/keymap.h"
 #include "screen/framebuffer.h"
@@ -18,7 +19,7 @@
  * fire, the next three move right, so the left hand steers left, the right hand steers right and
  * either thumb can fire.
  */
-extern const KeyMap CONTROLS;
+GAME_EXTERN const KeyMap CONTROLS;
 
 /**
  * The buttons of the cabinet that are not on the keys, as ids of fm1_in.buttons (see
@@ -37,7 +38,7 @@ extern const KeyMap CONTROLS;
  * original, and between the ground line (row 239) and the reserve cannons (rows 243-250) three
  * empty rows go. 232 + 8 = 240.
  */
-extern const RowRange SHOWN_ROWS[2];
+GAME_EXTERN const RowRange SHOWN_ROWS[2];
 
 /** The colour indexes of the game's screen. */
 enum {
@@ -52,10 +53,10 @@ enum {
 };
 
 /** The colours of the coloured film on the cabinet's glass, as colors.config.ts. */
-extern const uint16_t COLORS[FB_COLORS];
+GAME_EXTERN const uint16_t COLORS[FB_COLORS];
 
 /** Every object in the black and white monitor's single colour. */
-extern const uint16_t MONO_COLORS[FB_COLORS];
+GAME_EXTERN const uint16_t MONO_COLORS[FB_COLORS];
 
 /**
  * The lines at the bottom of the attract screen: the web version names the computer's keys

@@ -9,6 +9,8 @@
 
 #include <stdint.h>
 
+#include "cartridge/private.h"
+
 /** A picture made of rows of text: 'X' is lit, anything else is not. */
 typedef struct {
     uint8_t width;
@@ -24,7 +26,8 @@ typedef struct {
  */
 #define SPRITE_DEFINE(name, w, ...)                                                                \
     static const char *const name##_ROWS[] = {__VA_ARGS__};                                        \
-    const Sprite name = {(w), (uint8_t)(sizeof name##_ROWS / sizeof name##_ROWS[0]), name##_ROWS}
+    GAME_PRIVATE const Sprite name = {(w), (uint8_t)(sizeof name##_ROWS / sizeof name##_ROWS[0]),  \
+                                      name##_ROWS}
 
 /** Whether the pixel at (x, y) is lit; outside the sprite it is not. */
 int sprite_lit(const Sprite *sprite, int32_t x, int32_t y);

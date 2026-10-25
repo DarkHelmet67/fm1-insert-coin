@@ -64,7 +64,7 @@ static const Sound MARCH_1[] = {MARCH_NOTE(56)};
 static const Sound MARCH_2[] = {MARCH_NOTE(52)};
 static const Sound MARCH_3[] = {MARCH_NOTE(69)};
 
-const SoundEffect SOUND_EFFECTS[SOUND_COUNT] = {
+GAME_PRIVATE const SoundEffect SOUND_EFFECTS[SOUND_COUNT] = {
     [SOUND_COIN] = SOUND_EFFECT(COIN),
     [SOUND_SHOT] = SOUND_EFFECT(SHOT),
     [SOUND_ALIEN_HIT] = SOUND_EFFECT(ALIEN_HIT),

@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-only
 # Copyright (C) 2026 Leo Kuroshita (@kurogedelic), Hügelton Instruments
-"""Build one game of fm1-insert-coin as an FM-1 firmware: the app, the update loader and an installable .fwsc package.
-Adapted from Dinghy's tools/build.py (platform/tools/build.py): the same steps and checks, for a game folder.
+"""Build fm1-insert-coin as an FM-1 firmware: the app, the update loader and an installable .fwsc package.
+Adapted from Dinghy's tools/build.py (platform/tools/build.py): the same steps and checks, for the launcher and its
+games.
 
-  tools/build.py GAME [--release X.Y[-suffix]] [--board fm1|smk37] [--model pro|elite|mke]
+  tools/build.py [--release X.Y[-suffix]] [--board fm1|smk37] [--model pro|elite|mke]
 
-GAME is a folder in games/ with a firmware.json (name, identity, loader screen). The app is the game's src/main.c,
-which includes platform.c (a unity build, as Dinghy), plus every other .c file of the game's src/ and of libs/
+launcher/firmware.json names the package and gives its identity and loader screen. The app is launcher/src/main.c,
+which includes platform.c (a unity build, as Dinghy), plus the launcher's other modules, every game as one file (its
+unity.c: the game's modules with GAME_AMALGAMATION, see libs/cartridge/private.h) and the modules of libs/
 (platform-free code, compiled one by one; *_test.c files are left out).
 
-Outputs in build/GAME/: GAME.bin (app), loader/ota.bin (update loader), GAME.fwsc (package).
+Outputs in build/PACKAGE/: PACKAGE.bin (app), loader/ota.bin (update loader), PACKAGE.fwsc (package).
 See README.md for the toolchain and the SDK.
 
 --board smk37 (or BOARD=smk37) builds for the M-Vave SMK-37 (docs/SMK37.md): -DBOARD_SMK37=1 for the app and the
@@ -38,7 +40,8 @@ SRC = Path(__file__).resolve().parents[1]
 FW = SRC / "platform" / "firmware"
 LIBS = SRC / "libs"
 GAMES = SRC / "games"
-OUT = SRC / "build"                 # set to build/GAME by main()
+LAUNCHER = SRC / "launcher"
+OUT = SRC / "build"                 # set to build/PACKAGE by main()
 LDR = OUT / "loader"
 sys.path.insert(0, str(SRC / "platform" / "tools"))
 import json  # noqa: E402
@@ -65,8 +68,8 @@ BOARD = "fm1"                       # fm1 (default) or smk37: BOARD env or --boa
 BOARD_PREFIX = {"fm1": "FM-1_99", "smk37": "SMK-37 Pro_99"}   # identity: prefix + minor (0: a dev build)
 BOARD_DEFS = {"fm1": [], "smk37": ["-DBOARD_SMK37=1"]}
 MODELS = {"pro": "SMK-37 Pro", "elite": "SMK-37 Elite", "mke": "MKE-P37"}   # smk37: one keyboard, three names
-# Per game, from games/GAME/firmware.json (main() sets them):
-GAME = None                         # the folder name, also the name of the outputs
+# From launcher/firmware.json (main() sets them):
+GAME = None                         # the package name, also the name of the outputs
 DATA_FAMILY = "INSCOIN"             # the SMK store's owner tag (store.h): 1..7 of A-Z 0-9
 SCREEN_NAME = "INSERT COIN"         # the update loader's screen (FM-1, ldr_screen.c): the name and its colour (RGB565)
 SCREEN_COLOUR = 0xFFFF
@@ -175,8 +178,9 @@ def build_loader():
 # ---- app
 
 def module_sources():
-    """the .c files compiled on their own: the game's src/ but main.c, and libs/; never the tests"""
-    found = [*(GAMES / GAME / "src").glob("*.c"), *LIBS.glob("**/*.c")]
+    """the .c files compiled on their own: the launcher's src/ but main.c, each game's unity.c, and libs/; never the
+    tests"""
+    found = [*(LAUNCHER / "src").glob("*.c"), *GAMES.glob("*/unity.c"), *LIBS.glob("**/*.c")]
     return sorted(f for f in found if f.name != "main.c" and not f.name.endswith("_test.c"))
 
 
@@ -192,7 +196,7 @@ def build_app():
     cmds = [("cc", "-c", FW / "crt0.S", "-o", objs[0]),
             ("cc", "-c", FW / "hal" / "fm1_vec.S", "-o", objs[1]),
             ("cc", "-c", FW / "hal" / "fm1_isr.S", "-o", objs[2]),
-            ("cc", *flags, "-c", GAMES / GAME / "src" / "main.c", "-o", objs[3])]
+            ("cc", *flags, "-c", LAUNCHER / "src" / "main.c", "-o", objs[3])]
     for src in module_sources():    # the platform-free modules, each its own object
         obj = OUT / "modules" / (str(src.relative_to(SRC)).replace("/", "_")[:-2] + ".o")
         obj.parent.mkdir(parents=True, exist_ok=True)
@@ -301,7 +305,7 @@ def mmio_check():
             break
         regs |= more
     errors = []
-    ours = [*(GAMES / GAME / "src").glob("*.[ch]"), *LIBS.glob("**/*.[ch]")]
+    ours = [*(LAUNCHER / "src").glob("*.[ch]"), *GAMES.glob("*/src/*.[ch]"), *LIBS.glob("**/*.[ch]")]
     for f in sorted([*(FW / "src").glob("*.[ch]"), *(FW / "loader").glob("*.c"), *ours]):
         for no, ln in enumerate(strip(f.read_text()).splitlines(), 1):
             where = f"{f.relative_to(SRC)}:{no}"
@@ -316,25 +320,24 @@ def mmio_check():
     return errors
 
 
-def load_game(name):
-    """games/NAME/firmware.json: the identity prefix (FM-1_9N), the loader's screen name and colour"""
+def load_firmware():
+    """launcher/firmware.json: the package name, the identity prefix (FM-1_9N), the loader's screen name and colour"""
     global GAME, OUT, LDR, SCREEN_NAME, SCREEN_COLOUR
-    cfg_path = GAMES / name / "firmware.json"
-    if not cfg_path.is_file():
-        raise SystemExit(f"{cfg_path}: no such game (a folder in games/ with a firmware.json)")
+    cfg_path = LAUNCHER / "firmware.json"
     cfg = json.loads(cfg_path.read_text())
     if not re.fullmatch(r"FM-1_9\d", cfg["identity"]):
         raise SystemExit(f"{cfg_path}: identity {cfg['identity']}: use FM-1_9N (the minor version is added)")
-    GAME, SCREEN_NAME, SCREEN_COLOUR = name, cfg["screen_name"], int(cfg["screen_colour"], 16)
+    if not re.fullmatch(r"[a-z0-9-]+", cfg["package"]):
+        raise SystemExit(f"{cfg_path}: package {cfg['package']}: lower case letters, digits and -")
+    GAME, SCREEN_NAME, SCREEN_COLOUR = cfg["package"], cfg["screen_name"], int(cfg["screen_colour"], 16)
     BOARD_PREFIX["fm1"] = cfg["identity"]
-    OUT = SRC / "build" / name
+    OUT = SRC / "build" / GAME
     LDR = OUT / "loader"
 
 
 def main():
     global PRODUCT, VERSION, BOARD, APP_SLOT
     ap = argparse.ArgumentParser()
-    ap.add_argument("game", help="a folder in games/, e.g. space-invaders")
     ap.add_argument("--release", metavar="X.Y", help="release build: identity FM-1_99Y, version string X.Y")
     ap.add_argument("--board", choices=sorted(BOARD_PREFIX), default=None,
                     help="target board: fm1 (default) or smk37 (default: $BOARD, else fm1)")
@@ -342,7 +345,7 @@ def main():
                     help="smk37: the model name, pro (default), elite or mke (default: $MODEL, else pro)")
     ap.add_argument("--sdk", type=Path, help="JieLi AC79 SDK checkout (default: $AC79_SDK)")
     a = ap.parse_args()
-    load_game(a.game)
+    load_firmware()
     BOARD = (a.board or os.environ.get("BOARD") or "fm1").lower().replace("-", "")
     if BOARD not in BOARD_PREFIX:
         raise SystemExit(f"BOARD={BOARD}: use fm1 or smk37")
@@ -378,7 +381,7 @@ def main():
     hal_err = mmio_check()
     errors += hal_err
     if not hal_err:
-        notes.append("register access: hal/ only (src/, loader/ clean)")
+        notes.append("register access: hal/ only (src/, loader/, launcher, games, libs clean)")
     for n in notes:
         print("  ok   ", n)
     for e in errors:

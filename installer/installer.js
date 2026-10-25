@@ -46,7 +46,7 @@ const applyLanguage = () => {
   if (state.status) say(state.status.key, state.status.detail, state.status.error);
 };
 
-/** The radio button of each game, with its links. The first one is chosen. */
+/** The radio button of each package, with the games inside and its links. The first one is chosen. */
 const renderGames = () => {
   const chosen = selectedGame()?.game ?? state.games[0]?.game;
   $("games").querySelectorAll(".game").forEach((row) => row.remove());
@@ -54,13 +54,15 @@ const renderGames = () => {
     const row = document.createElement("label");
     row.className = "game";
     row.innerHTML = `<input type="radio" name="game"><span class="name"></span>
+      <span class="meta"><span class="inside"></span></span>
       <span class="meta"><span class="product"></span> ·
       <a class="play"></a> · <a class="download" download></a></span>`;
     row.querySelector("input").value = entry.game;
     row.querySelector("input").checked = entry.game === chosen;
     row.querySelector(".name").textContent = entry.name;
+    row.querySelector(".inside").textContent = (entry.games ?? []).join(" · ");
     row.querySelector(".product").textContent = entry.product;
-    row.querySelector(".play").href = `../${entry.game}/`;
+    row.querySelector(".play").href = "../simulator/";
     row.querySelector(".play").textContent = t("play");
     row.querySelector(".download").href = entry.pkg;
     row.querySelector(".download").textContent = t("download");

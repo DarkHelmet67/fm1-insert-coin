@@ -3,6 +3,7 @@
 #ifndef SHIELDS_H
 #define SHIELDS_H
 
+#include "cartridge/private.h"
 #include "sprite/bitmap.h"
 
 /** Top edge of the shields, left edge of the first one, distance between two of them. */
@@ -24,12 +25,12 @@ typedef struct {
 } Shields;
 
 /** The four intact shields of a new round. */
-Shields shields_create(void);
+GAME_PRIVATE Shields shields_create(void);
 
 /** Whether any shield is touched by `object`, with pixel-perfect precision. */
-int shields_hit(const Shields *shields, const Placed *object);
+GAME_PRIVATE int shields_hit(const Shields *shields, const Placed *object);
 
 /** Carves `brush` out of every shield it touches. */
-Shields shields_damage(const Shields *shields, const Placed *brush);
+GAME_PRIVATE Shields shields_damage(const Shields *shields, const Placed *brush);
 
 #endif

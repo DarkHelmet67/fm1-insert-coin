@@ -23,10 +23,10 @@ const ok = (condition, what) => {
 
 const PRODUCT = "FM-1_950";
 const dir = mkdtempSync(join(tmpdir(), "fm1-installer-"));
-const fwsc = join(dir, "space-invaders.fwsc");
+const fwsc = join(dir, "insert-coin.fwsc");
 execFileSync("python3", ["tools/installer/fake_package.py", PRODUCT, fwsc]);
 const bytes = new Uint8Array(readFileSync(fwsc));
-const entry = { game: "space-invaders", name: "SPACE INVADERS", product: PRODUCT, pkg: fwsc, sha256: await sha256hex(bytes), size: bytes.length };
+const entry = { game: "insert-coin", name: "INSERT COIN", games: ["SPACE INVADERS"], product: PRODUCT, pkg: fwsc, sha256: await sha256hex(bytes), size: bytes.length };
 
 // package checks
 const image = await checkedImage(bytes, entry);

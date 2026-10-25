@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /**
  * Plays the browser simulator for a few seconds in Chromium and checks it works: the page loads
- * from disk with no errors, frames run at 60 Hz, PLAY starts a game and the keys fire. Saves
- * screenshots of the screen in SHOTS_DIR (build/sim by default). Needs Playwright and its Chromium.
+ * from disk with no errors, frames run at 60 Hz, the menu chooses with the encoders, PLAY enters
+ * Space Invaders and starts a game, the keys fire. Saves screenshots of the screen in SHOTS_DIR
+ * (build/sim by default). Needs Playwright and its Chromium.
  *
- *   node tools/sim/test.mjs build/site/space-invaders/index.html [SHOTS_DIR]
+ *   node tools/sim/test.mjs build/site/simulator/index.html [SHOTS_DIR]
  */
 import { createRequire } from 'node:module';
 import { join, resolve } from 'node:path';
@@ -36,6 +37,15 @@ const lit = () =>
 
 await pause(1000);
 const frames = await page.evaluate(() => window.simFrames());
+await shot('menu');
+await page.locator('[data-encoder="0"]').hover();
+await page.mouse.wheel(0, 100); // SELECT one click back...
+await pause(300);
+await shot('menu-turned');
+await page.keyboard.press('ArrowDown'); // ...and one forward: Space Invaders again
+await pause(300);
+await page.keyboard.press('Enter');
+await pause(600);
 await shot('attract');
 await page.keyboard.press('Enter');
 await pause(1200);

@@ -5,6 +5,7 @@
 
 #include <stdint.h>
 
+#include "cartridge/private.h"
 #include "controls.h"
 #include "playing.h"
 
@@ -25,9 +26,9 @@ typedef struct {
 } GameState;
 
 /** The game when the FM-1 starts: waiting for a coin, with the saved record. */
-GameState game_initial(int32_t hi_score);
+GAME_PRIVATE GameState game_initial(int32_t hi_score);
 
 /** The game one frame later, given the player's controls. */
-GameState game_step(const GameState *state, const Controls *controls);
+GAME_PRIVATE GameState game_step(const GameState *state, const Controls *controls);
 
 #endif

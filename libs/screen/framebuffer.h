@@ -15,7 +15,7 @@
 /** The tallest screen of the games (Galaga, 288 rows). */
 #define FB_MAX_HEIGHT 288u
 /** Colour indexes run from 0 to FB_COLORS - 1. */
-#define FB_COLORS 16u
+#define FB_COLORS 32u
 
 /** An RGB565 colour from 8-bit red, green and blue, as the display takes it (before byte swapping).
  */

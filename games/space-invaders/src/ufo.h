@@ -5,6 +5,8 @@
 
 #include <stdint.h>
 
+#include "cartridge/private.h"
+
 /** Height of the mystery ship's lane, just below the score. */
 #define UFO_Y 40
 
@@ -28,19 +30,19 @@ typedef struct {
 } Ufo;
 
 /** The first visit comes after a full interval. */
-Ufo ufo_initial(void);
+GAME_PRIVATE Ufo ufo_initial(void);
 
 /**
  * Points for hitting the ship with the `shots_fired`-th shot. The original steps through a
  * table with every shot and a bug makes it wrap after 15 entries, so the 300 comes back every
  * 15 shots: players know the trick as "the 23rd shot".
  */
-int32_t ufo_score(uint32_t shots_fired);
+GAME_PRIVATE int32_t ufo_score(uint32_t shots_fired);
 
 /** Advances the mystery ship by one frame: fly, or count down to the next visit. */
-Ufo ufo_step(const Ufo *ufo, uint32_t aliens_left, uint32_t shots_fired);
+GAME_PRIVATE Ufo ufo_step(const Ufo *ufo, uint32_t aliens_left, uint32_t shots_fired);
 
 /** The ship shot down: it leaves the screen, the countdown goes on. */
-Ufo ufo_shot_down(const Ufo *ufo);
+GAME_PRIVATE Ufo ufo_shot_down(const Ufo *ufo);
 
 #endif

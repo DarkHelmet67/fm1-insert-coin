@@ -1,0 +1,26 @@
+# The menu, PLAY (button 12) to enter Space Invaders, PLAY again for a game, a few shots (OP4 =
+# 1 << 8) while moving right (OP6 = 1 << 13) and left (OP1 = 1 << 1), FX (button 2) for the black
+# and white monitor, then PLAY held for two seconds: back to the menu. Times in ms.
+700 shot
+1000 btn 12
+1500 shot
+1800 btn 12
+2400 shot
+2500 keys 0x100
+2550 keys 0
+2700 keys 0x2000
+3400 keys 0x2100
+3450 keys 0x2000
+4200 keys 0x2100
+4250 keys 0x2000
+4700 shot
+5000 keys 0x2
+5600 keys 0x102
+5650 keys 0x2
+6200 keys 0
+6300 btn 2
+6500 shot
+6600 btndown 12
+8900 btnup 12
+9200 shot
+9300 end

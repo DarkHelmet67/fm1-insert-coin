@@ -1,14 +1,16 @@
 # SPDX-License-Identifier: GPL-3.0-only
-"""Puts the web installer and the games' packages on the site.
+"""Puts the web installer and the firmware's packages on the site.
 
-    python3 tools/installer/bundle.py OUT_DIR GAME.fwsc...
+    python3 tools/installer/bundle.py OUT_DIR PACKAGE.fwsc...
 
 Each package is checked as Dinghy's installer checks it (platform/tools/fm1_install.py: identity, Felucca's
-update loader inside, header and files with their CRCs) and copied to OUT_DIR/firmware/GAME.fwsc. The page
-(installer/) goes to OUT_DIR/installer/ with games.json, the list the page offers: name, identity, file,
-SHA-256 and size of each game. Then OUT_DIR/index.html is written again, now with the installer's link.
+update loader inside, header and files with their CRCs) and copied to OUT_DIR/firmware/PACKAGE.fwsc. The page
+(installer/) goes to OUT_DIR/installer/ with games.json, the list the page offers: name, the games inside,
+identity, file, SHA-256 and size of each package. Then OUT_DIR/index.html is written again, now with the
+installer's link.
 
-GAME is the package's file name without .fwsc, as tools/build.py writes it (build/GAME/GAME.fwsc).
+PACKAGE is the package's file name without .fwsc, as tools/build.py writes it (build/insert-coin/insert-coin.fwsc);
+its name and games come from launcher/firmware.json.
 """
 import hashlib
 import importlib.util
@@ -36,7 +38,7 @@ sim_bundle = module("sim_bundle", "tools/sim/bundle.py")
 def entry(fwsc, out):
     """checks one package, copies it to out/firmware/ and returns its line of games.json"""
     game = fwsc.stem
-    info = json.loads((ROOT / "games" / game / "firmware.json").read_text())
+    info = json.loads((ROOT / "launcher" / "firmware.json").read_text())
     try:
         product, _ = fm1_install.load_package(str(fwsc), False)
     except fm1_install.InstallError as e:
@@ -46,6 +48,7 @@ def entry(fwsc, out):
     return {
         "game": game,
         "name": info["screen_name"],
+        "games": list(info["games"].values()),
         "product": product,
         "pkg": f"../firmware/{game}.fwsc",
         "sha256": hashlib.sha256(raw).hexdigest(),
