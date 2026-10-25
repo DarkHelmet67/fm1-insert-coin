@@ -7,10 +7,11 @@
  * Fields: kind, wave, sweep, fade, from, to, cutoff, delay, duration, hold, volume (sound.h).
  * A beep holds its volume to the end, then stops: a plain square wave.
  */
-#define BEEP(hz, ms, delay, hold)                                                                  \
-    {                                                                                              \
-        SOUND_TONE, WAVE_SQUARE, 0, CURVE_LINEAR, hz, hz, 0, delay, ms, hold, BEEP_VOLUME          \
-    }
+/* (clang-format 18 and 21 lay out a braced macro differently: kept as it is) */
+/* clang-format off */
+#define BEEP(hz, ms, delay, hold) \
+    {SOUND_TONE, WAVE_SQUARE, 0, CURVE_LINEAR, hz, hz, 0, delay, ms, hold, BEEP_VOLUME}
+/* clang-format on */
 
 static const Sound PADDLE[] = {BEEP(PADDLE_BEEP_HZ, PADDLE_BEEP_MS, 0, PADDLE_BEEP_MS)};
 static const Sound WALL[] = {BEEP(WALL_BEEP_HZ, WALL_BEEP_MS, 0, WALL_BEEP_MS)};

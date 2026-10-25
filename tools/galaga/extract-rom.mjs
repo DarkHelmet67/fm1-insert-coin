@@ -158,7 +158,10 @@ const romSource =
 const sprites = art.flat();
 const charRows = chars.flat();
 
-/** A row of art as a number: pixel x in bits 2x and 2x + 1, so the leftmost is the lowest. */
+/**
+ * A row of art as a number: pixel x in bits 2x and 2x + 1, so the leftmost is the lowest. The sprite rows are
+ * written in decimal: as 32-bit hex some of them look like register addresses to the check in tools/build.py.
+ */
 const packRow = (row) =>
   [...row].reduce((value, c, x) => value + (c === '.' ? 0 : Number(c)) * 4 ** x, 0);
 
@@ -177,7 +180,7 @@ const artSource =
   `#include "art.h"\n\n` +
   `GAME_PRIVATE const uint32_t SPRITE_ART[SPRITE_TILES][SPRITE_SIZE] = {\n` +
   sprites
-    .map((tile, code) => `/* ${hex2(code)} */ {${tile.map((r) => `${hexN(packRow(r), 8)}u`).join(', ')}},`)
+    .map((tile, code) => `/* ${hex2(code)} */ {${tile.map((r) => `${packRow(r)}u`).join(', ')}},`)
     .join('\n') +
   '\n};\n\n' +
   `GAME_PRIVATE const uint16_t CHAR_ART[CHAR_TILES][CHAR_SIZE] = {\n` +

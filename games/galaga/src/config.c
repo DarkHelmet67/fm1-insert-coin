@@ -10,10 +10,10 @@ GAME_PRIVATE const KeyMap CONTROLS = {
 };
 
 /** Rows 6k to 6k + 4 of the original. */
-#define FIVE_OF_SIX(k)                                                                             \
-    {                                                                                              \
-        6u * (k), 6u * (k) + 4u                                                                    \
-    }
+/* (clang-format 18 and 21 lay out a braced macro differently: kept as it is) */
+/* clang-format off */
+#define FIVE_OF_SIX(k) {6u * (k), 6u * (k) + 4u}
+/* clang-format on */
 
 GAME_PRIVATE const RowRange SHOWN_ROWS[SQUEEZE_RANGES] = {
     FIVE_OF_SIX(0),  FIVE_OF_SIX(1),  FIVE_OF_SIX(2),  FIVE_OF_SIX(3),  FIVE_OF_SIX(4),
