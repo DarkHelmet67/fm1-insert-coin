@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /**
- * The installer's words, in English and in Italian (for an Italian browser). The error codes of vendor/fm1ota.js (notfound, model, lost,
+ * The installer's words, in English (the page's language) and in Italian (with the language button). The error codes of vendor/fm1ota.js (notfound, model, lost,
  * stopped, noloader, noreturn, mismatch, badreq) have a sentence each, as in Skiff's page.
  */
 
@@ -94,9 +94,3 @@ export const TEXTS = {
   },
 };
 
-/**
- * The page's language: Italian for an Italian browser, English otherwise.
- * @param {string} browserLanguage navigator.language
- * @returns {"it" | "en"}
- */
-export const languageFor = (browserLanguage) => ((browserLanguage || "").toLowerCase().startsWith("it") ? "it" : "en");

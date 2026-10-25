@@ -9,12 +9,12 @@
  */
 import { IS_OTA, Updater, sameModel } from "./vendor/fm1ota.js";
 import { isOurLoader, loadImage } from "./package.js";
-import { TEXTS, languageFor } from "./texts.js";
+import { TEXTS } from "./texts.js";
 
 const $ = (id) => document.getElementById(id);
 
-/** The page's state: what the status line says (to say it again in the other language) and whether it writes. */
-const state = { lang: languageFor(navigator.language), status: null, games: [], writing: false };
+/** The page's state: the language (English until the language button is pressed), what the status line says (to say it again in the other language) and whether it writes. */
+const state = { lang: "en", status: null, games: [], writing: false };
 
 const t = (key) => TEXTS[state.lang][key];
 
