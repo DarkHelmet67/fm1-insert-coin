@@ -1,0 +1,141 @@
+# Publishes the site of a pull request (simulators, web installer, packages) at <site>/pr-<number>/ on GitHub
+# Pages, next to the main site, and removes it when the pull request is closed. The link goes in a comment.
+#
+# Publish: when "ci" ends green on a pull request that is open and ready for review, its `site` artifact is
+# copied to the pr-<number> folder. Remove: when the pull request is closed (merged or not).
+# Both run this file as it is on main, with write permissions, and never run the pull request's code: they only
+# copy files the ci run built. Pull requests from forks are skipped: nobody has reviewed what they would publish.
+# The published tree lives on the gh-pages branch (see .github/actions/publish-pages): main owns the root, each
+# pull request its own folder. The same design as insert-coin's previews.
+name: preview
+
+on:
+  workflow_run:
+    workflows: [ci]
+    types: [completed]
+  pull_request_target:
+    types: [closed]
+
+permissions:
+  contents: write # to save the published tree on the gh-pages branch
+  pages: write
+  id-token: write
+  actions: read # to download the site built by the ci run
+  pull-requests: write # to comment with the link
+
+# One change to the published tree at a time, the main site's deploy included (ci.yml uses the same group).
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    outputs:
+      number: ${{ steps.request.outputs.number }}
+      action: ${{ steps.request.outputs.action }}
+      sha: ${{ steps.request.outputs.sha }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4 # main: the trusted action that writes the tree
+
+      - name: What to do
+        id: request
+        env:
+          EVENT: ${{ github.event_name }}
+          RUN_EVENT: ${{ github.event.workflow_run.event }}
+          RUN_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          RUN_REPO: ${{ github.event.workflow_run.head_repository.full_name }}
+          RUN_SHA: ${{ github.event.workflow_run.head_sha }}
+          RUN_PR: ${{ github.event.workflow_run.pull_requests[0].number }}
+          CLOSED_PR: ${{ github.event.pull_request.number }}
+          CLOSED_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+        run: |
+          if [[ "$EVENT" == pull_request_target ]]; then
+            [[ "$CLOSED_REPO" == "${{ github.repository }}" ]] || { echo "A fork: no preview."; exit 0; }
+            # nothing to remove (a draft, a red run, or no site yet): do not deploy for nothing
+            if ! gh api "repos/${{ github.repository }}/contents/pr-$CLOSED_PR?ref=gh-pages" --silent 2>/dev/null; then
+              echo "PR #$CLOSED_PR has no preview."
+              exit 0
+            fi
+            echo "number=$CLOSED_PR" >> "$GITHUB_OUTPUT"
+            echo "action=remove" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # a green ci run of a pull request of this repository (a push to a branch has no preview)
+          if [[ "$RUN_EVENT" != pull_request || "$RUN_CONCLUSION" != success || "$RUN_REPO" != "${{ github.repository }}" || -z "$RUN_PR" ]]; then
+            echo "Not a green pull request run of this repository: nothing to publish."
+            exit 0
+          fi
+          read -r state draft head < <(gh api "repos/${{ github.repository }}/pulls/$RUN_PR" --jq '"\(.state) \(.draft) \(.head.sha)"')
+          if [[ "$state" != open || "$draft" == true ]]; then
+            echo "PR #$RUN_PR is $state (draft: $draft): no preview."
+            exit 0
+          fi
+          # a newer push has its own run: publish only the commit the pull request is at
+          if [[ "$head" != "$RUN_SHA" ]]; then
+            echo "PR #$RUN_PR is now at $head, not $RUN_SHA: skipped."
+            exit 0
+          fi
+          echo "number=$RUN_PR" >> "$GITHUB_OUTPUT"
+          echo "action=publish" >> "$GITHUB_OUTPUT"
+          echo "sha=$RUN_SHA" >> "$GITHUB_OUTPUT"
+
+      - if: steps.request.outputs.action == 'publish'
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: preview
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+
+      - if: steps.request.outputs.number != ''
+        uses: ./.github/actions/publish-pages
+        with:
+          site: ${{ steps.request.outputs.action == 'publish' && 'preview' || '' }}
+          target: pr-${{ steps.request.outputs.number }}
+          # quoted: an unquoted " #" would start a YAML comment and cut the message
+          message: "${{ steps.request.outputs.action == 'publish' && 'Publish' || 'Remove' }} the preview of PR #${{ steps.request.outputs.number }}"
+
+      - if: steps.request.outputs.number != ''
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _pages
+
+  deploy:
+    needs: publish
+    if: needs.publish.outputs.number != ''
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Link the preview in the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ needs.publish.outputs.number }}
+          ACTION: ${{ needs.publish.outputs.action }}
+          SHA: ${{ needs.publish.outputs.sha }}
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          marker='<!-- pr-preview -->'
+          if [[ "$ACTION" == publish ]]; then
+            body="$marker
+          🔍 **Anteprima di questa PR:** ${SITE_URL}pr-${NUMBER}/ (simulatore e installer: ${SITE_URL}pr-${NUMBER}/installer/)
+
+          Aggiornata al commit ${SHA:0:7}. Il sito principale non cambia finché la PR non viene unita."
+          else
+            body="$marker
+          L'anteprima di questa PR è stata rimossa: la PR è chiusa."
+          fi
+          comments="repos/${{ github.repository }}/issues/$NUMBER/comments"
+          id=$(gh api --paginate "$comments" --jq ".[] | select(.body | startswith(\"$marker\")) | .id" | head -n 1)
+          if [[ -n "$id" ]]; then
+            gh api -X PATCH "repos/${{ github.repository }}/issues/comments/$id" -f body="$body" > /dev/null
+          elif [[ "$ACTION" == publish ]]; then
+            gh api -X POST "$comments" -f body="$body" > /dev/null
+          fi
