@@ -125,12 +125,12 @@ jobs:
           marker='<!-- pr-preview -->'
           if [[ "$ACTION" == publish ]]; then
             body="$marker
-          🔍 **Anteprima di questa PR:** ${SITE_URL}pr-${NUMBER}/ (simulatore e installer: ${SITE_URL}pr-${NUMBER}/installer/)
+          🔍 **Preview of this PR:** ${SITE_URL}pr-${NUMBER}/ (installer: ${SITE_URL}pr-${NUMBER}/installer/)
 
-          Aggiornata al commit ${SHA:0:7}. Il sito principale non cambia finché la PR non viene unita."
+          Updated to commit ${SHA:0:7}. The main site does not change until the PR is merged."
           else
             body="$marker
-          L'anteprima di questa PR è stata rimossa: la PR è chiusa."
+          The preview of this PR has been removed: the PR is closed."
           fi
           comments="repos/${{ github.repository }}/issues/$NUMBER/comments"
           id=$(gh api --paginate "$comments" --jq ".[] | select(.body | startswith(\"$marker\")) | .id" | head -n 1)
