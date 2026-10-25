@@ -1,11 +1,16 @@
-# On every push and pull request: format, unit tests and every game in Dinghy's host mode (no FM-1 needed), then
-# every game built as an FM-1 firmware (.fwsc), downloadable from the run's artifacts.
+# On every push and pull request: format, unit tests and every game in Dinghy's host mode (no FM-1 needed), every
+# game built as an FM-1 firmware (.fwsc) and as a browser simulator, then the site (simulators, web installer and
+# packages), all downloadable from the run's artifacts. On main the site goes to GitHub Pages; the site of a pull
+# request goes to <site>/pr-<number>/ (preview.yml).
 # The JieLi toolchain comes from pkgman.jieliapp.com and the AC79 SDK from gitee.com, as in Dinghy's own workflow.
 name: ci
 
 on:
   push:
   pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   host:
@@ -23,6 +28,9 @@ jobs:
 
       - name: Unit tests
         run: make test
+
+      - name: Web installer on a fake FM-1
+        run: node tools/installer/test.mjs
 
       - name: Every game on a fake FM-1
         run: |
@@ -68,3 +76,95 @@ jobs:
           name: firmware
           path: build/*/*.fwsc
           if-no-files-found: error
+
+  simulator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tools
+        run: sudo apt-get install -y clang lld
+
+      - name: Every game as a browser simulator
+        run: |
+          for g in games/*/sim/sim.c; do
+            game="$(basename "$(dirname "$(dirname "$g")")")"
+            make sim GAME="$game"
+            node tools/sim/smoke.mjs "build/sim/$game.wasm"
+          done
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: simulator
+          path: build/site
+          if-no-files-found: error
+
+  site:
+    needs: [firmware, simulator]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: simulator
+          path: build/site
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: firmware
+          path: build/firmware
+
+      - name: Web installer with every package
+        run: python3 tools/installer/bundle.py build/site $(find build/firmware -name "*.fwsc")
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: build/site
+          if-no-files-found: error
+
+  # main's site at the root of the published tree (the gh-pages branch), keeping the previews of the pull
+  # requests in their pr-<number> folders (preview.yml)
+  publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [host, site]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: build/site
+
+      - uses: ./.github/actions/publish-pages
+        with:
+          site: build/site
+          target: .
+          message: Publish main at ${{ github.sha }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _pages
+
+  pages:
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

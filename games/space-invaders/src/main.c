@@ -8,44 +8,37 @@
  * app_main(), the main loop, and app_audio(), the sound interrupt. Everything else in src/ and
  * libs/ is plain C with no hardware in it, so it is tested on a computer.
  *
- * Step 1: the title, and the eight game keys lit; a key held shows its action.
+ * Every frame (60 Hz): read the keys, advance the cabinet (app_step: the game, its sounds, its
+ * colours), draw the whole frame from scratch into `back` (render_game), copy the rows that
+ * changed into `front` (fb_present) and send only those to the display (screen_push). The sound
+ * interrupt mixes the sounds asked for (audio_render). The browser simulator (sim/) runs the
+ * same app_step and render_game.
  */
-#define APP_NAME "INVADERS" /* the rescue and the crash screens */
+#define APP_NAME "INVADERS"     /* the rescue and the crash screens */
+#define STORE_MAGIC 0x494E5644u /* "INVD": the saved record is ours, not another firmware's */
 #include "platform.c"
 
+#include "app.h"
+#include "audio/audio_fm1.h"
+#include "clock/frame_clock.h"
 #include "config.h"
+#include "render.h"
+#include "screen/screen_fm1.h"
+#include "sounds.h"
+#include "storage/hi_score_fm1.h"
 
-/** The arcade green of the web version's cannon. */
-#define C_GREEN RGB(0x20, 0xFF, 0x20)
+/** The most frames the loop catches up at once, after the main loop was held up (a flash save). */
+#define MAX_CATCH_UP 4u
 
-/** Draws what never changes: the title and the key legend. */
-static void draw_title(void)
-{
-    lcd_fill(0, 0, 240, 240, C_BLACK);
-    draw_text_box(0, 48, 240, &FONT_L, "SPACE", C_WHITE, 1);
-    draw_text_box(0, 84, 240, &FONT_L, "INVADERS", C_WHITE, 1);
-    draw_text_box(0, 132, 240, &FONT_S, "FM-1 EDITION", C_GREEN, 1);
-    draw_text_box(0, 216, 240, &FONT_S, "OP1-3  OP4-5  OP6-GLO", C_GRAY, 1);
-}
+/** What the display shows, and the frame being drawn: about 70 KB each, in the memory pool. */
+static Framebuffer front __attribute__((section(".pool")));
+static Framebuffer back __attribute__((section(".pool")));
 
-/**
- * Shows the actions asked for now, in the line above the legend.
- * @param actions ACTION_* bits
- */
-static void draw_actions(uint32_t actions)
-{
-    char text[] = "  <   FIRE   >  ";
-    if (!(actions & ACTION_LEFT))
-        text[2] = ' ';
-    if (!(actions & ACTION_FIRE))
-        memcpy(&text[6], "    ", 4);
-    if (!(actions & ACTION_RIGHT))
-        text[13] = ' ';
-    draw_text_box(0, 184, 240, &FONT_S, text, C_GREEN, 1);
-}
+/** The cabinet: about 1 KB, kept off the stack of a loop that calls deeper functions. */
+static App app;
 
 /**
- * Lights the game keys: dim when idle, bright while held.
+ * Lights the game keys: dim when idle, bright while held. PLAY blinks while it can start a game.
  * @param notes the keys held now
  */
 static void light_keys(uint32_t notes)
@@ -57,27 +50,74 @@ static void light_keys(uint32_t notes)
         fm1_led_key_glow(KEY_LED(k), 1);
         fm1_led_key(KEY_LED(k), (notes & FM1_KEY_BIT(k)) != 0u);
     }
+    const int waiting = app.game.screen != SCREEN_PLAYING;
+    fm1_led_key_glow(COIN_BUTTON, 1);
+    fm1_led_key(COIN_BUTTON, waiting && fm1_ms % 1000u < 500u);
+    fm1_led_key_glow(COLOR_BUTTON, 1);
 }
 
 static void app_audio(int32_t *out, uint32_t n)
 {
-    (void)out; /* silent for now: out is already zero */
-    (void)n;
+    audio_render(out, n);
+}
+
+/** Starts the sounds of a frame. */
+static void play_sounds(uint32_t mask)
+{
+    for (uint32_t name = 0; name < SOUND_COUNT; name++)
+        if (mask & SOUND_BIT(name))
+            audio_play(&SOUND_EFFECTS[name]);
 }
 
 static void app_main(void)
 {
-    uint32_t shown = 0xFFFFFFFFu; /* nothing drawn yet: the first pass draws */
-    palette_set(0);
-    draw_title();
+    const ScreenMap map = screen_map_rows(GAME_WIDTH, SHOWN_ROWS, 2u);
+    uint16_t color_palette[FB_COLORS], mono_palette[FB_COLORS];
+    screen_palette(COLORS, color_palette);
+    screen_palette(MONO_COLORS, mono_palette);
+    fb_init(&front, GAME_WIDTH, GAME_HEIGHT);
+    fb_init(&back, GAME_WIDTH, GAME_HEIGHT);
+    app = app_initial(hi_score_load());
+    int32_t saved_hi_score = app.game.hi_score;
+    uint8_t shown_mono = app.mono;
+    uint32_t last_notes = 0, note_presses = 0, button_presses = 0;
+    screen_clear();
+    uint32_t done = frame_clock_frames(fm1_ms);
     for (;;) {
         platform_poll();
+        /* presses gather until a frame uses them: a tap between two frames is not lost */
         const uint32_t notes = fm1_in.notes;
-        const uint32_t actions = keymap_actions(&CONTROLS, notes);
-        light_keys(notes);
-        if (actions != shown) {
-            draw_actions(actions);
-            shown = actions;
+        uint32_t released;
+        note_presses |= fm1_input_note_edges() | (notes & ~last_notes);
+        button_presses |= fm1_input_edges(&released);
+        last_notes = notes;
+        const uint32_t due = frame_clock_frames(fm1_ms);
+        if (due - done > MAX_CATCH_UP)
+            done = due - MAX_CATCH_UP;
+        if (done == due) {
+            screen_push(&front, &map, shown_mono ? mono_palette : color_palette);
+            continue;
         }
+        for (; done != due; done++) {
+            app = app_step(&app, notes, note_presses, button_presses);
+            play_sounds(app.sounds);
+            note_presses = button_presses = 0; /* a press counts in one frame only */
+        }
+        /*
+         * a new record is saved after the game, when nothing sounds: erasing the flash holds up
+         * the loop and the sound interrupt for about 50 ms
+         */
+        if (app_record_to_save(&app, saved_hi_score) && !audio_is_playing()) {
+            hi_score_save(app.game.hi_score);
+            saved_hi_score = app.game.hi_score;
+        }
+        if (app.mono != shown_mono) {
+            shown_mono = app.mono;
+            fb_mark_all_dirty(&front); /* same pixels, new colours: send everything again */
+        }
+        render_game(&back, &app.game);
+        fb_present(&front, &back);
+        light_keys(notes);
+        screen_push(&front, &map, shown_mono ? mono_palette : color_palette);
     }
 }

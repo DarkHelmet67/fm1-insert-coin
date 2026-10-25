@@ -1,0 +1,6003 @@
+# Space Invaders reference trace "restless", recorded from insert-coin ddf125b3bf1d54a3b3fd1796631ff24cf26380e2
+# by tools/traces/record-space-invaders.mjs; format in tools/traces/FORMAT.md
+# initial e8c203ae
+1 R-- A e8c203ae
+2 R-- A e8c203ae
+3 R-- A e8c203ae
+4 R-- A e8c203ae
+5 R-- A e8c203ae
+6 R-- A e8c203ae
+7 R-- A e8c203ae
+8 R-- A e8c203ae
+9 R-- A e8c203ae
+10 R-- A e8c203ae
+11 R-- A e8c203ae
+12 R-- A e8c203ae
+13 R-- A e8c203ae
+14 R-- A e8c203ae
+15 R-- A e8c203ae
+16 R-- A e8c203ae
+17 R-- A e8c203ae
+18 R-- A e8c203ae
+19 R-- A e8c203ae
+20 RF- A e8c203ae
+21 R-- A e8c203ae
+22 R-- A e8c203ae
+23 R-- A e8c203ae
+24 R-- A e8c203ae
+25 R-- A e8c203ae
+26 R-- A e8c203ae
+27 R-- A e8c203ae
+28 R-- A e8c203ae
+29 R-- A e8c203ae
+30 R-- A e8c203ae
+31 R-- A e8c203ae
+32 R-- A e8c203ae
+33 R-- A e8c203ae
+34 R-- A e8c203ae
+35 R-- A e8c203ae
+36 R-- A e8c203ae
+37 R-- A e8c203ae
+38 R-- A e8c203ae
+39 R-- A e8c203ae
+40 RF- A e8c203ae
+41 R-- A e8c203ae
+42 R-- A e8c203ae
+43 R-- A e8c203ae
+44 R-- A e8c203ae
+45 R-- A e8c203ae
+46 R-- A e8c203ae
+47 R-- A e8c203ae
+48 R-- A e8c203ae
+49 R-- A e8c203ae
+50 R-- A e8c203ae
+51 R-- A e8c203ae
+52 R-- A e8c203ae
+53 R-- A e8c203ae
+54 R-- A e8c203ae
+55 R-- A e8c203ae
+56 R-- A e8c203ae
+57 R-- A e8c203ae
+58 R-- A e8c203ae
+59 R-- A e8c203ae
+60 RFC P 46cbe4ca s=0 l=3 r=1 n=55
+61 R-- P 1c027f4b s=0 l=3 r=1 n=55
+62 R-- P 49df900b s=0 l=3 r=1 n=55
+63 R-- P a354c1b2 s=0 l=3 r=1 n=55
+64 R-- P 875e0b1e s=0 l=3 r=1 n=55
+65 R-- P 6e10ac48 s=0 l=3 r=1 n=55
+66 R-- P d325cdab s=0 l=3 r=1 n=55
+67 R-- P da4cdc73 s=0 l=3 r=1 n=55
+68 R-- P 2f27ea2b s=0 l=3 r=1 n=55
+69 R-- P 6c6dc106 s=0 l=3 r=1 n=55
+70 R-- P da3cf244 s=0 l=3 r=1 n=55
+71 R-- P 664e0670 s=0 l=3 r=1 n=55
+72 R-- P 6cdd9fe1 s=0 l=3 r=1 n=55
+73 R-- P dcbc44f4 s=0 l=3 r=1 n=55
+74 R-- P 83d7e0fc s=0 l=3 r=1 n=55
+75 R-- P 92d636b9 s=0 l=3 r=1 n=55
+76 R-- P 4d21369b s=0 l=3 r=1 n=55
+77 R-- P ad792976 s=0 l=3 r=1 n=55
+78 R-- P 01a89697 s=0 l=3 r=1 n=55
+79 R-- P 7b3f99e4 s=0 l=3 r=1 n=55
+80 RF- P d7dff6c6 s=0 l=3 r=1 n=55
+81 R-- P a9243dd9 s=0 l=3 r=1 n=55
+82 R-- P db06c422 s=0 l=3 r=1 n=55
+83 R-- P 5a0a8d31 s=0 l=3 r=1 n=55
+84 R-- P 5977ac15 s=0 l=3 r=1 n=55
+85 R-- P d33d58b6 s=0 l=3 r=1 n=55
+86 R-- P 0ae7a41c s=0 l=3 r=1 n=55
+87 R-- P 1b61d0ad s=0 l=3 r=1 n=55
+88 R-- P f4a35ce2 s=0 l=3 r=1 n=55
+89 R-- P f4413ba9 s=0 l=3 r=1 n=55
+90 L-- P ad7385a8 s=0 l=3 r=1 n=55
+91 L-- P bcb133fd s=0 l=3 r=1 n=55
+92 L-- P 0fc46ba5 s=0 l=3 r=1 n=55
+93 L-- P 2cfc8d38 s=0 l=3 r=1 n=55
+94 L-- P 656e8913 s=0 l=3 r=1 n=55
+95 L-- P 4112ffad s=0 l=3 r=1 n=55
+96 L-- P 3ac8a796 s=0 l=3 r=1 n=55
+97 L-- P c7e669bf s=0 l=3 r=1 n=55
+98 L-- P 6cae8bb0 s=0 l=3 r=1 n=55
+99 L-- P ec34d28f s=0 l=3 r=1 n=55
+100 LF- P 57a23ee7 s=0 l=3 r=1 n=55
+101 L-- P e59ebc0a s=0 l=3 r=1 n=55
+102 L-- P 189029d7 s=0 l=3 r=1 n=55
+103 L-- P 8b3e0251 s=0 l=3 r=1 n=55
+104 L-- P 3faed174 s=0 l=3 r=1 n=55
+105 L-- P ba80050d s=0 l=3 r=1 n=55
+106 L-- P ff93dfd6 s=0 l=3 r=1 n=55
+107 L-- P 02dfdf61 s=0 l=3 r=1 n=55
+108 L-- P 54ed9258 s=0 l=3 r=1 n=55
+109 L-- P 216d43b9 s=0 l=3 r=1 n=55
+110 L-- P 2ce885e4 s=0 l=3 r=1 n=55
+111 L-- P 5cdf0c22 s=0 l=3 r=1 n=55
+112 L-- P 8b7f7d5c s=0 l=3 r=1 n=55
+113 L-- P e7479855 s=0 l=3 r=1 n=55
+114 L-- P 1222ae87 s=0 l=3 r=1 n=55
+115 L-- P 9dfda961 s=0 l=3 r=1 n=55
+116 L-- P 61128d63 s=0 l=3 r=1 n=55
+117 L-- P 693d5c12 s=0 l=3 r=1 n=55
+118 L-- P 426261ef s=0 l=3 r=1 n=55
+119 L-- P 57c6ce4a s=0 l=3 r=1 n=55
+120 LF- P bb6b24d8 s=0 l=3 r=1 n=55
+121 L-- P f900e937 s=0 l=3 r=1 n=55
+122 L-- P c8df6d17 s=0 l=3 r=1 n=55
+123 L-- P b6ddc74e s=0 l=3 r=1 n=55
+124 L-- P a1bf0b78 s=0 l=3 r=1 n=55
+125 L-- P 637edaff s=0 l=3 r=1 n=55
+126 L-- P 60610c2f s=0 l=3 r=1 n=55
+127 L-- P fb5fdd84 s=0 l=3 r=1 n=55
+128 L-- P 2d58889c s=0 l=3 r=1 n=55
+129 L-- P 12c60dfd s=0 l=3 r=1 n=55
+130 L-- P ab8bbd5c s=0 l=3 r=1 n=55
+131 L-- P 8701d75f s=0 l=3 r=1 n=55
+132 L-- P 521005ad s=0 l=3 r=1 n=55
+133 L-- P f126ea2f s=0 l=3 r=1 n=55
+134 L-- P bc74bf33 s=0 l=3 r=1 n=55
+135 L-- P 68922972 s=0 l=3 r=1 n=55
+136 L-- P 28df7357 s=0 l=3 r=1 n=55
+137 L-- P a9f7632c s=0 l=3 r=1 n=55
+138 L-- P e71285e8 s=0 l=3 r=1 n=55
+139 L-- P e265f551 s=0 l=3 r=1 n=55
+140 LF- P 2f849649 s=0 l=3 r=1 n=55
+141 L-- P 81544539 s=0 l=3 r=1 n=55
+142 L-- P b51bbbc9 s=0 l=3 r=1 n=55
+143 L-- P 1f805c4f s=0 l=3 r=1 n=55
+144 L-- P 9c6917af s=0 l=3 r=1 n=55
+145 L-- P 15387dcb s=0 l=3 r=1 n=55
+146 L-- P 852d2098 s=0 l=3 r=1 n=55
+147 L-- P 2f33d61d s=0 l=3 r=1 n=55
+148 L-- P bd8a6339 s=0 l=3 r=1 n=55
+149 L-- P 504aefa9 s=0 l=3 r=1 n=55
+150 L-- P 5d4ed03b s=0 l=3 r=1 n=55
+151 L-- P 75c7df2f s=0 l=3 r=1 n=55
+152 L-- P 19e6be17 s=0 l=3 r=1 n=55
+153 L-- P 62ba25fa s=0 l=3 r=1 n=55
+154 L-- P 0e1b2765 s=0 l=3 r=1 n=55
+155 L-- P 13452cd8 s=0 l=3 r=1 n=55
+156 L-- P 2985a2cf s=0 l=3 r=1 n=55
+157 L-- P c2eaa998 s=0 l=3 r=1 n=55
+158 L-- P c7b009d8 s=0 l=3 r=1 n=55
+159 L-- P 4e41b706 s=0 l=3 r=1 n=55
+160 LF- P 5bb196c7 s=0 l=3 r=1 n=55
+161 L-- P a5033916 s=0 l=3 r=1 n=55
+162 L-- P 06433be8 s=0 l=3 r=1 n=55
+163 L-- P 7e2f244c s=0 l=3 r=1 n=55
+164 L-- P e926c2cf s=0 l=3 r=1 n=55
+165 L-- P 8c9ec4b9 s=0 l=3 r=1 n=55
+166 L-- P 0fcb7471 s=0 l=3 r=1 n=55
+167 L-- P b6e4fdba s=0 l=3 r=1 n=55
+168 L-- P 904b1c7a s=0 l=3 r=1 n=55
+169 L-- P 7e44bb02 s=0 l=3 r=1 n=55
+170 L-- P 492bbb72 s=0 l=3 r=1 n=55
+171 L-- P 18dc3617 s=0 l=3 r=1 n=55
+172 L-- P 62c8670c s=0 l=3 r=1 n=55
+173 L-- P 90cea883 s=0 l=3 r=1 n=55
+174 L-- P 55879745 s=0 l=3 r=1 n=55
+175 L-- P ff7905d6 s=0 l=3 r=1 n=55
+176 L-- P b71114df s=0 l=3 r=1 n=55
+177 L-- P 246accec s=0 l=3 r=1 n=55
+178 L-- P dae16323 s=0 l=3 r=1 n=55
+179 L-- P 2405760a s=0 l=3 r=1 n=55
+180 RF- P b194191e s=0 l=3 r=1 n=55
+181 R-- P 80778f80 s=0 l=3 r=1 n=55
+182 R-- P f4c324f7 s=0 l=3 r=1 n=55
+183 R-- P 03a8d16c s=0 l=3 r=1 n=55
+184 R-- P b59dd021 s=0 l=3 r=1 n=55
+185 R-- P e586b76e s=0 l=3 r=1 n=55
+186 R-- P c8ba4d73 s=0 l=3 r=1 n=55
+187 R-- P a1a64ae9 s=0 l=3 r=1 n=55
+188 R-- P dbfae87a s=0 l=3 r=1 n=55
+189 R-- P b3aefd7d s=0 l=3 r=1 n=55
+190 R-- P f1499877 s=0 l=3 r=1 n=55
+191 R-- P cfd24b3e s=0 l=3 r=1 n=55
+192 R-- P a74ff0fb s=0 l=3 r=1 n=55
+193 R-- P 1f594543 s=0 l=3 r=1 n=55
+194 R-- P f7fb8ed0 s=0 l=3 r=1 n=55
+195 R-- P 6eea5a25 s=0 l=3 r=1 n=55
+196 R-- P 37c13799 s=0 l=3 r=1 n=55
+197 R-- P 77e21242 s=0 l=3 r=1 n=55
+198 R-- P 3364ff90 s=0 l=3 r=1 n=55
+199 R-- P 453a6730 s=0 l=3 r=1 n=55
+200 RF- P 922d2b70 s=0 l=3 r=1 n=55
+201 R-- P dfc0e376 s=0 l=3 r=1 n=55
+202 R-- P 61736ac5 s=0 l=3 r=1 n=55
+203 R-- P 6ea381bf s=0 l=3 r=1 n=55
+204 R-- P 9330b0cc s=0 l=3 r=1 n=55
+205 R-- P fc1e13ad s=0 l=3 r=1 n=55
+206 R-- P 9fe79da5 s=0 l=3 r=1 n=55
+207 R-- P 6356c385 s=0 l=3 r=1 n=55
+208 R-- P 53b761a2 s=0 l=3 r=1 n=55
+209 R-- P fa62faec s=0 l=3 r=1 n=55
+210 R-- P ec0390c1 s=0 l=3 r=1 n=55
+211 R-- P eedb46b9 s=0 l=3 r=1 n=55
+212 R-- P f2a3d938 s=0 l=3 r=1 n=55
+213 R-- P db4cda0e s=0 l=3 r=1 n=55
+214 R-- P a326121f s=0 l=3 r=1 n=55
+215 R-- P d5eb9003 s=0 l=3 r=1 n=55
+216 R-- P 193ff337 s=0 l=3 r=1 n=55
+217 R-- P 5126702f s=0 l=3 r=1 n=55
+218 R-- P 132161f3 s=0 l=3 r=1 n=55
+219 R-- P ee79bcff s=0 l=3 r=1 n=55
+220 RF- P bb6e9200 s=0 l=3 r=1 n=55
+221 R-- P 7a76f6d6 s=0 l=3 r=1 n=55
+222 R-- P 4236a03b s=0 l=3 r=1 n=55
+223 R-- P fdd8d8ac s=0 l=3 r=1 n=55
+224 R-- P 4760c5da s=0 l=3 r=1 n=55
+225 R-- P cfcd7770 s=0 l=3 r=1 n=55
+226 R-- P c9e865f1 s=0 l=3 r=1 n=55
+227 R-- P f8ee7a66 s=0 l=3 r=1 n=55
+228 R-- P c44ccc4f s=0 l=3 r=1 n=55
+229 R-- P a486570a s=0 l=3 r=1 n=55
+230 R-- P 6df3c8c5 s=0 l=3 r=1 n=55
+231 R-- P 9e65caec s=0 l=3 r=1 n=55
+232 R-- P 2aebed9d s=0 l=3 r=1 n=55
+233 R-- P eba6d459 s=0 l=3 r=1 n=55
+234 R-- P 1ea8ad96 s=0 l=3 r=1 n=55
+235 R-- P a1dfe4ba s=0 l=3 r=1 n=55
+236 R-- P fa261c89 s=0 l=3 r=1 n=55
+237 R-- P a9d8932d s=0 l=3 r=1 n=55
+238 R-- P 1264b83a s=0 l=3 r=1 n=55
+239 R-- P 2f71d295 s=0 l=3 r=1 n=55
+240 RF- P 2f225033 s=0 l=3 r=1 n=55
+241 R-- P c180dbcb s=0 l=3 r=1 n=55
+242 R-- P 914a3f9a s=0 l=3 r=1 n=55
+243 R-- P 03f8d7b9 s=0 l=3 r=1 n=55
+244 R-- P 2735a3fc s=0 l=3 r=1 n=55
+245 R-- P d5f86403 s=0 l=3 r=1 n=55
+246 R-- P 0a8f4adc s=0 l=3 r=1 n=55
+247 R-- P 6a671f82 s=0 l=3 r=1 n=55
+248 R-- P ecf0dd57 s=0 l=3 r=1 n=55
+249 R-- P ab783e18 s=0 l=3 r=1 n=55
+250 R-- P f11d4428 s=0 l=3 r=1 n=55
+251 R-- P f4d63184 s=0 l=3 r=1 n=55
+252 R-- P 1c0efea1 s=0 l=3 r=1 n=55
+253 R-- P 247ba5eb s=0 l=3 r=1 n=55
+254 R-- P 2f80fa92 s=0 l=3 r=1 n=55
+255 R-- P e5a58eeb s=0 l=3 r=1 n=55
+256 R-- P b8b0d83f s=0 l=3 r=1 n=55
+257 R-- P 86797ab7 s=0 l=3 r=1 n=55
+258 R-- P 89fc27a7 s=0 l=3 r=1 n=55
+259 R-- P 1fc54d96 s=0 l=3 r=1 n=55
+260 RF- P 2aca36f4 s=0 l=3 r=1 n=55
+261 R-- P 99f50a98 s=0 l=3 r=1 n=55
+262 R-- P d0759e52 s=0 l=3 r=1 n=55
+263 R-- P 5f1b4a39 s=0 l=3 r=1 n=55
+264 R-- P 307e20ec s=0 l=3 r=1 n=55
+265 R-- P c7629315 s=0 l=3 r=1 n=55
+266 R-- P 953b6f99 s=0 l=3 r=1 n=55
+267 R-- P 106b50c0 s=0 l=3 r=1 n=55
+268 R-- P 0b16fc60 s=0 l=3 r=1 n=55
+269 R-- P 631944ae s=0 l=3 r=1 n=55
+270 L-- P 4a7060b0 s=0 l=3 r=1 n=55
+271 L-- P be0bb6c5 s=0 l=3 r=1 n=55
+272 L-- P 04e47576 s=0 l=3 r=1 n=55
+273 L-- P 9b3abf5f s=0 l=3 r=1 n=55
+274 L-- P 5513b960 s=0 l=3 r=1 n=55
+275 L-- P fe4c2280 s=0 l=3 r=1 n=55
+276 L-- P 5dfe0dbb s=0 l=3 r=1 n=55
+277 L-- P 66611147 s=0 l=3 r=1 n=55
+278 L-- P 93eb9c3c s=0 l=3 r=1 n=55
+279 L-- P 770dfe60 s=0 l=3 r=1 n=55
+280 LF- P 7cb84756 s=10 l=3 r=1 n=54
+281 L-- P 82600909 s=10 l=3 r=1 n=54
+282 L-- P 0b282583 s=10 l=3 r=1 n=54
+283 L-- P 146cfb09 s=10 l=3 r=1 n=54
+284 L-- P dcf42b92 s=10 l=3 r=1 n=54
+285 L-- P 455158db s=10 l=3 r=1 n=54
+286 L-- P 5a134ec9 s=10 l=3 r=1 n=54
+287 L-- P afdce75d s=10 l=3 r=1 n=54
+288 L-- P 00b238eb s=10 l=3 r=1 n=54
+289 L-- P 033d107b s=10 l=3 r=1 n=54
+290 L-- P 5e84cee3 s=10 l=3 r=1 n=54
+291 L-- P 4cf653d1 s=10 l=3 r=1 n=54
+292 L-- P 894735cc s=10 l=3 r=1 n=54
+293 L-- P 95c09be2 s=10 l=3 r=1 n=54
+294 L-- P 15b99e8e s=10 l=3 r=1 n=54
+295 L-- P de1cede7 s=10 l=3 r=1 n=54
+296 L-- P 6413a410 s=10 l=3 r=1 n=54
+297 L-- P af3ba462 s=10 l=3 r=1 n=54
+298 L-- P f088b63a s=10 l=3 r=1 n=54
+299 L-- P 471bfc71 s=10 l=3 r=1 n=54
+300 LF- P f95db360 s=10 l=3 r=1 n=54
+301 L-- P 2eaf7900 s=10 l=3 r=1 n=54
+302 L-- P 0fe5c04b s=10 l=3 r=1 n=54
+303 L-- P 1efbbcd3 s=10 l=3 r=1 n=54
+304 L-- P 117d2c1f s=10 l=3 r=1 n=54
+305 L-- P e21b5788 s=10 l=3 r=1 n=54
+306 L-- P e808b8a0 s=10 l=3 r=1 n=54
+307 L-- P ec51f881 s=10 l=3 r=1 n=54
+308 L-- P 704d7f15 s=10 l=3 r=1 n=54
+309 L-- P 8bb6599c s=10 l=3 r=1 n=54
+310 L-- P bf78f922 s=10 l=3 r=1 n=54
+311 L-- P 27deb759 s=10 l=3 r=1 n=54
+312 L-- P 158a7198 s=10 l=3 r=1 n=54
+313 L-- P 909f3f58 s=10 l=3 r=1 n=54
+314 L-- P 57e704ac s=10 l=3 r=1 n=54
+315 L-- P 022c33db s=10 l=3 r=1 n=54
+316 L-- P 6808042f s=10 l=3 r=1 n=54
+317 L-- P 0048f9b7 s=10 l=3 r=1 n=54
+318 L-- P 81edb4f4 s=10 l=3 r=1 n=54
+319 L-- P 82de3458 s=10 l=3 r=1 n=54
+320 LF- P 4be7d6a7 s=10 l=3 r=1 n=54
+321 L-- P d17a950b s=10 l=3 r=1 n=54
+322 L-- P 4ce6a188 s=10 l=3 r=1 n=54
+323 L-- P 11875425 s=10 l=3 r=1 n=54
+324 L-- P 554c5798 s=10 l=3 r=1 n=54
+325 L-- P b7b1906e s=10 l=3 r=1 n=54
+326 L-- P baa2cf3b s=10 l=3 r=1 n=54
+327 L-- P 63ba30df s=10 l=3 r=1 n=54
+328 L-- P 656434eb s=10 l=3 r=1 n=54
+329 L-- P 4761fd41 s=10 l=3 r=1 n=54
+330 L-- P ce178efe s=10 l=3 r=1 n=54
+331 L-- P 5e85f4df s=10 l=3 r=1 n=54
+332 L-- P a95d0c38 s=10 l=3 r=1 n=54
+333 L-- P 5c0c2aff s=10 l=3 r=1 n=54
+334 L-- P 8062c8f3 s=10 l=3 r=1 n=54
+335 L-- P e7c991fc s=10 l=3 r=1 n=54
+336 L-- P 805dfe21 s=10 l=3 r=1 n=54
+337 L-- P 59bae4cd s=10 l=3 r=1 n=54
+338 L-- P d42d5b70 s=10 l=3 r=1 n=54
+339 L-- P db2acf84 s=10 l=3 r=1 n=54
+340 LF- P 774e51ab s=20 l=3 r=1 n=53
+341 L-- P 846dddf3 s=20 l=3 r=1 n=53
+342 L-- P f7ef126c s=20 l=3 r=1 n=53
+343 L-- P 4d602832 s=20 l=3 r=1 n=53
+344 L-- P 732966b7 s=20 l=3 r=1 n=53
+345 L-- P 80b62f7f s=20 l=3 r=1 n=53
+346 L-- P 7770fae9 s=20 l=3 r=1 n=53
+347 L-- P 3de7247a s=20 l=3 r=1 n=53
+348 L-- P ebec020e s=20 l=3 r=1 n=53
+349 L-- P ff4ef604 s=20 l=3 r=1 n=53
+350 L-- P f34b62b9 s=20 l=3 r=1 n=53
+351 L-- P 7fbd024b s=20 l=3 r=1 n=53
+352 L-- P 1d6038a5 s=20 l=3 r=1 n=53
+353 L-- P 64d35ab2 s=20 l=3 r=1 n=53
+354 L-- P e1d730a7 s=20 l=3 r=1 n=53
+355 L-- P 9240a8d2 s=20 l=3 r=1 n=53
+356 L-- P 7e8d2eba s=20 l=3 r=1 n=53
+357 L-- P 8838a882 s=20 l=3 r=1 n=53
+358 L-- P 5aea9bff s=20 l=3 r=1 n=53
+359 L-- P 66a724a8 s=20 l=3 r=1 n=53
+360 RF- P d9f6d127 s=20 l=3 r=1 n=53
+361 R-- P b527d6a5 s=20 l=3 r=1 n=53
+362 R-- P 5936a04e s=20 l=3 r=1 n=53
+363 R-- P 06c8eb32 s=20 l=3 r=1 n=53
+364 R-- P 6b9418f9 s=20 l=3 r=1 n=53
+365 R-- P 4e3d154a s=20 l=3 r=1 n=53
+366 R-- P a875671a s=20 l=3 r=1 n=53
+367 R-- P dbf7eb48 s=20 l=3 r=1 n=53
+368 R-- P d0f6a9f2 s=20 l=3 r=1 n=53
+369 R-- P 82a613da s=20 l=3 r=1 n=53
+370 R-- P 8d617a4e s=20 l=3 r=1 n=53
+371 R-- P bafc692b s=20 l=3 r=1 n=53
+372 R-- P f27e51ea s=20 l=3 r=1 n=53
+373 R-- P 7fc63b94 s=20 l=3 r=1 n=53
+374 R-- P 63b74cda s=20 l=3 r=1 n=53
+375 R-- P 4f6b18ee s=20 l=3 r=1 n=53
+376 R-- P fb75bd6f s=20 l=3 r=1 n=53
+377 R-- P b1e4994b s=20 l=3 r=1 n=53
+378 R-- P 8c522b95 s=20 l=3 r=1 n=53
+379 R-- P 5e9b67f7 s=20 l=3 r=1 n=53
+380 RF- P 322ed91c s=20 l=3 r=1 n=53
+381 R-- P 94e6c5d1 s=20 l=3 r=1 n=53
+382 R-- P 356722ea s=20 l=3 r=1 n=53
+383 R-- P f4aed09a s=20 l=3 r=1 n=53
+384 R-- P ce244766 s=20 l=3 r=1 n=53
+385 R-- P edf5d1a5 s=20 l=3 r=1 n=53
+386 R-- P aef4e759 s=20 l=3 r=1 n=53
+387 R-- P f0fe0f5c s=20 l=3 r=1 n=53
+388 R-- P 144d73b9 s=20 l=3 r=1 n=53
+389 R-- P 9c13195b s=20 l=3 r=1 n=53
+390 R-- P 6a9f2473 s=20 l=3 r=1 n=53
+391 R-- P c85654f2 s=20 l=3 r=1 n=53
+392 R-- P 4f929dd6 s=20 l=3 r=1 n=53
+393 R-- P c308617e s=20 l=3 r=1 n=53
+394 R-- P fc369925 s=20 l=3 r=1 n=53
+395 R-- P 80daa312 s=20 l=3 r=1 n=53
+396 R-- P eaf43463 s=20 l=3 r=1 n=53
+397 R-- P 32071d46 s=20 l=3 r=1 n=53
+398 R-- P 3397bcaa s=20 l=3 r=1 n=53
+399 R-- P c0dade56 s=20 l=3 r=1 n=53
+400 RF- P c3864627 s=20 l=3 r=1 n=53
+401 R-- P 2ceed175 s=20 l=3 r=1 n=53
+402 R-- P 756fe950 s=20 l=3 r=1 n=53
+403 R-- P 241e40da s=20 l=3 r=1 n=53
+404 R-- P f1f48ace s=20 l=3 r=1 n=53
+405 R-- P 6f520bba s=20 l=3 r=1 n=53
+406 R-- P ededba7e s=20 l=3 r=1 n=53
+407 R-- P cddfa918 s=20 l=3 r=1 n=53
+408 R-- P c48d6ce3 s=20 l=3 r=1 n=53
+409 R-- P b0e2604e s=20 l=3 r=1 n=53
+410 R-- P d88bb29e s=20 l=3 r=1 n=53
+411 R-- P b48fdc2d s=20 l=3 r=1 n=53
+412 R-- P 4fe930ae s=20 l=3 r=1 n=53
+413 R-- P c699ff8c s=20 l=3 r=1 n=53
+414 R-- P 2d03440b s=20 l=3 r=1 n=53
+415 R-- P 77734eb8 s=20 l=3 r=1 n=53
+416 R-- P d8b8f492 s=20 l=3 r=1 n=53
+417 R-- P 73f91d8a s=20 l=3 r=1 n=53
+418 R-- P 2553856c s=20 l=3 r=1 n=53
+419 R-- P 4c829f63 s=20 l=3 r=1 n=53
+420 RF- P eab7b9e2 s=20 l=3 r=1 n=53
+421 R-- P e1cab8d5 s=20 l=3 r=1 n=53
+422 R-- P 656433a1 s=20 l=3 r=1 n=53
+423 R-- P 4292a635 s=20 l=3 r=1 n=53
+424 R-- P 6db5387a s=20 l=3 r=1 n=53
+425 R-- P aacd57c1 s=20 l=3 r=1 n=53
+426 R-- P feef43f6 s=20 l=3 r=1 n=53
+427 R-- P c2ef0f7f s=20 l=3 r=1 n=53
+428 R-- P e93298b7 s=20 l=3 r=1 n=53
+429 R-- P de494552 s=20 l=3 r=1 n=53
+430 R-- P 987d4f7b s=20 l=3 r=1 n=53
+431 R-- P 5d234ba3 s=20 l=3 r=1 n=53
+432 R-- P 0e589ac0 s=20 l=3 r=1 n=53
+433 R-- P acfca2fc s=20 l=3 r=1 n=53
+434 R-- P 9001513f s=20 l=3 r=1 n=53
+435 R-- P 9813ab00 s=20 l=3 r=1 n=53
+436 R-- P 502e69b5 s=20 l=3 r=1 n=53
+437 R-- P d1f590b1 s=20 l=3 r=1 n=53
+438 R-- P 260ffe43 s=20 l=3 r=1 n=53
+439 R-- P a076a7f3 s=20 l=3 r=1 n=53
+440 RF- P 439fc57a s=20 l=3 r=1 n=53
+441 R-- P c883fcb4 s=20 l=3 r=1 n=53
+442 R-- P 279b2edf s=20 l=3 r=1 n=53
+443 R-- P 43b2a769 s=20 l=3 r=1 n=53
+444 R-- P 2000a9e7 s=20 l=3 r=1 n=53
+445 R-- P 990a7d58 s=20 l=3 r=1 n=53
+446 R-- P 48d1e0bb s=20 l=3 r=1 n=53
+447 R-- P a7938585 s=20 l=3 r=1 n=53
+448 R-- P f263ab0c s=20 l=3 r=1 n=53
+449 R-- P dce2a3ae s=20 l=3 r=1 n=53
+450 L-- P 7aa00aea s=20 l=3 r=1 n=53
+451 L-- P f50eb695 s=20 l=3 r=1 n=53
+452 L-- P e8c8ece0 s=20 l=3 r=1 n=53
+453 L-- P d6fcf641 s=20 l=3 r=1 n=53
+454 L-- P 03bfb314 s=20 l=3 r=1 n=53
+455 L-- P d224ab67 s=20 l=3 r=1 n=53
+456 L-- P 2a746018 s=20 l=3 r=1 n=53
+457 L-- P a3196e54 s=20 l=3 r=1 n=53
+458 L-- P ae0a9f05 s=20 l=3 r=1 n=53
+459 L-- P 81fc2cbf s=20 l=3 r=1 n=53
+460 LF- P d49767df s=20 l=3 r=1 n=53
+461 L-- P eaf3b438 s=20 l=3 r=1 n=53
+462 L-- P 8a84efbe s=20 l=3 r=1 n=53
+463 L-- P ff84ad14 s=20 l=3 r=1 n=53
+464 L-- P 5f5bcb44 s=20 l=3 r=1 n=53
+465 L-- P 09085d6b s=20 l=3 r=1 n=53
+466 L-- P f8348660 s=20 l=3 r=1 n=53
+467 L-- P fd09712f s=20 l=3 r=1 n=53
+468 L-- P 5e67ed90 s=20 l=3 r=1 n=53
+469 L-- P 1c097b87 s=20 l=3 r=1 n=53
+470 L-- P 4cbad6ee s=20 l=3 r=1 n=53
+471 L-- P 1dc6d7c1 s=20 l=3 r=1 n=53
+472 L-- P ae3f8743 s=40 l=3 r=1 n=52
+473 L-- P 1336e5e5 s=40 l=3 r=1 n=52
+474 L-- P f7443e4b s=40 l=3 r=1 n=52
+475 L-- P 45bfdd11 s=40 l=3 r=1 n=52
+476 L-- P aec320cc s=40 l=3 r=1 n=52
+477 L-- P d6c109e4 s=40 l=3 r=1 n=52
+478 L-- P bfed1ed6 s=40 l=3 r=1 n=52
+479 L-- P a7f8f680 s=40 l=3 r=1 n=52
+480 LF- P dd8c4ffb s=40 l=3 r=1 n=52
+481 L-- P 65f21e57 s=40 l=3 r=1 n=52
+482 L-- P 02154a4f s=40 l=3 r=1 n=52
+483 L-- P 3d5fc329 s=40 l=3 r=1 n=52
+484 L-- P 1a897d61 s=40 l=3 r=1 n=52
+485 L-- P 6b37be06 s=40 l=3 r=1 n=52
+486 L-- P 6472fed2 s=40 l=3 r=1 n=52
+487 L-- P 545a7add s=40 l=3 r=1 n=52
+488 L-- P 8fadefef s=40 l=3 r=1 n=52
+489 L-- P 554c1ff0 s=40 l=3 r=1 n=52
+490 L-- P 220b76d4 s=40 l=3 r=1 n=52
+491 L-- P 6e3a3b8b s=40 l=3 r=1 n=52
+492 L-- P 6811dcde s=40 l=3 r=1 n=52
+493 L-- P 4ffabc4a s=40 l=3 r=1 n=52
+494 L-- P 32da1bb4 s=40 l=3 r=1 n=52
+495 L-- P cead3da2 s=40 l=3 r=1 n=52
+496 L-- P 9331a5ae s=40 l=3 r=1 n=52
+497 L-- P ebc742e2 s=40 l=3 r=1 n=52
+498 L-- P 1c002ea2 s=40 l=3 r=1 n=52
+499 L-- P f1a3406f s=40 l=3 r=1 n=52
+500 LF- P 4368b9e7 s=40 l=3 r=1 n=52
+501 L-- P b0f9f627 s=40 l=3 r=1 n=52
+502 L-- P 2f24b2e2 s=40 l=3 r=1 n=52
+503 L-- P d7eef320 s=40 l=3 r=1 n=52
+504 L-- P ed6e120d s=40 l=3 r=1 n=52
+505 L-- P 4507417e s=40 l=3 r=1 n=52
+506 L-- P 62c32366 s=40 l=3 r=1 n=52
+507 L-- P c0a29424 s=40 l=3 r=1 n=52
+508 L-- P f2b2b1ff s=40 l=3 r=1 n=52
+509 L-- P b0223b1d s=40 l=3 r=1 n=52
+510 L-- P 53e440c2 s=40 l=3 r=1 n=52
+511 L-- P fa1044e5 s=40 l=3 r=1 n=52
+512 L-- P 8d1f0460 s=40 l=3 r=1 n=52
+513 L-- P 617e76e3 s=40 l=3 r=1 n=52
+514 L-- P 10f177db s=40 l=3 r=1 n=52
+515 L-- P c52a0d36 s=40 l=3 r=1 n=52
+516 L-- P 519955fb s=40 l=3 r=1 n=52
+517 L-- P 6e177e78 s=40 l=3 r=1 n=52
+518 L-- P de3d5849 s=40 l=3 r=1 n=52
+519 L-- P b63b944a s=40 l=3 r=1 n=52
+520 LF- P 1a048ac6 s=40 l=3 r=1 n=52
+521 L-- P da18165a s=40 l=3 r=1 n=52
+522 L-- P f137720a s=40 l=3 r=1 n=52
+523 L-- P f6e9e834 s=40 l=3 r=1 n=52
+524 L-- P ed3b01bc s=50 l=3 r=1 n=51
+525 L-- P 31a9a33f s=50 l=3 r=1 n=51
+526 L-- P 0345a434 s=50 l=3 r=1 n=51
+527 L-- P e22102db s=50 l=3 r=1 n=51
+528 L-- P 1357d149 s=50 l=3 r=1 n=51
+529 L-- P e16cac77 s=50 l=3 r=1 n=51
+530 L-- P d8d040d2 s=50 l=3 r=1 n=51
+531 L-- P e75e3483 s=50 l=3 r=1 n=51
+532 L-- P 459b8ac4 s=50 l=3 r=1 n=51
+533 L-- P 12a2c78a s=50 l=3 r=1 n=51
+534 L-- P 98ad44f7 s=50 l=3 r=1 n=51
+535 L-- P d882dcd9 s=50 l=3 r=1 n=51
+536 L-- P 5b5e10c7 s=50 l=3 r=1 n=51
+537 L-- P 3ed6415a s=50 l=3 r=1 n=51
+538 L-- P a5a60d20 s=50 l=3 r=1 n=51
+539 L-- P 5666c624 s=50 l=3 r=1 n=51
+540 RF- P 618ee11f s=50 l=3 r=1 n=51
+541 R-- P 41f9d9c8 s=50 l=3 r=1 n=51
+542 R-- P 9a83e4dd s=50 l=3 r=1 n=51
+543 R-- P d08e6c4a s=50 l=3 r=1 n=51
+544 R-- P 8d7ba57c s=50 l=3 r=1 n=51
+545 R-- P 0a7bb053 s=50 l=3 r=1 n=51
+546 R-- P 22cea8b4 s=50 l=3 r=1 n=51
+547 R-- P de6a5541 s=50 l=3 r=1 n=51
+548 R-- P c51db3b7 s=50 l=3 r=1 n=51
+549 R-- P 7a9b9654 s=50 l=3 r=1 n=51
+550 R-- P 3d16837e s=50 l=3 r=1 n=51
+551 R-- P 94871caa s=50 l=3 r=1 n=51
+552 R-- P 5c237189 s=50 l=3 r=1 n=51
+553 R-- P c59d694f s=50 l=3 r=1 n=51
+554 R-- P cd44bbd2 s=50 l=3 r=1 n=51
+555 R-- P b5748b96 s=50 l=3 r=1 n=51
+556 R-- P 76f8f036 s=50 l=3 r=1 n=51
+557 R-- P 3a0fd235 s=50 l=3 r=1 n=51
+558 R-- P 09beb2ae s=50 l=3 r=1 n=51
+559 R-- P a0c35188 s=50 l=3 r=1 n=51
+560 RF- P 37bc1b68 s=50 l=3 r=1 n=51
+561 R-- P a0f8eb78 s=50 l=3 r=1 n=51
+562 R-- P 26f5fa4f s=50 l=3 r=1 n=51
+563 R-- P 78c86d5c s=50 l=3 r=1 n=51
+564 R-- P 25e2e990 s=50 l=3 r=1 n=51
+565 R-- P ea21a0ca s=50 l=3 r=1 n=51
+566 R-- P d204b9bf s=50 l=3 r=1 n=51
+567 R-- P 1784e38f s=50 l=3 r=1 n=51
+568 R-- P ca3d24d8 s=50 l=3 r=1 n=51
+569 R-- P f1e04e6e s=50 l=3 r=1 n=51
+570 R-- P 88cb5cd0 s=50 l=3 r=1 n=51
+571 R-- P 362728f7 s=50 l=3 r=1 n=51
+572 R-- P fd273bfd s=50 l=3 r=1 n=51
+573 R-- P 62920b11 s=50 l=3 r=1 n=51
+574 R-- P 1ba22be5 s=50 l=3 r=1 n=51
+575 R-- P cda33159 s=50 l=3 r=1 n=51
+576 R-- P 49038e8f s=50 l=3 r=1 n=51
+577 R-- P 34fd6c0e s=50 l=3 r=1 n=51
+578 R-- P 58222381 s=50 l=3 r=1 n=51
+579 R-- P 5bd0d0e9 s=50 l=3 r=1 n=51
+580 RF- P b6ca01f7 s=50 l=3 r=1 n=51
+581 R-- P c2494640 s=50 l=3 r=1 n=51
+582 R-- P 5ef790fd s=50 l=3 r=1 n=51
+583 R-- P 1e1f9a1d s=50 l=3 r=1 n=51
+584 R-- P 35ee362c s=50 l=3 r=1 n=51
+585 R-- P ff7dbb10 s=50 l=3 r=1 n=51
+586 R-- P ca6fcc0e s=50 l=3 r=1 n=51
+587 R-- P dd763867 s=50 l=3 r=1 n=51
+588 R-- P 18ce015b s=50 l=3 r=1 n=51
+589 R-- P 1cecd74a s=50 l=3 r=1 n=51
+590 R-- P 521a2735 s=50 l=3 r=1 n=51
+591 R-- P 61036bc6 s=50 l=3 r=1 n=51
+592 R-- P b2e15187 s=50 l=3 r=1 n=51
+593 R-- P 34a269af s=50 l=3 r=1 n=51
+594 R-- P ddc44ddd s=50 l=3 r=1 n=51
+595 R-- P dad02994 s=50 l=3 r=1 n=51
+596 R-- P 32315864 s=50 l=3 r=1 n=51
+597 R-- P ffe91307 s=50 l=3 r=1 n=51
+598 R-- P 293d31e8 s=50 l=3 r=1 n=51
+599 R-- P bf93f2c9 s=50 l=3 r=1 n=51
+600 RF- P fcc0054f s=50 l=3 r=1 n=51
+601 R-- P 1f71b181 s=50 l=3 r=1 n=51
+602 R-- P 954bf6ad s=50 l=3 r=1 n=51
+603 R-- P 17c5d4d3 s=50 l=3 r=1 n=51
+604 R-- P 4fb59e8d s=50 l=3 r=1 n=51
+605 R-- P eee9b79d s=50 l=3 r=1 n=51
+606 R-- P 36ae1a23 s=50 l=3 r=1 n=51
+607 R-- P c001c97a s=50 l=3 r=1 n=51
+608 R-- P 98dfe1ee s=50 l=3 r=1 n=51
+609 R-- P f5cc4448 s=50 l=3 r=1 n=51
+610 R-- P e8016b49 s=50 l=3 r=1 n=51
+611 R-- P eb86e612 s=50 l=3 r=1 n=51
+612 R-- P 96879853 s=50 l=3 r=1 n=51
+613 R-- P 791ee6e6 s=50 l=3 r=1 n=51
+614 R-- P b7f38bcf s=50 l=3 r=1 n=51
+615 R-- P 507d9793 s=50 l=3 r=1 n=51
+616 R-- P d25c2588 s=50 l=3 r=1 n=51
+617 R-- P ae624448 s=50 l=3 r=1 n=51
+618 R-- P 78bb58d6 s=60 l=3 r=1 n=50
+619 R-- P f6062206 s=60 l=3 r=1 n=50
+620 RF- P 944865d8 s=60 l=3 r=1 n=50
+621 R-- P 987f788b s=60 l=3 r=1 n=50
+622 R-- P 6b044ae7 s=60 l=3 r=1 n=50
+623 R-- P b25466fb s=60 l=3 r=1 n=50
+624 R-- P 0a7ad0fc s=60 l=3 r=1 n=50
+625 R-- P c561bb31 s=60 l=3 r=1 n=50
+626 R-- P 7cc95cae s=60 l=3 r=1 n=50
+627 R-- P 26c240e3 s=60 l=3 r=1 n=50
+628 R-- P ee9c8413 s=60 l=3 r=1 n=50
+629 R-- P ff53f61e s=60 l=3 r=1 n=50
+630 L-- P 7c4c7895 s=60 l=3 r=1 n=50
+631 L-- P 6ec0d7b4 s=60 l=3 r=1 n=50
+632 L-- P c2a95846 s=60 l=3 r=1 n=50
+633 L-- P 898831de s=60 l=3 r=1 n=50
+634 L-- P f2062816 s=60 l=3 r=1 n=50
+635 L-- P 759b85ad s=60 l=3 r=1 n=50
+636 L-- P d6543365 s=60 l=3 r=1 n=50
+637 L-- P 0a9d9500 s=60 l=3 r=1 n=50
+638 L-- P 761cde39 s=70 l=3 r=1 n=49
+639 L-- P 21c42be4 s=70 l=3 r=1 n=49
+640 LF- P 4e6df5b1 s=70 l=3 r=1 n=49
+641 L-- P 218a96a5 s=70 l=3 r=1 n=49
+642 L-- P adc76562 s=70 l=3 r=1 n=49
+643 L-- P b1a13f50 s=70 l=3 r=1 n=49
+644 L-- P e654ebbd s=70 l=3 r=1 n=49
+645 L-- P b87ccf6f s=70 l=3 r=1 n=49
+646 L-- P 5537bc57 s=70 l=3 r=1 n=49
+647 L-- P b21d1a1f s=70 l=3 r=1 n=49
+648 L-- P 5a400f26 s=70 l=3 r=1 n=49
+649 L-- P cd7551e8 s=70 l=3 r=1 n=49
+650 L-- P 2a9aa65b s=70 l=3 r=1 n=49
+651 L-- P 41f51fdd s=70 l=3 r=1 n=49
+652 L-- P a2fdb56f s=70 l=3 r=1 n=49
+653 L-- P a18a7643 s=70 l=3 r=1 n=49
+654 L-- P 0c85500f s=70 l=3 r=1 n=49
+655 L-- P f17da34e s=70 l=3 r=1 n=49
+656 L-- P 2e9bee41 s=70 l=3 r=1 n=49
+657 L-- P 3e335c50 s=70 l=3 r=1 n=49
+658 L-- P 57df0c62 s=70 l=3 r=1 n=49
+659 L-- P 33164464 s=70 l=3 r=1 n=49
+660 LF- P 5d00791c s=70 l=3 r=1 n=49
+661 L-- P dad1b542 s=70 l=3 r=1 n=49
+662 L-- P ca3460e9 s=80 l=3 r=1 n=48
+663 L-- P b015330d s=80 l=3 r=1 n=48
+664 L-- P 855e198d s=80 l=3 r=1 n=48
+665 L-- P 5955ba29 s=80 l=3 r=1 n=48
+666 L-- P 4427cb5b s=80 l=3 r=1 n=48
+667 L-- P 6b48ec57 s=80 l=3 r=1 n=48
+668 L-- P 47bb26e4 s=80 l=3 r=1 n=48
+669 L-- P 771e6c25 s=80 l=3 r=1 n=48
+670 L-- P 4c6ec49c s=80 l=3 r=1 n=48
+671 L-- P 4fc55323 s=80 l=3 r=1 n=48
+672 L-- P b21bb77b s=80 l=3 r=1 n=48
+673 L-- P ea0ef2b2 s=80 l=3 r=1 n=48
+674 L-- P 4da21b88 s=80 l=3 r=1 n=48
+675 L-- P fc3c7b9c s=80 l=3 r=1 n=48
+676 L-- P 011c501c s=80 l=3 r=1 n=48
+677 L-- P 9846d40e s=80 l=3 r=1 n=48
+678 L-- P 497af338 s=80 l=3 r=1 n=48
+679 L-- P 7729a391 s=80 l=3 r=1 n=48
+680 LF- P 7953547f s=80 l=3 r=1 n=48
+681 L-- P 0715d628 s=80 l=3 r=1 n=48
+682 L-- P d5b5bdf8 s=80 l=3 r=1 n=48
+683 L-- P d6891a03 s=80 l=3 r=1 n=48
+684 L-- P 6e77047c s=80 l=3 r=1 n=48
+685 L-- P 90c76358 s=80 l=3 r=1 n=48
+686 L-- P 7283ca8f s=80 l=3 r=1 n=48
+687 L-- P fb416409 s=80 l=3 r=1 n=48
+688 L-- P 92d34088 s=80 l=3 r=1 n=48
+689 L-- P 59d162ec s=80 l=3 r=1 n=48
+690 L-- P 27e91bdd s=80 l=3 r=1 n=48
+691 L-- P 9370a64f s=80 l=3 r=1 n=48
+692 L-- P dc5cfbd0 s=80 l=3 r=1 n=48
+693 L-- P c2307f57 s=80 l=3 r=1 n=48
+694 L-- P d945734d s=80 l=3 r=1 n=48
+695 L-- P b64d4d71 s=80 l=3 r=1 n=48
+696 L-- P 2144ca16 s=80 l=3 r=1 n=48
+697 L-- P 1c2c1b37 s=80 l=3 r=1 n=48
+698 L-- P 8cb98f43 s=80 l=3 r=1 n=48
+699 L-- P 985de81e s=80 l=3 r=1 n=48
+700 LF- P 5d38f3b9 s=80 l=3 r=1 n=48
+701 L-- P a486fd9b s=80 l=3 r=1 n=48
+702 L-- P c4afe376 s=80 l=3 r=1 n=48
+703 L-- P 3b06e3e6 s=80 l=3 r=1 n=48
+704 L-- P 010cebea s=80 l=3 r=1 n=48
+705 L-- P 58467483 s=80 l=3 r=1 n=48
+706 L-- P de64583e s=100 l=3 r=1 n=47
+707 L-- P b7f8ca4b s=100 l=3 r=1 n=47
+708 L-- P b22dc641 s=100 l=3 r=1 n=47
+709 L-- P b916ec10 s=100 l=3 r=1 n=47
+710 L-- P fdfcb69b s=100 l=3 r=1 n=47
+711 L-- P a7f5bd48 s=100 l=3 r=1 n=47
+712 L-- P 66154d5f s=100 l=3 r=1 n=47
+713 L-- P abbbd316 s=100 l=3 r=1 n=47
+714 L-- P f96b866f s=100 l=3 r=1 n=47
+715 L-- P bdfe1b6d s=100 l=3 r=1 n=47
+716 L-- P 22aa0551 s=100 l=3 r=1 n=47
+717 L-- P 443ed7b1 s=100 l=3 r=1 n=47
+718 L-- P 76f35462 s=100 l=3 r=1 n=47
+719 L-- P 946043fe s=100 l=3 r=1 n=47
+720 RF- P 0d50163f s=100 l=3 r=1 n=47
+721 R-- P 22f327ab s=100 l=3 r=1 n=47
+722 R-- P 56369869 s=100 l=3 r=1 n=47
+723 R-- P 11273238 s=100 l=3 r=1 n=47
+724 R-- P 9e653caa s=100 l=3 r=1 n=47
+725 R-- P 4fa8f63c s=100 l=3 r=1 n=47
+726 R-- P 0f87198a s=100 l=3 r=1 n=47
+727 R-- P d5484cae s=100 l=3 r=1 n=47
+728 R-- P 34c9c142 s=100 l=3 r=1 n=47
+729 R-- P f7501bd4 s=100 l=3 r=1 n=47
+730 R-- P 20b3403f s=100 l=3 r=1 n=47
+731 R-- P 2290478f s=100 l=3 r=1 n=47
+732 R-- P 61fad456 s=100 l=3 r=1 n=47
+733 R-- P a1da21ae s=100 l=3 r=1 n=47
+734 R-- P bf1a1084 s=100 l=3 r=1 n=47
+735 R-- P 4472ce53 s=100 l=3 r=1 n=47
+736 R-- P 54520ad0 s=100 l=3 r=1 n=47
+737 R-- P d5061571 s=100 l=3 r=1 n=47
+738 R-- P 7917c0b4 s=100 l=3 r=1 n=47
+739 R-- P 82fd9c4f s=100 l=3 r=1 n=47
+740 RF- P e737e3ac s=100 l=3 r=1 n=47
+741 R-- P d75ad64a s=100 l=3 r=1 n=47
+742 R-- P 6840f789 s=100 l=3 r=1 n=47
+743 R-- P 77dd9d8d s=100 l=3 r=1 n=47
+744 R-- P a2c7a599 s=100 l=3 r=1 n=47
+745 R-- P 4f2d993c s=100 l=3 r=1 n=47
+746 R-- P 762568f9 s=100 l=3 r=1 n=47
+747 R-- P 890eac0e s=100 l=3 r=1 n=47
+748 R-- P 9f139754 s=100 l=3 r=1 n=47
+749 R-- P e0bfd874 s=100 l=3 r=1 n=47
+750 R-- P 0dee948a s=100 l=3 r=1 n=47
+751 R-- P bd520d51 s=100 l=3 r=1 n=47
+752 R-- P 76ff8b9b s=100 l=3 r=1 n=47
+753 R-- P 4c826518 s=100 l=3 r=1 n=47
+754 R-- P e11e183d s=100 l=3 r=1 n=47
+755 R-- P a937cf84 s=100 l=3 r=1 n=47
+756 R-- P ccacc36e s=100 l=3 r=1 n=47
+757 R-- P eafd3cc2 s=100 l=3 r=1 n=47
+758 R-- P e1cb6e64 s=100 l=3 r=1 n=47
+759 R-- P 2798dd6c s=100 l=3 r=1 n=47
+760 RF- P 10623a60 s=100 l=3 r=1 n=47
+761 R-- P 009d2648 s=100 l=3 r=1 n=47
+762 R-- P 460e6bbb s=100 l=3 r=1 n=47
+763 R-- P 29ebfa52 s=100 l=3 r=1 n=47
+764 R-- P 2c570436 s=100 l=3 r=1 n=47
+765 R-- P b7f79a4b s=100 l=3 r=1 n=47
+766 R-- P 595d9511 s=100 l=3 r=1 n=47
+767 R-- P 0eb87c9b s=100 l=3 r=1 n=47
+768 R-- P 3279d4ba s=100 l=3 r=1 n=47
+769 R-- P 1cf913f5 s=100 l=3 r=1 n=47
+770 R-- P 72eef2c8 s=100 l=3 r=1 n=47
+771 R-- P 669f2d9e s=100 l=3 r=1 n=47
+772 R-- P 7b4dfc91 s=100 l=3 r=1 n=47
+773 R-- P 4e63ec8c s=100 l=3 r=1 n=47
+774 R-- P 974e579a s=100 l=3 r=1 n=47
+775 R-- P 5df623fb s=100 l=3 r=1 n=47
+776 R-- P cbec8f32 s=100 l=3 r=1 n=47
+777 R-- P eaf933ef s=100 l=3 r=1 n=47
+778 R-- P 0df382b8 s=100 l=3 r=1 n=47
+779 R-- P ba9d960b s=100 l=3 r=1 n=47
+780 RF- P 4c292e88 s=100 l=3 r=1 n=47
+781 R-- P 7903b4be s=100 l=3 r=1 n=47
+782 R-- P ec452b67 s=100 l=3 r=1 n=47
+783 R-- P 169b1a3e s=100 l=3 r=1 n=47
+784 R-- P bb983853 s=100 l=3 r=1 n=47
+785 R-- P de2aa19c s=100 l=3 r=1 n=47
+786 R-- P e3b59373 s=100 l=3 r=1 n=47
+787 R-- P 851717cd s=100 l=3 r=1 n=47
+788 R-- P 4b8b1759 s=100 l=3 r=1 n=47
+789 R-- P a4cc49ab s=100 l=3 r=1 n=47
+790 R-- P 2e9607e8 s=100 l=3 r=1 n=47
+791 R-- P 35ebcdfd s=100 l=3 r=1 n=47
+792 R-- P 60953d56 s=100 l=3 r=1 n=47
+793 R-- P a3ddfedd s=100 l=3 r=1 n=47
+794 R-- P 9a5a768d s=100 l=3 r=1 n=47
+795 R-- P 85d71115 s=100 l=3 r=1 n=47
+796 R-- P 066eb8ed s=100 l=3 r=1 n=47
+797 R-- P 363f82e8 s=100 l=3 r=1 n=47
+798 R-- P 69864457 s=100 l=3 r=1 n=47
+799 R-- P 7b3fcbbc s=100 l=3 r=1 n=47
+800 RF- P 90fe8541 s=100 l=3 r=1 n=47
+801 R-- P 70c07225 s=100 l=3 r=1 n=47
+802 R-- P 3228323b s=100 l=3 r=1 n=47
+803 R-- P 680643b5 s=100 l=3 r=1 n=47
+804 R-- P b8cd60cf s=100 l=3 r=1 n=47
+805 R-- P f5f5e7b0 s=100 l=3 r=1 n=47
+806 R-- P f2f5fca4 s=100 l=3 r=1 n=47
+807 R-- P dd8cf572 s=100 l=3 r=1 n=47
+808 R-- P 2f16f6f1 s=100 l=3 r=1 n=47
+809 R-- P 9727f47a s=100 l=3 r=1 n=47
+810 L-- P bcb6a34d s=100 l=3 r=1 n=47
+811 L-- P 70e3c48f s=100 l=3 r=1 n=47
+812 L-- P ffa6d8d2 s=100 l=3 r=1 n=47
+813 L-- P f3bed38c s=100 l=3 r=1 n=47
+814 L-- P 8ac75cf1 s=100 l=3 r=1 n=47
+815 L-- P 904ea4d0 s=100 l=3 r=1 n=47
+816 L-- P c2bb54ca s=100 l=3 r=1 n=47
+817 L-- P ba758515 s=100 l=3 r=1 n=47
+818 L-- P f362d788 s=100 l=3 r=1 n=47
+819 L-- P d587b849 s=100 l=3 r=1 n=47
+820 LF- P 71819bc8 s=100 l=3 r=1 n=47
+821 L-- P fa44f602 s=100 l=3 r=1 n=47
+822 L-- P a217a813 s=100 l=3 r=1 n=47
+823 L-- P 6ae3ab8c s=100 l=3 r=1 n=47
+824 L-- P 76c95308 s=100 l=3 r=1 n=47
+825 L-- P 133fe4f3 s=100 l=3 r=1 n=47
+826 L-- P 5f2615ce s=100 l=3 r=1 n=47
+827 L-- P f0d57449 s=100 l=3 r=1 n=47
+828 L-- P 6789ef5c s=100 l=3 r=1 n=47
+829 L-- P 1bd7f0e8 s=100 l=3 r=1 n=47
+830 L-- P cce3b8e7 s=100 l=3 r=1 n=47
+831 L-- P eda67e56 s=100 l=3 r=1 n=47
+832 L-- P 28bc1398 s=100 l=3 r=1 n=47
+833 L-- P 77bd0a29 s=100 l=3 r=1 n=47
+834 L-- P 168352f4 s=100 l=3 r=1 n=47
+835 L-- P d49e3e57 s=100 l=3 r=1 n=47
+836 L-- P 2615341b s=100 l=3 r=1 n=47
+837 L-- P c76b3604 s=100 l=3 r=1 n=47
+838 L-- P 27800371 s=100 l=3 r=1 n=47
+839 L-- P 26f0d0c1 s=100 l=3 r=1 n=47
+840 LF- P e875ad16 s=100 l=3 r=1 n=47
+841 L-- P c810e88f s=100 l=3 r=1 n=47
+842 L-- P 05d1d901 s=100 l=3 r=1 n=47
+843 L-- P 141297c9 s=100 l=3 r=1 n=47
+844 L-- P f491761d s=100 l=3 r=1 n=47
+845 L-- P 9b39af6a s=100 l=3 r=1 n=47
+846 L-- P 11ccc827 s=100 l=3 r=1 n=47
+847 L-- P 2e3fbc43 s=100 l=3 r=1 n=47
+848 L-- P 64550922 s=100 l=3 r=1 n=47
+849 L-- P 16ca7e1c s=100 l=3 r=1 n=47
+850 L-- P 6b919698 s=100 l=3 r=1 n=47
+851 L-- P 93d87a68 s=100 l=3 r=1 n=47
+852 L-- P bbfa62de s=100 l=3 r=1 n=47
+853 L-- P 434fb7e2 s=100 l=3 r=1 n=47
+854 L-- P 9c2fce94 s=100 l=3 r=1 n=47
+855 L-- P b5f71b3b s=100 l=3 r=1 n=47
+856 L-- P a8b31a9f s=100 l=3 r=1 n=47
+857 L-- P 59b93fb8 s=100 l=3 r=1 n=47
+858 L-- P 2382c63f s=100 l=3 r=1 n=47
+859 L-- P 3c99776a s=100 l=3 r=1 n=47
+860 LF- P 8f9ea53f s=100 l=3 r=1 n=47
+861 L-- P 3ec75da3 s=100 l=3 r=1 n=47
+862 L-- P 4e0290b5 s=100 l=3 r=1 n=47
+863 L-- P 1173e608 s=100 l=3 r=1 n=47
+864 L-- P 55b7c080 s=100 l=3 r=1 n=47
+865 L-- P 73f1beb3 s=100 l=3 r=1 n=47
+866 L-- P 44f61466 s=100 l=3 r=1 n=47
+867 L-- P 6c06ab77 s=100 l=3 r=1 n=47
+868 L-- P 8ee9f4e3 s=100 l=3 r=1 n=47
+869 L-- P a81dc3ea s=100 l=3 r=1 n=47
+870 L-- P 59d53664 s=100 l=3 r=1 n=47
+871 L-- P bd09ab36 s=100 l=3 r=1 n=47
+872 L-- P 0cd86420 s=100 l=3 r=1 n=47
+873 L-- P 83559213 s=100 l=3 r=1 n=47
+874 L-- P 44307120 s=100 l=3 r=1 n=47
+875 L-- P 1af1daff s=100 l=3 r=1 n=47
+876 L-- P cefe7829 s=100 l=3 r=1 n=47
+877 L-- P 5865349d s=100 l=3 r=1 n=47
+878 L-- P d8f6f9e2 s=100 l=3 r=1 n=47
+879 L-- P acf0d1be s=100 l=3 r=1 n=47
+880 LF- P cc76d18b s=100 l=3 r=1 n=47
+881 L-- P 127a5faa s=100 l=3 r=1 n=47
+882 L-- P e528dd58 s=100 l=3 r=1 n=47
+883 L-- P 0a597ba6 s=100 l=3 r=1 n=47
+884 L-- P f66fa50d s=100 l=3 r=1 n=47
+885 L-- P 2f1e8134 s=100 l=3 r=1 n=47
+886 L-- P 227e91a9 s=100 l=3 r=1 n=47
+887 L-- P 8a7a2c47 s=100 l=3 r=1 n=47
+888 L-- P e2a3700c s=100 l=3 r=1 n=47
+889 L-- P d0111f29 s=100 l=3 r=1 n=47
+890 L-- P 90397109 s=100 l=3 r=1 n=47
+891 L-- P 482e573f s=100 l=3 r=1 n=47
+892 L-- P 8b13524f s=100 l=3 r=1 n=47
+893 L-- P 2d2b4ffd s=100 l=3 r=1 n=47
+894 L-- P 7c905418 s=100 l=3 r=1 n=47
+895 L-- P 5469239e s=100 l=3 r=1 n=47
+896 L-- P d5874a50 s=100 l=3 r=1 n=47
+897 L-- P a56d5053 s=100 l=3 r=1 n=47
+898 L-- P 8df11b72 s=100 l=3 r=1 n=47
+899 L-- P dbc34ad2 s=100 l=3 r=1 n=47
+900 RF- P 788fe81c s=100 l=3 r=1 n=47
+901 R-- P 7bf4874e s=100 l=3 r=1 n=47
+902 R-- P 60de1507 s=100 l=3 r=1 n=47
+903 R-- P eca73dad s=100 l=3 r=1 n=47
+904 R-- P a2b44e47 s=100 l=3 r=1 n=47
+905 R-- P 5cb80165 s=100 l=3 r=1 n=47
+906 R-- P 5025b578 s=100 l=3 r=1 n=47
+907 R-- P ee724582 s=100 l=3 r=1 n=47
+908 R-- P 33d37b4d s=100 l=3 r=1 n=47
+909 R-- P 300ce085 s=100 l=3 r=1 n=47
+910 R-- P 60f0b07b s=100 l=3 r=1 n=47
+911 R-- P 6c1d8c51 s=100 l=3 r=1 n=47
+912 R-- P da031f13 s=100 l=3 r=1 n=47
+913 R-- P 46c51183 s=100 l=3 r=1 n=47
+914 R-- P 343b01eb s=100 l=3 r=1 n=47
+915 R-- P 172d5dfa s=100 l=3 r=1 n=47
+916 R-- P 1233a9dd s=100 l=3 r=1 n=47
+917 R-- P cf925017 s=100 l=3 r=1 n=47
+918 R-- P 021a24a2 s=100 l=3 r=1 n=47
+919 R-- P a47697ce s=100 l=3 r=1 n=47
+920 RF- P d44c4697 s=100 l=3 r=1 n=47
+921 R-- P d0a53ae5 s=100 l=3 r=1 n=47
+922 R-- P 05ef0f64 s=100 l=3 r=1 n=47
+923 R-- P ef936cb9 s=100 l=3 r=1 n=47
+924 R-- P ac041ba8 s=100 l=3 r=1 n=47
+925 R-- P 293b4d0b s=100 l=3 r=1 n=47
+926 R-- P bb798536 s=100 l=3 r=1 n=47
+927 R-- P 7631cbfe s=100 l=3 r=1 n=47
+928 R-- P 5f9e96e3 s=100 l=3 r=1 n=47
+929 R-- P 047bf0d9 s=100 l=3 r=1 n=47
+930 R-- P d1f7cb3a s=100 l=3 r=1 n=47
+931 R-- P 10021281 s=100 l=3 r=1 n=47
+932 R-- P 96e6d881 s=100 l=3 r=1 n=47
+933 R-- P 11c0b30a s=100 l=3 r=1 n=47
+934 R-- P 30ab458b s=100 l=3 r=1 n=47
+935 R-- P a25e1330 s=100 l=3 r=1 n=47
+936 R-- P e6fa9df2 s=100 l=3 r=1 n=47
+937 R-- P 82f1b648 s=100 l=3 r=1 n=47
+938 R-- P 152638a9 s=100 l=3 r=1 n=47
+939 R-- P 5540c6f3 s=100 l=3 r=1 n=47
+940 RF- P 790a8b15 s=100 l=3 r=1 n=47
+941 R-- P 54792a76 s=100 l=3 r=1 n=47
+942 R-- P 318e913f s=100 l=3 r=1 n=47
+943 R-- P 232a44d1 s=100 l=3 r=1 n=47
+944 R-- P 4c34274a s=100 l=3 r=1 n=47
+945 R-- P c42e4b0c s=100 l=3 r=1 n=47
+946 R-- P ccc1c282 s=100 l=3 r=1 n=47
+947 R-- P 7911fff9 s=100 l=3 r=1 n=47
+948 R-- P 3a0734d3 s=100 l=3 r=1 n=47
+949 R-- P a63337a5 s=100 l=3 r=1 n=47
+950 R-- P 566043ed s=100 l=3 r=1 n=47
+951 R-- P 9094ee83 s=100 l=3 r=1 n=47
+952 R-- P 073ccb59 s=100 l=3 r=1 n=47
+953 R-- P b6b905a4 s=100 l=3 r=1 n=47
+954 R-- P 3e38dabf s=100 l=3 r=1 n=47
+955 R-- P 0a6daadc s=100 l=3 r=1 n=47
+956 R-- P 76f9d682 s=100 l=3 r=1 n=47
+957 R-- P 0dfa596a s=100 l=3 r=1 n=47
+958 R-- P 3ebc0ade s=100 l=3 r=1 n=47
+959 R-- P 7ae0d6ae s=100 l=3 r=1 n=47
+960 RF- P 746f49d4 s=100 l=3 r=1 n=47
+961 R-- P 0cb1139f s=100 l=3 r=1 n=47
+962 R-- P a5132b1b s=100 l=3 r=1 n=47
+963 R-- P 303c09eb s=100 l=3 r=1 n=47
+964 R-- P dae31dbc s=100 l=3 r=1 n=47
+965 R-- P 41a01260 s=100 l=3 r=1 n=47
+966 R-- P 3f17b60b s=100 l=3 r=1 n=47
+967 R-- P d2d4e797 s=100 l=3 r=1 n=47
+968 R-- P 3f4b5330 s=100 l=3 r=1 n=47
+969 R-- P 896c55a5 s=100 l=3 r=1 n=47
+970 R-- P b1f9c731 s=100 l=3 r=1 n=47
+971 R-- P 38d082a6 s=100 l=3 r=1 n=47
+972 R-- P 70a29204 s=100 l=3 r=1 n=47
+973 R-- P d68320c0 s=100 l=3 r=1 n=47
+974 R-- P cd6c9745 s=100 l=3 r=1 n=47
+975 R-- P c757f790 s=100 l=3 r=1 n=47
+976 R-- P 84b0411a s=100 l=3 r=1 n=47
+977 R-- P 493c2904 s=100 l=3 r=1 n=47
+978 R-- P 31e7d01c s=100 l=3 r=1 n=47
+979 R-- P c29d8a92 s=100 l=3 r=1 n=47
+980 RF- P e8e5115a s=100 l=3 r=1 n=47
+981 R-- P dad773ba s=100 l=3 r=1 n=47
+982 R-- P ef4949a0 s=100 l=3 r=1 n=47
+983 R-- P 51a51f2c s=100 l=3 r=1 n=47
+984 R-- P c20edf52 s=100 l=3 r=1 n=47
+985 R-- P f45487ac s=100 l=3 r=1 n=47
+986 R-- P a3521f6f s=120 l=3 r=1 n=46
+987 R-- P efbb7149 s=120 l=3 r=1 n=46
+988 R-- P c8522832 s=120 l=3 r=1 n=46
+989 R-- P 0348084d s=120 l=3 r=1 n=46
+990 L-- P 44a17629 s=120 l=3 r=1 n=46
+991 L-- P efaa3857 s=120 l=3 r=1 n=46
+992 L-- P 1e182389 s=120 l=3 r=1 n=46
+993 L-- P 7a338583 s=120 l=3 r=1 n=46
+994 L-- P bf6c2ba8 s=120 l=3 r=1 n=46
+995 L-- P 2811c911 s=120 l=3 r=1 n=46
+996 L-- P 805c581a s=120 l=3 r=1 n=46
+997 L-- P 1e5561ce s=120 l=3 r=1 n=46
+998 L-- P 02c55824 s=120 l=3 r=1 n=46
+999 L-- P 35c3c18c s=120 l=3 r=1 n=46
+1000 LF- P 737c63b6 s=120 l=3 r=1 n=46
+1001 L-- P 2867949f s=120 l=3 r=1 n=46
+1002 L-- P 0e76637e s=120 l=3 r=1 n=46
+1003 L-- P c080e5fa s=120 l=3 r=1 n=46
+1004 L-- P 6ecd9d86 s=120 l=3 r=1 n=46
+1005 L-- P 6f6fbd11 s=120 l=3 r=1 n=46
+1006 L-- P c1676890 s=120 l=3 r=1 n=46
+1007 L-- P 00cd34b2 s=120 l=3 r=1 n=46
+1008 L-- P 60c1e1d7 s=120 l=3 r=1 n=46
+1009 L-- P d7f3f619 s=120 l=3 r=1 n=46
+1010 L-- P 03852aa3 s=120 l=3 r=1 n=46
+1011 L-- P 252fbf88 s=120 l=3 r=1 n=46
+1012 L-- P 79fe0309 s=120 l=3 r=1 n=46
+1013 L-- P 5e591037 s=120 l=3 r=1 n=46
+1014 L-- P 4e157bdf s=120 l=3 r=1 n=46
+1015 L-- P 5dc61a00 s=120 l=3 r=1 n=46
+1016 L-- P d73498c2 s=120 l=3 r=1 n=46
+1017 L-- P d06ceb10 s=120 l=3 r=1 n=46
+1018 L-- P 4e030ef8 s=120 l=3 r=1 n=46
+1019 L-- P efdd0fcd s=120 l=3 r=1 n=46
+1020 LF- P 51b1c414 s=120 l=3 r=1 n=46
+1021 L-- P e3a46643 s=120 l=3 r=1 n=46
+1022 L-- P 40cb4fc3 s=130 l=3 r=1 n=45
+1023 L-- P c86e0ee2 s=130 l=3 r=1 n=45
+1024 L-- P b15b05b3 s=130 l=3 r=1 n=45
+1025 L-- P e6abd39d s=130 l=3 r=1 n=45
+1026 L-- P ba4adeda s=130 l=3 r=1 n=45
+1027 L-- P 9255ef73 s=130 l=3 r=1 n=45
+1028 L-- P fac6548a s=130 l=3 r=1 n=45
+1029 L-- P 48bf198f s=130 l=3 r=1 n=45
+1030 L-- P c2cad6a0 s=130 l=3 r=1 n=45
+1031 L-- P 0d2bc59c s=130 l=3 r=1 n=45
+1032 L-- P 2678fb66 s=130 l=3 r=1 n=45
+1033 L-- P 4f85fffb s=130 l=3 r=1 n=45
+1034 L-- P a5f3d48c s=130 l=3 r=1 n=45
+1035 L-- P e66b98e6 s=130 l=3 r=1 n=45
+1036 L-- P ac80be9d s=130 l=3 r=1 n=45
+1037 L-- P 2d87781c s=130 l=3 r=1 n=45
+1038 L-- P 88dd033a s=130 l=3 r=1 n=45
+1039 L-- P 251b36a8 s=130 l=3 r=1 n=45
+1040 LF- P 756464ea s=130 l=3 r=1 n=45
+1041 L-- P 44575909 s=130 l=3 r=1 n=45
+1042 L-- P c984acc8 s=130 l=3 r=1 n=45
+1043 L-- P 9aabd23f s=130 l=3 r=1 n=45
+1044 L-- P fc3c2f3d s=130 l=3 r=1 n=45
+1045 L-- P b419350f s=130 l=3 r=1 n=45
+1046 L-- P 5a7f9770 s=130 l=3 r=1 n=45
+1047 L-- P 2f67caa4 s=130 l=3 r=1 n=45
+1048 L-- P 1131a65d s=130 l=3 r=1 n=45
+1049 L-- P e4636d85 s=130 l=3 r=1 n=45
+1050 L-- P f80f90cb s=130 l=3 r=1 n=45
+1051 L-- P 4c85b68f s=130 l=3 r=1 n=45
+1052 L-- P a370f7a2 s=130 l=3 r=1 n=45
+1053 L-- P 6cb1abab s=130 l=3 r=1 n=45
+1054 L-- P 4f1b9a47 s=130 l=3 r=1 n=45
+1055 L-- P ef4ee88b s=130 l=3 r=1 n=45
+1056 L-- P 1ce6f10a s=130 l=3 r=1 n=45
+1057 L-- P 97a1c2d2 s=130 l=3 r=1 n=45
+1058 L-- P 93b7ba8b s=130 l=3 r=1 n=45
+1059 L-- P 99049c16 s=130 l=3 r=1 n=45
+1060 LF- P 58226df7 s=130 l=3 r=1 n=45
+1061 L-- P d89cb01d s=130 l=3 r=1 n=45
+1062 L-- P 6649fd5f s=140 l=3 r=1 n=44
+1063 L-- P 9611554b s=140 l=3 r=1 n=44
+1064 L-- P ea3152c2 s=140 l=3 r=1 n=44
+1065 L-- P 2420822f s=140 l=3 r=1 n=44
+1066 L-- P 97d4518f s=140 l=3 r=1 n=44
+1067 L-- P d95bccda s=140 l=3 r=1 n=44
+1068 L-- P e5579118 s=140 l=3 r=1 n=44
+1069 L-- P f109e510 s=140 l=3 r=1 n=44
+1070 L-- P c7116512 s=140 l=3 r=1 n=44
+1071 L-- P e2affded s=140 l=3 r=1 n=44
+1072 L-- P 159efd36 s=140 l=3 r=1 n=44
+1073 L-- P 1fdcbe55 s=140 l=3 r=1 n=44
+1074 L-- P 45aa5678 s=140 l=3 r=1 n=44
+1075 L-- P 963962d3 s=140 l=3 r=1 n=44
+1076 L-- P a0114f0e s=140 l=3 r=1 n=44
+1077 L-- P 9289332d s=140 l=3 r=1 n=44
+1078 L-- P 9267b235 s=140 l=3 r=1 n=44
+1079 L-- P d8b615b9 s=140 l=3 r=1 n=44
+1080 RF- P db8d4e73 s=140 l=3 r=1 n=44
+1081 R-- P 613473ce s=140 l=3 r=1 n=44
+1082 R-- P 16c729e2 s=140 l=3 r=1 n=44
+1083 R-- P 0f2dd6ee s=140 l=3 r=1 n=44
+1084 R-- P 85392af0 s=140 l=3 r=1 n=44
+1085 R-- P 56a351a7 s=140 l=3 r=1 n=44
+1086 R-- P 0b34ceec s=140 l=3 r=1 n=44
+1087 R-- P 7da5a63c s=140 l=3 r=1 n=44
+1088 R-- P 5fef7943 s=140 l=3 r=1 n=44
+1089 R-- P bd03da72 s=140 l=3 r=1 n=44
+1090 R-- P b5ce58fd s=140 l=3 r=1 n=44
+1091 R-- P 75bcce06 s=140 l=3 r=1 n=44
+1092 R-- P 62ffd909 s=140 l=3 r=1 n=44
+1093 R-- P 49f31482 s=140 l=3 r=1 n=44
+1094 R-- P b7d11520 s=140 l=3 r=1 n=44
+1095 R-- P 46f561f1 s=140 l=3 r=1 n=44
+1096 R-- P 51305fc6 s=140 l=3 r=1 n=44
+1097 R-- P 76753db5 s=140 l=3 r=1 n=44
+1098 R-- P dd95d842 s=140 l=3 r=1 n=44
+1099 R-- P f97df852 s=140 l=3 r=1 n=44
+1100 RF- P dd6b4a2c s=140 l=3 r=1 n=44
+1101 R-- P 7c25584d s=140 l=3 r=1 n=44
+1102 R-- P e4c3a728 s=140 l=3 r=1 n=44
+1103 R-- P 45c701e6 s=140 l=3 r=1 n=44
+1104 R-- P 20c51fd8 s=140 l=3 r=1 n=44
+1105 R-- P 2a905c0e s=140 l=3 r=1 n=44
+1106 R-- P 4bfb4ade s=140 l=3 r=1 n=44
+1107 R-- P e7ab25ca s=140 l=3 r=1 n=44
+1108 R-- P dec4986f s=140 l=3 r=1 n=44
+1109 R-- P d18d55c1 s=140 l=3 r=1 n=44
+1110 R-- P 7d4d2fd0 s=140 l=3 r=1 n=44
+1111 R-- P 60cff5f9 s=140 l=3 r=1 n=44
+1112 R-- P 4bd3c514 s=140 l=3 r=1 n=44
+1113 R-- P c27c5864 s=140 l=3 r=1 n=44
+1114 R-- P 8c0ab818 s=140 l=3 r=1 n=44
+1115 R-- P 66908cd0 s=140 l=3 r=1 n=44
+1116 R-- P aca0deb4 s=140 l=3 r=1 n=44
+1117 R-- P dd74984e s=140 l=3 r=1 n=44
+1118 R-- P 9235ed0a s=140 l=3 r=1 n=44
+1119 R-- P dfc6d377 s=140 l=3 r=1 n=44
+1120 RF- P eaa946d2 s=140 l=3 r=1 n=44
+1121 R-- P 0459a6ba s=140 l=3 r=1 n=44
+1122 R-- P 051088e6 s=140 l=3 r=1 n=44
+1123 R-- P 7e046e53 s=140 l=3 r=1 n=44
+1124 R-- P 7407a4f7 s=140 l=3 r=1 n=44
+1125 R-- P e6c04b9b s=140 l=3 r=1 n=44
+1126 R-- P cb6c1b48 s=140 l=3 r=1 n=44
+1127 R-- P d643f63e s=140 l=3 r=1 n=44
+1128 R-- P be1bdb48 s=140 l=3 r=1 n=44
+1129 R-- P aa50a2b0 s=140 l=3 r=1 n=44
+1130 R-- P c673a70d s=140 l=3 r=1 n=44
+1131 R-- P f7d1aebf s=140 l=3 r=1 n=44
+1132 R-- P 9f94ab7c s=140 l=3 r=1 n=44
+1133 R-- P b573e285 s=140 l=3 r=1 n=44
+1134 R-- P ae079844 s=140 l=3 r=1 n=44
+1135 R-- P 328c5c35 s=140 l=3 r=1 n=44
+1136 R-- P 6c226ecd s=140 l=3 r=1 n=44
+1137 R-- P ec37869d s=140 l=3 r=1 n=44
+1138 R-- P a2c2cdad s=140 l=3 r=1 n=44
+1139 R-- P 98597286 s=140 l=3 r=1 n=44
+1140 RF- P c64b7e46 s=140 l=3 r=1 n=44
+1141 R-- P 9ee68d7c s=140 l=3 r=1 n=44
+1142 R-- P 9bccd4eb s=140 l=3 r=1 n=44
+1143 R-- P 12a48914 s=140 l=3 r=1 n=44
+1144 R-- P f5764a8d s=140 l=3 r=1 n=44
+1145 R-- P bc1a2c1a s=140 l=3 r=1 n=44
+1146 R-- P 09ab2808 s=140 l=3 r=1 n=44
+1147 R-- P 906b5118 s=140 l=3 r=1 n=44
+1148 R-- P 6fc151a3 s=140 l=3 r=1 n=44
+1149 R-- P a623c7df s=140 l=3 r=1 n=44
+1150 R-- P e9c235eb s=140 l=3 r=1 n=44
+1151 R-- P 76ccf789 s=140 l=3 r=1 n=44
+1152 R-- P c582c934 s=140 l=3 r=1 n=44
+1153 R-- P 27e4d085 s=140 l=3 r=1 n=44
+1154 R-- P d603f765 s=140 l=3 r=1 n=44
+1155 R-- P 80a1444c s=140 l=3 r=1 n=44
+1156 R-- P b1806a75 s=140 l=3 r=1 n=44
+1157 R-- P 4b4b3102 s=140 l=3 r=1 n=44
+1158 R-- P 641ab090 s=140 l=3 r=1 n=44
+1159 R-- P 33a46779 s=140 l=3 r=1 n=44
+1160 RF- P b80ece14 s=140 l=3 r=1 n=44
+1161 R-- P 1c4e4d2f s=140 l=3 r=1 n=44
+1162 R-- P 34e9b59a s=140 l=3 r=1 n=44
+1163 R-- P 062c86ca s=140 l=3 r=1 n=44
+1164 R-- P 2dd17f58 s=140 l=3 r=1 n=44
+1165 R-- P cbcdace5 s=140 l=3 r=1 n=44
+1166 R-- P 41dd1526 s=140 l=3 r=1 n=44
+1167 R-- P 41a43aad s=140 l=3 r=1 n=44
+1168 R-- P 6a2ca12c s=140 l=3 r=1 n=44
+1169 R-- P 8f59d908 s=140 l=3 r=1 n=44
+1170 L-- P 90bae5b0 s=140 l=3 r=1 n=44
+1171 L-- P 134f9e14 s=140 l=3 r=1 n=44
+1172 L-- P 20441356 s=140 l=3 r=1 n=44
+1173 L-- P cb438e4d s=140 l=3 r=1 n=44
+1174 L-- P 8d0a350b s=140 l=3 r=1 n=44
+1175 L-- P c548970a s=140 l=3 r=1 n=44
+1176 L-- P bd5d6c54 s=140 l=3 r=1 n=44
+1177 L-- P 86a1980f s=140 l=3 r=1 n=44
+1178 L-- P 4ef98a1b s=140 l=3 r=1 n=44
+1179 L-- P 78b6dafd s=140 l=3 r=1 n=44
+1180 LF- P 3d0e81fb s=140 l=3 r=1 n=44
+1181 L-- P 6d8c7b3e s=140 l=3 r=1 n=44
+1182 L-- P 51580535 s=140 l=3 r=1 n=44
+1183 L-- P cb3d5624 s=140 l=3 r=1 n=44
+1184 L-- P 54028344 s=140 l=3 r=1 n=44
+1185 L-- P efae2c36 s=140 l=3 r=1 n=44
+1186 L-- P 53eb162e s=140 l=3 r=1 n=44
+1187 L-- P cd1f374a s=140 l=3 r=1 n=44
+1188 L-- P 65193444 s=140 l=3 r=1 n=44
+1189 L-- P 0f0ffec8 s=140 l=3 r=1 n=44
+1190 L-- P 1ac5cd3f s=140 l=3 r=1 n=44
+1191 L-- P 63a44010 s=140 l=3 r=1 n=44
+1192 L-- P 088d6efb s=140 l=3 r=1 n=44
+1193 L-- P e0b3739d s=140 l=3 r=1 n=44
+1194 L-- P 7693b3ee s=140 l=3 r=1 n=44
+1195 L-- P 82908bb4 s=140 l=3 r=1 n=44
+1196 L-- P 03edeb8b s=140 l=3 r=1 n=44
+1197 L-- P 7305c453 s=140 l=3 r=1 n=44
+1198 L-- P 5e569c0f s=140 l=3 r=1 n=44
+1199 L-- P 93d745dd s=140 l=3 r=1 n=44
+1200 LF- P f0a9517d s=140 l=3 r=1 n=44
+1201 L-- P 05e3e455 s=140 l=3 r=1 n=44
+1202 L-- P 6cdd37b4 s=140 l=3 r=1 n=44
+1203 L-- P 1db34f3d s=140 l=3 r=1 n=44
+1204 L-- P 96c162e5 s=140 l=3 r=1 n=44
+1205 L-- P ced17773 s=140 l=3 r=1 n=44
+1206 L-- P 4882b333 s=140 l=3 r=1 n=44
+1207 L-- P 2829f29d s=140 l=3 r=1 n=44
+1208 L-- P 2587bec3 s=140 l=3 r=1 n=44
+1209 L-- P ebdf237d s=140 l=3 r=1 n=44
+1210 L-- P 5b186d89 s=140 l=3 r=1 n=44
+1211 L-- P 7b55d66c s=140 l=3 r=1 n=44
+1212 L-- P cc75c641 s=140 l=3 r=1 n=44
+1213 L-- P 6b4dad58 s=140 l=3 r=1 n=44
+1214 L-- P 426f7ce8 s=140 l=3 r=1 n=44
+1215 L-- P 3ec109ba s=140 l=3 r=1 n=44
+1216 L-- P 096bb770 s=140 l=3 r=1 n=44
+1217 L-- P bdbfe40e s=140 l=3 r=1 n=44
+1218 L-- P 590e1d5c s=140 l=3 r=1 n=44
+1219 L-- P 6b2d6c2c s=140 l=3 r=1 n=44
+1220 LF- P dcd3989a s=140 l=3 r=1 n=44
+1221 L-- P b9921c5f s=140 l=3 r=1 n=44
+1222 L-- P b6c7672e s=140 l=3 r=1 n=44
+1223 L-- P 7ff51c47 s=140 l=3 r=1 n=44
+1224 L-- P a1bfba5b s=140 l=3 r=1 n=44
+1225 L-- P 59b6d16b s=140 l=3 r=1 n=44
+1226 L-- P 5b46f15c s=140 l=3 r=1 n=44
+1227 L-- P 12e41c79 s=140 l=3 r=1 n=44
+1228 L-- P 632b6e9c s=140 l=3 r=1 n=44
+1229 L-- P 4d290c29 s=140 l=3 r=1 n=44
+1230 L-- P 87466394 s=140 l=3 r=1 n=44
+1231 L-- P 804713ab s=140 l=3 r=1 n=44
+1232 L-- P 2a453534 s=140 l=3 r=1 n=44
+1233 L-- P c8c92cac s=140 l=3 r=1 n=44
+1234 L-- P 82807391 s=140 l=3 r=1 n=44
+1235 L-- P 3cb85e8c s=140 l=3 r=1 n=44
+1236 L-- P bfc34a1b s=140 l=3 r=1 n=44
+1237 L-- P 062756d9 s=140 l=3 r=1 n=44
+1238 L-- P 169a91d5 s=140 l=3 r=1 n=44
+1239 L-- P 71097b2e s=140 l=3 r=1 n=44
+1240 LF- P 56421f8c s=140 l=3 r=1 n=44
+1241 L-- P 18be255f s=140 l=3 r=1 n=44
+1242 L-- P 89de30f6 s=140 l=3 r=1 n=44
+1243 L-- P b5b2a1aa s=140 l=3 r=1 n=44
+1244 L-- P 5fa73416 s=140 l=3 r=1 n=44
+1245 L-- P 01bc19ef s=140 l=3 r=1 n=44
+1246 L-- P 3e0c3f9d s=140 l=3 r=1 n=44
+1247 L-- P 1d359e12 s=140 l=3 r=1 n=44
+1248 L-- P d91f4b27 s=140 l=3 r=1 n=44
+1249 L-- P c6b03384 s=140 l=3 r=1 n=44
+1250 L-- P 42fd2893 s=140 l=3 r=1 n=44
+1251 L-- P 2887b536 s=140 l=3 r=1 n=44
+1252 L-- P c692e136 s=140 l=3 r=1 n=44
+1253 L-- P 3868b77c s=140 l=3 r=1 n=44
+1254 L-- P 9c01b998 s=140 l=3 r=1 n=44
+1255 L-- P 8afe5988 s=140 l=3 r=1 n=44
+1256 L-- P d361296a s=140 l=3 r=1 n=44
+1257 L-- P aa346371 s=140 l=3 r=1 n=44
+1258 L-- P dacca2a6 s=140 l=3 r=1 n=44
+1259 L-- P 1283f46a s=140 l=3 r=1 n=44
+1260 RF- P 2dff1288 s=140 l=3 r=1 n=44
+1261 R-- P 80700487 s=140 l=3 r=1 n=44
+1262 R-- P 65e6815d s=140 l=3 r=1 n=44
+1263 R-- P bb23dd44 s=140 l=3 r=1 n=44
+1264 R-- P b29d8f5a s=140 l=3 r=1 n=44
+1265 R-- P 7db44250 s=140 l=3 r=1 n=44
+1266 R-- P 51e191cd s=140 l=3 r=1 n=44
+1267 R-- P cf3e22b3 s=140 l=3 r=1 n=44
+1268 R-- P 4570f2ea s=140 l=3 r=1 n=44
+1269 R-- P 99757752 s=140 l=3 r=1 n=44
+1270 R-- P 1494ff8b s=140 l=3 r=1 n=44
+1271 R-- P e717d4ad s=140 l=3 r=1 n=44
+1272 R-- P 7d9c300b s=140 l=3 r=1 n=44
+1273 R-- P 051d240a s=140 l=3 r=1 n=44
+1274 R-- P a38678ca s=140 l=3 r=1 n=44
+1275 R-- P 87958979 s=140 l=3 r=1 n=44
+1276 R-- P 2ca5290d s=140 l=3 r=1 n=44
+1277 R-- P c5737c9a s=140 l=3 r=1 n=44
+1278 R-- P 63be56f6 s=140 l=3 r=1 n=44
+1279 R-- P 2a2d1979 s=140 l=3 r=1 n=44
+1280 RF- P 4f2565a7 s=140 l=3 r=1 n=44
+1281 R-- P e0a92ad1 s=140 l=3 r=1 n=44
+1282 R-- P 8ccea045 s=140 l=3 r=1 n=44
+1283 R-- P 8f6d981a s=140 l=3 r=1 n=44
+1284 R-- P b337cc5a s=140 l=3 r=1 n=44
+1285 R-- P c00239b1 s=140 l=3 r=1 n=44
+1286 R-- P d23e1c3e s=140 l=3 r=1 n=44
+1287 R-- P dd56ae47 s=140 l=3 r=1 n=44
+1288 R-- P ad6e1618 s=140 l=3 r=1 n=44
+1289 R-- P 8eff443f s=140 l=3 r=1 n=44
+1290 R-- P 48a97ab6 s=140 l=3 r=1 n=44
+1291 R-- P 5b67ee5d s=140 l=3 r=1 n=44
+1292 R-- P dffd463f s=140 l=3 r=1 n=44
+1293 R-- P 91b99d55 s=140 l=3 r=1 n=44
+1294 R-- P 28486340 s=140 l=3 r=1 n=44
+1295 R-- P a8b1d89a s=140 l=3 r=1 n=44
+1296 R-- P 5078f69b s=140 l=3 r=1 n=44
+1297 R-- P 5bca560a s=140 l=3 r=1 n=44
+1298 R-- P 417c8917 s=140 l=3 r=1 n=44
+1299 R-- P cedf005a s=140 l=3 r=1 n=44
+1300 RF- P 6eae2e52 s=140 l=3 r=1 n=44
+1301 R-- P cff0835c s=140 l=3 r=1 n=44
+1302 R-- P 27935ae4 s=140 l=3 r=1 n=44
+1303 R-- P e82898cc s=140 l=3 r=1 n=44
+1304 R-- P 71872c92 s=140 l=3 r=1 n=44
+1305 R-- P 0fc1497f s=140 l=3 r=1 n=44
+1306 R-- P 559f701c s=140 l=3 r=1 n=44
+1307 R-- P 755a9a60 s=140 l=3 r=1 n=44
+1308 R-- P 0bee473e s=140 l=3 r=1 n=44
+1309 R-- P 815de6d8 s=140 l=3 r=1 n=44
+1310 R-- P e1d315ae s=140 l=3 r=1 n=44
+1311 R-- P aaba12d0 s=140 l=3 r=1 n=44
+1312 R-- P cae30a2d s=140 l=3 r=1 n=44
+1313 R-- P 85a971f3 s=140 l=3 r=1 n=44
+1314 R-- P 0e876e6d s=140 l=3 r=1 n=44
+1315 R-- P 0f6c416a s=140 l=3 r=1 n=44
+1316 R-- P fbf981ba s=140 l=3 r=1 n=44
+1317 R-- P 7c32ec1d s=140 l=3 r=1 n=44
+1318 R-- P 0e1f3e3e s=140 l=3 r=1 n=44
+1319 R-- P 95ecb6bb s=140 l=3 r=1 n=44
+1320 RF- P 63cdd1ab s=140 l=3 r=1 n=44
+1321 R-- P e080b690 s=140 l=3 r=1 n=44
+1322 R-- P eac060b7 s=140 l=3 r=1 n=44
+1323 R-- P f5b22f76 s=140 l=3 r=1 n=44
+1324 R-- P b0d72896 s=140 l=3 r=1 n=44
+1325 R-- P bbe75b8a s=140 l=3 r=1 n=44
+1326 R-- P 2c4761bd s=140 l=3 r=1 n=44
+1327 R-- P a0338919 s=140 l=3 r=1 n=44
+1328 R-- P e4746cde s=140 l=3 r=1 n=44
+1329 R-- P ea54ce7c s=140 l=3 r=1 n=44
+1330 R-- P aed52133 s=140 l=3 r=1 n=44
+1331 R-- P 808d4d90 s=140 l=3 r=1 n=44
+1332 R-- P 9fb74009 s=140 l=3 r=1 n=44
+1333 R-- P 07252a57 s=140 l=3 r=1 n=44
+1334 R-- P 955ebb67 s=140 l=3 r=1 n=44
+1335 R-- P d22de4fd s=140 l=3 r=1 n=44
+1336 R-- P 9f057378 s=140 l=3 r=1 n=44
+1337 R-- P d158348d s=140 l=3 r=1 n=44
+1338 R-- P 5c01812a s=140 l=3 r=1 n=44
+1339 R-- P 2b4ce251 s=140 l=3 r=1 n=44
+1340 RF- P 6c7a1ec4 s=140 l=3 r=1 n=44
+1341 R-- P b25f9b83 s=140 l=3 r=1 n=44
+1342 R-- P 31ca181c s=140 l=3 r=1 n=44
+1343 R-- P 640ff19b s=140 l=3 r=1 n=44
+1344 R-- P 1f0b863b s=140 l=3 r=1 n=44
+1345 R-- P 5dc4e47a s=140 l=3 r=1 n=44
+1346 R-- P 5ecbac88 s=140 l=3 r=1 n=44
+1347 R-- P 79620a06 s=140 l=3 r=1 n=44
+1348 R-- P 2b4ed5c2 s=140 l=3 r=1 n=44
+1349 R-- P 0f32869a s=140 l=3 r=1 n=44
+1350 L-- P 91ad31c0 s=140 l=3 r=1 n=44
+1351 L-- P 2158877a s=140 l=3 r=1 n=44
+1352 L-- P 9aa5a60e s=140 l=3 r=1 n=44
+1353 L-- P 739787ec s=140 l=3 r=1 n=44
+1354 L-- P 35205753 s=140 l=3 r=1 n=44
+1355 L-- P d9974ac0 s=140 l=3 r=1 n=44
+1356 L-- P 8536d636 s=140 l=3 r=1 n=44
+1357 L-- P 4a44ba74 s=140 l=3 r=1 n=44
+1358 L-- P b3e72173 s=150 l=3 r=1 n=43
+1359 L-- P 85b8bc03 s=150 l=3 r=1 n=43
+1360 LF- P 5b135911 s=150 l=3 r=1 n=43
+1361 L-- P 529f59f6 s=150 l=3 r=1 n=43
+1362 L-- P 8df422b9 s=150 l=3 r=1 n=43
+1363 L-- P ee193bf2 s=150 l=3 r=1 n=43
+1364 L-- P d3bc21a9 s=150 l=3 r=1 n=43
+1365 L-- P 8539cd3e s=150 l=3 r=1 n=43
+1366 L-- P 7c7e2036 s=150 l=3 r=1 n=43
+1367 L-- P cd887f57 s=150 l=3 r=1 n=43
+1368 L-- P bd7a9d5b s=150 l=3 r=1 n=43
+1369 L-- P c8106a6d s=150 l=3 r=1 n=43
+1370 L-- P 0d89b012 s=150 l=3 r=1 n=43
+1371 L-- P 722aac38 s=150 l=3 r=1 n=43
+1372 L-- P 0ad76542 s=150 l=3 r=1 n=43
+1373 L-- P ede70bb8 s=150 l=3 r=1 n=43
+1374 L-- P 9dee6909 s=150 l=3 r=1 n=43
+1375 L-- P 0810991c s=150 l=3 r=1 n=43
+1376 L-- P 83415db6 s=150 l=3 r=1 n=43
+1377 L-- P e2b0da99 s=150 l=3 r=1 n=43
+1378 L-- P 307eed1a s=150 l=3 r=1 n=43
+1379 L-- P 88268b91 s=150 l=3 r=1 n=43
+1380 LF- P 1c15d6c2 s=150 l=3 r=1 n=43
+1381 L-- P 72915f9c s=150 l=3 r=1 n=43
+1382 L-- P 2f4628ab s=160 l=3 r=1 n=42
+1383 L-- P d0571a65 s=160 l=3 r=1 n=42
+1384 L-- P dc7c2044 s=160 l=3 r=1 n=42
+1385 L-- P a22ff194 s=160 l=3 r=1 n=42
+1386 L-- P 3fe0debf s=160 l=3 r=1 n=42
+1387 L-- P 49489f53 s=160 l=3 r=1 n=42
+1388 L-- P 0fb949af s=160 l=3 r=1 n=42
+1389 L-- P 6636ee60 s=160 l=3 r=1 n=42
+1390 L-- P aeb1def0 s=160 l=3 r=1 n=42
+1391 L-- P be9739b0 s=160 l=3 r=1 n=42
+1392 L-- P dcd8ebae s=160 l=3 r=1 n=42
+1393 L-- P d6efbd2b s=160 l=3 r=1 n=42
+1394 L-- P 9aacdeef s=160 l=3 r=1 n=42
+1395 L-- P 6462be5b s=160 l=3 r=1 n=42
+1396 L-- P 30fef0b3 s=160 l=3 r=1 n=42
+1397 L-- P e8bc1186 s=160 l=3 r=1 n=42
+1398 L-- P 4b628de4 s=160 l=3 r=1 n=42
+1399 L-- P 2fd8d668 s=160 l=3 r=1 n=42
+1400 LF- P 25620998 s=160 l=3 r=1 n=42
+1401 L-- P 4e90cc68 s=160 l=3 r=1 n=42
+1402 L-- P 4e127170 s=160 l=3 r=1 n=42
+1403 L-- P dbe6a353 s=160 l=3 r=1 n=42
+1404 L-- P ccf6ecd2 s=160 l=3 r=1 n=42
+1405 L-- P 3ceec3d9 s=160 l=3 r=1 n=42
+1406 L-- P d023cd2b s=160 l=3 r=1 n=42
+1407 L-- P 5c553ca0 s=160 l=3 r=1 n=42
+1408 L-- P eec2a83c s=160 l=3 r=1 n=42
+1409 L-- P 8350eaa4 s=160 l=3 r=1 n=42
+1410 L-- P 62b0af2f s=160 l=3 r=1 n=42
+1411 L-- P b3ad4a54 s=160 l=3 r=1 n=42
+1412 L-- P b608bef0 s=160 l=3 r=1 n=42
+1413 L-- P 15237694 s=160 l=3 r=1 n=42
+1414 L-- P cc263b23 s=160 l=3 r=1 n=42
+1415 L-- P d8fd9e87 s=160 l=3 r=1 n=42
+1416 L-- P f03a4b53 s=160 l=3 r=1 n=42
+1417 L-- P 5dfa1e73 s=160 l=3 r=1 n=42
+1418 L-- P a2930508 s=160 l=3 r=1 n=42
+1419 L-- P c575e5d1 s=160 l=3 r=1 n=42
+1420 LF- P c8eb885c s=160 l=3 r=1 n=42
+1421 L-- P ce20db93 s=160 l=3 r=1 n=42
+1422 L-- P 77c96b0a s=160 l=3 r=1 n=42
+1423 L-- P 479b3ccd s=160 l=3 r=1 n=42
+1424 L-- P 569986d2 s=160 l=3 r=1 n=42
+1425 L-- P bdcd6387 s=160 l=3 r=1 n=42
+1426 L-- P 1245aae8 s=160 l=3 r=1 n=42
+1427 L-- P c977de91 s=160 l=3 r=1 n=42
+1428 L-- P 81571422 s=160 l=3 r=1 n=42
+1429 L-- P eeff9ad2 s=160 l=3 r=1 n=42
+1430 L-- P e34f2134 s=180 l=3 r=1 n=41
+1431 L-- P f23238d3 s=180 l=3 r=1 n=41
+1432 L-- P 2abe6588 s=180 l=3 r=1 n=41
+1433 L-- P 65f52e80 s=180 l=3 r=1 n=41
+1434 L-- P 6df8c490 s=180 l=3 r=1 n=41
+1435 L-- P f7570acb s=180 l=3 r=1 n=41
+1436 L-- P 51e35655 s=180 l=3 r=1 n=41
+1437 L-- P e2df28f3 s=180 l=3 r=1 n=41
+1438 L-- P d718f9ef s=180 l=3 r=1 n=41
+1439 L-- P da0f82cf s=180 l=3 r=1 n=41
+1440 RF- P ac08a897 s=180 l=3 r=1 n=41
+1441 R-- P 702ddc59 s=180 l=3 r=1 n=41
+1442 R-- P 1e296246 s=180 l=3 r=1 n=41
+1443 R-- P 2e1c9893 s=180 l=3 r=1 n=41
+1444 R-- P 0cde95e4 s=180 l=3 r=1 n=41
+1445 R-- P 8e17a15b s=180 l=3 r=1 n=41
+1446 R-- P f30c736b s=180 l=3 r=1 n=41
+1447 R-- P 469acb37 s=180 l=3 r=1 n=41
+1448 R-- P 00f37522 s=180 l=3 r=1 n=41
+1449 R-- P e0d6794a s=180 l=3 r=1 n=41
+1450 R-- P 7b23dcfe s=180 l=3 r=1 n=41
+1451 R-- P 967dea3b s=180 l=3 r=1 n=41
+1452 R-- P 7bc6c29c s=180 l=3 r=1 n=41
+1453 R-- P b453bafd s=180 l=3 r=1 n=41
+1454 R-- P 663b6062 s=180 l=3 r=1 n=41
+1455 R-- P 556393bf s=180 l=3 r=1 n=41
+1456 R-- P ed428c8d s=180 l=3 r=1 n=41
+1457 R-- P 9ff58d95 s=180 l=3 r=1 n=41
+1458 R-- P 34fb180d s=180 l=3 r=1 n=41
+1459 R-- P a0738fd6 s=180 l=3 r=1 n=41
+1460 RF- P c3c28351 s=180 l=3 r=1 n=41
+1461 R-- P a2364239 s=180 l=3 r=1 n=41
+1462 R-- P 4dc81798 s=180 l=3 r=1 n=41
+1463 R-- P 32d40c64 s=180 l=3 r=1 n=41
+1464 R-- P 852c03d4 s=180 l=3 r=1 n=41
+1465 R-- P 657bc2ab s=180 l=3 r=1 n=41
+1466 R-- P fbfa1ed5 s=180 l=3 r=1 n=41
+1467 R-- P f707cc5b s=180 l=3 r=1 n=41
+1468 R-- P fecd2c76 s=180 l=3 r=1 n=41
+1469 R-- P 65ff695a s=180 l=3 r=1 n=41
+1470 R-- P ebab4a2f s=180 l=3 r=1 n=41
+1471 R-- P 0fbec9ab s=180 l=3 r=1 n=41
+1472 R-- P 39cda6fc s=180 l=3 r=1 n=41
+1473 R-- P 2117a2f6 s=180 l=3 r=1 n=41
+1474 R-- P e5e42953 s=180 l=3 r=1 n=41
+1475 R-- P d50b65a7 s=180 l=3 r=1 n=41
+1476 R-- P 285adeef s=180 l=3 r=1 n=41
+1477 R-- P 74315c9c s=180 l=3 r=1 n=41
+1478 R-- P 89cf8db8 s=180 l=3 r=1 n=41
+1479 R-- P 18c7f889 s=180 l=3 r=1 n=41
+1480 RF- P 33d36b2f s=180 l=3 r=1 n=41
+1481 R-- P e302fb90 s=180 l=3 r=1 n=41
+1482 R-- P a3ba2b8b s=180 l=3 r=1 n=41
+1483 R-- P 00df6a3a s=180 l=3 r=1 n=41
+1484 R-- P 2a297d7b s=180 l=3 r=1 n=41
+1485 R-- P be8884ba s=180 l=3 r=1 n=41
+1486 R-- P c7285c27 s=180 l=3 r=1 n=41
+1487 R-- P 9dbf56fe s=180 l=3 r=1 n=41
+1488 R-- P 37eb5786 s=180 l=3 r=1 n=41
+1489 R-- P e6836cfe s=180 l=3 r=1 n=41
+1490 R-- P f7876484 s=180 l=3 r=1 n=41
+1491 R-- P d8f046db s=180 l=3 r=1 n=41
+1492 R-- P 293f8709 s=180 l=3 r=1 n=41
+1493 R-- P 125d343c s=180 l=3 r=1 n=41
+1494 R-- P 2b18a3a8 s=180 l=3 r=1 n=41
+1495 R-- P a1ed312e s=180 l=3 r=1 n=41
+1496 R-- P fd0bf150 s=180 l=3 r=1 n=41
+1497 R-- P 66e5210d s=180 l=3 r=1 n=41
+1498 R-- P 1090097d s=180 l=3 r=1 n=41
+1499 R-- P 6bc7d505 s=180 l=3 r=1 n=41
+1500 RF- P 80c41e7b s=180 l=3 r=1 n=41
+1501 R-- P d7fdbcf7 s=180 l=3 r=1 n=41
+1502 R-- P fbac7c23 s=180 l=3 r=1 n=41
+1503 R-- P 9d8d28b0 s=180 l=3 r=1 n=41
+1504 R-- P 524e1ee4 s=180 l=3 r=1 n=41
+1505 R-- P e1bb2577 s=180 l=3 r=1 n=41
+1506 R-- P a8f90952 s=180 l=3 r=1 n=41
+1507 R-- P fa14deb1 s=180 l=3 r=1 n=41
+1508 R-- P 1f8e2ea2 s=180 l=3 r=1 n=41
+1509 R-- P e0e344fa s=180 l=3 r=1 n=41
+1510 R-- P f8c5831a s=180 l=3 r=1 n=41
+1511 R-- P a3e74905 s=180 l=3 r=1 n=41
+1512 R-- P 58bad7a2 s=180 l=3 r=1 n=41
+1513 R-- P f4a37191 s=180 l=3 r=1 n=41
+1514 R-- P 17fab125 s=180 l=3 r=1 n=41
+1515 R-- P c8e94924 s=180 l=3 r=1 n=41
+1516 R-- P 82f4776a s=180 l=3 r=1 n=41
+1517 R-- P f2fe1ffb s=180 l=3 r=1 n=41
+1518 R-- P 50aa06a8 s=180 l=3 r=1 n=41
+1519 R-- P bd09b6bc s=180 l=3 r=1 n=41
+1520 RF- P a709e9d1 s=180 l=3 r=1 n=41
+1521 R-- P 0204859c s=180 l=3 r=1 n=41
+1522 R-- P 7cb7503c s=180 l=3 r=1 n=41
+1523 R-- P 5ca9e0b5 s=180 l=3 r=1 n=41
+1524 R-- P 9bd96aa3 s=200 l=3 r=1 n=40
+1525 R-- P 9b6e5313 s=200 l=3 r=1 n=40
+1526 R-- P 15391ed4 s=200 l=3 r=1 n=40
+1527 R-- P 16008405 s=200 l=3 r=1 n=40
+1528 R-- P 3d15ca6d s=200 l=3 r=1 n=40
+1529 R-- P bf362dfc s=200 l=3 r=1 n=40
+1530 L-- P 7d6cd0b1 s=200 l=3 r=1 n=40
+1531 L-- P 521346ff s=200 l=3 r=1 n=40
+1532 L-- P afc98fa3 s=200 l=3 r=1 n=40
+1533 L-- P 91bb1ecd s=200 l=3 r=1 n=40
+1534 L-- P eb50dddf s=200 l=3 r=1 n=40
+1535 L-- P 080fcc4f s=200 l=3 r=1 n=40
+1536 L-- P ab7c19a9 s=200 l=3 r=1 n=40
+1537 L-- P 57f68ecc s=200 l=3 r=1 n=40
+1538 L-- P c7a9092b s=200 l=3 r=1 n=40
+1539 L-- P 4ed12d21 s=200 l=3 r=1 n=40
+1540 LF- P 6c55e7dd s=200 l=3 r=1 n=40
+1541 L-- P 978f2959 s=200 l=3 r=1 n=40
+1542 L-- P 7978f359 s=200 l=3 r=1 n=40
+1543 L-- P c52f66bf s=200 l=3 r=1 n=40
+1544 L-- P 6b45ae14 s=200 l=3 r=1 n=40
+1545 L-- P aa1d92ee s=200 l=3 r=1 n=40
+1546 L-- P 372e4c31 s=200 l=3 r=1 n=40
+1547 L-- P a37f1930 s=200 l=3 r=1 n=40
+1548 L-- P 423b3f4d s=200 l=3 r=1 n=40
+1549 L-- P 45bd502b s=200 l=3 r=1 n=40
+1550 L-- P 1b7c8622 s=200 l=3 r=1 n=40
+1551 L-- P 7c71f43c s=200 l=3 r=1 n=40
+1552 L-- P 6cbb7eed s=200 l=3 r=1 n=40
+1553 L-- P 867be693 s=200 l=3 r=1 n=40
+1554 L-- P e696cb40 s=200 l=3 r=1 n=40
+1555 L-- P f7b7a749 s=200 l=3 r=1 n=40
+1556 L-- P 4670b3a8 s=200 l=3 r=1 n=40
+1557 L-- P 345c3e10 s=200 l=3 r=1 n=40
+1558 L-- P 3548d09f s=200 l=3 r=1 n=40
+1559 L-- P b2866995 s=200 l=3 r=1 n=40
+1560 LF- P 10fd6df4 s=200 l=3 r=1 n=40
+1561 L-- P edca4d66 s=200 l=3 r=1 n=40
+1562 L-- P e125020a s=200 l=3 r=1 n=40
+1563 L-- P ad22060b s=200 l=3 r=1 n=40
+1564 L-- P 1809c784 s=220 l=3 r=1 n=39
+1565 L-- P 40b67184 s=220 l=3 r=1 n=39
+1566 L-- P 968a9784 s=220 l=3 r=1 n=39
+1567 L-- P 74b2e479 s=220 l=3 r=1 n=39
+1568 L-- P ab6e2175 s=220 l=3 r=1 n=39
+1569 L-- P ba0686dd s=220 l=3 r=1 n=39
+1570 L-- P 825e5126 s=220 l=3 r=1 n=39
+1571 L-- P d5f9b0df s=220 l=3 r=1 n=39
+1572 L-- P 2ae070bb s=220 l=3 r=1 n=39
+1573 L-- P 2727b9e5 s=220 l=3 r=1 n=39
+1574 L-- P a429a229 s=220 l=3 r=1 n=39
+1575 L-- P e2c210b2 s=220 l=3 r=1 n=39
+1576 L-- P 5277b669 s=220 l=3 r=1 n=39
+1577 L-- P 054f6a3e s=220 l=3 r=1 n=39
+1578 L-- P 0d3b79a5 s=220 l=3 r=1 n=39
+1579 L-- P 97ed2a11 s=220 l=3 r=1 n=39
+1580 LF- P b3207569 s=220 l=3 r=1 n=39
+1581 L-- P 3f92c9d1 s=220 l=3 r=1 n=39
+1582 L-- P b7ec961a s=220 l=3 r=1 n=39
+1583 L-- P 0a7554ba s=220 l=3 r=1 n=39
+1584 L-- P 021393ae s=220 l=3 r=1 n=39
+1585 L-- P fd65d82e s=220 l=3 r=1 n=39
+1586 L-- P 9599aaf4 s=220 l=3 r=1 n=39
+1587 L-- P 021e3b7b s=220 l=3 r=1 n=39
+1588 L-- P 6a0d5e90 s=220 l=3 r=1 n=39
+1589 L-- P 3d485f4a s=220 l=3 r=1 n=39
+1590 L-- P cbd4e7a4 s=220 l=3 r=1 n=39
+1591 L-- P 9ddd1124 s=220 l=3 r=1 n=39
+1592 L-- P de0f9622 s=220 l=3 r=1 n=39
+1593 L-- P 50cfb95f s=220 l=3 r=1 n=39
+1594 L-- P ec561fef s=220 l=3 r=1 n=39
+1595 L-- P 93dff80c s=220 l=3 r=1 n=39
+1596 L-- P 53c3a360 s=220 l=3 r=1 n=39
+1597 L-- P 13d0b0d9 s=220 l=3 r=1 n=39
+1598 L-- P 2260233d s=220 l=3 r=1 n=39
+1599 L-- P 4873a53d s=220 l=3 r=1 n=39
+1600 LF- P 021c2cc4 s=220 l=3 r=1 n=39
+1601 L-- P 6c4afe32 s=220 l=3 r=1 n=39
+1602 L-- P 2b4c4d4f s=220 l=3 r=1 n=39
+1603 L-- P 44be7eb8 s=220 l=3 r=1 n=39
+1604 L-- P eeede490 s=220 l=3 r=1 n=39
+1605 L-- P 3f257299 s=220 l=3 r=1 n=39
+1606 L-- P 76dfbc32 s=220 l=3 r=1 n=39
+1607 L-- P 8325c083 s=220 l=3 r=1 n=39
+1608 L-- P 72049580 s=220 l=3 r=1 n=39
+1609 L-- P 09d11204 s=220 l=3 r=1 n=39
+1610 L-- P cf526bfa s=220 l=3 r=1 n=39
+1611 L-- P 956ea42f s=220 l=3 r=1 n=39
+1612 L-- P 648fc70a s=220 l=3 r=1 n=39
+1613 L-- P 99e47459 s=220 l=3 r=1 n=39
+1614 L-- P cb5ba90d s=220 l=3 r=1 n=39
+1615 L-- P c09eaf86 s=220 l=3 r=1 n=39
+1616 L-- P 1e1ea5bc s=220 l=3 r=1 n=39
+1617 L-- P dd096cc5 s=220 l=3 r=1 n=39
+1618 L-- P 7835bf56 s=220 l=3 r=1 n=39
+1619 L-- P ee9dcaec s=220 l=3 r=1 n=39
+1620 RF- P be79b693 s=220 l=3 r=1 n=39
+1621 R-- P 0b58779a s=220 l=3 r=1 n=39
+1622 R-- P 1a9b01c7 s=220 l=3 r=1 n=39
+1623 R-- P b1146633 s=220 l=3 r=1 n=39
+1624 R-- P 47257e8d s=220 l=3 r=1 n=39
+1625 R-- P 889bda8f s=220 l=3 r=1 n=39
+1626 R-- P 39b7fede s=220 l=3 r=1 n=39
+1627 R-- P cee06b23 s=220 l=3 r=1 n=39
+1628 R-- P e3a4e83d s=220 l=3 r=1 n=39
+1629 R-- P 6699f94f s=220 l=3 r=1 n=39
+1630 R-- P 319de896 s=220 l=3 r=1 n=39
+1631 R-- P 6f846746 s=220 l=3 r=1 n=39
+1632 R-- P 7b2102ff s=220 l=3 r=1 n=39
+1633 R-- P ffda2fd4 s=220 l=3 r=1 n=39
+1634 R-- P 81ab75f3 s=220 l=3 r=1 n=39
+1635 R-- P 9736cffb s=220 l=3 r=1 n=39
+1636 R-- P 517a443f s=220 l=3 r=1 n=39
+1637 R-- P 85845341 s=220 l=3 r=1 n=39
+1638 R-- P ee5d2b7e s=220 l=3 r=1 n=39
+1639 R-- P e156e9b1 s=220 l=3 r=1 n=39
+1640 RF- P 6280ed9f s=220 l=3 r=1 n=39
+1641 R-- P ac89295f s=220 l=3 r=1 n=39
+1642 R-- P 4c6b4429 s=220 l=3 r=1 n=39
+1643 R-- P 3e8337c7 s=220 l=3 r=1 n=39
+1644 R-- P 34f07a6b s=220 l=3 r=1 n=39
+1645 R-- P 6dd3d157 s=220 l=3 r=1 n=39
+1646 R-- P e0c5b764 s=220 l=3 r=1 n=39
+1647 R-- P b8d85d39 s=220 l=3 r=1 n=39
+1648 R-- P 0d4f565d s=220 l=3 r=1 n=39
+1649 R-- P 22dae0cb s=220 l=3 r=1 n=39
+1650 R-- P 528b18d4 s=220 l=3 r=1 n=39
+1651 R-- P d5e50a44 s=220 l=3 r=1 n=39
+1652 R-- P 94f2009b s=220 l=3 r=1 n=39
+1653 R-- P 3742c22f s=220 l=3 r=1 n=39
+1654 R-- P c38b58de s=220 l=3 r=1 n=39
+1655 R-- P b3a2efa1 s=220 l=3 r=1 n=39
+1656 R-- P 3e213dcc s=220 l=3 r=1 n=39
+1657 R-- P 51beef3e s=220 l=3 r=1 n=39
+1658 R-- P 62d0831e s=220 l=3 r=1 n=39
+1659 R-- P 81c85e88 s=220 l=3 r=1 n=39
+1660 RF- P 47b34f96 s=220 l=3 r=1 n=39
+1661 R-- P a190533e s=220 l=3 r=1 n=39
+1662 R-- P 6cfb8acd s=220 l=3 r=1 n=39
+1663 R-- P 9c5569ad s=220 l=3 r=1 n=39
+1664 R-- P 9eee636e s=220 l=3 r=1 n=39
+1665 R-- P a83b8a30 s=220 l=3 r=1 n=39
+1666 R-- P 0f2d3192 s=220 l=3 r=1 n=39
+1667 R-- P 3848d04c s=220 l=3 r=1 n=39
+1668 R-- P 9123ccea s=220 l=3 r=1 n=39
+1669 R-- P bb938d3c s=220 l=3 r=1 n=39
+1670 R-- P e7e8e10d s=220 l=3 r=1 n=39
+1671 R-- P fd89d18f s=220 l=3 r=1 n=39
+1672 R-- P 0a8e1352 s=220 l=3 r=1 n=39
+1673 R-- P 29c5e2c6 s=220 l=3 r=1 n=39
+1674 R-- P 823f40c2 s=220 l=3 r=1 n=39
+1675 R-- P 6442fae9 s=220 l=3 r=1 n=39
+1676 R-- P 7ab87dda s=220 l=3 r=1 n=39
+1677 R-- P 8622c6f5 s=220 l=3 r=1 n=39
+1678 R-- P 41b99ecc s=220 l=3 r=1 n=39
+1679 R-- P 591c2c21 s=220 l=3 r=1 n=39
+1680 RF- P 61c67dd3 s=220 l=3 r=1 n=39
+1681 R-- P 769f170a s=220 l=3 r=1 n=39
+1682 R-- P a0529d6a s=220 l=3 r=1 n=39
+1683 R-- P 473a3495 s=220 l=3 r=1 n=39
+1684 R-- P 533adea0 s=220 l=3 r=1 n=39
+1685 R-- P a2068903 s=220 l=3 r=1 n=39
+1686 R-- P 24830b64 s=220 l=3 r=1 n=39
+1687 R-- P 698f063b s=220 l=3 r=1 n=39
+1688 R-- P 1d82b959 s=220 l=3 r=1 n=39
+1689 R-- P 18c96e54 s=220 l=3 r=1 n=39
+1690 R-- P 722906bc s=220 l=3 r=1 n=39
+1691 R-- P 468142fd s=220 l=3 r=1 n=39
+1692 R-- P 38da4e73 s=220 l=3 r=1 n=39
+1693 R-- P 9c76f068 s=220 l=3 r=1 n=39
+1694 R-- P e29fdb68 s=220 l=3 r=1 n=39
+1695 R-- P 9d28c27c s=220 l=3 r=1 n=39
+1696 R-- P d3a4c3a2 s=220 l=3 r=1 n=39
+1697 R-- P 6f756b33 s=220 l=3 r=1 n=39
+1698 R-- P c7a61b01 s=220 l=3 r=1 n=39
+1699 R-- P 1b70b694 s=220 l=3 r=1 n=39
+1700 RF- P 071b0c04 s=220 l=3 r=1 n=39
+1701 R-- P 75495cca s=220 l=3 r=1 n=39
+1702 R-- P e7737843 s=220 l=3 r=1 n=39
+1703 R-- P 5c36a38f s=220 l=3 r=1 n=39
+1704 R-- P fc9a8826 s=220 l=3 r=1 n=39
+1705 R-- P fa273fdf s=220 l=3 r=1 n=39
+1706 R-- P a41d1628 s=220 l=3 r=1 n=39
+1707 R-- P 0cb1daf7 s=220 l=3 r=1 n=39
+1708 R-- P e97f7bfa s=220 l=3 r=1 n=39
+1709 R-- P 5e99d35d s=220 l=3 r=1 n=39
+1710 L-- P b5bba9d4 s=220 l=3 r=1 n=39
+1711 L-- P a3ac56da s=220 l=3 r=1 n=39
+1712 L-- P f6548caa s=220 l=3 r=1 n=39
+1713 L-- P 2d952270 s=220 l=3 r=1 n=39
+1714 L-- P a3c24ce5 s=220 l=3 r=1 n=39
+1715 L-- P 633ebaca s=220 l=3 r=1 n=39
+1716 L-- P bb2bbd2d s=220 l=3 r=1 n=39
+1717 L-- P 077c3ad6 s=220 l=3 r=1 n=39
+1718 L-- P 1dd394d3 s=220 l=3 r=1 n=39
+1719 L-- P bbff36a2 s=220 l=3 r=1 n=39
+1720 LF- P 5ec7c053 s=220 l=3 r=1 n=39
+1721 L-- P 39e293cf s=220 l=3 r=1 n=39
+1722 L-- P 4e4f51a3 s=220 l=3 r=1 n=39
+1723 L-- P 40532f07 s=220 l=3 r=1 n=39
+1724 L-- P 18e3c856 s=220 l=3 r=1 n=39
+1725 L-- P c80e2fea s=220 l=3 r=1 n=39
+1726 L-- P 0a4ac9be s=220 l=3 r=1 n=39
+1727 L-- P d29b46e1 s=220 l=3 r=1 n=39
+1728 L-- P 371b085b s=240 l=3 r=1 n=38
+1729 L-- P bee1ad08 s=240 l=3 r=1 n=38
+1730 L-- P d60daabf s=240 l=3 r=1 n=38
+1731 L-- P e9246713 s=240 l=3 r=1 n=38
+1732 L-- P 57b9cbea s=240 l=3 r=1 n=38
+1733 L-- P d20d1264 s=240 l=3 r=1 n=38
+1734 L-- P 3506af32 s=240 l=3 r=1 n=38
+1735 L-- P 70907a42 s=240 l=3 r=1 n=38
+1736 L-- P 2ee3a0c4 s=240 l=3 r=1 n=38
+1737 L-- P a3e2e3c7 s=240 l=3 r=1 n=38
+1738 L-- P 7c1c916e s=240 l=3 r=1 n=38
+1739 L-- P e4e387f4 s=240 l=3 r=1 n=38
+1740 LF- P 679fc590 s=240 l=3 r=1 n=38
+1741 L-- P e6188d9e s=240 l=3 r=1 n=38
+1742 L-- P 1449c880 s=240 l=3 r=1 n=38
+1743 L-- P 9d71496a s=240 l=3 r=1 n=38
+1744 L-- P e3976654 s=240 l=3 r=1 n=38
+1745 L-- P 4afac45f s=240 l=3 r=1 n=38
+1746 L-- P a4400739 s=240 l=3 r=1 n=38
+1747 L-- P 0f1eab29 s=240 l=3 r=1 n=38
+1748 L-- P 0f6d5619 s=240 l=3 r=1 n=38
+1749 L-- P d8300270 s=240 l=3 r=1 n=38
+1750 L-- P 1f81e3c2 s=240 l=3 r=1 n=38
+1751 L-- P e195dcf2 s=240 l=3 r=1 n=38
+1752 L-- P 1489e6cd s=240 l=3 r=1 n=38
+1753 L-- P ff927c70 s=240 l=3 r=1 n=38
+1754 L-- P 769804f6 s=240 l=3 r=1 n=38
+1755 L-- P fef3e07f s=240 l=3 r=1 n=38
+1756 L-- P 2fecb70f s=240 l=3 r=1 n=38
+1757 L-- P 0490632e s=240 l=3 r=1 n=38
+1758 L-- P d2caa3ae s=240 l=3 r=1 n=38
+1759 L-- P 4f1d6dc5 s=240 l=3 r=1 n=38
+1760 LF- P b9599c5b s=240 l=3 r=1 n=38
+1761 L-- P 68cf21b6 s=240 l=3 r=1 n=38
+1762 L-- P 3f674108 s=240 l=3 r=1 n=38
+1763 L-- P 0e066957 s=240 l=3 r=1 n=38
+1764 L-- P 9ae6d0cd s=240 l=3 r=1 n=38
+1765 L-- P 28f659a5 s=240 l=3 r=1 n=38
+1766 L-- P 0b29bee7 s=240 l=3 r=1 n=38
+1767 L-- P 11139e23 s=240 l=3 r=1 n=38
+1768 L-- P 2f65695b s=240 l=3 r=1 n=38
+1769 L-- P e37f2ff5 s=240 l=3 r=1 n=38
+1770 L-- P b3e6ea75 s=240 l=3 r=1 n=38
+1771 L-- P 4ef51fd6 s=240 l=3 r=1 n=38
+1772 L-- P 7c2d05b7 s=240 l=3 r=1 n=38
+1773 L-- P 0c4156c2 s=240 l=3 r=1 n=38
+1774 L-- P f7f2adcd s=240 l=3 r=1 n=38
+1775 L-- P bb357c43 s=240 l=3 r=1 n=38
+1776 L-- P 761dcf16 s=240 l=3 r=1 n=38
+1777 L-- P 28a08d4f s=240 l=3 r=1 n=38
+1778 L-- P 1cb8e6d4 s=240 l=3 r=1 n=38
+1779 L-- P 69bf6dc9 s=240 l=3 r=1 n=38
+1780 LF- P 61b331a4 s=240 l=3 r=1 n=38
+1781 L-- P fca36d2e s=240 l=3 r=1 n=38
+1782 L-- P e9543df0 s=240 l=3 r=1 n=38
+1783 L-- P 96a2e040 s=240 l=3 r=1 n=38
+1784 L-- P e78cb3a6 s=240 l=3 r=1 n=38
+1785 L-- P 8686f71f s=240 l=3 r=1 n=38
+1786 L-- P b66d63a3 s=240 l=3 r=1 n=38
+1787 L-- P e1a4f250 s=240 l=3 r=1 n=38
+1788 L-- P 060d8543 s=240 l=3 r=1 n=38
+1789 L-- P f18a0a3d s=240 l=3 r=1 n=38
+1790 L-- P cfe2e195 s=240 l=3 r=1 n=38
+1791 L-- P dbacd763 s=240 l=3 r=1 n=38
+1792 L-- P 13860f67 s=240 l=3 r=1 n=38
+1793 L-- P ca0567e8 s=240 l=3 r=1 n=38
+1794 L-- P 4087c1ba s=240 l=3 r=1 n=38
+1795 L-- P 4fcf41d2 s=240 l=3 r=1 n=38
+1796 L-- P 9573b813 s=240 l=3 r=1 n=38
+1797 L-- P e34db3e8 s=240 l=3 r=1 n=38
+1798 L-- P ac01b099 s=240 l=3 r=1 n=38
+1799 L-- P e6389d4b s=240 l=3 r=1 n=38
+1800 RF- P e537f4dc s=240 l=3 r=1 n=38
+1801 R-- P 9c26d0df s=240 l=3 r=1 n=38
+1802 R-- P 44f8b524 s=240 l=3 r=1 n=38
+1803 R-- P f2159e67 s=240 l=3 r=1 n=38
+1804 R-- P 92799074 s=240 l=3 r=1 n=38
+1805 R-- P a2f0cc9d s=240 l=3 r=1 n=38
+1806 R-- P f746f0d2 s=240 l=3 r=1 n=38
+1807 R-- P bbc9e074 s=240 l=3 r=1 n=38
+1808 R-- P b522612a s=240 l=3 r=1 n=38
+1809 R-- P b8198a99 s=240 l=3 r=1 n=38
+1810 R-- P ca76f55a s=240 l=3 r=1 n=38
+1811 R-- P 5eaad996 s=240 l=3 r=1 n=38
+1812 R-- P 043f6510 s=240 l=3 r=1 n=38
+1813 R-- P cfbfbd47 s=240 l=3 r=1 n=38
+1814 R-- P 1f1af444 s=240 l=3 r=1 n=38
+1815 R-- P 2c7e205b s=240 l=3 r=1 n=38
+1816 R-- P a359564d s=240 l=3 r=1 n=38
+1817 R-- P 0966d76e s=240 l=3 r=1 n=38
+1818 R-- P ad5855ce s=240 l=3 r=1 n=38
+1819 R-- P c6757820 s=240 l=3 r=1 n=38
+1820 RF- P 105b373e s=240 l=3 r=1 n=38
+1821 R-- P 5bc8ba94 s=240 l=3 r=1 n=38
+1822 R-- P c7fa7a62 s=240 l=3 r=1 n=38
+1823 R-- P 0c419102 s=240 l=3 r=1 n=38
+1824 R-- P 499d0c34 s=240 l=3 r=1 n=38
+1825 R-- P fcff3d8f s=240 l=3 r=1 n=38
+1826 R-- P f4221191 s=240 l=3 r=1 n=38
+1827 R-- P 3be27144 s=240 l=3 r=1 n=38
+1828 R-- P 16e12c5b s=240 l=3 r=1 n=38
+1829 R-- P d1bedd79 s=240 l=3 r=1 n=38
+1830 R-- P 0f88d7f8 s=240 l=3 r=1 n=38
+1831 R-- P be69154d s=240 l=3 r=1 n=38
+1832 R-- P a504093b s=240 l=3 r=1 n=38
+1833 R-- P 4c263f94 s=240 l=3 r=1 n=38
+1834 R-- P 5cc1a3bf s=240 l=3 r=1 n=38
+1835 R-- P 68604277 s=240 l=3 r=1 n=38
+1836 R-- P 57c48a2e s=240 l=3 r=1 n=38
+1837 R-- P d360c979 s=240 l=3 r=1 n=38
+1838 R-- P 6c964d92 s=240 l=3 r=1 n=38
+1839 R-- P f23082b5 s=240 l=3 r=1 n=38
+1840 RF- P e44e8c50 s=240 l=3 r=1 n=38
+1841 R-- P fe8d59ad s=240 l=3 r=1 n=38
+1842 R-- P 2f72efcb s=240 l=3 r=1 n=38
+1843 R-- P c585456b s=240 l=3 r=1 n=38
+1844 R-- P 4d58d32d s=240 l=3 r=1 n=38
+1845 R-- P 84db8439 s=240 l=3 r=1 n=38
+1846 R-- P 3304c1e9 s=240 l=3 r=1 n=38
+1847 R-- P 48c88a98 s=240 l=3 r=1 n=38
+1848 R-- P 06bfc2e4 s=240 l=3 r=1 n=38
+1849 R-- P 560fcb74 s=240 l=3 r=1 n=38
+1850 R-- P 3a646eee s=240 l=3 r=1 n=38
+1851 R-- P 993615ca s=240 l=3 r=1 n=38
+1852 R-- P ab09a571 s=240 l=3 r=1 n=38
+1853 R-- P 9186ee79 s=240 l=3 r=1 n=38
+1854 R-- P c3404e2d s=240 l=3 r=1 n=38
+1855 R-- P 9e44a41d s=240 l=3 r=1 n=38
+1856 R-- P daff5f10 s=240 l=3 r=1 n=38
+1857 R-- P f37a41a5 s=240 l=3 r=1 n=38
+1858 R-- P a9f28160 s=240 l=3 r=1 n=38
+1859 R-- P 3e9fe5ce s=240 l=3 r=1 n=38
+1860 RF- P 4b9a9fff s=240 l=3 r=1 n=38
+1861 R-- P 276260b7 s=240 l=3 r=1 n=38
+1862 R-- P bb70590e s=240 l=3 r=1 n=38
+1863 R-- P 51da14f2 s=240 l=3 r=1 n=38
+1864 R-- P 370b4011 s=240 l=3 r=1 n=38
+1865 R-- P c80ffb19 s=240 l=3 r=1 n=38
+1866 R-- P 6379d60c s=240 l=3 r=1 n=38
+1867 R-- P 0be6e31e s=240 l=3 r=1 n=38
+1868 R-- P 57708311 s=240 l=3 r=1 n=38
+1869 R-- P ed769391 s=240 l=3 r=1 n=38
+1870 R-- P 51dc0a6e s=240 l=3 r=1 n=38
+1871 R-- P 25e794c6 s=240 l=3 r=1 n=38
+1872 R-- P 898e96f0 s=240 l=3 r=1 n=38
+1873 R-- P c2c2dde0 s=240 l=3 r=1 n=38
+1874 R-- P ba7513cb s=240 l=3 r=1 n=38
+1875 R-- P d8a29657 s=240 l=3 r=1 n=38
+1876 R-- P 8b36d1d5 s=240 l=3 r=1 n=38
+1877 R-- P e60c1bb6 s=240 l=3 r=1 n=38
+1878 R-- P 676a627d s=240 l=3 r=1 n=38
+1879 R-- P 9fa66cc8 s=240 l=3 r=1 n=38
+1880 RF- P b50b5786 s=240 l=3 r=1 n=38
+1881 R-- P 63fc225d s=240 l=3 r=1 n=38
+1882 R-- P 8539d126 s=240 l=3 r=1 n=38
+1883 R-- P cd32d379 s=240 l=3 r=1 n=38
+1884 R-- P 1e7c99ff s=240 l=3 r=1 n=38
+1885 R-- P aeae89d0 s=240 l=3 r=1 n=38
+1886 R-- P 124e1189 s=240 l=3 r=1 n=38
+1887 R-- P 5c522846 s=240 l=3 r=1 n=38
+1888 R-- P 2a83d879 s=240 l=3 r=1 n=38
+1889 R-- P 609988f1 s=240 l=3 r=1 n=38
+1890 L-- P 08423f5d s=240 l=3 r=1 n=38
+1891 L-- P b2991cf6 s=240 l=3 r=1 n=38
+1892 L-- P 1867c526 s=270 l=3 r=1 n=37
+1893 L-- P 8c518804 s=270 l=3 r=1 n=37
+1894 L-- P d654755c s=270 l=3 r=1 n=37
+1895 L-- P 4537f61e s=270 l=3 r=1 n=37
+1896 L-- P 81a33d20 s=270 l=3 r=1 n=37
+1897 L-- P d445f2df s=270 l=3 r=1 n=37
+1898 L-- P 775145d2 s=270 l=3 r=1 n=37
+1899 L-- P c6fcd1e3 s=270 l=3 r=1 n=37
+1900 LF- P f063e5b5 s=270 l=3 r=1 n=37
+1901 L-- P 8908bb77 s=270 l=3 r=1 n=37
+1902 L-- P 4c3b5837 s=270 l=3 r=1 n=37
+1903 L-- P f7c736e2 s=270 l=3 r=1 n=37
+1904 L-- P 1730da16 s=270 l=3 r=1 n=37
+1905 L-- P b1105c18 s=270 l=3 r=1 n=37
+1906 L-- P e295a3aa s=270 l=3 r=1 n=37
+1907 L-- P 75609175 s=270 l=3 r=1 n=37
+1908 L-- P 142abc06 s=270 l=3 r=1 n=37
+1909 L-- P 0d94f3c6 s=270 l=3 r=1 n=37
+1910 L-- P 0564e5d2 s=270 l=3 r=1 n=37
+1911 L-- P b449b53a s=270 l=3 r=1 n=37
+1912 L-- P b16d481c s=270 l=3 r=1 n=37
+1913 L-- P f724c7e3 s=270 l=3 r=1 n=37
+1914 L-- P ac107a39 s=270 l=3 r=1 n=37
+1915 L-- P 85e99df5 s=270 l=3 r=1 n=37
+1916 L-- P 58b447d2 s=270 l=3 r=1 n=37
+1917 L-- P 86981eb7 s=270 l=3 r=1 n=37
+1918 L-- P 4b7341cb s=270 l=3 r=1 n=37
+1919 L-- P 188da1d9 s=270 l=3 r=1 n=37
+1920 LF- P ac90888a s=270 l=3 r=1 n=37
+1921 L-- P bf21bd48 s=270 l=3 r=1 n=37
+1922 L-- P be07477f s=270 l=3 r=1 n=37
+1923 L-- P f7bb2164 s=270 l=3 r=1 n=37
+1924 L-- P c690ab0f s=270 l=3 r=1 n=37
+1925 L-- P e61633e5 s=270 l=3 r=1 n=37
+1926 L-- P ee7d2460 s=270 l=3 r=1 n=37
+1927 L-- P 9448159b s=270 l=3 r=1 n=37
+1928 L-- P 4f089c29 s=270 l=3 r=1 n=37
+1929 L-- P c781ce11 s=270 l=3 r=1 n=37
+1930 L-- P a7020c33 s=270 l=3 r=1 n=37
+1931 L-- P f9de64b7 s=270 l=3 r=1 n=37
+1932 L-- P 792b07d7 s=300 l=3 r=1 n=36
+1933 L-- P f0d54ab1 s=300 l=3 r=1 n=36
+1934 L-- P e90b76a5 s=300 l=3 r=1 n=36
+1935 L-- P 51eeb631 s=300 l=3 r=1 n=36
+1936 L-- P 8430a778 s=300 l=3 r=1 n=36
+1937 L-- P 82900fab s=300 l=3 r=1 n=36
+1938 L-- P c9e36afb s=300 l=3 r=1 n=36
+1939 L-- P 97a62019 s=300 l=3 r=1 n=36
+1940 LF- P 7ef1a5d0 s=300 l=3 r=1 n=36
+1941 L-- P b757f577 s=300 l=3 r=1 n=36
+1942 L-- P 5f9d924d s=300 l=3 r=1 n=36
+1943 L-- P e503d823 s=300 l=3 r=1 n=36
+1944 L-- P dbe3bafc s=300 l=3 r=1 n=36
+1945 L-- P 5212bbed s=300 l=3 r=1 n=36
+1946 L-- P 677f41d1 s=300 l=3 r=1 n=36
+1947 L-- P 8c54af09 s=300 l=3 r=1 n=36
+1948 L-- P 0af98f5d s=300 l=3 r=1 n=36
+1949 L-- P 0caeff91 s=300 l=3 r=1 n=36
+1950 L-- P 71144fad s=300 l=3 r=1 n=36
+1951 L-- P 6a7711ff s=300 l=3 r=1 n=36
+1952 L-- P 805e26c4 s=300 l=3 r=1 n=36
+1953 L-- P 18a77717 s=300 l=3 r=1 n=36
+1954 L-- P 0842d396 s=300 l=3 r=1 n=36
+1955 L-- P 0d9ec8e4 s=300 l=3 r=1 n=36
+1956 L-- P 4a10f18a s=300 l=3 r=1 n=36
+1957 L-- P 03231215 s=300 l=3 r=1 n=36
+1958 L-- P 9928a5a6 s=300 l=3 r=1 n=36
+1959 L-- P 3cb46f91 s=300 l=3 r=1 n=36
+1960 LF- P 5ca028cb s=300 l=3 r=1 n=36
+1961 L-- P 366d08ce s=300 l=3 r=1 n=36
+1962 L-- P 3ff66b9f s=300 l=3 r=1 n=36
+1963 L-- P 2f1f49e9 s=300 l=3 r=1 n=36
+1964 L-- P 58bdcf47 s=300 l=3 r=1 n=36
+1965 L-- P ab23ef5a s=300 l=3 r=1 n=36
+1966 L-- P 27ea9054 s=300 l=3 r=1 n=36
+1967 L-- P 5dc59d99 s=300 l=3 r=1 n=36
+1968 L-- P 8fd91975 s=300 l=3 r=1 n=36
+1969 L-- P 52e1f9b1 s=300 l=3 r=1 n=36
+1970 L-- P 991079b0 s=300 l=3 r=1 n=36
+1971 L-- P 7ebaa37d s=300 l=3 r=1 n=36
+1972 L-- P 412aef46 s=300 l=3 r=1 n=36
+1973 L-- P 9c8e0c44 s=300 l=3 r=1 n=36
+1974 L-- P 6aa825ca s=300 l=3 r=1 n=36
+1975 L-- P f79d799a s=300 l=3 r=1 n=36
+1976 L-- P ba5ac66c s=300 l=3 r=1 n=36
+1977 L-- P 08c3d172 s=300 l=3 r=1 n=36
+1978 L-- P a63d7841 s=300 l=3 r=1 n=36
+1979 L-- P 69bd5882 s=300 l=3 r=1 n=36
+1980 RF- P e5a5de22 s=300 l=3 r=1 n=36
+1981 R-- P 4beb0899 s=300 l=3 r=1 n=36
+1982 R-- P 414818dc s=300 l=3 r=1 n=36
+1983 R-- P 184c3583 s=300 l=3 r=1 n=36
+1984 R-- P 65867b1c s=300 l=3 r=1 n=36
+1985 R-- P ad4548e5 s=300 l=3 r=1 n=36
+1986 R-- P 37ab5459 s=300 l=3 r=1 n=36
+1987 R-- P 3d42a52b s=300 l=3 r=1 n=36
+1988 R-- P 5b3f3e22 s=300 l=3 r=1 n=36
+1989 R-- P 88de1dfd s=300 l=3 r=1 n=36
+1990 R-- P d97bcb27 s=300 l=3 r=1 n=36
+1991 R-- P de49ed78 s=300 l=3 r=1 n=36
+1992 R-- P e2f3cde8 s=300 l=3 r=1 n=36
+1993 R-- P 929a3753 s=300 l=3 r=1 n=36
+1994 R-- P 2b1fcc10 s=300 l=3 r=1 n=36
+1995 R-- P deff589c s=300 l=3 r=1 n=36
+1996 R-- P 48d6e737 s=300 l=3 r=1 n=36
+1997 R-- P edc605e1 s=300 l=3 r=1 n=36
+1998 R-- P fe1f2a1f s=300 l=3 r=1 n=36
+1999 R-- P ededfc67 s=300 l=3 r=1 n=36
+2000 RF- P 12bf8cb0 s=300 l=3 r=1 n=36
+2001 R-- P b72873c6 s=300 l=3 r=1 n=36
+2002 R-- P 655a73e4 s=300 l=3 r=1 n=36
+2003 R-- P 8619427d s=300 l=3 r=1 n=36
+2004 R-- P ce2378e6 s=300 l=3 r=1 n=36
+2005 R-- P ca89cf8d s=300 l=3 r=1 n=36
+2006 R-- P a169c17d s=300 l=3 r=1 n=36
+2007 R-- P 2523ab50 s=300 l=3 r=1 n=36
+2008 R-- P d3b99f77 s=300 l=3 r=1 n=36
+2009 R-- P d7e97a22 s=300 l=3 r=1 n=36
+2010 R-- P 260bc8c6 s=300 l=3 r=1 n=36
+2011 R-- P b454b750 s=300 l=3 r=1 n=36
+2012 R-- P 25bcfc73 s=300 l=3 r=1 n=36
+2013 R-- P f9795273 s=300 l=3 r=1 n=36
+2014 R-- P 381517c7 s=300 l=3 r=1 n=36
+2015 R-- P d9603b40 s=300 l=3 r=1 n=36
+2016 R-- P c2235500 s=310 l=3 r=1 n=35
+2017 R-- P 2aa15e59 s=310 l=3 r=1 n=35
+2018 R-- P bbda2011 s=310 l=3 r=1 n=35
+2019 R-- P d82143cd s=310 l=3 r=1 n=35
+2020 RF- P b1e6cde1 s=310 l=3 r=1 n=35
+2021 R-- P fa962b2e s=310 l=3 r=1 n=35
+2022 R-- P 97b0c56e s=310 l=3 r=1 n=35
+2023 R-- P 7e8a7b45 s=310 l=3 r=1 n=35
+2024 R-- P 13648a4d s=310 l=3 r=1 n=35
+2025 R-- P ccc953e8 s=310 l=3 r=1 n=35
+2026 R-- P a1e756e1 s=310 l=3 r=1 n=35
+2027 R-- P 0bc2767b s=310 l=3 r=1 n=35
+2028 R-- P 607c496d s=310 l=3 r=1 n=35
+2029 R-- P 17b91162 s=310 l=3 r=1 n=35
+2030 R-- P 0b2bf85c s=310 l=3 r=1 n=35
+2031 R-- P faac7379 s=310 l=3 r=1 n=35
+2032 R-- P 1a5fa715 s=310 l=3 r=1 n=35
+2033 R-- P 02e6ad33 s=310 l=3 r=1 n=35
+2034 R-- P ef8e29d3 s=310 l=3 r=1 n=35
+2035 R-- P 84e8699a s=310 l=3 r=1 n=35
+2036 R-- P c96aca8d s=310 l=3 r=1 n=35
+2037 R-- P a0b63ca3 s=310 l=3 r=1 n=35
+2038 R-- P 6a51a57e s=310 l=3 r=1 n=35
+2039 R-- P b196c9d9 s=310 l=3 r=1 n=35
+2040 RF- P d36b1fa8 s=310 l=3 r=1 n=35
+2041 R-- P c83c7df4 s=310 l=3 r=1 n=35
+2042 R-- P 4555ed9d s=310 l=3 r=1 n=35
+2043 R-- P c49de230 s=310 l=3 r=1 n=35
+2044 R-- P 748a2684 s=310 l=3 r=1 n=35
+2045 R-- P 184e4c82 s=310 l=3 r=1 n=35
+2046 R-- P c12f47b0 s=310 l=3 r=1 n=35
+2047 R-- P e6ba2241 s=310 l=3 r=1 n=35
+2048 R-- P d529e375 s=310 l=3 r=1 n=35
+2049 R-- P b89eed8a s=310 l=3 r=1 n=35
+2050 R-- P f1ff5b2f s=310 l=3 r=1 n=35
+2051 R-- P 615ce0b5 s=310 l=3 r=1 n=35
+2052 R-- P ae837702 s=310 l=3 r=1 n=35
+2053 R-- P fd6881b9 s=310 l=3 r=1 n=35
+2054 R-- P c1c0cda3 s=310 l=3 r=1 n=35
+2055 R-- P 54bc2b83 s=310 l=3 r=1 n=35
+2056 R-- P df8f499c s=310 l=3 r=1 n=35
+2057 R-- P ea1ce5f8 s=310 l=3 r=1 n=35
+2058 R-- P 30b97b38 s=310 l=3 r=1 n=35
+2059 R-- P 92462c37 s=310 l=3 r=1 n=35
+2060 RF- P f18bd56f s=310 l=3 r=1 n=35
+2061 R-- P 5340dcc3 s=310 l=3 r=1 n=35
+2062 R-- P 9ce964d6 s=310 l=3 r=1 n=35
+2063 R-- P b8a5f3a4 s=310 l=3 r=1 n=35
+2064 R-- P 8baf607e s=310 l=3 r=1 n=35
+2065 R-- P dea01aa7 s=310 l=3 r=1 n=35
+2066 R-- P b1725470 s=310 l=3 r=1 n=35
+2067 R-- P b82eb1bc s=310 l=3 r=1 n=35
+2068 R-- P 5ea11dda s=310 l=3 r=1 n=35
+2069 R-- P ed398485 s=310 l=3 r=1 n=35
+2070 L-- P 355d025d s=310 l=3 r=1 n=35
+2071 L-- P a11d719d s=310 l=3 r=1 n=35
+2072 L-- P 460aa4dc s=310 l=3 r=1 n=35
+2073 L-- P 3855ae3c s=310 l=3 r=1 n=35
+2074 L-- P f330251e s=310 l=3 r=1 n=35
+2075 L-- P 3ad1cf2c s=310 l=3 r=1 n=35
+2076 L-- P 7764bc64 s=310 l=3 r=1 n=35
+2077 L-- P 94362ac9 s=310 l=3 r=1 n=35
+2078 L-- P b29198f5 s=310 l=3 r=1 n=35
+2079 L-- P 417a22e6 s=310 l=3 r=1 n=35
+2080 LF- P 754b9fba s=310 l=3 r=1 n=35
+2081 L-- P 3ab10689 s=310 l=3 r=1 n=35
+2082 L-- P 0267e73f s=310 l=3 r=1 n=35
+2083 L-- P 8ca65325 s=310 l=3 r=1 n=35
+2084 L-- P 44588b70 s=310 l=3 r=1 n=35
+2085 L-- P fd6473f1 s=310 l=3 r=1 n=35
+2086 L-- P 1b3a86e5 s=310 l=3 r=1 n=35
+2087 L-- P 036f4d1a s=310 l=3 r=1 n=35
+2088 L-- P 375b5e2b s=310 l=3 r=1 n=35
+2089 L-- P b886f7c1 s=310 l=3 r=1 n=35
+2090 L-- P 6dd04b1c s=310 l=3 r=1 n=35
+2091 L-- P 33d03fce s=310 l=3 r=1 n=35
+2092 L-- P 6fabe466 s=310 l=3 r=1 n=35
+2093 L-- P 5f6413b7 s=310 l=3 r=1 n=35
+2094 L-- P fdeaa2e1 s=310 l=3 r=1 n=35
+2095 L-- P 12f02e9c s=310 l=3 r=1 n=35
+2096 L-- P 2ad5a80c s=310 l=3 r=1 n=35
+2097 L-- P b27b5af2 s=310 l=3 r=1 n=35
+2098 L-- P 5deb6b3c s=310 l=3 r=1 n=35
+2099 L-- P 42e1f08c s=310 l=3 r=1 n=35
+2100 LF- P 928881e7 s=310 l=3 r=1 n=35
+2101 L-- P af252021 s=310 l=3 r=1 n=35
+2102 L-- P ee4206bb s=310 l=3 r=1 n=35
+2103 L-- P 17f1fb47 s=310 l=3 r=1 n=35
+2104 L-- P e6915a83 s=310 l=3 r=1 n=35
+2105 L-- P 8967ada8 s=310 l=3 r=1 n=35
+2106 L-- P 84538194 s=310 l=3 r=1 n=35
+2107 L-- P 18135a82 s=310 l=3 r=1 n=35
+2108 L-- P 88128902 s=310 l=3 r=1 n=35
+2109 L-- P 5cb98f2e s=310 l=3 r=1 n=35
+2110 L-- P 72c81535 s=310 l=3 r=1 n=35
+2111 L-- P 0c8b767d s=310 l=3 r=1 n=35
+2112 L-- P fdecc848 s=310 l=3 r=1 n=35
+2113 L-- P c997bed8 s=310 l=3 r=1 n=35
+2114 L-- P 8f1c4ac8 s=310 l=3 r=1 n=35
+2115 L-- P aa59a95e s=310 l=3 r=1 n=35
+2116 L-- P c97a11d4 s=310 l=3 r=1 n=35
+2117 L-- P 1f5583e5 s=310 l=3 r=1 n=35
+2118 L-- P c3ee2911 s=310 l=3 r=1 n=35
+2119 L-- P 48383fe8 s=310 l=3 r=1 n=35
+2120 LF- P 8174fc6f s=310 l=3 r=1 n=35
+2121 L-- P 0fb07db0 s=310 l=3 r=1 n=35
+2122 L-- P 432fcdf2 s=310 l=3 r=1 n=35
+2123 L-- P 8f390e42 s=310 l=3 r=1 n=35
+2124 L-- P 8326e0a6 s=310 l=3 r=1 n=35
+2125 L-- P 665c63b3 s=310 l=3 r=1 n=35
+2126 L-- P 6b75b8c1 s=310 l=3 r=1 n=35
+2127 L-- P 73e03284 s=310 l=3 r=1 n=35
+2128 L-- P 79ae8de3 s=310 l=3 r=1 n=35
+2129 L-- P 207fb1e5 s=310 l=3 r=1 n=35
+2130 L-- P 2c947348 s=310 l=3 r=1 n=35
+2131 L-- P ef02dde7 s=310 l=3 r=1 n=35
+2132 L-- P ad9172b3 s=310 l=3 r=1 n=35
+2133 L-- P 60102825 s=310 l=3 r=1 n=35
+2134 L-- P 41eee9c4 s=310 l=3 r=1 n=35
+2135 L-- P b4aa40b1 s=310 l=3 r=1 n=35
+2136 L-- P 903eda69 s=310 l=3 r=1 n=35
+2137 L-- P 1dfa9c9d s=310 l=3 r=1 n=35
+2138 L-- P d22bd0a1 s=310 l=3 r=1 n=35
+2139 L-- P e650b827 s=310 l=3 r=1 n=35
+2140 LF- P adffbc37 s=310 l=3 r=1 n=35
+2141 L-- P adb8cd10 s=310 l=3 r=1 n=35
+2142 L-- P 9a971edb s=310 l=3 r=1 n=35
+2143 L-- P 6553dcbd s=310 l=3 r=1 n=35
+2144 L-- P fa97acd1 s=310 l=3 r=1 n=35
+2145 L-- P 469769aa s=310 l=3 r=1 n=35
+2146 L-- P 98653043 s=310 l=3 r=1 n=35
+2147 L-- P ae1268b3 s=310 l=3 r=1 n=35
+2148 L-- P a5a402e5 s=310 l=3 r=1 n=35
+2149 L-- P 033ddaaf s=310 l=3 r=1 n=35
+2150 L-- P 3c0f3148 s=310 l=3 r=1 n=35
+2151 L-- P 25ffce15 s=310 l=3 r=1 n=35
+2152 L-- P 66f8e63a s=310 l=3 r=1 n=35
+2153 L-- P 73677dcf s=310 l=3 r=1 n=35
+2154 L-- P a5778501 s=310 l=3 r=1 n=35
+2155 L-- P c45627ee s=310 l=3 r=1 n=35
+2156 L-- P 6d17a878 s=310 l=3 r=1 n=35
+2157 L-- P 686eda2e s=310 l=3 r=1 n=35
+2158 L-- P 606892d7 s=310 l=3 r=1 n=35
+2159 L-- P 218bc2c3 s=310 l=3 r=1 n=35
+2160 RF- P 8fd141a0 s=310 l=3 r=1 n=35
+2161 R-- P e00ed641 s=310 l=3 r=1 n=35
+2162 R-- P 07e5ae5e s=310 l=3 r=1 n=35
+2163 R-- P 82a22275 s=310 l=3 r=1 n=35
+2164 R-- P d7454d5a s=310 l=3 r=1 n=35
+2165 R-- P bee9772b s=310 l=3 r=1 n=35
+2166 R-- P 7d199114 s=310 l=3 r=1 n=35
+2167 R-- P 75a5dcd7 s=310 l=3 r=1 n=35
+2168 R-- P b7756a3d s=310 l=3 r=1 n=35
+2169 R-- P 04ba2492 s=310 l=3 r=1 n=35
+2170 R-- P 3830e5ee s=310 l=3 r=1 n=35
+2171 R-- P d9cfbfb6 s=310 l=3 r=1 n=35
+2172 R-- P bfab8567 s=310 l=3 r=1 n=35
+2173 R-- P 85f4652f s=310 l=3 r=1 n=35
+2174 R-- P 84548b33 s=310 l=3 r=1 n=35
+2175 R-- P 112bb8b8 s=310 l=3 r=1 n=35
+2176 R-- P 55f3d85d s=310 l=3 r=1 n=35
+2177 R-- P 53e24af6 s=310 l=3 r=1 n=35
+2178 R-- P 72b68886 s=310 l=3 r=1 n=35
+2179 R-- P ff1d9850 s=310 l=3 r=1 n=35
+2180 RF- P 920c030e s=310 l=3 r=1 n=35
+2181 R-- P 77ffe560 s=310 l=3 r=1 n=35
+2182 R-- P 367c5233 s=310 l=3 r=1 n=35
+2183 R-- P 182418c9 s=310 l=3 r=1 n=35
+2184 R-- P 96766a53 s=310 l=3 r=1 n=35
+2185 R-- P 2cd6faa7 s=310 l=3 r=1 n=35
+2186 R-- P 7c4bcebe s=310 l=3 r=1 n=35
+2187 R-- P 0dd2c660 s=310 l=3 r=1 n=35
+2188 R-- P 6ddb7e69 s=310 l=3 r=1 n=35
+2189 R-- P 71f4506c s=310 l=3 r=1 n=35
+2190 R-- P a1838e01 s=310 l=3 r=1 n=35
+2191 R-- P 16712a79 s=310 l=3 r=1 n=35
+2192 R-- P 0e775746 s=310 l=3 r=1 n=35
+2193 R-- P b72f30cb s=310 l=3 r=1 n=35
+2194 R-- P be1d0278 s=310 l=3 r=1 n=35
+2195 R-- P ce4f4ebf s=310 l=3 r=1 n=35
+2196 R-- P d3a29dae s=310 l=3 r=1 n=35
+2197 R-- P 2ba9f16c s=310 l=3 r=1 n=35
+2198 R-- P 262a1ca0 s=310 l=3 r=1 n=35
+2199 R-- P a21b83b9 s=310 l=3 r=1 n=35
+2200 RF- P 1552a7fd s=310 l=3 r=1 n=35
+2201 R-- P ef9fa724 s=310 l=3 r=1 n=35
+2202 R-- P 7e1f09ff s=310 l=3 r=1 n=35
+2203 R-- P df599a2d s=310 l=3 r=1 n=35
+2204 R-- P 5347e9f7 s=310 l=3 r=1 n=35
+2205 R-- P b11ffdc7 s=310 l=3 r=1 n=35
+2206 R-- P 4547da8f s=310 l=3 r=1 n=35
+2207 R-- P 2e6b1f65 s=310 l=3 r=1 n=35
+2208 R-- P 286d0b62 s=310 l=3 r=1 n=35
+2209 R-- P da8f519a s=310 l=3 r=1 n=35
+2210 R-- P 41013d5a s=310 l=3 r=1 n=35
+2211 R-- P b6ff24fe s=310 l=3 r=1 n=35
+2212 R-- P b7bf8012 s=310 l=3 r=1 n=35
+2213 R-- P 8ad544bb s=310 l=3 r=1 n=35
+2214 R-- P bc143c21 s=310 l=3 r=1 n=35
+2215 R-- P 9d6543a5 s=310 l=3 r=1 n=35
+2216 R-- P afdca29e s=310 l=3 r=1 n=35
+2217 R-- P 6b4dddb5 s=310 l=3 r=1 n=35
+2218 R-- P 072aaad4 s=310 l=3 r=1 n=35
+2219 R-- P 6f655739 s=310 l=3 r=1 n=35
+2220 RF- P ebd4aaa9 s=310 l=3 r=1 n=35
+2221 R-- P 0ed43391 s=310 l=3 r=1 n=35
+2222 R-- P ea363fe4 s=310 l=3 r=1 n=35
+2223 R-- P ae4cabbb s=310 l=3 r=1 n=35
+2224 R-- P e26fe5af s=310 l=3 r=1 n=35
+2225 R-- P 97d54a29 s=310 l=3 r=1 n=35
+2226 R-- P c1a8d170 s=330 l=3 r=1 n=34
+2227 R-- P 0afa5fef s=330 l=3 r=1 n=34
+2228 R-- P 1aba7dac s=330 l=3 r=1 n=34
+2229 R-- P 4a85c4b1 s=330 l=3 r=1 n=34
+2230 R-- P ef7a0d5a s=330 l=3 r=1 n=34
+2231 R-- P 225f1ec0 s=330 l=3 r=1 n=34
+2232 R-- P f41f2a35 s=330 l=3 r=1 n=34
+2233 R-- P bc5d3728 s=330 l=3 r=1 n=34
+2234 R-- P e2ff2baf s=330 l=3 r=1 n=34
+2235 R-- P e1fb4b2d s=330 l=3 r=1 n=34
+2236 R-- P 479d7988 s=330 l=3 r=1 n=34
+2237 R-- P 631b3aa0 s=330 l=3 r=1 n=34
+2238 R-- P 7a120ffa s=330 l=3 r=1 n=34
+2239 R-- P 661ed0c2 s=330 l=3 r=1 n=34
+2240 RF- P 6298a8e2 s=330 l=3 r=1 n=34
+2241 R-- P 8a66b2e1 s=330 l=3 r=1 n=34
+2242 R-- P 749bff63 s=330 l=3 r=1 n=34
+2243 R-- P 3fbf84bd s=330 l=3 r=1 n=34
+2244 R-- P daf32e33 s=330 l=3 r=1 n=34
+2245 R-- P 49d72f1d s=330 l=3 r=1 n=34
+2246 R-- P f6f81724 s=330 l=3 r=1 n=34
+2247 R-- P e37c4616 s=330 l=3 r=1 n=34
+2248 R-- P c37efc26 s=330 l=3 r=1 n=34
+2249 R-- P e4d2b455 s=330 l=3 r=1 n=34
+2250 L-- P 1495a66f s=330 l=3 r=1 n=34
+2251 L-- P 8ce50271 s=330 l=3 r=1 n=34
+2252 L-- P 29eb3b1f s=330 l=3 r=1 n=34
+2253 L-- P 61a0431f s=330 l=3 r=1 n=34
+2254 L-- P 5040bd9a s=330 l=3 r=1 n=34
+2255 L-- P 979cdbd6 s=330 l=3 r=1 n=34
+2256 L-- P fef5d446 s=330 l=3 r=1 n=34
+2257 L-- P ca5e6cf2 s=330 l=3 r=1 n=34
+2258 L-- P 64adf5af s=330 l=3 r=1 n=34
+2259 L-- P 698e40ef s=330 l=3 r=1 n=34
+2260 LF- P e51c2bf3 s=330 l=3 r=1 n=34
+2261 L-- P e724ed6a s=330 l=3 r=1 n=34
+2262 L-- P 745bf7f9 s=330 l=3 r=1 n=34
+2263 L-- P 77dc200a s=330 l=3 r=1 n=34
+2264 L-- P b86a0521 s=330 l=3 r=1 n=34
+2265 L-- P 7453644c s=330 l=3 r=1 n=34
+2266 L-- P 2a35507f s=330 l=3 r=1 n=34
+2267 L-- P 94dc7fa3 s=330 l=3 r=1 n=34
+2268 L-- P 2307f096 s=330 l=3 r=1 n=34
+2269 L-- P a9d354c5 s=330 l=3 r=1 n=34
+2270 L-- P bec33c58 s=330 l=3 r=1 n=34
+2271 L-- P 060f315f s=330 l=3 r=1 n=34
+2272 L-- P 1069f596 s=330 l=3 r=1 n=34
+2273 L-- P df8a1edf s=330 l=3 r=1 n=34
+2274 L-- P 6f952ebd s=330 l=3 r=1 n=34
+2275 L-- P 9b38f358 s=330 l=3 r=1 n=34
+2276 L-- P 9b96945e s=330 l=3 r=1 n=34
+2277 L-- P 43af0b34 s=330 l=3 r=1 n=34
+2278 L-- P e7e41fa4 s=330 l=3 r=1 n=34
+2279 L-- P 102fdc65 s=330 l=3 r=1 n=34
+2280 LF- P 08553190 s=330 l=3 r=1 n=34
+2281 L-- P 988c28e1 s=330 l=3 r=1 n=34
+2282 L-- P d71efc99 s=330 l=3 r=1 n=34
+2283 L-- P e6e6699d s=330 l=3 r=1 n=34
+2284 L-- P 702d8bf6 s=330 l=3 r=1 n=34
+2285 L-- P f52c5a32 s=330 l=3 r=1 n=34
+2286 L-- P ac0d641e s=330 l=3 r=1 n=34
+2287 L-- P 95a431a2 s=330 l=3 r=1 n=34
+2288 L-- P 695d93f2 s=330 l=3 r=1 n=34
+2289 L-- P d5577881 s=330 l=3 r=1 n=34
+2290 L-- P 8331c40e s=330 l=3 r=1 n=34
+2291 L-- P 42a419c6 s=330 l=3 r=1 n=34
+2292 L-- P 1a5b0ffa s=330 l=3 r=1 n=34
+2293 L-- P 6967cef3 s=330 l=3 r=1 n=34
+2294 L-- P 24821a2c s=330 l=3 r=1 n=34
+2295 L-- P 3ec07848 s=330 l=3 r=1 n=34
+2296 L-- P 1b31cc1e s=330 l=3 r=1 n=34
+2297 L-- P 1e19dea1 s=330 l=3 r=1 n=34
+2298 L-- P b66ea992 s=330 l=3 r=1 n=34
+2299 L-- P 50ae14d3 s=330 l=3 r=1 n=34
+2300 LF- P b97aa5fb s=330 l=3 r=1 n=34
+2301 L-- P a28ea5c0 s=330 l=3 r=1 n=34
+2302 L-- P d019cf9f s=330 l=3 r=1 n=34
+2303 L-- P 4ff10086 s=330 l=3 r=1 n=34
+2304 L-- P dcc2a053 s=330 l=3 r=1 n=34
+2305 L-- P 3b9d0698 s=330 l=3 r=1 n=34
+2306 L-- P b072fa83 s=330 l=3 r=1 n=34
+2307 L-- P e9eb4ce8 s=330 l=3 r=1 n=34
+2308 L-- P 87d34f64 s=330 l=3 r=1 n=34
+2309 L-- P acf4e982 s=330 l=3 r=1 n=34
+2310 L-- P 210d1e0f s=330 l=3 r=1 n=34
+2311 L-- P e4b0ca89 s=330 l=3 r=1 n=34
+2312 L-- P 6b40b0c5 s=330 l=3 r=1 n=34
+2313 L-- P c191c6a6 s=330 l=3 r=1 n=34
+2314 L-- P 58d008cc s=330 l=3 r=1 n=34
+2315 L-- P fdfcdc2a s=330 l=3 r=1 n=34
+2316 L-- P 4da7e2fd s=330 l=3 r=1 n=34
+2317 L-- P e6d52796 s=330 l=3 r=1 n=34
+2318 L-- P 7d952011 s=330 l=3 r=1 n=34
+2319 L-- P 81c81f05 s=330 l=3 r=1 n=34
+2320 LF- P 253c9392 s=330 l=3 r=1 n=34
+2321 L-- P b8bb6f4c s=330 l=3 r=1 n=34
+2322 L-- P 1ec7ce46 s=330 l=3 r=1 n=34
+2323 L-- P e4256535 s=330 l=3 r=1 n=34
+2324 L-- P cec6b83f s=330 l=3 r=1 n=34
+2325 L-- P dd56184b s=330 l=3 r=1 n=34
+2326 L-- P b439f560 s=330 l=3 r=1 n=34
+2327 L-- P 668d0fff s=330 l=3 r=1 n=34
+2328 L-- P e8c00927 s=330 l=3 r=1 n=34
+2329 L-- P 960ab4f0 s=330 l=3 r=1 n=34
+2330 L-- P f7be4948 s=360 l=3 r=1 n=33
+2331 L-- P b611e357 s=360 l=3 r=1 n=33
+2332 L-- P 210f73a1 s=360 l=3 r=1 n=33
+2333 L-- P 3fc6804b s=360 l=3 r=1 n=33
+2334 L-- P f7d1df70 s=360 l=3 r=1 n=33
+2335 L-- P 7edf101e s=360 l=3 r=1 n=33
+2336 L-- P 390cfcdf s=360 l=3 r=1 n=33
+2337 L-- P fffd2f9a s=360 l=3 r=1 n=33
+2338 L-- P 424a51a5 s=360 l=3 r=1 n=33
+2339 L-- P 988abef9 s=360 l=3 r=1 n=33
+2340 RF- P a4d3a619 s=360 l=3 r=1 n=33
+2341 R-- P 0e6bc9fc s=360 l=3 r=1 n=33
+2342 R-- P 61e70ce2 s=360 l=3 r=1 n=33
+2343 R-- P ff8ee336 s=360 l=3 r=1 n=33
+2344 R-- P d13e5524 s=360 l=3 r=1 n=33
+2345 R-- P d8ded989 s=360 l=3 r=1 n=33
+2346 R-- P d22581a9 s=360 l=3 r=1 n=33
+2347 R-- P 99629334 s=360 l=3 r=1 n=33
+2348 R-- P 4e3ebe53 s=360 l=3 r=1 n=33
+2349 R-- P 1bf3f059 s=360 l=3 r=1 n=33
+2350 R-- P 46958562 s=360 l=3 r=1 n=33
+2351 R-- P ba1935ae s=360 l=3 r=1 n=33
+2352 R-- P 2e147fd1 s=360 l=3 r=1 n=33
+2353 R-- P 76508f6f s=360 l=3 r=1 n=33
+2354 R-- P 10c4c2aa s=360 l=3 r=1 n=33
+2355 R-- P a88e3c0d s=360 l=3 r=1 n=33
+2356 R-- P f0d7341f s=360 l=3 r=1 n=33
+2357 R-- P 0f25a339 s=360 l=3 r=1 n=33
+2358 R-- P d5459a55 s=360 l=3 r=1 n=33
+2359 R-- P 80458b73 s=360 l=3 r=1 n=33
+2360 RF- P 693ac063 s=360 l=3 r=1 n=33
+2361 R-- P 3369fd08 s=360 l=3 r=1 n=33
+2362 R-- P ed76ce44 s=360 l=3 r=1 n=33
+2363 R-- P 731df255 s=360 l=3 r=1 n=33
+2364 R-- P 6374ce61 s=360 l=3 r=1 n=33
+2365 R-- P d74a9c17 s=360 l=3 r=1 n=33
+2366 R-- P 13b1ddcf s=360 l=3 r=1 n=33
+2367 R-- P 204563fb s=360 l=3 r=1 n=33
+2368 R-- P 1fcb59d2 s=360 l=3 r=1 n=33
+2369 R-- P 9bf2a45d s=360 l=3 r=1 n=33
+2370 R-- P c39c548f s=360 l=3 r=1 n=33
+2371 R-- P c25c2f75 s=360 l=3 r=1 n=33
+2372 R-- P 6a2f4625 s=360 l=3 r=1 n=33
+2373 R-- P 8783b12d s=360 l=3 r=1 n=33
+2374 R-- P c4180f17 s=360 l=3 r=1 n=33
+2375 R-- P 126a6e09 s=360 l=3 r=1 n=33
+2376 R-- P 2a18a3e9 s=360 l=3 r=1 n=33
+2377 R-- P 59ccc4d9 s=360 l=3 r=1 n=33
+2378 R-- P e36156c2 s=360 l=3 r=1 n=33
+2379 R-- P 7baedebe s=360 l=3 r=1 n=33
+2380 RF- P f6d55f57 s=360 l=3 r=1 n=33
+2381 R-- P 0ec71227 s=360 l=3 r=1 n=33
+2382 R-- P 28fab993 s=360 l=3 r=1 n=33
+2383 R-- P bdcb900e s=360 l=3 r=1 n=33
+2384 R-- P faa66b6d s=360 l=3 r=1 n=33
+2385 R-- P 55ec5521 s=360 l=3 r=1 n=33
+2386 R-- P ad26bd1b s=360 l=3 r=1 n=33
+2387 R-- P c1683d43 s=360 l=3 r=1 n=33
+2388 R-- P d89854ed s=360 l=3 r=1 n=33
+2389 R-- P 33e793d8 s=360 l=3 r=1 n=33
+2390 R-- P 0e5167c1 s=360 l=3 r=1 n=33
+2391 R-- P 03000bec s=360 l=3 r=1 n=33
+2392 R-- P 58a15d72 s=360 l=3 r=1 n=33
+2393 R-- P d974419a s=360 l=3 r=1 n=33
+2394 R-- P 7e9c00c1 s=360 l=3 r=1 n=33
+2395 R-- P 582395aa s=360 l=3 r=1 n=33
+2396 R-- P 80fd937b s=360 l=3 r=1 n=33
+2397 R-- P 29ba7a75 s=360 l=3 r=1 n=33
+2398 R-- P 1d115d19 s=360 l=3 r=1 n=33
+2399 R-- P 7fe5d87a s=360 l=3 r=1 n=33
+2400 RF- P f67ccc18 s=360 l=3 r=1 n=33
+2401 R-- P 36297202 s=360 l=3 r=1 n=33
+2402 R-- P bee17f09 s=360 l=3 r=1 n=33
+2403 R-- P c0fee423 s=360 l=3 r=1 n=33
+2404 R-- P 38662d30 s=360 l=3 r=1 n=33
+2405 R-- P a120aab8 s=360 l=3 r=1 n=33
+2406 R-- P f3b846e6 s=360 l=3 r=1 n=33
+2407 R-- P 50327236 s=360 l=3 r=1 n=33
+2408 R-- P 4189006f s=360 l=3 r=1 n=33
+2409 R-- P ca29748b s=360 l=3 r=1 n=33
+2410 R-- P ff13ff12 s=360 l=3 r=1 n=33
+2411 R-- P f4881eed s=360 l=3 r=1 n=33
+2412 R-- P 6a8b0cfd s=360 l=3 r=1 n=33
+2413 R-- P 235b724c s=360 l=3 r=1 n=33
+2414 R-- P fa7e2685 s=360 l=3 r=1 n=33
+2415 R-- P cebf94be s=360 l=3 r=1 n=33
+2416 R-- P 62f7def5 s=360 l=3 r=1 n=33
+2417 R-- P a5cf07e3 s=360 l=3 r=1 n=33
+2418 R-- P 4e044794 s=360 l=3 r=1 n=33
+2419 R-- P 3f92da8e s=360 l=3 r=1 n=33
+2420 RF- P a7a8d2dc s=360 l=3 r=1 n=33
+2421 R-- P e5583552 s=360 l=3 r=1 n=33
+2422 R-- P 2e834dcb s=360 l=3 r=1 n=33
+2423 R-- P 30f2a282 s=360 l=3 r=1 n=33
+2424 R-- P 6d514b68 s=360 l=3 r=1 n=33
+2425 R-- P 5dfb689f s=360 l=3 r=1 n=33
+2426 R-- P 55fbdb21 s=360 l=3 r=1 n=33
+2427 R-- P 5c4e87b4 s=360 l=3 r=1 n=33
+2428 R-- P 3f7ee5e7 s=360 l=3 r=1 n=33
+2429 R-- P a75092e1 s=360 l=3 r=1 n=33
+2430 L-- P 828681f4 s=360 l=3 r=1 n=33
+2431 L-- P 5e5fdbf1 s=360 l=3 r=1 n=33
+2432 L-- P 1c969893 s=360 l=3 r=1 n=33
+2433 L-- P 5fc48457 s=360 l=3 r=1 n=33
+2434 L-- P e08234f5 s=360 l=3 r=1 n=33
+2435 L-- P 485c6635 s=360 l=3 r=1 n=33
+2436 L-- P c214edef s=360 l=3 r=1 n=33
+2437 L-- P 226ac7d8 s=360 l=3 r=1 n=33
+2438 L-- P 7829c5fa s=360 l=3 r=1 n=33
+2439 L-- P 8716bf5e s=360 l=3 r=1 n=33
+2440 LF- P e6d240b8 s=360 l=3 r=1 n=33
+2441 L-- P c34641ae s=360 l=3 r=1 n=33
+2442 L-- P 3d08417f s=360 l=3 r=1 n=33
+2443 L-- P 172c482f s=360 l=3 r=1 n=33
+2444 L-- P 60290f14 s=360 l=3 r=1 n=33
+2445 L-- P 8962dce5 s=360 l=3 r=1 n=33
+2446 L-- P 45b65c40 s=360 l=3 r=1 n=33
+2447 L-- P d3d8fa1a s=360 l=3 r=1 n=33
+2448 L-- P 0d57de4a s=360 l=3 r=1 n=33
+2449 L-- P 062a16df s=360 l=3 r=1 n=33
+2450 L-- P 580526ac s=360 l=3 r=1 n=33
+2451 L-- P e71e8c84 s=360 l=3 r=1 n=33
+2452 L-- P ee3b679b s=360 l=3 r=1 n=33
+2453 L-- P f1f69c7e s=360 l=3 r=1 n=33
+2454 L-- P 66f4fb76 s=360 l=3 r=1 n=33
+2455 L-- P 13073380 s=360 l=3 r=1 n=33
+2456 L-- P 20b95369 s=360 l=3 r=1 n=33
+2457 L-- P 98725ad2 s=360 l=3 r=1 n=33
+2458 L-- P a2d6009f s=360 l=3 r=1 n=33
+2459 L-- P 75c7aa88 s=360 l=3 r=1 n=33
+2460 LF- P 9c2bb21a s=360 l=3 r=1 n=33
+2461 L-- P dfc02d04 s=360 l=3 r=1 n=33
+2462 L-- P 04679a78 s=360 l=3 r=1 n=33
+2463 L-- P e5053fa0 s=360 l=3 r=1 n=33
+2464 L-- P dfe2ca9a s=360 l=3 r=1 n=33
+2465 L-- P 4d092605 s=360 l=3 r=1 n=33
+2466 L-- P b97d6159 s=360 l=3 r=1 n=33
+2467 L-- P 0c251507 s=360 l=3 r=1 n=33
+2468 L-- P 0743bc21 s=360 l=3 r=1 n=33
+2469 L-- P 1646ff7f s=360 l=3 r=1 n=33
+2470 L-- P 4e93da81 s=360 l=3 r=1 n=33
+2471 L-- P 35b38ab1 s=360 l=3 r=1 n=33
+2472 L-- P 4a9541b1 s=360 l=3 r=1 n=33
+2473 L-- P bb1da004 s=360 l=3 r=1 n=33
+2474 L-- P 832ba008 s=360 l=3 r=1 n=33
+2475 L-- P 2d5e16ba s=360 l=3 r=1 n=33
+2476 L-- P fad1c765 s=360 l=3 r=1 n=33
+2477 L-- P f71a7c93 s=360 l=3 r=1 n=33
+2478 L-- P 8c7c7215 s=360 l=2 r=1 n=33
+2479 L-- P 47af00fb s=360 l=2 r=1 n=33
+2480 LF- P 6b9985b6 s=360 l=2 r=1 n=33
+2481 L-- P 1f6f41d1 s=360 l=2 r=1 n=33
+2482 L-- P 6d12a8e4 s=360 l=2 r=1 n=33
+2483 L-- P ea725d6f s=360 l=2 r=1 n=33
+2484 L-- P 5c23200a s=360 l=2 r=1 n=33
+2485 L-- P fe058e85 s=360 l=2 r=1 n=33
+2486 L-- P 01bff348 s=360 l=2 r=1 n=33
+2487 L-- P 7b81e7f3 s=360 l=2 r=1 n=33
+2488 L-- P 432d712e s=360 l=2 r=1 n=33
+2489 L-- P 99769d9a s=360 l=2 r=1 n=33
+2490 L-- P 01d3a73f s=360 l=2 r=1 n=33
+2491 L-- P f75479e0 s=360 l=2 r=1 n=33
+2492 L-- P 39b0685d s=360 l=2 r=1 n=33
+2493 L-- P 47601c86 s=360 l=2 r=1 n=33
+2494 L-- P 1519f4cb s=360 l=2 r=1 n=33
+2495 L-- P 8c2b627c s=360 l=2 r=1 n=33
+2496 L-- P abc39789 s=360 l=2 r=1 n=33
+2497 L-- P 5ff2b082 s=360 l=2 r=1 n=33
+2498 L-- P 232d6087 s=360 l=2 r=1 n=33
+2499 L-- P 81f0eabd s=360 l=2 r=1 n=33
+2500 LF- P 5ff071c0 s=360 l=2 r=1 n=33
+2501 L-- P 351c411f s=360 l=2 r=1 n=33
+2502 L-- P 5568197a s=360 l=2 r=1 n=33
+2503 L-- P 73b28101 s=360 l=2 r=1 n=33
+2504 L-- P e6d1ed14 s=360 l=2 r=1 n=33
+2505 L-- P 58692a23 s=360 l=2 r=1 n=33
+2506 L-- P b757d1de s=360 l=2 r=1 n=33
+2507 L-- P 3367d675 s=360 l=2 r=1 n=33
+2508 L-- P 195f8e78 s=360 l=2 r=1 n=33
+2509 L-- P 72d3f1cc s=360 l=2 r=1 n=33
+2510 L-- P 2915c799 s=360 l=2 r=1 n=33
+2511 L-- P 0d91748e s=360 l=2 r=1 n=33
+2512 L-- P ea5317d3 s=360 l=2 r=1 n=33
+2513 L-- P 6fac9928 s=360 l=2 r=1 n=33
+2514 L-- P 33b7c665 s=360 l=2 r=1 n=33
+2515 L-- P 401670ea s=360 l=2 r=1 n=33
+2516 L-- P 52677acf s=360 l=2 r=1 n=33
+2517 L-- P 54419044 s=360 l=2 r=1 n=33
+2518 L-- P 138e81b1 s=360 l=2 r=1 n=33
+2519 L-- P 4e2ce4c7 s=360 l=2 r=1 n=33
+2520 RF- P aad0f2c2 s=360 l=2 r=1 n=33
+2521 R-- P dc0aaad5 s=360 l=2 r=1 n=33
+2522 R-- P 0e6475d8 s=360 l=2 r=1 n=33
+2523 R-- P de468303 s=360 l=2 r=1 n=33
+2524 R-- P 464e6cbe s=360 l=2 r=1 n=33
+2525 R-- P 722de8e1 s=360 l=2 r=1 n=33
+2526 R-- P 04ca69f4 s=360 l=2 r=1 n=33
+2527 R-- P 35d00b7f s=360 l=2 r=1 n=33
+2528 R-- P 788e8dda s=360 l=2 r=1 n=33
+2529 R-- P 1fd99bc6 s=360 l=2 r=1 n=33
+2530 R-- P 0085290b s=360 l=2 r=1 n=33
+2531 R-- P ed8f4cf4 s=360 l=2 r=1 n=33
+2532 R-- P 5af2cbe1 s=360 l=2 r=1 n=33
+2533 R-- P 615370da s=360 l=2 r=1 n=33
+2534 R-- P 1e94ee7f s=360 l=2 r=1 n=33
+2535 R-- P f72958d8 s=360 l=2 r=1 n=33
+2536 R-- P c4cf8dd5 s=360 l=2 r=1 n=33
+2537 R-- P 2f134fbe s=360 l=2 r=1 n=33
+2538 R-- P c70b6603 s=360 l=2 r=1 n=33
+2539 R-- P 0e736df9 s=360 l=2 r=1 n=33
+2540 RF- P 3c5a4e2c s=360 l=2 r=1 n=33
+2541 R-- P be1080b3 s=360 l=2 r=1 n=33
+2542 R-- P efa53eee s=360 l=2 r=1 n=33
+2543 R-- P 2a7d7f45 s=360 l=2 r=1 n=33
+2544 R-- P 0f093b08 s=360 l=2 r=1 n=33
+2545 R-- P 2aeb5c2f s=360 l=2 r=1 n=33
+2546 R-- P 26b7ceca s=360 l=2 r=1 n=33
+2547 R-- P f2437d91 s=360 l=2 r=1 n=33
+2548 R-- P cf7f86a4 s=360 l=2 r=1 n=33
+2549 R-- P c9c88138 s=360 l=2 r=1 n=33
+2550 R-- P 13555d35 s=360 l=2 r=1 n=33
+2551 R-- P ed9cd9a2 s=360 l=2 r=1 n=33
+2552 R-- P 931419a7 s=360 l=2 r=1 n=33
+2553 R-- P 6ab76c9c s=360 l=2 r=1 n=33
+2554 R-- P 2f1d8ca9 s=360 l=2 r=1 n=33
+2555 R-- P 89d57726 s=360 l=2 r=1 n=33
+2556 R-- P b0bcf36b s=360 l=2 r=1 n=33
+2557 R-- P 52a14280 s=360 l=2 r=1 n=33
+2558 R-- P b12d0a7d s=360 l=2 r=1 n=33
+2559 R-- P 16ebcc6b s=360 l=2 r=1 n=33
+2560 RF- P f0045026 s=360 l=2 r=1 n=33
+2561 R-- P 6d49acc1 s=360 l=2 r=1 n=33
+2562 R-- P 19f707d4 s=360 l=2 r=1 n=33
+2563 R-- P 3f2823df s=360 l=2 r=1 n=33
+2564 R-- P acc8173a s=360 l=2 r=1 n=33
+2565 R-- P 79843635 s=360 l=2 r=1 n=33
+2566 R-- P 2ff75a38 s=360 l=2 r=1 n=33
+2567 R-- P 308979e3 s=360 l=2 r=1 n=33
+2568 R-- P 4d87206d s=360 l=2 r=1 n=33
+2569 R-- P 9a6d5c04 s=360 l=2 r=1 n=33
+2570 R-- P 312f75b6 s=360 l=2 r=1 n=33
+2571 R-- P e85a559e s=360 l=2 r=1 n=33
+2572 R-- P 00eab9dd s=360 l=2 r=1 n=33
+2573 R-- P b188565d s=360 l=2 r=1 n=33
+2574 R-- P 3f027038 s=360 l=2 r=1 n=33
+2575 R-- P b3e7707a s=360 l=2 r=1 n=33
+2576 R-- P fe71e405 s=360 l=2 r=1 n=33
+2577 R-- P 36bbd6ee s=360 l=2 r=1 n=33
+2578 R-- P 5d3ebf92 s=360 l=2 r=1 n=33
+2579 R-- P d13f7454 s=360 l=2 r=1 n=33
+2580 RF- P 86f21064 s=360 l=2 r=1 n=33
+2581 R-- P 51c6863a s=360 l=2 r=1 n=33
+2582 R-- P 6a8e2eca s=360 l=2 r=1 n=33
+2583 R-- P b9e8f4c5 s=360 l=2 r=1 n=33
+2584 R-- P 8e7ab2fe s=360 l=2 r=1 n=33
+2585 R-- P 5440fd7e s=360 l=2 r=1 n=33
+2586 R-- P 5a48b665 s=360 l=2 r=1 n=33
+2587 R-- P 19efc7ed s=360 l=2 r=1 n=33
+2588 R-- P de7bcf1a s=360 l=2 r=1 n=33
+2589 R-- P 77dc25a2 s=360 l=2 r=1 n=33
+2590 R-- P 0d0b51d3 s=360 l=2 r=1 n=33
+2591 R-- P 77ab20be s=360 l=2 r=1 n=33
+2592 R-- P e98a950e s=360 l=2 r=1 n=33
+2593 R-- P b2f0dfb2 s=360 l=2 r=1 n=33
+2594 R-- P 3254a68a s=360 l=2 r=1 n=33
+2595 R-- P 5112f56e s=360 l=2 r=1 n=33
+2596 R-- P 36beb26b s=360 l=2 r=1 n=33
+2597 R-- P 6139cb6c s=360 l=2 r=1 n=33
+2598 R-- P 28a2bf54 s=360 l=2 r=1 n=33
+2599 R-- P 028f4423 s=360 l=2 r=1 n=33
+2600 RF- P 47a4da5b s=360 l=2 r=1 n=33
+2601 R-- P 5f37b3b0 s=360 l=2 r=1 n=33
+2602 R-- P 169a2aa5 s=360 l=2 r=1 n=33
+2603 R-- P f2f76fc2 s=360 l=2 r=1 n=33
+2604 R-- P c9ad7e11 s=360 l=2 r=1 n=33
+2605 R-- P 39276a99 s=360 l=2 r=1 n=33
+2606 R-- P 6e946bb9 s=360 l=2 r=1 n=33
+2607 R-- P 6293f296 s=360 l=2 r=1 n=33
+2608 R-- P f1bb9132 s=360 l=2 r=1 n=33
+2609 R-- P 1921e8ac s=360 l=2 r=1 n=33
+2610 L-- P 14ccdd6e s=360 l=2 r=1 n=33
+2611 L-- P 401e364c s=360 l=2 r=1 n=33
+2612 L-- P c35a29b7 s=360 l=2 r=1 n=33
+2613 L-- P 7eb1bae5 s=360 l=2 r=1 n=33
+2614 L-- P acfc803f s=360 l=2 r=1 n=33
+2615 L-- P 9f8b4e7c s=360 l=2 r=1 n=33
+2616 L-- P 9ce7b040 s=360 l=2 r=1 n=33
+2617 L-- P ce6e9b23 s=360 l=2 r=1 n=33
+2618 L-- P f9eefeb5 s=360 l=2 r=1 n=33
+2619 L-- P 229bdaf6 s=360 l=2 r=1 n=33
+2620 LF- P b53174c0 s=360 l=2 r=1 n=33
+2621 L-- P 936f0942 s=360 l=2 r=1 n=33
+2622 L-- P 0525ab51 s=360 l=2 r=1 n=33
+2623 L-- P aaf6a2b6 s=360 l=2 r=1 n=33
+2624 L-- P 364daeaf s=360 l=2 r=1 n=33
+2625 L-- P 8bcff45d s=360 l=2 r=1 n=33
+2626 L-- P a55b69d5 s=360 l=2 r=1 n=33
+2627 L-- P b0e5f3f3 s=360 l=2 r=1 n=33
+2628 L-- P b35e196a s=360 l=2 r=1 n=33
+2629 L-- P f27d394f s=360 l=2 r=1 n=33
+2630 L-- P 6b7824f2 s=360 l=2 r=1 n=33
+2631 L-- P fcd278d8 s=360 l=2 r=1 n=33
+2632 L-- P 7df3911f s=360 l=2 r=1 n=33
+2633 L-- P a1369a6a s=360 l=2 r=1 n=33
+2634 L-- P 7ec9663b s=360 l=2 r=1 n=33
+2635 L-- P 60fb8235 s=360 l=2 r=1 n=33
+2636 L-- P 08435cd4 s=360 l=2 r=1 n=33
+2637 L-- P df28af98 s=360 l=2 r=1 n=33
+2638 L-- P 774f8ad9 s=360 l=2 r=1 n=33
+2639 L-- P 13f9a6e1 s=360 l=2 r=1 n=33
+2640 LF- P 4a5f38a2 s=360 l=2 r=1 n=33
+2641 L-- P 9345c1e0 s=360 l=2 r=1 n=33
+2642 L-- P 39c4b349 s=360 l=2 r=1 n=33
+2643 L-- P 2b5c7eda s=360 l=2 r=1 n=33
+2644 L-- P b1e2a690 s=360 l=2 r=1 n=33
+2645 L-- P 1f3c577b s=360 l=2 r=1 n=33
+2646 L-- P 3e96ab91 s=360 l=2 r=1 n=33
+2647 L-- P fb5765f7 s=360 l=2 r=1 n=33
+2648 L-- P 0b88d9af s=360 l=2 r=1 n=33
+2649 L-- P 14ae9a4b s=360 l=2 r=1 n=33
+2650 L-- P 62f04066 s=360 l=2 r=1 n=33
+2651 L-- P 30f8009a s=360 l=2 r=1 n=33
+2652 L-- P 98344f04 s=360 l=2 r=1 n=33
+2653 L-- P 931b8381 s=360 l=2 r=1 n=33
+2654 L-- P 11597254 s=360 l=2 r=1 n=33
+2655 L-- P bea52101 s=360 l=2 r=1 n=33
+2656 L-- P 9d950a3f s=360 l=2 r=1 n=33
+2657 L-- P 388b6138 s=360 l=2 r=1 n=33
+2658 L-- P b35ebca4 s=360 l=2 r=1 n=33
+2659 L-- P f079e935 s=360 l=2 r=1 n=33
+2660 LF- P c8e33f18 s=360 l=2 r=1 n=33
+2661 L-- P 3c8f1816 s=360 l=2 r=1 n=33
+2662 L-- P d4437919 s=360 l=2 r=1 n=33
+2663 L-- P 85e74a19 s=360 l=2 r=1 n=33
+2664 L-- P 65674c56 s=360 l=2 r=1 n=33
+2665 L-- P f424d1c5 s=360 l=2 r=1 n=33
+2666 L-- P fdb35f0c s=360 l=2 r=1 n=33
+2667 L-- P 9531233b s=360 l=2 r=1 n=33
+2668 L-- P 8d4a3fba s=360 l=2 r=1 n=33
+2669 L-- P 946b8500 s=360 l=2 r=1 n=33
+2670 L-- P 18d4a986 s=360 l=2 r=1 n=33
+2671 L-- P 78d375da s=360 l=2 r=1 n=33
+2672 L-- P 1e832e73 s=360 l=2 r=1 n=33
+2673 L-- P 6bca14ec s=360 l=2 r=1 n=33
+2674 L-- P 85fc75b9 s=360 l=2 r=1 n=33
+2675 L-- P 0e0bb43f s=360 l=2 r=1 n=33
+2676 L-- P a9505604 s=360 l=2 r=1 n=33
+2677 L-- P e0c634ed s=360 l=2 r=1 n=33
+2678 L-- P 89c232ae s=370 l=2 r=1 n=32
+2679 L-- P 47447869 s=370 l=2 r=1 n=32
+2680 LF- P aa3fbc6a s=370 l=2 r=1 n=32
+2681 L-- P 221b2e36 s=370 l=2 r=1 n=32
+2682 L-- P c68ccafe s=370 l=2 r=1 n=32
+2683 L-- P 8ef68435 s=370 l=2 r=1 n=32
+2684 L-- P 99b36c8a s=370 l=2 r=1 n=32
+2685 L-- P 67081a92 s=370 l=2 r=1 n=32
+2686 L-- P 492e87e0 s=370 l=2 r=1 n=32
+2687 L-- P f2708e65 s=370 l=2 r=1 n=32
+2688 L-- P 026f789f s=370 l=2 r=1 n=32
+2689 L-- P 4a15cb83 s=370 l=2 r=1 n=32
+2690 L-- P 773b478a s=370 l=2 r=1 n=32
+2691 L-- P 28ac91b0 s=370 l=2 r=1 n=32
+2692 L-- P 0eea609b s=370 l=2 r=1 n=32
+2693 L-- P 8f46d512 s=370 l=2 r=1 n=32
+2694 L-- P 7147b7f7 s=370 l=2 r=1 n=32
+2695 L-- P 5c103157 s=370 l=2 r=1 n=32
+2696 L-- P 7d834562 s=370 l=2 r=1 n=32
+2697 L-- P dab204fe s=370 l=2 r=1 n=32
+2698 L-- P 3d516f9a s=370 l=2 r=1 n=32
+2699 L-- P 63dd253c s=370 l=2 r=1 n=32
+2700 RF- P 3d2d0a04 s=370 l=2 r=1 n=32
+2701 R-- P 08619fae s=370 l=2 r=1 n=32
+2702 R-- P 257074d8 s=390 l=2 r=1 n=31
+2703 R-- P 85823244 s=390 l=2 r=1 n=31
+2704 R-- P be995dd7 s=390 l=2 r=1 n=31
+2705 R-- P db88d340 s=390 l=2 r=1 n=31
+2706 R-- P b867d50c s=390 l=2 r=1 n=31
+2707 R-- P 6bdfdcf4 s=390 l=1 r=1 n=31
+2708 R-- P c5b1361d s=390 l=1 r=1 n=31
+2709 R-- P 5d9dc4ec s=390 l=1 r=1 n=31
+2710 R-- P 86ac9d4a s=390 l=1 r=1 n=31
+2711 R-- P c23add78 s=390 l=1 r=1 n=31
+2712 R-- P ef2aaf32 s=390 l=1 r=1 n=31
+2713 R-- P 8e3dfbc4 s=390 l=1 r=1 n=31
+2714 R-- P 1187ff82 s=390 l=1 r=1 n=31
+2715 R-- P 76c55a28 s=390 l=1 r=1 n=31
+2716 R-- P 1043d85a s=390 l=1 r=1 n=31
+2717 R-- P f4e1134c s=390 l=1 r=1 n=31
+2718 R-- P 92c2055d s=390 l=1 r=1 n=31
+2719 R-- P ab092bb6 s=390 l=1 r=1 n=31
+2720 RF- P cd3c5d8b s=390 l=1 r=1 n=31
+2721 R-- P af8cd9ec s=390 l=1 r=1 n=31
+2722 R-- P 519e4cb1 s=390 l=1 r=1 n=31
+2723 R-- P b779d68a s=390 l=1 r=1 n=31
+2724 R-- P ddc5753f s=390 l=1 r=1 n=31
+2725 R-- P 842fc010 s=390 l=1 r=1 n=31
+2726 R-- P f31750f5 s=390 l=1 r=1 n=31
+2727 R-- P c1f581ce s=390 l=1 r=1 n=31
+2728 R-- P 270a2e28 s=390 l=1 r=1 n=31
+2729 R-- P ac2ef597 s=390 l=1 r=1 n=31
+2730 R-- P 11dd7c5a s=390 l=1 r=1 n=31
+2731 R-- P 84ce8801 s=390 l=1 r=1 n=31
+2732 R-- P 836b0f3c s=390 l=1 r=1 n=31
+2733 R-- P bba41c1b s=390 l=1 r=1 n=31
+2734 R-- P 10f5025e s=390 l=1 r=1 n=31
+2735 R-- P 01d33d85 s=390 l=1 r=1 n=31
+2736 R-- P 80970f20 s=390 l=1 r=1 n=31
+2737 R-- P 9483bfcf s=390 l=1 r=1 n=31
+2738 R-- P 914a9c2b s=390 l=1 r=1 n=31
+2739 R-- P 19477d8c s=390 l=1 r=1 n=31
+2740 RF- P 4d6a34fd s=390 l=1 r=1 n=31
+2741 R-- P 9318edd6 s=390 l=1 r=1 n=31
+2742 R-- P 4aee3127 s=390 l=1 r=1 n=31
+2743 R-- P 6e76a778 s=390 l=1 r=1 n=31
+2744 R-- P 1d970f19 s=390 l=1 r=1 n=31
+2745 R-- P 76c0e132 s=390 l=1 r=1 n=31
+2746 R-- P 9f01b893 s=390 l=1 r=1 n=31
+2747 R-- P f2e98974 s=390 l=1 r=1 n=31
+2748 R-- P c6c7077e s=390 l=1 r=1 n=31
+2749 R-- P 63074225 s=390 l=1 r=1 n=31
+2750 R-- P 2306fa04 s=390 l=1 r=1 n=31
+2751 R-- P c1104263 s=390 l=1 r=1 n=31
+2752 R-- P d8354c02 s=390 l=1 r=1 n=31
+2753 R-- P d65d6a69 s=390 l=1 r=1 n=31
+2754 R-- P 46f009c8 s=390 l=1 r=1 n=31
+2755 R-- P af864737 s=390 l=1 r=1 n=31
+2756 R-- P 71a123e6 s=390 l=1 r=1 n=31
+2757 R-- P 56d0164d s=390 l=1 r=1 n=31
+2758 R-- P 2fedfa21 s=390 l=1 r=1 n=31
+2759 R-- P e371127a s=390 l=1 r=1 n=31
+2760 RF- P 19515637 s=390 l=1 r=1 n=31
+2761 R-- P b0bb18c8 s=390 l=1 r=1 n=31
+2762 R-- P c09b254d s=390 l=1 r=1 n=31
+2763 R-- P db6c32e6 s=390 l=1 r=1 n=31
+2764 R-- P 2adb5163 s=390 l=1 r=1 n=31
+2765 R-- P 8cd20904 s=390 l=1 r=1 n=31
+2766 R-- P 40287969 s=390 l=1 r=1 n=31
+2767 R-- P 42005b02 s=390 l=1 r=1 n=31
+2768 R-- P 661c552c s=390 l=1 r=1 n=31
+2769 R-- P f0167ccb s=390 l=1 r=1 n=31
+2770 R-- P a6e32df6 s=390 l=1 r=1 n=31
+2771 R-- P 236f6d9d s=390 l=1 r=1 n=31
+2772 R-- P 8e95f218 s=390 l=1 r=1 n=31
+2773 R-- P 8d96b5c7 s=390 l=1 r=1 n=31
+2774 R-- P 28adecd2 s=390 l=1 r=1 n=31
+2775 R-- P e7610839 s=390 l=1 r=1 n=31
+2776 R-- P 9d2c3b14 s=390 l=1 r=1 n=31
+2777 R-- P 4d854db3 s=390 l=1 r=1 n=31
+2778 R-- P 10cd210f s=390 l=1 r=1 n=31
+2779 R-- P 62c5fa60 s=390 l=1 r=1 n=31
+2780 RF- P dd083889 s=390 l=1 r=1 n=31
+2781 R-- P 18b8d322 s=390 l=1 r=1 n=31
+2782 R-- P 1de83003 s=390 l=1 r=1 n=31
+2783 R-- P 7d73fba4 s=390 l=1 r=1 n=31
+2784 R-- P d94486ed s=390 l=1 r=1 n=31
+2785 R-- P 58d39986 s=390 l=1 r=1 n=31
+2786 R-- P 0b94aad7 s=390 l=1 r=1 n=31
+2787 R-- P e330b568 s=390 l=1 r=1 n=31
+2788 R-- P 173a53bc s=390 l=1 r=1 n=31
+2789 R-- P 4f73609b s=390 l=1 r=1 n=31
+2790 L-- P edb471c6 s=390 l=1 r=1 n=31
+2791 L-- P f0a57f2d s=390 l=1 r=1 n=31
+2792 L-- P bad972a8 s=390 l=1 r=1 n=31
+2793 L-- P 3ffe3a17 s=390 l=1 r=1 n=31
+2794 L-- P 02ace962 s=390 l=1 r=1 n=31
+2795 L-- P 6013ecc9 s=390 l=1 r=1 n=31
+2796 L-- P b4e2d7e4 s=390 l=1 r=1 n=31
+2797 L-- P 6364df37 s=390 l=1 r=1 n=31
+2798 L-- P 3dea3905 s=390 l=1 r=1 n=31
+2799 L-- P 93b6b451 s=390 l=1 r=1 n=31
+2800 LF- P c64c471e s=390 l=1 r=1 n=31
+2801 L-- P 939ce592 s=390 l=1 r=1 n=31
+2802 L-- P a82fd224 s=390 l=1 r=1 n=31
+2803 L-- P ebd485f6 s=390 l=1 r=1 n=31
+2804 L-- P 47335ca4 s=390 l=1 r=1 n=31
+2805 L-- P e9be80eb s=390 l=1 r=1 n=31
+2806 L-- P c7ac4d4f s=390 l=1 r=1 n=31
+2807 L-- P 336c6a3b s=390 l=1 r=1 n=31
+2808 L-- P 79307955 s=390 l=1 r=1 n=31
+2809 L-- P 7889a30b s=390 l=1 r=1 n=31
+2810 L-- P f1dabc84 s=390 l=1 r=1 n=31
+2811 L-- P 8a0231f3 s=390 l=1 r=1 n=31
+2812 L-- P 4b716784 s=390 l=1 r=1 n=31
+2813 L-- P 62f05016 s=390 l=1 r=1 n=31
+2814 L-- P b9bac9c1 s=390 l=1 r=1 n=31
+2815 L-- P 2183a235 s=390 l=1 r=1 n=31
+2816 L-- P 8b787b39 s=390 l=1 r=1 n=31
+2817 L-- P f475a20f s=390 l=1 r=1 n=31
+2818 L-- P d6ce6c44 s=390 l=1 r=1 n=31
+2819 L-- P c741993a s=390 l=1 r=1 n=31
+2820 LF- P 17364800 s=390 l=1 r=1 n=31
+2821 L-- P 50e138b2 s=390 l=1 r=1 n=31
+2822 L-- P 42a1d1fd s=390 l=1 r=1 n=31
+2823 L-- P 818a8596 s=390 l=1 r=1 n=31
+2824 L-- P e8a9b702 s=390 l=1 r=1 n=31
+2825 L-- P b122dbc6 s=390 l=1 r=1 n=31
+2826 L-- P 29b1116a s=410 l=1 r=1 n=30
+2827 L-- P 5211c87a s=410 l=1 r=1 n=30
+2828 L-- P 7aaa824c s=410 l=1 r=1 n=30
+2829 L-- P 4f47939d s=410 l=1 r=1 n=30
+2830 L-- P 8dba378b s=410 l=1 r=1 n=30
+2831 L-- P 88807ea8 s=410 l=1 r=1 n=30
+2832 L-- P 4a93427b s=410 l=1 r=1 n=30
+2833 L-- P 763f2bf0 s=410 l=1 r=1 n=30
+2834 L-- P 7ed22309 s=410 l=1 r=1 n=30
+2835 L-- P 937fa4e6 s=410 l=1 r=1 n=30
+2836 L-- P b16659a9 s=410 l=1 r=1 n=30
+2837 L-- P ff07f776 s=410 l=1 r=1 n=30
+2838 L-- P 2df761bf s=410 l=1 r=1 n=30
+2839 L-- P 49021c0b s=410 l=1 r=1 n=30
+2840 LF- P 2a8924de s=410 l=1 r=1 n=30
+2841 L-- P c249f9d6 s=410 l=1 r=1 n=30
+2842 L-- P 733c80ad s=410 l=1 r=1 n=30
+2843 L-- P 7ba3bb26 s=410 l=1 r=1 n=30
+2844 L-- P 114f60e6 s=410 l=1 r=1 n=30
+2845 L-- P e996e988 s=410 l=1 r=1 n=30
+2846 L-- P 4dc0f7aa s=410 l=1 r=1 n=30
+2847 L-- P c68c8f2f s=410 l=1 r=1 n=30
+2848 L-- P b038dbef s=410 l=1 r=1 n=30
+2849 L-- P 8257fdea s=410 l=1 r=1 n=30
+2850 L-- P 45eac1ec s=410 l=1 r=1 n=30
+2851 L-- P e76e683a s=410 l=1 r=1 n=30
+2852 L-- P 01018f0e s=410 l=1 r=1 n=30
+2853 L-- P b5456dda s=410 l=1 r=1 n=30
+2854 L-- P 6fa67f7f s=410 l=1 r=1 n=30
+2855 L-- P cac9bbff s=410 l=1 r=1 n=30
+2856 L-- P d064665f s=410 l=1 r=1 n=30
+2857 L-- P 1ba112f1 s=410 l=1 r=1 n=30
+2858 L-- P 89e9ca7e s=410 l=1 r=1 n=30
+2859 L-- P ef309ec4 s=410 l=1 r=1 n=30
+2860 LF- P db148833 s=410 l=1 r=1 n=30
+2861 L-- P 1c470b39 s=410 l=1 r=1 n=30
+2862 L-- P 117ed03c s=410 l=1 r=1 n=30
+2863 L-- P 5adcf427 s=410 l=1 r=1 n=30
+2864 L-- P d72bd001 s=410 l=1 r=1 n=30
+2865 L-- P 11aa9a76 s=410 l=1 r=1 n=30
+2866 L-- P 653cec6b s=410 l=1 r=1 n=30
+2867 L-- P a148d105 s=410 l=1 r=1 n=30
+2868 L-- P 633d213d s=410 l=1 r=1 n=30
+2869 L-- P b16a5954 s=410 l=1 r=1 n=30
+2870 L-- P 345641aa s=410 l=1 r=1 n=30
+2871 L-- P f91cfe9d s=410 l=1 r=1 n=30
+2872 L-- P f63f835e s=410 l=1 r=1 n=30
+2873 L-- P edaab328 s=410 l=0 r=1 n=30
+2874 L-- P b9e7b8bf s=410 l=0 r=1 n=30
+2875 L-- P 614dcec3 s=410 l=0 r=1 n=30
+2876 L-- P 36816c4b s=410 l=0 r=1 n=30
+2877 L-- P 674ed16f s=410 l=0 r=1 n=30
+2878 L-- P 2879180f s=410 l=0 r=1 n=30
+2879 L-- P a78f9bb5 s=410 l=0 r=1 n=30
+2880 RF- P 10113162 s=410 l=0 r=1 n=30
+2881 R-- P 4ae0648f s=410 l=0 r=1 n=30
+2882 R-- P 486ee45c s=410 l=0 r=1 n=30
+2883 R-- P 924c9089 s=410 l=0 r=1 n=30
+2884 R-- P 60546dc5 s=410 l=0 r=1 n=30
+2885 R-- P a7386548 s=410 l=0 r=1 n=30
+2886 R-- P debee467 s=410 l=0 r=1 n=30
+2887 R-- P 022fb81a s=410 l=0 r=1 n=30
+2888 R-- P 1114cc41 s=410 l=0 r=1 n=30
+2889 R-- P 77b50334 s=410 l=0 r=1 n=30
+2890 R-- P 26946d93 s=410 l=0 r=1 n=30
+2891 R-- P 6600e1c6 s=410 l=0 r=1 n=30
+2892 R-- P 92e1bf2d s=410 l=0 r=1 n=30
+2893 R-- P 0c6e6c70 s=410 l=0 r=1 n=30
+2894 R-- P b831fbba s=410 l=0 r=1 n=30
+2895 R-- P e8e2aa07 s=410 l=0 r=1 n=30
+2896 R-- P 207de768 s=410 l=0 r=1 n=30
+2897 R-- P 18012265 s=410 l=0 r=1 n=30
+2898 R-- P 8ce312be s=410 l=0 r=1 n=30
+2899 R-- P 2b5e4d8b s=410 l=0 r=1 n=30
+2900 RF- P 030ae30c s=410 l=0 r=1 n=30
+2901 R-- P e9ffe479 s=410 l=0 r=1 n=30
+2902 R-- P c3645f52 s=410 l=0 r=1 n=30
+2903 R-- P 46c5a27f s=410 l=0 r=1 n=30
+2904 R-- P 5fa45623 s=410 l=0 r=1 n=30
+2905 R-- P 0963aa96 s=410 l=0 r=1 n=30
+2906 R-- P 08df2ea9 s=410 l=0 r=1 n=30
+2907 R-- P 63a1097c s=410 l=0 r=1 n=30
+2908 R-- P 0c32caaf s=410 l=0 r=1 n=30
+2909 R-- P b602f782 s=410 l=0 r=1 n=30
+2910 R-- P 1be8edd5 s=410 l=0 r=1 n=30
+2911 R-- P 51a4a698 s=410 l=0 r=1 n=30
+2912 R-- P 9280abfb s=410 l=0 r=1 n=30
+2913 R-- P 1aab936e s=410 l=0 r=1 n=30
+2914 R-- P a9c20930 s=410 l=0 r=1 n=30
+2915 R-- P c2a848ed s=410 l=0 r=1 n=30
+2916 R-- P e1fde4f2 s=410 l=0 r=1 n=30
+2917 R-- P 8951fb9f s=410 l=0 r=1 n=30
+2918 R-- P 3ace63ac s=410 l=0 r=1 n=30
+2919 R-- P 50af4919 s=410 l=0 r=1 n=30
+2920 RF- P d551b4de s=410 l=0 r=1 n=30
+2921 R-- P 3f230b2b s=410 l=0 r=1 n=30
+2922 R-- P 66773608 s=410 l=0 r=1 n=30
+2923 R-- P 7d511485 s=410 l=0 r=1 n=30
+2924 R-- P 49571301 s=410 l=0 r=1 n=30
+2925 R-- P b11608f4 s=410 l=0 r=1 n=30
+2926 R-- P c68bae2b s=410 l=0 r=1 n=30
+2927 R-- P 5cba57de s=410 l=0 r=1 n=30
+2928 R-- P 04b9b785 s=410 l=0 r=1 n=30
+2929 R-- P eddfd908 s=410 l=0 r=1 n=30
+2930 R-- P 10ba9e9f s=410 l=0 r=1 n=30
+2931 R-- P 696687f2 s=410 l=0 r=1 n=30
+2932 R-- P d817ec19 s=410 l=0 r=1 n=30
+2933 R-- P c23706ac s=410 l=0 r=1 n=30
+2934 R-- P 91706c36 s=410 l=0 r=1 n=30
+2935 R-- P aa08d343 s=410 l=0 r=1 n=30
+2936 R-- P cadad19c s=410 l=0 r=1 n=30
+2937 R-- P 2fd3e9c9 s=410 l=0 r=1 n=30
+2938 R-- P 5757e2a2 s=410 l=0 r=1 n=30
+2939 R-- P 2e5df1cf s=410 l=0 r=1 n=30
+2940 RF- P a0c8bb38 s=410 l=0 r=1 n=30
+2941 R-- P 945b37f5 s=410 l=0 r=1 n=30
+2942 R-- P fe25028e s=410 l=0 r=1 n=30
+2943 R-- P c68f2e1b s=410 l=0 r=1 n=30
+2944 R-- P f6f4afbf s=410 l=0 r=1 n=30
+2945 R-- P 25610992 s=410 l=0 r=1 n=30
+2946 R-- P 8f27b58d s=410 l=0 r=1 n=30
+2947 R-- P 77f491d0 s=410 l=0 r=1 n=30
+2948 R-- P d2f60073 s=410 l=0 r=1 n=30
+2949 R-- P 4f1b1ba6 s=410 l=0 r=1 n=30
+2950 R-- P 30de27a1 s=410 l=0 r=1 n=30
+2951 R-- P 44522994 s=410 l=0 r=1 n=30
+2952 R-- P f47a3847 s=410 l=0 r=1 n=30
+2953 R-- P 64fb4dfa s=410 l=0 r=1 n=30
+2954 R-- P b9a36594 s=410 l=0 r=1 n=30
+2955 R-- P a62f63a1 s=410 l=0 r=1 n=30
+2956 R-- P c65af8fe s=410 l=0 r=1 n=30
+2957 R-- P dd4b54cb s=410 l=0 r=1 n=30
+2958 R-- P e8c2b2a8 s=410 l=0 r=1 n=30
+2959 R-- P 11b039a5 s=410 l=0 r=1 n=30
+2960 RF- P 9ab24592 s=410 l=0 r=1 n=30
+2961 R-- P 6c45ebbf s=410 l=0 r=1 n=30
+2962 R-- P e32dc44c s=410 l=0 r=1 n=30
+2963 R-- G 35cc6452 s=410 l=0 r=1 n=30
+2964 R-- G 70c61ed7 s=410 l=0 r=1 n=30
+2965 R-- G b49bec84 s=410 l=0 r=1 n=30
+2966 R-- G dacae631 s=410 l=0 r=1 n=30
+2967 R-- G 75ed4a9e s=410 l=0 r=1 n=30
+2968 R-- G b75ab61b s=410 l=0 r=1 n=30
+2969 R-- G 41632048 s=410 l=0 r=1 n=30
+2970 L-- G 61232a35 s=410 l=0 r=1 n=30
+2971 L-- G 6c2b0242 s=410 l=0 r=1 n=30
+2972 L-- G b2ce6b2f s=410 l=0 r=1 n=30
+2973 L-- G 704f229c s=410 l=0 r=1 n=30
+2974 L-- G 355f1c5a s=410 l=0 r=1 n=30
+2975 L-- G 1ba2afcd s=410 l=0 r=1 n=30
+2976 L-- G d65ec418 s=410 l=0 r=1 n=30
+2977 L-- G ce9622ab s=410 l=0 r=1 n=30
+2978 L-- G 31337dae s=410 l=0 r=1 n=30
+2979 L-- G 0ee107c1 s=410 l=0 r=1 n=30
+2980 LF- G 5aed11ec s=410 l=0 r=1 n=30
+2981 L-- G 4925223f s=410 l=0 r=1 n=30
+2982 L-- G 4168fb12 s=410 l=0 r=1 n=30
+2983 L-- G e09ad885 s=410 l=0 r=1 n=30
+2984 L-- G a3a36615 s=410 l=0 r=1 n=30
+2985 L-- G 8856a522 s=410 l=0 r=1 n=30
+2986 L-- G 4a4ed4e3 s=410 l=0 r=1 n=30
+2987 L-- G 2e1ba250 s=410 l=0 r=1 n=30
+2988 L-- G e7b717f9 s=410 l=0 r=1 n=30
+2989 L-- G 200c8406 s=410 l=0 r=1 n=30
+2990 L-- G a50dcab7 s=410 l=0 r=1 n=30
+2991 L-- G fdf2bfe4 s=410 l=0 r=1 n=30
+2992 L-- G 7ed3a51d s=410 l=0 r=1 n=30
+2993 L-- G b4a6ab2a s=410 l=0 r=1 n=30
+2994 L-- G e1b02ff8 s=410 l=0 r=1 n=30
+2995 L-- G 1914cf0b s=410 l=0 r=1 n=30
+2996 L-- G 6ec6023a s=410 l=0 r=1 n=30
+2997 L-- G ba74ca2d s=410 l=0 r=1 n=30
+2998 L-- G 55995bf4 s=410 l=0 r=1 n=30
+2999 L-- G 8ad0f607 s=410 l=0 r=1 n=30
+3000 LF- G 649b8bd6 s=410 l=0 r=1 n=30
+3001 L-- G 581825c9 s=410 l=0 r=1 n=30
+3002 L-- G f631a060 s=410 l=0 r=1 n=30
+3003 L-- G fe52f673 s=410 l=0 r=1 n=30
+3004 L-- G 1d73e233 s=410 l=0 r=1 n=30
+3005 L-- G 16077b20 s=410 l=0 r=1 n=30
+3006 L-- G 46d760a5 s=410 l=0 r=1 n=30
+3007 L-- G a355eeb2 s=410 l=0 r=1 n=30
+3008 L-- G 0f1ec6df s=410 l=0 r=1 n=30
+3009 L-- G ba438d8c s=410 l=0 r=1 n=30
+3010 L-- G 35dfc7e1 s=410 l=0 r=1 n=30
+3011 L-- G efc6d44e s=410 l=0 r=1 n=30
+3012 L-- G 2305f8cb s=410 l=0 r=1 n=30
+3013 L-- G 055c14b8 s=410 l=0 r=1 n=30
+3014 L-- G e98d0266 s=410 l=0 r=1 n=30
+3015 L-- G d94ab0d9 s=410 l=0 r=1 n=30
+3016 L-- G 13ebdd5c s=410 l=0 r=1 n=30
+3017 L-- G 323653ef s=410 l=0 r=1 n=30
+3018 L-- G 8a576502 s=410 l=0 r=1 n=30
+3019 L-- G 64a034f5 s=410 l=0 r=1 n=30
+3020 LF- G f7106808 s=410 l=0 r=1 n=30
+3021 L-- G 812e10db s=410 l=0 r=1 n=30
+3022 L-- G 5b17955e s=410 l=0 r=1 n=30
+3023 L-- G 6cc846f1 s=410 l=0 r=1 n=30
+3024 L-- G bb9ef6c1 s=410 l=0 r=1 n=30
+3025 L-- G ddf16cae s=410 l=0 r=1 n=30
+3026 L-- G 31a21e27 s=410 l=0 r=1 n=30
+3027 L-- G b58dc614 s=410 l=0 r=1 n=30
+3028 L-- G c8609ecd s=410 l=0 r=1 n=30
+3029 L-- G e21d0b5a s=410 l=0 r=1 n=30
+3030 L-- G 01d40b13 s=410 l=0 r=1 n=30
+3031 L-- G 6dcb2e00 s=410 l=0 r=1 n=30
+3032 L-- G fa297be9 s=410 l=0 r=1 n=30
+3033 L-- G eb954bf6 s=410 l=0 r=1 n=30
+3034 L-- G c618fba4 s=410 l=0 r=1 n=30
+3035 L-- G 9e29a777 s=410 l=0 r=1 n=30
+3036 L-- G 2e7d55be s=410 l=0 r=1 n=30
+3037 L-- G 882ae151 s=410 l=0 r=1 n=30
+3038 L-- G 9bd079e8 s=410 l=0 r=1 n=30
+3039 L-- G 1ebb5abb s=410 l=0 r=1 n=30
+3040 LF- G 7976abe2 s=410 l=0 r=1 n=30
+3041 L-- G ffe457d5 s=410 l=0 r=1 n=30
+3042 L-- G 8177e3bc s=410 l=0 r=1 n=30
+3043 L-- G bf41814f s=410 l=0 r=1 n=30
+3044 L-- G feeb1f1f s=410 l=0 r=1 n=30
+3045 L-- G 6d4bcdcc s=410 l=0 r=1 n=30
+3046 L-- G 04d614c9 s=410 l=0 r=1 n=30
+3047 L-- G 11597ad6 s=410 l=0 r=1 n=30
+3048 L-- G ab10e573 s=410 l=0 r=1 n=30
+3049 L-- G a2ef8f60 s=410 l=0 r=1 n=30
+3050 L-- G 6732b92d s=410 l=0 r=1 n=30
+3051 L-- G 1b83f13a s=410 l=0 r=1 n=30
+3052 L-- G 378ee507 s=410 l=0 r=1 n=30
+3053 L-- G 02574af4 s=410 l=0 r=1 n=30
+3054 L-- G 18e8f142 s=410 l=0 r=1 n=30
+3055 L-- G 0de11935 s=410 l=0 r=1 n=30
+3056 L-- G ae900370 s=410 l=0 r=1 n=30
+3057 L-- G 1a2dc083 s=410 l=0 r=1 n=30
+3058 L-- G 9c62d6a6 s=410 l=0 r=1 n=30
+3059 L-- G 625f7d19 s=410 l=0 r=1 n=30
+3060 RF- G 6159db84 s=410 l=0 r=1 n=30
+3061 R-- G 1d840dd7 s=410 l=0 r=1 n=30
+3062 R-- G b18e464a s=410 l=0 r=1 n=30
+3063 R-- G b8d738bd s=410 l=0 r=1 n=30
+3064 R-- G 0a02fb82 s=410 l=0 r=1 n=30
+3065 R-- G e44bcb75 s=410 l=0 r=1 n=30
+3066 R-- G 5bade5b0 s=410 l=0 r=1 n=30
+3067 R-- G 7222f1c3 s=410 l=0 r=1 n=30
+3068 R-- G 693898e6 s=410 l=0 r=1 n=30
+3069 R-- G 58f64759 s=410 l=0 r=1 n=30
+3070 R-- G bc4a58c4 s=410 l=0 r=1 n=30
+3071 R-- G 1ede1517 s=410 l=0 r=1 n=30
+3072 R-- G f801dd8a s=410 l=0 r=1 n=30
+3073 R-- G d590effd s=410 l=0 r=1 n=30
+3074 R-- G 8eca5d5f s=410 l=0 r=1 n=30
+3075 R-- G 39ef240c s=410 l=0 r=1 n=30
+3076 R-- G 53413309 s=410 l=0 r=1 n=30
+3077 R-- G b8f9bc16 s=410 l=0 r=1 n=30
+3078 R-- G 9d1f78b3 s=410 l=0 r=1 n=30
+3079 R-- G 95b311a0 s=410 l=0 r=1 n=30
+3080 RF- G fae58e6d s=410 l=0 r=1 n=30
+3081 R-- G a60f337a s=410 l=0 r=1 n=30
+3082 R-- G 6425e947 s=410 l=0 r=1 n=30
+3083 R-- G e1aa7934 s=410 l=0 r=1 n=30
+3084 R-- G 023207b0 s=410 l=0 r=1 n=30
+3085 R-- G 18a713c3 s=410 l=0 r=1 n=30
+3086 R-- G b0871d82 s=410 l=0 r=1 n=30
+3087 R-- G 8acfed75 s=410 l=0 r=1 n=30
+3088 R-- G 3a1b95dc s=410 l=0 r=1 n=30
+3089 R-- G 58660c6f s=410 l=0 r=1 n=30
+3090 R-- G 81474dde s=410 l=0 r=1 n=30
+3091 R-- G 92f7ff71 s=410 l=0 r=1 n=30
+3092 R-- G 1d402088 s=410 l=0 r=1 n=30
+3093 R-- G a75dc95b s=410 l=0 r=1 n=30
+3094 R-- G a169b06d s=410 l=0 r=1 n=30
+3095 R-- G 4c93557a s=410 l=0 r=1 n=30
+3096 R-- G 4935b14b s=410 l=0 r=1 n=30
+3097 R-- G 2b8bcd38 s=410 l=0 r=1 n=30
+3098 R-- G 5c0f8061 s=410 l=0 r=1 n=30
+3099 R-- G 15f68cce s=410 l=0 r=1 n=30
+3100 RF- G 354e7f5f s=410 l=0 r=1 n=30
+3101 R-- G e073460c s=410 l=0 r=1 n=30
+3102 R-- G 6d071925 s=410 l=0 r=1 n=30
+3103 R-- G c985a732 s=410 l=0 r=1 n=30
+3104 R-- G 54ad0e3e s=410 l=0 r=1 n=30
+3105 R-- G ae5a99d1 s=410 l=0 r=1 n=30
+3106 R-- G ec48b424 s=410 l=0 r=1 n=30
+3107 R-- G c4595ff7 s=410 l=0 r=1 n=30
+3108 R-- G 7518f96a s=410 l=0 r=1 n=30
+3109 R-- G 50e4ba5d s=410 l=0 r=1 n=30
+3110 R-- G 6e68b390 s=410 l=0 r=1 n=30
+3111 R-- G 289d9e23 s=410 l=0 r=1 n=30
+3112 R-- G 6d5ad646 s=410 l=0 r=1 n=30
+3113 R-- G c4890839 s=410 l=0 r=1 n=30
+3114 R-- G a183ca2b s=410 l=0 r=1 n=30
+3115 R-- G a94c6b98 s=410 l=0 r=1 n=30
+3116 R-- G ee90574d s=410 l=0 r=1 n=30
+3117 R-- G 084cc3da s=410 l=0 r=1 n=30
+3118 R-- G 57d1d6a7 s=410 l=0 r=1 n=30
+3119 R-- G dbbd7e94 s=410 l=0 r=1 n=30
+3120 RF- G 20593469 s=410 l=0 r=1 n=30
+3121 R-- G 11c50476 s=410 l=0 r=1 n=30
+3122 R-- G 2803c393 s=410 l=0 r=1 n=30
+3123 R-- G 93fae680 s=410 l=0 r=1 n=30
+3124 R-- G 433cca1c s=410 l=0 r=1 n=30
+3125 R-- G 85bc12af s=410 l=0 r=1 n=30
+3126 R-- G c2928f26 s=410 l=0 r=1 n=30
+3127 R-- G 888f3599 s=410 l=0 r=1 n=30
+3128 R-- G d4bfbbf0 s=410 l=0 r=1 n=30
+3129 R-- G 405d7903 s=410 l=0 r=1 n=30
+3130 R-- G d7bdfeca s=410 l=0 r=1 n=30
+3131 R-- G df06f13d s=410 l=0 r=1 n=30
+3132 R-- G 87899404 s=410 l=0 r=1 n=30
+3133 R-- G 43b3c657 s=410 l=0 r=1 n=30
+3134 R-- G cf967bf9 s=410 l=0 r=1 n=30
+3135 R-- G 07ebe806 s=410 l=0 r=1 n=30
+3136 R-- G aed8be8f s=410 l=0 r=1 n=30
+3137 R-- G 553055fc s=410 l=0 r=1 n=30
+3138 R-- G 8b82ca15 s=410 l=0 r=1 n=30
+3139 R-- G 70360922 s=410 l=0 r=1 n=30
+3140 RF- G aedd8dfb s=410 l=0 r=1 n=30
+3141 R-- G 62254c28 s=410 l=0 r=1 n=30
+3142 R-- G e9286e91 s=410 l=0 r=1 n=30
+3143 R-- G e5309afe s=410 l=0 r=1 n=30
+3144 R-- G 5bc6d19a s=410 l=0 r=1 n=30
+3145 R-- G 12ee1e0d s=410 l=0 r=1 n=30
+3146 R-- G 2c058458 s=410 l=0 r=1 n=30
+3147 R-- G bc23f6eb s=410 l=0 r=1 n=30
+3148 R-- G fb2578ee s=410 l=0 r=1 n=30
+3149 R-- G 7d4af801 s=410 l=0 r=1 n=30
+3150 L-- G ec03262c s=410 l=0 r=1 n=30
+3151 L-- G 33c6307f s=410 l=0 r=1 n=30
+3152 L-- G b79cdc52 s=410 l=0 r=1 n=30
+3153 L-- G 7eea6ac5 s=410 l=0 r=1 n=30
+3154 L-- G 72202617 s=410 l=0 r=1 n=30
+3155 L-- G 0f8c69c4 s=410 l=0 r=1 n=30
+3156 L-- G 3fb5ee71 s=410 l=0 r=1 n=30
+3157 L-- G 2e053cde s=410 l=0 r=1 n=30
+3158 L-- G 541bb85b s=410 l=0 r=1 n=30
+3159 L-- G c9fe0f88 s=410 l=0 r=1 n=30
+3160 LF- G 378ddc75 s=410 l=0 r=1 n=30
+3161 L-- G 5d450c82 s=410 l=0 r=1 n=30
+3162 L-- G 0523fb6f s=410 l=0 r=1 n=30
+3163 L-- G e6d984dc s=410 l=0 r=1 n=30
+3164 L-- G c8503dff s=410 l=0 r=1 n=30
+3165 L-- G 808d33ac s=410 l=0 r=1 n=30
+3166 L-- G a570d5a9 s=410 l=0 r=1 n=30
+3167 L-- G 29ea65b6 s=410 l=0 r=1 n=30
+3168 L-- G 550d4dd3 s=410 l=0 r=1 n=30
+3169 L-- G 827473c0 s=410 l=0 r=1 n=30
+3170 L-- G a7782b8d s=410 l=0 r=1 n=30
+3171 L-- G f050df1a s=410 l=0 r=1 n=30
+3172 L-- G 97047ae7 s=410 l=0 r=1 n=30
+3173 L-- G ea1083d4 s=410 l=0 r=1 n=30
+3174 L-- G 04c016a2 s=410 l=0 r=1 n=30
+3175 L-- G 200cd795 s=410 l=0 r=1 n=30
+3176 L-- G aa8513d0 s=410 l=0 r=1 n=30
+3177 L-- G c6b84663 s=410 l=0 r=1 n=30
+3178 L-- G 9c75f586 s=410 l=0 r=1 n=30
+3179 L-- G 64208979 s=410 l=0 r=1 n=30
+3180 LF- G 7a5c3164 s=410 l=0 r=1 n=30
+3181 L-- G 21773c37 s=410 l=0 r=1 n=30
+3182 L-- G 31101caa s=410 l=0 r=1 n=30
+3183 L-- G fb3d169d s=410 l=0 r=1 n=30
+3184 L-- G 4dfc4d8d s=410 l=0 r=1 n=30
+3185 L-- G 96d5011a s=410 l=0 r=1 n=30
+3186 L-- G f732266b s=410 l=0 r=1 n=30
+3187 L-- G 6713b3d8 s=410 l=0 r=1 n=30
+3188 L-- G b8592781 s=410 l=0 r=1 n=30
+3189 L-- G 3633a86e s=410 l=0 r=1 n=30
+3190 L-- G 6ed45fff s=410 l=0 r=1 n=30
+3191 L-- G 271155ac s=410 l=0 r=1 n=30
+3192 L-- G b9f89a45 s=410 l=0 r=1 n=30
+3193 L-- G f2ab0bd2 s=410 l=0 r=1 n=30
+3194 L-- G 510935d0 s=410 l=0 r=1 n=30
+3195 L-- G 6d3c6863 s=410 l=0 r=1 n=30
+3196 L-- G ab4438a2 s=410 l=0 r=1 n=30
+3197 L-- G c690f995 s=410 l=0 r=1 n=30
+3198 L-- G 903e857c s=410 l=0 r=1 n=30
+3199 L-- G e9e6ee0f s=410 l=0 r=1 n=30
+3200 LF- G 203eca7e s=410 l=0 r=1 n=30
+3201 L-- G 24369e11 s=410 l=0 r=1 n=30
+3202 L-- G 9d337ba8 s=410 l=0 r=1 n=30
+3203 L-- G e9ebbd7b s=410 l=0 r=1 n=30
+3204 L-- G 3101cfcb s=410 l=0 r=1 n=30
+3205 L-- G 1357ebb8 s=410 l=0 r=1 n=30
+3206 L-- G 8935ceed s=410 l=0 r=1 n=30
+3207 L-- G 345f73fa s=410 l=0 r=1 n=30
+3208 L-- G f27629c7 s=410 l=0 r=1 n=30
+3209 L-- G 6ffab9b4 s=410 l=0 r=1 n=30
+3210 L-- G e1917389 s=410 l=0 r=1 n=30
+3211 L-- G 4749fc96 s=410 l=0 r=1 n=30
+3212 L-- G 2b6fb933 s=410 l=0 r=1 n=30
+3213 L-- G 24035220 s=410 l=0 r=1 n=30
+3214 L-- G 69136c5e s=410 l=0 r=1 n=30
+3215 L-- G 7ac41df1 s=410 l=0 r=1 n=30
+3216 L-- G 4a9a9944 s=410 l=0 r=1 n=30
+3217 L-- G ad2e5597 s=410 l=0 r=1 n=30
+3218 L-- G 86521e0a s=410 l=0 r=1 n=30
+3219 L-- G 63e1307d s=410 l=0 r=1 n=30
+3220 LF- G e9fe2630 s=410 l=0 r=1 n=30
+3221 L-- G 00733243 s=410 l=0 r=1 n=30
+3222 L-- G f788d966 s=410 l=0 r=1 n=30
+3223 L-- G e74687d9 s=410 l=0 r=1 n=30
+3224 L-- G 854d1099 s=410 l=0 r=1 n=30
+3225 L-- G bf506a26 s=410 l=0 r=1 n=30
+3226 L-- G 8279edaf s=410 l=0 r=1 n=30
+3227 L-- G 3ffaa51c s=410 l=0 r=1 n=30
+3228 L-- G 30ceacb5 s=410 l=0 r=1 n=30
+3229 L-- G 3bd684c2 s=410 l=0 r=1 n=30
+3230 L-- G 8706389b s=410 l=0 r=1 n=30
+3231 L-- G 110ea2c8 s=410 l=0 r=1 n=30
+3232 L-- G aa7668b1 s=410 l=0 r=1 n=30
+3233 L-- G 4598cd1e s=410 l=0 r=1 n=30
+3234 L-- G 8f73babc s=410 l=0 r=1 n=30
+3235 L-- G cd3d584f s=410 l=0 r=1 n=30
+3236 L-- G 5526f4c6 s=410 l=0 r=1 n=30
+3237 L-- G ac5526b9 s=410 l=0 r=1 n=30
+3238 L-- G 5634d210 s=410 l=0 r=1 n=30
+3239 L-- G 1069bca3 s=410 l=0 r=1 n=30
+3240 RF- G 5ce517ea s=410 l=0 r=1 n=30
+3241 R-- G 38b0d8dd s=410 l=0 r=1 n=30
+3242 R-- G d414d2a4 s=410 l=0 r=1 n=30
+3243 R-- G ac257e77 s=410 l=0 r=1 n=30
+3244 R-- G 74b94d37 s=410 l=0 r=1 n=30
+3245 R-- G cd9e4264 s=410 l=0 r=1 n=30
+3246 R-- G d0f48d11 s=410 l=0 r=1 n=30
+3247 R-- G ccfcb97e s=410 l=0 r=1 n=30
+3248 R-- G 96a9ac7b s=410 l=0 r=1 n=30
+3249 R-- G 49f16aa8 s=410 l=0 r=1 n=30
+3250 R-- G 734ee895 s=410 l=0 r=1 n=30
+3251 R-- G 580227a2 s=410 l=0 r=1 n=30
+3252 R-- G 96a4dd0f s=410 l=0 r=1 n=30
+3253 R-- G 3cfc747c s=410 l=0 r=1 n=30
+3254 R-- G 9594d984 s=410 l=0 r=1 n=30
+3255 R-- G 51bf0bd7 s=410 l=0 r=1 n=30
+3256 R-- G 56e6379e s=410 l=0 r=1 n=30
+3257 R-- G bbc3d331 s=410 l=0 r=1 n=30
+3258 R-- G 225c0d48 s=410 l=0 r=1 n=30
+3259 R-- G 9853a31b s=410 l=0 r=1 n=30
+3260 RF- G 4d23ef42 s=410 l=0 r=1 n=30
+3261 R-- G 421c1735 s=410 l=0 r=1 n=30
+3262 R-- G 51480f9c s=410 l=0 r=1 n=30
+3263 R-- A d9d6db73
+3264 R-- A d9d6db73
+3265 R-- A d9d6db73
+3266 R-- A d9d6db73
+3267 R-- A d9d6db73
+3268 R-- A d9d6db73
+3269 R-- A d9d6db73
+3270 R-- A d9d6db73
+3271 R-- A d9d6db73
+3272 R-- A d9d6db73
+3273 R-- A d9d6db73
+3274 R-- A d9d6db73
+3275 R-- A d9d6db73
+3276 R-- A d9d6db73
+3277 R-- A d9d6db73
+3278 R-- A d9d6db73
+3279 R-- A d9d6db73
+3280 RF- A d9d6db73
+3281 R-- A d9d6db73
+3282 R-- A d9d6db73
+3283 R-- A d9d6db73
+3284 R-- A d9d6db73
+3285 R-- A d9d6db73
+3286 R-- A d9d6db73
+3287 R-- A d9d6db73
+3288 R-- A d9d6db73
+3289 R-- A d9d6db73
+3290 R-- A d9d6db73
+3291 R-- A d9d6db73
+3292 R-- A d9d6db73
+3293 R-- A d9d6db73
+3294 R-- A d9d6db73
+3295 R-- A d9d6db73
+3296 R-- A d9d6db73
+3297 R-- A d9d6db73
+3298 R-- A d9d6db73
+3299 R-- A d9d6db73
+3300 RF- A d9d6db73
+3301 R-- A d9d6db73
+3302 R-- A d9d6db73
+3303 R-- A d9d6db73
+3304 R-- A d9d6db73
+3305 R-- A d9d6db73
+3306 R-- A d9d6db73
+3307 R-- A d9d6db73
+3308 R-- A d9d6db73
+3309 R-- A d9d6db73
+3310 R-- A d9d6db73
+3311 R-- A d9d6db73
+3312 R-- A d9d6db73
+3313 R-- A d9d6db73
+3314 R-- A d9d6db73
+3315 R-- A d9d6db73
+3316 R-- A d9d6db73
+3317 R-- A d9d6db73
+3318 R-- A d9d6db73
+3319 R-- A d9d6db73
+3320 RF- A d9d6db73
+3321 R-- A d9d6db73
+3322 R-- A d9d6db73
+3323 R-- A d9d6db73
+3324 R-- A d9d6db73
+3325 R-- A d9d6db73
+3326 R-- A d9d6db73
+3327 R-- A d9d6db73
+3328 R-- A d9d6db73
+3329 R-- A d9d6db73
+3330 L-- A d9d6db73
+3331 L-- A d9d6db73
+3332 L-- A d9d6db73
+3333 L-- A d9d6db73
+3334 L-- A d9d6db73
+3335 L-- A d9d6db73
+3336 L-- A d9d6db73
+3337 L-- A d9d6db73
+3338 L-- A d9d6db73
+3339 L-- A d9d6db73
+3340 LF- A d9d6db73
+3341 L-- A d9d6db73
+3342 L-- A d9d6db73
+3343 L-- A d9d6db73
+3344 L-- A d9d6db73
+3345 L-- A d9d6db73
+3346 L-- A d9d6db73
+3347 L-- A d9d6db73
+3348 L-- A d9d6db73
+3349 L-- A d9d6db73
+3350 L-- A d9d6db73
+3351 L-- A d9d6db73
+3352 L-- A d9d6db73
+3353 L-- A d9d6db73
+3354 L-- A d9d6db73
+3355 L-- A d9d6db73
+3356 L-- A d9d6db73
+3357 L-- A d9d6db73
+3358 L-- A d9d6db73
+3359 L-- A d9d6db73
+3360 LF- A d9d6db73
+3361 L-- A d9d6db73
+3362 L-- A d9d6db73
+3363 L-- A d9d6db73
+3364 L-- A d9d6db73
+3365 L-- A d9d6db73
+3366 L-- A d9d6db73
+3367 L-- A d9d6db73
+3368 L-- A d9d6db73
+3369 L-- A d9d6db73
+3370 L-- A d9d6db73
+3371 L-- A d9d6db73
+3372 L-- A d9d6db73
+3373 L-- A d9d6db73
+3374 L-- A d9d6db73
+3375 L-- A d9d6db73
+3376 L-- A d9d6db73
+3377 L-- A d9d6db73
+3378 L-- A d9d6db73
+3379 L-- A d9d6db73
+3380 LF- A d9d6db73
+3381 L-- A d9d6db73
+3382 L-- A d9d6db73
+3383 L-- A d9d6db73
+3384 L-- A d9d6db73
+3385 L-- A d9d6db73
+3386 L-- A d9d6db73
+3387 L-- A d9d6db73
+3388 L-- A d9d6db73
+3389 L-- A d9d6db73
+3390 L-- A d9d6db73
+3391 L-- A d9d6db73
+3392 L-- A d9d6db73
+3393 L-- A d9d6db73
+3394 L-- A d9d6db73
+3395 L-- A d9d6db73
+3396 L-- A d9d6db73
+3397 L-- A d9d6db73
+3398 L-- A d9d6db73
+3399 L-- A d9d6db73
+3400 LF- A d9d6db73
+3401 L-- A d9d6db73
+3402 L-- A d9d6db73
+3403 L-- A d9d6db73
+3404 L-- A d9d6db73
+3405 L-- A d9d6db73
+3406 L-- A d9d6db73
+3407 L-- A d9d6db73
+3408 L-- A d9d6db73
+3409 L-- A d9d6db73
+3410 L-- A d9d6db73
+3411 L-- A d9d6db73
+3412 L-- A d9d6db73
+3413 L-- A d9d6db73
+3414 L-- A d9d6db73
+3415 L-- A d9d6db73
+3416 L-- A d9d6db73
+3417 L-- A d9d6db73
+3418 L-- A d9d6db73
+3419 L-- A d9d6db73
+3420 RF- A d9d6db73
+3421 R-- A d9d6db73
+3422 R-- A d9d6db73
+3423 R-- A d9d6db73
+3424 R-- A d9d6db73
+3425 R-- A d9d6db73
+3426 R-- A d9d6db73
+3427 R-- A d9d6db73
+3428 R-- A d9d6db73
+3429 R-- A d9d6db73
+3430 R-- A d9d6db73
+3431 R-- A d9d6db73
+3432 R-- A d9d6db73
+3433 R-- A d9d6db73
+3434 R-- A d9d6db73
+3435 R-- A d9d6db73
+3436 R-- A d9d6db73
+3437 R-- A d9d6db73
+3438 R-- A d9d6db73
+3439 R-- A d9d6db73
+3440 RF- A d9d6db73
+3441 R-- A d9d6db73
+3442 R-- A d9d6db73
+3443 R-- A d9d6db73
+3444 R-- A d9d6db73
+3445 R-- A d9d6db73
+3446 R-- A d9d6db73
+3447 R-- A d9d6db73
+3448 R-- A d9d6db73
+3449 R-- A d9d6db73
+3450 R-- A d9d6db73
+3451 R-- A d9d6db73
+3452 R-- A d9d6db73
+3453 R-- A d9d6db73
+3454 R-- A d9d6db73
+3455 R-- A d9d6db73
+3456 R-- A d9d6db73
+3457 R-- A d9d6db73
+3458 R-- A d9d6db73
+3459 R-- A d9d6db73
+3460 RF- A d9d6db73
+3461 R-- A d9d6db73
+3462 R-- A d9d6db73
+3463 R-- A d9d6db73
+3464 R-- A d9d6db73
+3465 R-- A d9d6db73
+3466 R-- A d9d6db73
+3467 R-- A d9d6db73
+3468 R-- A d9d6db73
+3469 R-- A d9d6db73
+3470 R-- A d9d6db73
+3471 R-- A d9d6db73
+3472 R-- A d9d6db73
+3473 R-- A d9d6db73
+3474 R-- A d9d6db73
+3475 R-- A d9d6db73
+3476 R-- A d9d6db73
+3477 R-- A d9d6db73
+3478 R-- A d9d6db73
+3479 R-- A d9d6db73
+3480 RF- A d9d6db73
+3481 R-- A d9d6db73
+3482 R-- A d9d6db73
+3483 R-- A d9d6db73
+3484 R-- A d9d6db73
+3485 R-- A d9d6db73
+3486 R-- A d9d6db73
+3487 R-- A d9d6db73
+3488 R-- A d9d6db73
+3489 R-- A d9d6db73
+3490 R-- A d9d6db73
+3491 R-- A d9d6db73
+3492 R-- A d9d6db73
+3493 R-- A d9d6db73
+3494 R-- A d9d6db73
+3495 R-- A d9d6db73
+3496 R-- A d9d6db73
+3497 R-- A d9d6db73
+3498 R-- A d9d6db73
+3499 R-- A d9d6db73
+3500 RF- A d9d6db73
+3501 R-- A d9d6db73
+3502 R-- A d9d6db73
+3503 R-- A d9d6db73
+3504 R-- A d9d6db73
+3505 R-- A d9d6db73
+3506 R-- A d9d6db73
+3507 R-- A d9d6db73
+3508 R-- A d9d6db73
+3509 R-- A d9d6db73
+3510 L-- A d9d6db73
+3511 L-- A d9d6db73
+3512 L-- A d9d6db73
+3513 L-- A d9d6db73
+3514 L-- A d9d6db73
+3515 L-- A d9d6db73
+3516 L-- A d9d6db73
+3517 L-- A d9d6db73
+3518 L-- A d9d6db73
+3519 L-- A d9d6db73
+3520 LF- A d9d6db73
+3521 L-- A d9d6db73
+3522 L-- A d9d6db73
+3523 L-- A d9d6db73
+3524 L-- A d9d6db73
+3525 L-- A d9d6db73
+3526 L-- A d9d6db73
+3527 L-- A d9d6db73
+3528 L-- A d9d6db73
+3529 L-- A d9d6db73
+3530 L-- A d9d6db73
+3531 L-- A d9d6db73
+3532 L-- A d9d6db73
+3533 L-- A d9d6db73
+3534 L-- A d9d6db73
+3535 L-- A d9d6db73
+3536 L-- A d9d6db73
+3537 L-- A d9d6db73
+3538 L-- A d9d6db73
+3539 L-- A d9d6db73
+3540 LF- A d9d6db73
+3541 L-- A d9d6db73
+3542 L-- A d9d6db73
+3543 L-- A d9d6db73
+3544 L-- A d9d6db73
+3545 L-- A d9d6db73
+3546 L-- A d9d6db73
+3547 L-- A d9d6db73
+3548 L-- A d9d6db73
+3549 L-- A d9d6db73
+3550 L-- A d9d6db73
+3551 L-- A d9d6db73
+3552 L-- A d9d6db73
+3553 L-- A d9d6db73
+3554 L-- A d9d6db73
+3555 L-- A d9d6db73
+3556 L-- A d9d6db73
+3557 L-- A d9d6db73
+3558 L-- A d9d6db73
+3559 L-- A d9d6db73
+3560 LF- A d9d6db73
+3561 L-- A d9d6db73
+3562 L-- A d9d6db73
+3563 L-- A d9d6db73
+3564 L-- A d9d6db73
+3565 L-- A d9d6db73
+3566 L-- A d9d6db73
+3567 L-- A d9d6db73
+3568 L-- A d9d6db73
+3569 L-- A d9d6db73
+3570 L-- A d9d6db73
+3571 L-- A d9d6db73
+3572 L-- A d9d6db73
+3573 L-- A d9d6db73
+3574 L-- A d9d6db73
+3575 L-- A d9d6db73
+3576 L-- A d9d6db73
+3577 L-- A d9d6db73
+3578 L-- A d9d6db73
+3579 L-- A d9d6db73
+3580 LF- A d9d6db73
+3581 L-- A d9d6db73
+3582 L-- A d9d6db73
+3583 L-- A d9d6db73
+3584 L-- A d9d6db73
+3585 L-- A d9d6db73
+3586 L-- A d9d6db73
+3587 L-- A d9d6db73
+3588 L-- A d9d6db73
+3589 L-- A d9d6db73
+3590 L-- A d9d6db73
+3591 L-- A d9d6db73
+3592 L-- A d9d6db73
+3593 L-- A d9d6db73
+3594 L-- A d9d6db73
+3595 L-- A d9d6db73
+3596 L-- A d9d6db73
+3597 L-- A d9d6db73
+3598 L-- A d9d6db73
+3599 L-- A d9d6db73
+3600 RF- A d9d6db73
+3601 R-- A d9d6db73
+3602 R-- A d9d6db73
+3603 R-- A d9d6db73
+3604 R-- A d9d6db73
+3605 R-- A d9d6db73
+3606 R-- A d9d6db73
+3607 R-- A d9d6db73
+3608 R-- A d9d6db73
+3609 R-- A d9d6db73
+3610 R-- A d9d6db73
+3611 R-- A d9d6db73
+3612 R-- A d9d6db73
+3613 R-- A d9d6db73
+3614 R-- A d9d6db73
+3615 R-- A d9d6db73
+3616 R-- A d9d6db73
+3617 R-- A d9d6db73
+3618 R-- A d9d6db73
+3619 R-- A d9d6db73
+3620 RF- A d9d6db73
+3621 R-- A d9d6db73
+3622 R-- A d9d6db73
+3623 R-- A d9d6db73
+3624 R-- A d9d6db73
+3625 R-- A d9d6db73
+3626 R-- A d9d6db73
+3627 R-- A d9d6db73
+3628 R-- A d9d6db73
+3629 R-- A d9d6db73
+3630 R-- A d9d6db73
+3631 R-- A d9d6db73
+3632 R-- A d9d6db73
+3633 R-- A d9d6db73
+3634 R-- A d9d6db73
+3635 R-- A d9d6db73
+3636 R-- A d9d6db73
+3637 R-- A d9d6db73
+3638 R-- A d9d6db73
+3639 R-- A d9d6db73
+3640 RF- A d9d6db73
+3641 R-- A d9d6db73
+3642 R-- A d9d6db73
+3643 R-- A d9d6db73
+3644 R-- A d9d6db73
+3645 R-- A d9d6db73
+3646 R-- A d9d6db73
+3647 R-- A d9d6db73
+3648 R-- A d9d6db73
+3649 R-- A d9d6db73
+3650 R-- A d9d6db73
+3651 R-- A d9d6db73
+3652 R-- A d9d6db73
+3653 R-- A d9d6db73
+3654 R-- A d9d6db73
+3655 R-- A d9d6db73
+3656 R-- A d9d6db73
+3657 R-- A d9d6db73
+3658 R-- A d9d6db73
+3659 R-- A d9d6db73
+3660 RF- A d9d6db73
+3661 R-- A d9d6db73
+3662 R-- A d9d6db73
+3663 R-- A d9d6db73
+3664 R-- A d9d6db73
+3665 R-- A d9d6db73
+3666 R-- A d9d6db73
+3667 R-- A d9d6db73
+3668 R-- A d9d6db73
+3669 R-- A d9d6db73
+3670 R-- A d9d6db73
+3671 R-- A d9d6db73
+3672 R-- A d9d6db73
+3673 R-- A d9d6db73
+3674 R-- A d9d6db73
+3675 R-- A d9d6db73
+3676 R-- A d9d6db73
+3677 R-- A d9d6db73
+3678 R-- A d9d6db73
+3679 R-- A d9d6db73
+3680 RF- A d9d6db73
+3681 R-- A d9d6db73
+3682 R-- A d9d6db73
+3683 R-- A d9d6db73
+3684 R-- A d9d6db73
+3685 R-- A d9d6db73
+3686 R-- A d9d6db73
+3687 R-- A d9d6db73
+3688 R-- A d9d6db73
+3689 R-- A d9d6db73
+3690 L-- A d9d6db73
+3691 L-- A d9d6db73
+3692 L-- A d9d6db73
+3693 L-- A d9d6db73
+3694 L-- A d9d6db73
+3695 L-- A d9d6db73
+3696 L-- A d9d6db73
+3697 L-- A d9d6db73
+3698 L-- A d9d6db73
+3699 L-- A d9d6db73
+3700 LF- A d9d6db73
+3701 L-- A d9d6db73
+3702 L-- A d9d6db73
+3703 L-- A d9d6db73
+3704 L-- A d9d6db73
+3705 L-- A d9d6db73
+3706 L-- A d9d6db73
+3707 L-- A d9d6db73
+3708 L-- A d9d6db73
+3709 L-- A d9d6db73
+3710 L-- A d9d6db73
+3711 L-- A d9d6db73
+3712 L-- A d9d6db73
+3713 L-- A d9d6db73
+3714 L-- A d9d6db73
+3715 L-- A d9d6db73
+3716 L-- A d9d6db73
+3717 L-- A d9d6db73
+3718 L-- A d9d6db73
+3719 L-- A d9d6db73
+3720 LF- A d9d6db73
+3721 L-- A d9d6db73
+3722 L-- A d9d6db73
+3723 L-- A d9d6db73
+3724 L-- A d9d6db73
+3725 L-- A d9d6db73
+3726 L-- A d9d6db73
+3727 L-- A d9d6db73
+3728 L-- A d9d6db73
+3729 L-- A d9d6db73
+3730 L-- A d9d6db73
+3731 L-- A d9d6db73
+3732 L-- A d9d6db73
+3733 L-- A d9d6db73
+3734 L-- A d9d6db73
+3735 L-- A d9d6db73
+3736 L-- A d9d6db73
+3737 L-- A d9d6db73
+3738 L-- A d9d6db73
+3739 L-- A d9d6db73
+3740 LF- A d9d6db73
+3741 L-- A d9d6db73
+3742 L-- A d9d6db73
+3743 L-- A d9d6db73
+3744 L-- A d9d6db73
+3745 L-- A d9d6db73
+3746 L-- A d9d6db73
+3747 L-- A d9d6db73
+3748 L-- A d9d6db73
+3749 L-- A d9d6db73
+3750 L-- A d9d6db73
+3751 L-- A d9d6db73
+3752 L-- A d9d6db73
+3753 L-- A d9d6db73
+3754 L-- A d9d6db73
+3755 L-- A d9d6db73
+3756 L-- A d9d6db73
+3757 L-- A d9d6db73
+3758 L-- A d9d6db73
+3759 L-- A d9d6db73
+3760 LF- A d9d6db73
+3761 L-- A d9d6db73
+3762 L-- A d9d6db73
+3763 L-- A d9d6db73
+3764 L-- A d9d6db73
+3765 L-- A d9d6db73
+3766 L-- A d9d6db73
+3767 L-- A d9d6db73
+3768 L-- A d9d6db73
+3769 L-- A d9d6db73
+3770 L-- A d9d6db73
+3771 L-- A d9d6db73
+3772 L-- A d9d6db73
+3773 L-- A d9d6db73
+3774 L-- A d9d6db73
+3775 L-- A d9d6db73
+3776 L-- A d9d6db73
+3777 L-- A d9d6db73
+3778 L-- A d9d6db73
+3779 L-- A d9d6db73
+3780 RF- A d9d6db73
+3781 R-- A d9d6db73
+3782 R-- A d9d6db73
+3783 R-- A d9d6db73
+3784 R-- A d9d6db73
+3785 R-- A d9d6db73
+3786 R-- A d9d6db73
+3787 R-- A d9d6db73
+3788 R-- A d9d6db73
+3789 R-- A d9d6db73
+3790 R-- A d9d6db73
+3791 R-- A d9d6db73
+3792 R-- A d9d6db73
+3793 R-- A d9d6db73
+3794 R-- A d9d6db73
+3795 R-- A d9d6db73
+3796 R-- A d9d6db73
+3797 R-- A d9d6db73
+3798 R-- A d9d6db73
+3799 R-- A d9d6db73
+3800 RF- A d9d6db73
+3801 R-- A d9d6db73
+3802 R-- A d9d6db73
+3803 R-- A d9d6db73
+3804 R-- A d9d6db73
+3805 R-- A d9d6db73
+3806 R-- A d9d6db73
+3807 R-- A d9d6db73
+3808 R-- A d9d6db73
+3809 R-- A d9d6db73
+3810 R-- A d9d6db73
+3811 R-- A d9d6db73
+3812 R-- A d9d6db73
+3813 R-- A d9d6db73
+3814 R-- A d9d6db73
+3815 R-- A d9d6db73
+3816 R-- A d9d6db73
+3817 R-- A d9d6db73
+3818 R-- A d9d6db73
+3819 R-- A d9d6db73
+3820 RF- A d9d6db73
+3821 R-- A d9d6db73
+3822 R-- A d9d6db73
+3823 R-- A d9d6db73
+3824 R-- A d9d6db73
+3825 R-- A d9d6db73
+3826 R-- A d9d6db73
+3827 R-- A d9d6db73
+3828 R-- A d9d6db73
+3829 R-- A d9d6db73
+3830 R-- A d9d6db73
+3831 R-- A d9d6db73
+3832 R-- A d9d6db73
+3833 R-- A d9d6db73
+3834 R-- A d9d6db73
+3835 R-- A d9d6db73
+3836 R-- A d9d6db73
+3837 R-- A d9d6db73
+3838 R-- A d9d6db73
+3839 R-- A d9d6db73
+3840 RF- A d9d6db73
+3841 R-- A d9d6db73
+3842 R-- A d9d6db73
+3843 R-- A d9d6db73
+3844 R-- A d9d6db73
+3845 R-- A d9d6db73
+3846 R-- A d9d6db73
+3847 R-- A d9d6db73
+3848 R-- A d9d6db73
+3849 R-- A d9d6db73
+3850 R-- A d9d6db73
+3851 R-- A d9d6db73
+3852 R-- A d9d6db73
+3853 R-- A d9d6db73
+3854 R-- A d9d6db73
+3855 R-- A d9d6db73
+3856 R-- A d9d6db73
+3857 R-- A d9d6db73
+3858 R-- A d9d6db73
+3859 R-- A d9d6db73
+3860 RF- A d9d6db73
+3861 R-- A d9d6db73
+3862 R-- A d9d6db73
+3863 R-- A d9d6db73
+3864 R-- A d9d6db73
+3865 R-- A d9d6db73
+3866 R-- A d9d6db73
+3867 R-- A d9d6db73
+3868 R-- A d9d6db73
+3869 R-- A d9d6db73
+3870 L-- A d9d6db73
+3871 L-- A d9d6db73
+3872 L-- A d9d6db73
+3873 L-- A d9d6db73
+3874 L-- A d9d6db73
+3875 L-- A d9d6db73
+3876 L-- A d9d6db73
+3877 L-- A d9d6db73
+3878 L-- A d9d6db73
+3879 L-- A d9d6db73
+3880 LF- A d9d6db73
+3881 L-- A d9d6db73
+3882 L-- A d9d6db73
+3883 L-- A d9d6db73
+3884 L-- A d9d6db73
+3885 L-- A d9d6db73
+3886 L-- A d9d6db73
+3887 L-- A d9d6db73
+3888 L-- A d9d6db73
+3889 L-- A d9d6db73
+3890 L-- A d9d6db73
+3891 L-- A d9d6db73
+3892 L-- A d9d6db73
+3893 L-- A d9d6db73
+3894 L-- A d9d6db73
+3895 L-- A d9d6db73
+3896 L-- A d9d6db73
+3897 L-- A d9d6db73
+3898 L-- A d9d6db73
+3899 L-- A d9d6db73
+3900 LF- A d9d6db73
+3901 L-- A d9d6db73
+3902 L-- A d9d6db73
+3903 L-- A d9d6db73
+3904 L-- A d9d6db73
+3905 L-- A d9d6db73
+3906 L-- A d9d6db73
+3907 L-- A d9d6db73
+3908 L-- A d9d6db73
+3909 L-- A d9d6db73
+3910 L-- A d9d6db73
+3911 L-- A d9d6db73
+3912 L-- A d9d6db73
+3913 L-- A d9d6db73
+3914 L-- A d9d6db73
+3915 L-- A d9d6db73
+3916 L-- A d9d6db73
+3917 L-- A d9d6db73
+3918 L-- A d9d6db73
+3919 L-- A d9d6db73
+3920 LF- A d9d6db73
+3921 L-- A d9d6db73
+3922 L-- A d9d6db73
+3923 L-- A d9d6db73
+3924 L-- A d9d6db73
+3925 L-- A d9d6db73
+3926 L-- A d9d6db73
+3927 L-- A d9d6db73
+3928 L-- A d9d6db73
+3929 L-- A d9d6db73
+3930 L-- A d9d6db73
+3931 L-- A d9d6db73
+3932 L-- A d9d6db73
+3933 L-- A d9d6db73
+3934 L-- A d9d6db73
+3935 L-- A d9d6db73
+3936 L-- A d9d6db73
+3937 L-- A d9d6db73
+3938 L-- A d9d6db73
+3939 L-- A d9d6db73
+3940 LF- A d9d6db73
+3941 L-- A d9d6db73
+3942 L-- A d9d6db73
+3943 L-- A d9d6db73
+3944 L-- A d9d6db73
+3945 L-- A d9d6db73
+3946 L-- A d9d6db73
+3947 L-- A d9d6db73
+3948 L-- A d9d6db73
+3949 L-- A d9d6db73
+3950 L-- A d9d6db73
+3951 L-- A d9d6db73
+3952 L-- A d9d6db73
+3953 L-- A d9d6db73
+3954 L-- A d9d6db73
+3955 L-- A d9d6db73
+3956 L-- A d9d6db73
+3957 L-- A d9d6db73
+3958 L-- A d9d6db73
+3959 L-- A d9d6db73
+3960 RF- A d9d6db73
+3961 R-- A d9d6db73
+3962 R-- A d9d6db73
+3963 R-- A d9d6db73
+3964 R-- A d9d6db73
+3965 R-- A d9d6db73
+3966 R-- A d9d6db73
+3967 R-- A d9d6db73
+3968 R-- A d9d6db73
+3969 R-- A d9d6db73
+3970 R-- A d9d6db73
+3971 R-- A d9d6db73
+3972 R-- A d9d6db73
+3973 R-- A d9d6db73
+3974 R-- A d9d6db73
+3975 R-- A d9d6db73
+3976 R-- A d9d6db73
+3977 R-- A d9d6db73
+3978 R-- A d9d6db73
+3979 R-- A d9d6db73
+3980 RF- A d9d6db73
+3981 R-- A d9d6db73
+3982 R-- A d9d6db73
+3983 R-- A d9d6db73
+3984 R-- A d9d6db73
+3985 R-- A d9d6db73
+3986 R-- A d9d6db73
+3987 R-- A d9d6db73
+3988 R-- A d9d6db73
+3989 R-- A d9d6db73
+3990 R-- A d9d6db73
+3991 R-- A d9d6db73
+3992 R-- A d9d6db73
+3993 R-- A d9d6db73
+3994 R-- A d9d6db73
+3995 R-- A d9d6db73
+3996 R-- A d9d6db73
+3997 R-- A d9d6db73
+3998 R-- A d9d6db73
+3999 R-- A d9d6db73
+4000 RF- A d9d6db73
+4001 R-- A d9d6db73
+4002 R-- A d9d6db73
+4003 R-- A d9d6db73
+4004 R-- A d9d6db73
+4005 R-- A d9d6db73
+4006 R-- A d9d6db73
+4007 R-- A d9d6db73
+4008 R-- A d9d6db73
+4009 R-- A d9d6db73
+4010 R-- A d9d6db73
+4011 R-- A d9d6db73
+4012 R-- A d9d6db73
+4013 R-- A d9d6db73
+4014 R-- A d9d6db73
+4015 R-- A d9d6db73
+4016 R-- A d9d6db73
+4017 R-- A d9d6db73
+4018 R-- A d9d6db73
+4019 R-- A d9d6db73
+4020 RF- A d9d6db73
+4021 R-- A d9d6db73
+4022 R-- A d9d6db73
+4023 R-- A d9d6db73
+4024 R-- A d9d6db73
+4025 R-- A d9d6db73
+4026 R-- A d9d6db73
+4027 R-- A d9d6db73
+4028 R-- A d9d6db73
+4029 R-- A d9d6db73
+4030 R-- A d9d6db73
+4031 R-- A d9d6db73
+4032 R-- A d9d6db73
+4033 R-- A d9d6db73
+4034 R-- A d9d6db73
+4035 R-- A d9d6db73
+4036 R-- A d9d6db73
+4037 R-- A d9d6db73
+4038 R-- A d9d6db73
+4039 R-- A d9d6db73
+4040 RF- A d9d6db73
+4041 R-- A d9d6db73
+4042 R-- A d9d6db73
+4043 R-- A d9d6db73
+4044 R-- A d9d6db73
+4045 R-- A d9d6db73
+4046 R-- A d9d6db73
+4047 R-- A d9d6db73
+4048 R-- A d9d6db73
+4049 R-- A d9d6db73
+4050 L-- A d9d6db73
+4051 L-- A d9d6db73
+4052 L-- A d9d6db73
+4053 L-- A d9d6db73
+4054 L-- A d9d6db73
+4055 L-- A d9d6db73
+4056 L-- A d9d6db73
+4057 L-- A d9d6db73
+4058 L-- A d9d6db73
+4059 L-- A d9d6db73
+4060 LF- A d9d6db73
+4061 L-- A d9d6db73
+4062 L-- A d9d6db73
+4063 L-- A d9d6db73
+4064 L-- A d9d6db73
+4065 L-- A d9d6db73
+4066 L-- A d9d6db73
+4067 L-- A d9d6db73
+4068 L-- A d9d6db73
+4069 L-- A d9d6db73
+4070 L-- A d9d6db73
+4071 L-- A d9d6db73
+4072 L-- A d9d6db73
+4073 L-- A d9d6db73
+4074 L-- A d9d6db73
+4075 L-- A d9d6db73
+4076 L-- A d9d6db73
+4077 L-- A d9d6db73
+4078 L-- A d9d6db73
+4079 L-- A d9d6db73
+4080 LF- A d9d6db73
+4081 L-- A d9d6db73
+4082 L-- A d9d6db73
+4083 L-- A d9d6db73
+4084 L-- A d9d6db73
+4085 L-- A d9d6db73
+4086 L-- A d9d6db73
+4087 L-- A d9d6db73
+4088 L-- A d9d6db73
+4089 L-- A d9d6db73
+4090 L-- A d9d6db73
+4091 L-- A d9d6db73
+4092 L-- A d9d6db73
+4093 L-- A d9d6db73
+4094 L-- A d9d6db73
+4095 L-- A d9d6db73
+4096 L-- A d9d6db73
+4097 L-- A d9d6db73
+4098 L-- A d9d6db73
+4099 L-- A d9d6db73
+4100 LF- A d9d6db73
+4101 L-- A d9d6db73
+4102 L-- A d9d6db73
+4103 L-- A d9d6db73
+4104 L-- A d9d6db73
+4105 L-- A d9d6db73
+4106 L-- A d9d6db73
+4107 L-- A d9d6db73
+4108 L-- A d9d6db73
+4109 L-- A d9d6db73
+4110 L-- A d9d6db73
+4111 L-- A d9d6db73
+4112 L-- A d9d6db73
+4113 L-- A d9d6db73
+4114 L-- A d9d6db73
+4115 L-- A d9d6db73
+4116 L-- A d9d6db73
+4117 L-- A d9d6db73
+4118 L-- A d9d6db73
+4119 L-- A d9d6db73
+4120 LF- A d9d6db73
+4121 L-- A d9d6db73
+4122 L-- A d9d6db73
+4123 L-- A d9d6db73
+4124 L-- A d9d6db73
+4125 L-- A d9d6db73
+4126 L-- A d9d6db73
+4127 L-- A d9d6db73
+4128 L-- A d9d6db73
+4129 L-- A d9d6db73
+4130 L-- A d9d6db73
+4131 L-- A d9d6db73
+4132 L-- A d9d6db73
+4133 L-- A d9d6db73
+4134 L-- A d9d6db73
+4135 L-- A d9d6db73
+4136 L-- A d9d6db73
+4137 L-- A d9d6db73
+4138 L-- A d9d6db73
+4139 L-- A d9d6db73
+4140 RF- A d9d6db73
+4141 R-- A d9d6db73
+4142 R-- A d9d6db73
+4143 R-- A d9d6db73
+4144 R-- A d9d6db73
+4145 R-- A d9d6db73
+4146 R-- A d9d6db73
+4147 R-- A d9d6db73
+4148 R-- A d9d6db73
+4149 R-- A d9d6db73
+4150 R-- A d9d6db73
+4151 R-- A d9d6db73
+4152 R-- A d9d6db73
+4153 R-- A d9d6db73
+4154 R-- A d9d6db73
+4155 R-- A d9d6db73
+4156 R-- A d9d6db73
+4157 R-- A d9d6db73
+4158 R-- A d9d6db73
+4159 R-- A d9d6db73
+4160 RF- A d9d6db73
+4161 R-- A d9d6db73
+4162 R-- A d9d6db73
+4163 R-- A d9d6db73
+4164 R-- A d9d6db73
+4165 R-- A d9d6db73
+4166 R-- A d9d6db73
+4167 R-- A d9d6db73
+4168 R-- A d9d6db73
+4169 R-- A d9d6db73
+4170 R-- A d9d6db73
+4171 R-- A d9d6db73
+4172 R-- A d9d6db73
+4173 R-- A d9d6db73
+4174 R-- A d9d6db73
+4175 R-- A d9d6db73
+4176 R-- A d9d6db73
+4177 R-- A d9d6db73
+4178 R-- A d9d6db73
+4179 R-- A d9d6db73
+4180 RF- A d9d6db73
+4181 R-- A d9d6db73
+4182 R-- A d9d6db73
+4183 R-- A d9d6db73
+4184 R-- A d9d6db73
+4185 R-- A d9d6db73
+4186 R-- A d9d6db73
+4187 R-- A d9d6db73
+4188 R-- A d9d6db73
+4189 R-- A d9d6db73
+4190 R-- A d9d6db73
+4191 R-- A d9d6db73
+4192 R-- A d9d6db73
+4193 R-- A d9d6db73
+4194 R-- A d9d6db73
+4195 R-- A d9d6db73
+4196 R-- A d9d6db73
+4197 R-- A d9d6db73
+4198 R-- A d9d6db73
+4199 R-- A d9d6db73
+4200 RF- A d9d6db73
+4201 R-- A d9d6db73
+4202 R-- A d9d6db73
+4203 R-- A d9d6db73
+4204 R-- A d9d6db73
+4205 R-- A d9d6db73
+4206 R-- A d9d6db73
+4207 R-- A d9d6db73
+4208 R-- A d9d6db73
+4209 R-- A d9d6db73
+4210 R-- A d9d6db73
+4211 R-- A d9d6db73
+4212 R-- A d9d6db73
+4213 R-- A d9d6db73
+4214 R-- A d9d6db73
+4215 R-- A d9d6db73
+4216 R-- A d9d6db73
+4217 R-- A d9d6db73
+4218 R-- A d9d6db73
+4219 R-- A d9d6db73
+4220 RF- A d9d6db73
+4221 R-- A d9d6db73
+4222 R-- A d9d6db73
+4223 R-- A d9d6db73
+4224 R-- A d9d6db73
+4225 R-- A d9d6db73
+4226 R-- A d9d6db73
+4227 R-- A d9d6db73
+4228 R-- A d9d6db73
+4229 R-- A d9d6db73
+4230 L-- A d9d6db73
+4231 L-- A d9d6db73
+4232 L-- A d9d6db73
+4233 L-- A d9d6db73
+4234 L-- A d9d6db73
+4235 L-- A d9d6db73
+4236 L-- A d9d6db73
+4237 L-- A d9d6db73
+4238 L-- A d9d6db73
+4239 L-- A d9d6db73
+4240 LF- A d9d6db73
+4241 L-- A d9d6db73
+4242 L-- A d9d6db73
+4243 L-- A d9d6db73
+4244 L-- A d9d6db73
+4245 L-- A d9d6db73
+4246 L-- A d9d6db73
+4247 L-- A d9d6db73
+4248 L-- A d9d6db73
+4249 L-- A d9d6db73
+4250 L-- A d9d6db73
+4251 L-- A d9d6db73
+4252 L-- A d9d6db73
+4253 L-- A d9d6db73
+4254 L-- A d9d6db73
+4255 L-- A d9d6db73
+4256 L-- A d9d6db73
+4257 L-- A d9d6db73
+4258 L-- A d9d6db73
+4259 L-- A d9d6db73
+4260 LF- A d9d6db73
+4261 L-- A d9d6db73
+4262 L-- A d9d6db73
+4263 L-- A d9d6db73
+4264 L-- A d9d6db73
+4265 L-- A d9d6db73
+4266 L-- A d9d6db73
+4267 L-- A d9d6db73
+4268 L-- A d9d6db73
+4269 L-- A d9d6db73
+4270 L-- A d9d6db73
+4271 L-- A d9d6db73
+4272 L-- A d9d6db73
+4273 L-- A d9d6db73
+4274 L-- A d9d6db73
+4275 L-- A d9d6db73
+4276 L-- A d9d6db73
+4277 L-- A d9d6db73
+4278 L-- A d9d6db73
+4279 L-- A d9d6db73
+4280 LF- A d9d6db73
+4281 L-- A d9d6db73
+4282 L-- A d9d6db73
+4283 L-- A d9d6db73
+4284 L-- A d9d6db73
+4285 L-- A d9d6db73
+4286 L-- A d9d6db73
+4287 L-- A d9d6db73
+4288 L-- A d9d6db73
+4289 L-- A d9d6db73
+4290 L-- A d9d6db73
+4291 L-- A d9d6db73
+4292 L-- A d9d6db73
+4293 L-- A d9d6db73
+4294 L-- A d9d6db73
+4295 L-- A d9d6db73
+4296 L-- A d9d6db73
+4297 L-- A d9d6db73
+4298 L-- A d9d6db73
+4299 L-- A d9d6db73
+4300 LF- A d9d6db73
+4301 L-- A d9d6db73
+4302 L-- A d9d6db73
+4303 L-- A d9d6db73
+4304 L-- A d9d6db73
+4305 L-- A d9d6db73
+4306 L-- A d9d6db73
+4307 L-- A d9d6db73
+4308 L-- A d9d6db73
+4309 L-- A d9d6db73
+4310 L-- A d9d6db73
+4311 L-- A d9d6db73
+4312 L-- A d9d6db73
+4313 L-- A d9d6db73
+4314 L-- A d9d6db73
+4315 L-- A d9d6db73
+4316 L-- A d9d6db73
+4317 L-- A d9d6db73
+4318 L-- A d9d6db73
+4319 L-- A d9d6db73
+4320 RF- A d9d6db73
+4321 R-- A d9d6db73
+4322 R-- A d9d6db73
+4323 R-- A d9d6db73
+4324 R-- A d9d6db73
+4325 R-- A d9d6db73
+4326 R-- A d9d6db73
+4327 R-- A d9d6db73
+4328 R-- A d9d6db73
+4329 R-- A d9d6db73
+4330 R-- A d9d6db73
+4331 R-- A d9d6db73
+4332 R-- A d9d6db73
+4333 R-- A d9d6db73
+4334 R-- A d9d6db73
+4335 R-- A d9d6db73
+4336 R-- A d9d6db73
+4337 R-- A d9d6db73
+4338 R-- A d9d6db73
+4339 R-- A d9d6db73
+4340 RF- A d9d6db73
+4341 R-- A d9d6db73
+4342 R-- A d9d6db73
+4343 R-- A d9d6db73
+4344 R-- A d9d6db73
+4345 R-- A d9d6db73
+4346 R-- A d9d6db73
+4347 R-- A d9d6db73
+4348 R-- A d9d6db73
+4349 R-- A d9d6db73
+4350 R-- A d9d6db73
+4351 R-- A d9d6db73
+4352 R-- A d9d6db73
+4353 R-- A d9d6db73
+4354 R-- A d9d6db73
+4355 R-- A d9d6db73
+4356 R-- A d9d6db73
+4357 R-- A d9d6db73
+4358 R-- A d9d6db73
+4359 R-- A d9d6db73
+4360 RF- A d9d6db73
+4361 R-- A d9d6db73
+4362 R-- A d9d6db73
+4363 R-- A d9d6db73
+4364 R-- A d9d6db73
+4365 R-- A d9d6db73
+4366 R-- A d9d6db73
+4367 R-- A d9d6db73
+4368 R-- A d9d6db73
+4369 R-- A d9d6db73
+4370 R-- A d9d6db73
+4371 R-- A d9d6db73
+4372 R-- A d9d6db73
+4373 R-- A d9d6db73
+4374 R-- A d9d6db73
+4375 R-- A d9d6db73
+4376 R-- A d9d6db73
+4377 R-- A d9d6db73
+4378 R-- A d9d6db73
+4379 R-- A d9d6db73
+4380 RF- A d9d6db73
+4381 R-- A d9d6db73
+4382 R-- A d9d6db73
+4383 R-- A d9d6db73
+4384 R-- A d9d6db73
+4385 R-- A d9d6db73
+4386 R-- A d9d6db73
+4387 R-- A d9d6db73
+4388 R-- A d9d6db73
+4389 R-- A d9d6db73
+4390 R-- A d9d6db73
+4391 R-- A d9d6db73
+4392 R-- A d9d6db73
+4393 R-- A d9d6db73
+4394 R-- A d9d6db73
+4395 R-- A d9d6db73
+4396 R-- A d9d6db73
+4397 R-- A d9d6db73
+4398 R-- A d9d6db73
+4399 R-- A d9d6db73
+4400 RF- A d9d6db73
+4401 R-- A d9d6db73
+4402 R-- A d9d6db73
+4403 R-- A d9d6db73
+4404 R-- A d9d6db73
+4405 R-- A d9d6db73
+4406 R-- A d9d6db73
+4407 R-- A d9d6db73
+4408 R-- A d9d6db73
+4409 R-- A d9d6db73
+4410 L-- A d9d6db73
+4411 L-- A d9d6db73
+4412 L-- A d9d6db73
+4413 L-- A d9d6db73
+4414 L-- A d9d6db73
+4415 L-- A d9d6db73
+4416 L-- A d9d6db73
+4417 L-- A d9d6db73
+4418 L-- A d9d6db73
+4419 L-- A d9d6db73
+4420 LF- A d9d6db73
+4421 L-- A d9d6db73
+4422 L-- A d9d6db73
+4423 L-- A d9d6db73
+4424 L-- A d9d6db73
+4425 L-- A d9d6db73
+4426 L-- A d9d6db73
+4427 L-- A d9d6db73
+4428 L-- A d9d6db73
+4429 L-- A d9d6db73
+4430 L-- A d9d6db73
+4431 L-- A d9d6db73
+4432 L-- A d9d6db73
+4433 L-- A d9d6db73
+4434 L-- A d9d6db73
+4435 L-- A d9d6db73
+4436 L-- A d9d6db73
+4437 L-- A d9d6db73
+4438 L-- A d9d6db73
+4439 L-- A d9d6db73
+4440 LF- A d9d6db73
+4441 L-- A d9d6db73
+4442 L-- A d9d6db73
+4443 L-- A d9d6db73
+4444 L-- A d9d6db73
+4445 L-- A d9d6db73
+4446 L-- A d9d6db73
+4447 L-- A d9d6db73
+4448 L-- A d9d6db73
+4449 L-- A d9d6db73
+4450 L-- A d9d6db73
+4451 L-- A d9d6db73
+4452 L-- A d9d6db73
+4453 L-- A d9d6db73
+4454 L-- A d9d6db73
+4455 L-- A d9d6db73
+4456 L-- A d9d6db73
+4457 L-- A d9d6db73
+4458 L-- A d9d6db73
+4459 L-- A d9d6db73
+4460 LF- A d9d6db73
+4461 L-- A d9d6db73
+4462 L-- A d9d6db73
+4463 L-- A d9d6db73
+4464 L-- A d9d6db73
+4465 L-- A d9d6db73
+4466 L-- A d9d6db73
+4467 L-- A d9d6db73
+4468 L-- A d9d6db73
+4469 L-- A d9d6db73
+4470 L-- A d9d6db73
+4471 L-- A d9d6db73
+4472 L-- A d9d6db73
+4473 L-- A d9d6db73
+4474 L-- A d9d6db73
+4475 L-- A d9d6db73
+4476 L-- A d9d6db73
+4477 L-- A d9d6db73
+4478 L-- A d9d6db73
+4479 L-- A d9d6db73
+4480 LF- A d9d6db73
+4481 L-- A d9d6db73
+4482 L-- A d9d6db73
+4483 L-- A d9d6db73
+4484 L-- A d9d6db73
+4485 L-- A d9d6db73
+4486 L-- A d9d6db73
+4487 L-- A d9d6db73
+4488 L-- A d9d6db73
+4489 L-- A d9d6db73
+4490 L-- A d9d6db73
+4491 L-- A d9d6db73
+4492 L-- A d9d6db73
+4493 L-- A d9d6db73
+4494 L-- A d9d6db73
+4495 L-- A d9d6db73
+4496 L-- A d9d6db73
+4497 L-- A d9d6db73
+4498 L-- A d9d6db73
+4499 L-- A d9d6db73
+4500 RF- A d9d6db73
+4501 R-- A d9d6db73
+4502 R-- A d9d6db73
+4503 R-- A d9d6db73
+4504 R-- A d9d6db73
+4505 R-- A d9d6db73
+4506 R-- A d9d6db73
+4507 R-- A d9d6db73
+4508 R-- A d9d6db73
+4509 R-- A d9d6db73
+4510 R-- A d9d6db73
+4511 R-- A d9d6db73
+4512 R-- A d9d6db73
+4513 R-- A d9d6db73
+4514 R-- A d9d6db73
+4515 R-- A d9d6db73
+4516 R-- A d9d6db73
+4517 R-- A d9d6db73
+4518 R-- A d9d6db73
+4519 R-- A d9d6db73
+4520 RF- A d9d6db73
+4521 R-- A d9d6db73
+4522 R-- A d9d6db73
+4523 R-- A d9d6db73
+4524 R-- A d9d6db73
+4525 R-- A d9d6db73
+4526 R-- A d9d6db73
+4527 R-- A d9d6db73
+4528 R-- A d9d6db73
+4529 R-- A d9d6db73
+4530 R-- A d9d6db73
+4531 R-- A d9d6db73
+4532 R-- A d9d6db73
+4533 R-- A d9d6db73
+4534 R-- A d9d6db73
+4535 R-- A d9d6db73
+4536 R-- A d9d6db73
+4537 R-- A d9d6db73
+4538 R-- A d9d6db73
+4539 R-- A d9d6db73
+4540 RF- A d9d6db73
+4541 R-- A d9d6db73
+4542 R-- A d9d6db73
+4543 R-- A d9d6db73
+4544 R-- A d9d6db73
+4545 R-- A d9d6db73
+4546 R-- A d9d6db73
+4547 R-- A d9d6db73
+4548 R-- A d9d6db73
+4549 R-- A d9d6db73
+4550 R-- A d9d6db73
+4551 R-- A d9d6db73
+4552 R-- A d9d6db73
+4553 R-- A d9d6db73
+4554 R-- A d9d6db73
+4555 R-- A d9d6db73
+4556 R-- A d9d6db73
+4557 R-- A d9d6db73
+4558 R-- A d9d6db73
+4559 R-- A d9d6db73
+4560 RF- A d9d6db73
+4561 R-- A d9d6db73
+4562 R-- A d9d6db73
+4563 R-- A d9d6db73
+4564 R-- A d9d6db73
+4565 R-- A d9d6db73
+4566 R-- A d9d6db73
+4567 R-- A d9d6db73
+4568 R-- A d9d6db73
+4569 R-- A d9d6db73
+4570 R-- A d9d6db73
+4571 R-- A d9d6db73
+4572 R-- A d9d6db73
+4573 R-- A d9d6db73
+4574 R-- A d9d6db73
+4575 R-- A d9d6db73
+4576 R-- A d9d6db73
+4577 R-- A d9d6db73
+4578 R-- A d9d6db73
+4579 R-- A d9d6db73
+4580 RF- A d9d6db73
+4581 R-- A d9d6db73
+4582 R-- A d9d6db73
+4583 R-- A d9d6db73
+4584 R-- A d9d6db73
+4585 R-- A d9d6db73
+4586 R-- A d9d6db73
+4587 R-- A d9d6db73
+4588 R-- A d9d6db73
+4589 R-- A d9d6db73
+4590 L-- A d9d6db73
+4591 L-- A d9d6db73
+4592 L-- A d9d6db73
+4593 L-- A d9d6db73
+4594 L-- A d9d6db73
+4595 L-- A d9d6db73
+4596 L-- A d9d6db73
+4597 L-- A d9d6db73
+4598 L-- A d9d6db73
+4599 L-- A d9d6db73
+4600 LF- A d9d6db73
+4601 L-- A d9d6db73
+4602 L-- A d9d6db73
+4603 L-- A d9d6db73
+4604 L-- A d9d6db73
+4605 L-- A d9d6db73
+4606 L-- A d9d6db73
+4607 L-- A d9d6db73
+4608 L-- A d9d6db73
+4609 L-- A d9d6db73
+4610 L-- A d9d6db73
+4611 L-- A d9d6db73
+4612 L-- A d9d6db73
+4613 L-- A d9d6db73
+4614 L-- A d9d6db73
+4615 L-- A d9d6db73
+4616 L-- A d9d6db73
+4617 L-- A d9d6db73
+4618 L-- A d9d6db73
+4619 L-- A d9d6db73
+4620 LF- A d9d6db73
+4621 L-- A d9d6db73
+4622 L-- A d9d6db73
+4623 L-- A d9d6db73
+4624 L-- A d9d6db73
+4625 L-- A d9d6db73
+4626 L-- A d9d6db73
+4627 L-- A d9d6db73
+4628 L-- A d9d6db73
+4629 L-- A d9d6db73
+4630 L-- A d9d6db73
+4631 L-- A d9d6db73
+4632 L-- A d9d6db73
+4633 L-- A d9d6db73
+4634 L-- A d9d6db73
+4635 L-- A d9d6db73
+4636 L-- A d9d6db73
+4637 L-- A d9d6db73
+4638 L-- A d9d6db73
+4639 L-- A d9d6db73
+4640 LF- A d9d6db73
+4641 L-- A d9d6db73
+4642 L-- A d9d6db73
+4643 L-- A d9d6db73
+4644 L-- A d9d6db73
+4645 L-- A d9d6db73
+4646 L-- A d9d6db73
+4647 L-- A d9d6db73
+4648 L-- A d9d6db73
+4649 L-- A d9d6db73
+4650 L-- A d9d6db73
+4651 L-- A d9d6db73
+4652 L-- A d9d6db73
+4653 L-- A d9d6db73
+4654 L-- A d9d6db73
+4655 L-- A d9d6db73
+4656 L-- A d9d6db73
+4657 L-- A d9d6db73
+4658 L-- A d9d6db73
+4659 L-- A d9d6db73
+4660 LF- A d9d6db73
+4661 L-- A d9d6db73
+4662 L-- A d9d6db73
+4663 L-- A d9d6db73
+4664 L-- A d9d6db73
+4665 L-- A d9d6db73
+4666 L-- A d9d6db73
+4667 L-- A d9d6db73
+4668 L-- A d9d6db73
+4669 L-- A d9d6db73
+4670 L-- A d9d6db73
+4671 L-- A d9d6db73
+4672 L-- A d9d6db73
+4673 L-- A d9d6db73
+4674 L-- A d9d6db73
+4675 L-- A d9d6db73
+4676 L-- A d9d6db73
+4677 L-- A d9d6db73
+4678 L-- A d9d6db73
+4679 L-- A d9d6db73
+4680 RF- A d9d6db73
+4681 R-- A d9d6db73
+4682 R-- A d9d6db73
+4683 R-- A d9d6db73
+4684 R-- A d9d6db73
+4685 R-- A d9d6db73
+4686 R-- A d9d6db73
+4687 R-- A d9d6db73
+4688 R-- A d9d6db73
+4689 R-- A d9d6db73
+4690 R-- A d9d6db73
+4691 R-- A d9d6db73
+4692 R-- A d9d6db73
+4693 R-- A d9d6db73
+4694 R-- A d9d6db73
+4695 R-- A d9d6db73
+4696 R-- A d9d6db73
+4697 R-- A d9d6db73
+4698 R-- A d9d6db73
+4699 R-- A d9d6db73
+4700 RF- A d9d6db73
+4701 R-- A d9d6db73
+4702 R-- A d9d6db73
+4703 R-- A d9d6db73
+4704 R-- A d9d6db73
+4705 R-- A d9d6db73
+4706 R-- A d9d6db73
+4707 R-- A d9d6db73
+4708 R-- A d9d6db73
+4709 R-- A d9d6db73
+4710 R-- A d9d6db73
+4711 R-- A d9d6db73
+4712 R-- A d9d6db73
+4713 R-- A d9d6db73
+4714 R-- A d9d6db73
+4715 R-- A d9d6db73
+4716 R-- A d9d6db73
+4717 R-- A d9d6db73
+4718 R-- A d9d6db73
+4719 R-- A d9d6db73
+4720 RF- A d9d6db73
+4721 R-- A d9d6db73
+4722 R-- A d9d6db73
+4723 R-- A d9d6db73
+4724 R-- A d9d6db73
+4725 R-- A d9d6db73
+4726 R-- A d9d6db73
+4727 R-- A d9d6db73
+4728 R-- A d9d6db73
+4729 R-- A d9d6db73
+4730 R-- A d9d6db73
+4731 R-- A d9d6db73
+4732 R-- A d9d6db73
+4733 R-- A d9d6db73
+4734 R-- A d9d6db73
+4735 R-- A d9d6db73
+4736 R-- A d9d6db73
+4737 R-- A d9d6db73
+4738 R-- A d9d6db73
+4739 R-- A d9d6db73
+4740 RF- A d9d6db73
+4741 R-- A d9d6db73
+4742 R-- A d9d6db73
+4743 R-- A d9d6db73
+4744 R-- A d9d6db73
+4745 R-- A d9d6db73
+4746 R-- A d9d6db73
+4747 R-- A d9d6db73
+4748 R-- A d9d6db73
+4749 R-- A d9d6db73
+4750 R-- A d9d6db73
+4751 R-- A d9d6db73
+4752 R-- A d9d6db73
+4753 R-- A d9d6db73
+4754 R-- A d9d6db73
+4755 R-- A d9d6db73
+4756 R-- A d9d6db73
+4757 R-- A d9d6db73
+4758 R-- A d9d6db73
+4759 R-- A d9d6db73
+4760 RF- A d9d6db73
+4761 R-- A d9d6db73
+4762 R-- A d9d6db73
+4763 R-- A d9d6db73
+4764 R-- A d9d6db73
+4765 R-- A d9d6db73
+4766 R-- A d9d6db73
+4767 R-- A d9d6db73
+4768 R-- A d9d6db73
+4769 R-- A d9d6db73
+4770 L-- A d9d6db73
+4771 L-- A d9d6db73
+4772 L-- A d9d6db73
+4773 L-- A d9d6db73
+4774 L-- A d9d6db73
+4775 L-- A d9d6db73
+4776 L-- A d9d6db73
+4777 L-- A d9d6db73
+4778 L-- A d9d6db73
+4779 L-- A d9d6db73
+4780 LF- A d9d6db73
+4781 L-- A d9d6db73
+4782 L-- A d9d6db73
+4783 L-- A d9d6db73
+4784 L-- A d9d6db73
+4785 L-- A d9d6db73
+4786 L-- A d9d6db73
+4787 L-- A d9d6db73
+4788 L-- A d9d6db73
+4789 L-- A d9d6db73
+4790 L-- A d9d6db73
+4791 L-- A d9d6db73
+4792 L-- A d9d6db73
+4793 L-- A d9d6db73
+4794 L-- A d9d6db73
+4795 L-- A d9d6db73
+4796 L-- A d9d6db73
+4797 L-- A d9d6db73
+4798 L-- A d9d6db73
+4799 L-- A d9d6db73
+4800 LF- A d9d6db73
+4801 L-- A d9d6db73
+4802 L-- A d9d6db73
+4803 L-- A d9d6db73
+4804 L-- A d9d6db73
+4805 L-- A d9d6db73
+4806 L-- A d9d6db73
+4807 L-- A d9d6db73
+4808 L-- A d9d6db73
+4809 L-- A d9d6db73
+4810 L-- A d9d6db73
+4811 L-- A d9d6db73
+4812 L-- A d9d6db73
+4813 L-- A d9d6db73
+4814 L-- A d9d6db73
+4815 L-- A d9d6db73
+4816 L-- A d9d6db73
+4817 L-- A d9d6db73
+4818 L-- A d9d6db73
+4819 L-- A d9d6db73
+4820 LF- A d9d6db73
+4821 L-- A d9d6db73
+4822 L-- A d9d6db73
+4823 L-- A d9d6db73
+4824 L-- A d9d6db73
+4825 L-- A d9d6db73
+4826 L-- A d9d6db73
+4827 L-- A d9d6db73
+4828 L-- A d9d6db73
+4829 L-- A d9d6db73
+4830 L-- A d9d6db73
+4831 L-- A d9d6db73
+4832 L-- A d9d6db73
+4833 L-- A d9d6db73
+4834 L-- A d9d6db73
+4835 L-- A d9d6db73
+4836 L-- A d9d6db73
+4837 L-- A d9d6db73
+4838 L-- A d9d6db73
+4839 L-- A d9d6db73
+4840 LF- A d9d6db73
+4841 L-- A d9d6db73
+4842 L-- A d9d6db73
+4843 L-- A d9d6db73
+4844 L-- A d9d6db73
+4845 L-- A d9d6db73
+4846 L-- A d9d6db73
+4847 L-- A d9d6db73
+4848 L-- A d9d6db73
+4849 L-- A d9d6db73
+4850 L-- A d9d6db73
+4851 L-- A d9d6db73
+4852 L-- A d9d6db73
+4853 L-- A d9d6db73
+4854 L-- A d9d6db73
+4855 L-- A d9d6db73
+4856 L-- A d9d6db73
+4857 L-- A d9d6db73
+4858 L-- A d9d6db73
+4859 L-- A d9d6db73
+4860 RF- A d9d6db73
+4861 R-- A d9d6db73
+4862 R-- A d9d6db73
+4863 R-- A d9d6db73
+4864 R-- A d9d6db73
+4865 R-- A d9d6db73
+4866 R-- A d9d6db73
+4867 R-- A d9d6db73
+4868 R-- A d9d6db73
+4869 R-- A d9d6db73
+4870 R-- A d9d6db73
+4871 R-- A d9d6db73
+4872 R-- A d9d6db73
+4873 R-- A d9d6db73
+4874 R-- A d9d6db73
+4875 R-- A d9d6db73
+4876 R-- A d9d6db73
+4877 R-- A d9d6db73
+4878 R-- A d9d6db73
+4879 R-- A d9d6db73
+4880 RF- A d9d6db73
+4881 R-- A d9d6db73
+4882 R-- A d9d6db73
+4883 R-- A d9d6db73
+4884 R-- A d9d6db73
+4885 R-- A d9d6db73
+4886 R-- A d9d6db73
+4887 R-- A d9d6db73
+4888 R-- A d9d6db73
+4889 R-- A d9d6db73
+4890 R-- A d9d6db73
+4891 R-- A d9d6db73
+4892 R-- A d9d6db73
+4893 R-- A d9d6db73
+4894 R-- A d9d6db73
+4895 R-- A d9d6db73
+4896 R-- A d9d6db73
+4897 R-- A d9d6db73
+4898 R-- A d9d6db73
+4899 R-- A d9d6db73
+4900 RF- A d9d6db73
+4901 R-- A d9d6db73
+4902 R-- A d9d6db73
+4903 R-- A d9d6db73
+4904 R-- A d9d6db73
+4905 R-- A d9d6db73
+4906 R-- A d9d6db73
+4907 R-- A d9d6db73
+4908 R-- A d9d6db73
+4909 R-- A d9d6db73
+4910 R-- A d9d6db73
+4911 R-- A d9d6db73
+4912 R-- A d9d6db73
+4913 R-- A d9d6db73
+4914 R-- A d9d6db73
+4915 R-- A d9d6db73
+4916 R-- A d9d6db73
+4917 R-- A d9d6db73
+4918 R-- A d9d6db73
+4919 R-- A d9d6db73
+4920 RF- A d9d6db73
+4921 R-- A d9d6db73
+4922 R-- A d9d6db73
+4923 R-- A d9d6db73
+4924 R-- A d9d6db73
+4925 R-- A d9d6db73
+4926 R-- A d9d6db73
+4927 R-- A d9d6db73
+4928 R-- A d9d6db73
+4929 R-- A d9d6db73
+4930 R-- A d9d6db73
+4931 R-- A d9d6db73
+4932 R-- A d9d6db73
+4933 R-- A d9d6db73
+4934 R-- A d9d6db73
+4935 R-- A d9d6db73
+4936 R-- A d9d6db73
+4937 R-- A d9d6db73
+4938 R-- A d9d6db73
+4939 R-- A d9d6db73
+4940 RF- A d9d6db73
+4941 R-- A d9d6db73
+4942 R-- A d9d6db73
+4943 R-- A d9d6db73
+4944 R-- A d9d6db73
+4945 R-- A d9d6db73
+4946 R-- A d9d6db73
+4947 R-- A d9d6db73
+4948 R-- A d9d6db73
+4949 R-- A d9d6db73
+4950 L-- A d9d6db73
+4951 L-- A d9d6db73
+4952 L-- A d9d6db73
+4953 L-- A d9d6db73
+4954 L-- A d9d6db73
+4955 L-- A d9d6db73
+4956 L-- A d9d6db73
+4957 L-- A d9d6db73
+4958 L-- A d9d6db73
+4959 L-- A d9d6db73
+4960 LF- A d9d6db73
+4961 L-- A d9d6db73
+4962 L-- A d9d6db73
+4963 L-- A d9d6db73
+4964 L-- A d9d6db73
+4965 L-- A d9d6db73
+4966 L-- A d9d6db73
+4967 L-- A d9d6db73
+4968 L-- A d9d6db73
+4969 L-- A d9d6db73
+4970 L-- A d9d6db73
+4971 L-- A d9d6db73
+4972 L-- A d9d6db73
+4973 L-- A d9d6db73
+4974 L-- A d9d6db73
+4975 L-- A d9d6db73
+4976 L-- A d9d6db73
+4977 L-- A d9d6db73
+4978 L-- A d9d6db73
+4979 L-- A d9d6db73
+4980 LF- A d9d6db73
+4981 L-- A d9d6db73
+4982 L-- A d9d6db73
+4983 L-- A d9d6db73
+4984 L-- A d9d6db73
+4985 L-- A d9d6db73
+4986 L-- A d9d6db73
+4987 L-- A d9d6db73
+4988 L-- A d9d6db73
+4989 L-- A d9d6db73
+4990 L-- A d9d6db73
+4991 L-- A d9d6db73
+4992 L-- A d9d6db73
+4993 L-- A d9d6db73
+4994 L-- A d9d6db73
+4995 L-- A d9d6db73
+4996 L-- A d9d6db73
+4997 L-- A d9d6db73
+4998 L-- A d9d6db73
+4999 L-- A d9d6db73
+5000 LF- A d9d6db73
+5001 L-- A d9d6db73
+5002 L-- A d9d6db73
+5003 L-- A d9d6db73
+5004 L-- A d9d6db73
+5005 L-- A d9d6db73
+5006 L-- A d9d6db73
+5007 L-- A d9d6db73
+5008 L-- A d9d6db73
+5009 L-- A d9d6db73
+5010 L-- A d9d6db73
+5011 L-- A d9d6db73
+5012 L-- A d9d6db73
+5013 L-- A d9d6db73
+5014 L-- A d9d6db73
+5015 L-- A d9d6db73
+5016 L-- A d9d6db73
+5017 L-- A d9d6db73
+5018 L-- A d9d6db73
+5019 L-- A d9d6db73
+5020 LF- A d9d6db73
+5021 L-- A d9d6db73
+5022 L-- A d9d6db73
+5023 L-- A d9d6db73
+5024 L-- A d9d6db73
+5025 L-- A d9d6db73
+5026 L-- A d9d6db73
+5027 L-- A d9d6db73
+5028 L-- A d9d6db73
+5029 L-- A d9d6db73
+5030 L-- A d9d6db73
+5031 L-- A d9d6db73
+5032 L-- A d9d6db73
+5033 L-- A d9d6db73
+5034 L-- A d9d6db73
+5035 L-- A d9d6db73
+5036 L-- A d9d6db73
+5037 L-- A d9d6db73
+5038 L-- A d9d6db73
+5039 L-- A d9d6db73
+5040 RF- A d9d6db73
+5041 R-- A d9d6db73
+5042 R-- A d9d6db73
+5043 R-- A d9d6db73
+5044 R-- A d9d6db73
+5045 R-- A d9d6db73
+5046 R-- A d9d6db73
+5047 R-- A d9d6db73
+5048 R-- A d9d6db73
+5049 R-- A d9d6db73
+5050 R-- A d9d6db73
+5051 R-- A d9d6db73
+5052 R-- A d9d6db73
+5053 R-- A d9d6db73
+5054 R-- A d9d6db73
+5055 R-- A d9d6db73
+5056 R-- A d9d6db73
+5057 R-- A d9d6db73
+5058 R-- A d9d6db73
+5059 R-- A d9d6db73
+5060 RF- A d9d6db73
+5061 R-- A d9d6db73
+5062 R-- A d9d6db73
+5063 R-- A d9d6db73
+5064 R-- A d9d6db73
+5065 R-- A d9d6db73
+5066 R-- A d9d6db73
+5067 R-- A d9d6db73
+5068 R-- A d9d6db73
+5069 R-- A d9d6db73
+5070 R-- A d9d6db73
+5071 R-- A d9d6db73
+5072 R-- A d9d6db73
+5073 R-- A d9d6db73
+5074 R-- A d9d6db73
+5075 R-- A d9d6db73
+5076 R-- A d9d6db73
+5077 R-- A d9d6db73
+5078 R-- A d9d6db73
+5079 R-- A d9d6db73
+5080 RF- A d9d6db73
+5081 R-- A d9d6db73
+5082 R-- A d9d6db73
+5083 R-- A d9d6db73
+5084 R-- A d9d6db73
+5085 R-- A d9d6db73
+5086 R-- A d9d6db73
+5087 R-- A d9d6db73
+5088 R-- A d9d6db73
+5089 R-- A d9d6db73
+5090 R-- A d9d6db73
+5091 R-- A d9d6db73
+5092 R-- A d9d6db73
+5093 R-- A d9d6db73
+5094 R-- A d9d6db73
+5095 R-- A d9d6db73
+5096 R-- A d9d6db73
+5097 R-- A d9d6db73
+5098 R-- A d9d6db73
+5099 R-- A d9d6db73
+5100 RF- A d9d6db73
+5101 R-- A d9d6db73
+5102 R-- A d9d6db73
+5103 R-- A d9d6db73
+5104 R-- A d9d6db73
+5105 R-- A d9d6db73
+5106 R-- A d9d6db73
+5107 R-- A d9d6db73
+5108 R-- A d9d6db73
+5109 R-- A d9d6db73
+5110 R-- A d9d6db73
+5111 R-- A d9d6db73
+5112 R-- A d9d6db73
+5113 R-- A d9d6db73
+5114 R-- A d9d6db73
+5115 R-- A d9d6db73
+5116 R-- A d9d6db73
+5117 R-- A d9d6db73
+5118 R-- A d9d6db73
+5119 R-- A d9d6db73
+5120 RF- A d9d6db73
+5121 R-- A d9d6db73
+5122 R-- A d9d6db73
+5123 R-- A d9d6db73
+5124 R-- A d9d6db73
+5125 R-- A d9d6db73
+5126 R-- A d9d6db73
+5127 R-- A d9d6db73
+5128 R-- A d9d6db73
+5129 R-- A d9d6db73
+5130 L-- A d9d6db73
+5131 L-- A d9d6db73
+5132 L-- A d9d6db73
+5133 L-- A d9d6db73
+5134 L-- A d9d6db73
+5135 L-- A d9d6db73
+5136 L-- A d9d6db73
+5137 L-- A d9d6db73
+5138 L-- A d9d6db73
+5139 L-- A d9d6db73
+5140 LF- A d9d6db73
+5141 L-- A d9d6db73
+5142 L-- A d9d6db73
+5143 L-- A d9d6db73
+5144 L-- A d9d6db73
+5145 L-- A d9d6db73
+5146 L-- A d9d6db73
+5147 L-- A d9d6db73
+5148 L-- A d9d6db73
+5149 L-- A d9d6db73
+5150 L-- A d9d6db73
+5151 L-- A d9d6db73
+5152 L-- A d9d6db73
+5153 L-- A d9d6db73
+5154 L-- A d9d6db73
+5155 L-- A d9d6db73
+5156 L-- A d9d6db73
+5157 L-- A d9d6db73
+5158 L-- A d9d6db73
+5159 L-- A d9d6db73
+5160 LF- A d9d6db73
+5161 L-- A d9d6db73
+5162 L-- A d9d6db73
+5163 L-- A d9d6db73
+5164 L-- A d9d6db73
+5165 L-- A d9d6db73
+5166 L-- A d9d6db73
+5167 L-- A d9d6db73
+5168 L-- A d9d6db73
+5169 L-- A d9d6db73
+5170 L-- A d9d6db73
+5171 L-- A d9d6db73
+5172 L-- A d9d6db73
+5173 L-- A d9d6db73
+5174 L-- A d9d6db73
+5175 L-- A d9d6db73
+5176 L-- A d9d6db73
+5177 L-- A d9d6db73
+5178 L-- A d9d6db73
+5179 L-- A d9d6db73
+5180 LF- A d9d6db73
+5181 L-- A d9d6db73
+5182 L-- A d9d6db73
+5183 L-- A d9d6db73
+5184 L-- A d9d6db73
+5185 L-- A d9d6db73
+5186 L-- A d9d6db73
+5187 L-- A d9d6db73
+5188 L-- A d9d6db73
+5189 L-- A d9d6db73
+5190 L-- A d9d6db73
+5191 L-- A d9d6db73
+5192 L-- A d9d6db73
+5193 L-- A d9d6db73
+5194 L-- A d9d6db73
+5195 L-- A d9d6db73
+5196 L-- A d9d6db73
+5197 L-- A d9d6db73
+5198 L-- A d9d6db73
+5199 L-- A d9d6db73
+5200 LF- A d9d6db73
+5201 L-- A d9d6db73
+5202 L-- A d9d6db73
+5203 L-- A d9d6db73
+5204 L-- A d9d6db73
+5205 L-- A d9d6db73
+5206 L-- A d9d6db73
+5207 L-- A d9d6db73
+5208 L-- A d9d6db73
+5209 L-- A d9d6db73
+5210 L-- A d9d6db73
+5211 L-- A d9d6db73
+5212 L-- A d9d6db73
+5213 L-- A d9d6db73
+5214 L-- A d9d6db73
+5215 L-- A d9d6db73
+5216 L-- A d9d6db73
+5217 L-- A d9d6db73
+5218 L-- A d9d6db73
+5219 L-- A d9d6db73
+5220 RF- A d9d6db73
+5221 R-- A d9d6db73
+5222 R-- A d9d6db73
+5223 R-- A d9d6db73
+5224 R-- A d9d6db73
+5225 R-- A d9d6db73
+5226 R-- A d9d6db73
+5227 R-- A d9d6db73
+5228 R-- A d9d6db73
+5229 R-- A d9d6db73
+5230 R-- A d9d6db73
+5231 R-- A d9d6db73
+5232 R-- A d9d6db73
+5233 R-- A d9d6db73
+5234 R-- A d9d6db73
+5235 R-- A d9d6db73
+5236 R-- A d9d6db73
+5237 R-- A d9d6db73
+5238 R-- A d9d6db73
+5239 R-- A d9d6db73
+5240 RF- A d9d6db73
+5241 R-- A d9d6db73
+5242 R-- A d9d6db73
+5243 R-- A d9d6db73
+5244 R-- A d9d6db73
+5245 R-- A d9d6db73
+5246 R-- A d9d6db73
+5247 R-- A d9d6db73
+5248 R-- A d9d6db73
+5249 R-- A d9d6db73
+5250 R-- A d9d6db73
+5251 R-- A d9d6db73
+5252 R-- A d9d6db73
+5253 R-- A d9d6db73
+5254 R-- A d9d6db73
+5255 R-- A d9d6db73
+5256 R-- A d9d6db73
+5257 R-- A d9d6db73
+5258 R-- A d9d6db73
+5259 R-- A d9d6db73
+5260 RF- A d9d6db73
+5261 R-- A d9d6db73
+5262 R-- A d9d6db73
+5263 R-- A d9d6db73
+5264 R-- A d9d6db73
+5265 R-- A d9d6db73
+5266 R-- A d9d6db73
+5267 R-- A d9d6db73
+5268 R-- A d9d6db73
+5269 R-- A d9d6db73
+5270 R-- A d9d6db73
+5271 R-- A d9d6db73
+5272 R-- A d9d6db73
+5273 R-- A d9d6db73
+5274 R-- A d9d6db73
+5275 R-- A d9d6db73
+5276 R-- A d9d6db73
+5277 R-- A d9d6db73
+5278 R-- A d9d6db73
+5279 R-- A d9d6db73
+5280 RF- A d9d6db73
+5281 R-- A d9d6db73
+5282 R-- A d9d6db73
+5283 R-- A d9d6db73
+5284 R-- A d9d6db73
+5285 R-- A d9d6db73
+5286 R-- A d9d6db73
+5287 R-- A d9d6db73
+5288 R-- A d9d6db73
+5289 R-- A d9d6db73
+5290 R-- A d9d6db73
+5291 R-- A d9d6db73
+5292 R-- A d9d6db73
+5293 R-- A d9d6db73
+5294 R-- A d9d6db73
+5295 R-- A d9d6db73
+5296 R-- A d9d6db73
+5297 R-- A d9d6db73
+5298 R-- A d9d6db73
+5299 R-- A d9d6db73
+5300 RF- A d9d6db73
+5301 R-- A d9d6db73
+5302 R-- A d9d6db73
+5303 R-- A d9d6db73
+5304 R-- A d9d6db73
+5305 R-- A d9d6db73
+5306 R-- A d9d6db73
+5307 R-- A d9d6db73
+5308 R-- A d9d6db73
+5309 R-- A d9d6db73
+5310 L-- A d9d6db73
+5311 L-- A d9d6db73
+5312 L-- A d9d6db73
+5313 L-- A d9d6db73
+5314 L-- A d9d6db73
+5315 L-- A d9d6db73
+5316 L-- A d9d6db73
+5317 L-- A d9d6db73
+5318 L-- A d9d6db73
+5319 L-- A d9d6db73
+5320 LF- A d9d6db73
+5321 L-- A d9d6db73
+5322 L-- A d9d6db73
+5323 L-- A d9d6db73
+5324 L-- A d9d6db73
+5325 L-- A d9d6db73
+5326 L-- A d9d6db73
+5327 L-- A d9d6db73
+5328 L-- A d9d6db73
+5329 L-- A d9d6db73
+5330 L-- A d9d6db73
+5331 L-- A d9d6db73
+5332 L-- A d9d6db73
+5333 L-- A d9d6db73
+5334 L-- A d9d6db73
+5335 L-- A d9d6db73
+5336 L-- A d9d6db73
+5337 L-- A d9d6db73
+5338 L-- A d9d6db73
+5339 L-- A d9d6db73
+5340 LF- A d9d6db73
+5341 L-- A d9d6db73
+5342 L-- A d9d6db73
+5343 L-- A d9d6db73
+5344 L-- A d9d6db73
+5345 L-- A d9d6db73
+5346 L-- A d9d6db73
+5347 L-- A d9d6db73
+5348 L-- A d9d6db73
+5349 L-- A d9d6db73
+5350 L-- A d9d6db73
+5351 L-- A d9d6db73
+5352 L-- A d9d6db73
+5353 L-- A d9d6db73
+5354 L-- A d9d6db73
+5355 L-- A d9d6db73
+5356 L-- A d9d6db73
+5357 L-- A d9d6db73
+5358 L-- A d9d6db73
+5359 L-- A d9d6db73
+5360 LF- A d9d6db73
+5361 L-- A d9d6db73
+5362 L-- A d9d6db73
+5363 L-- A d9d6db73
+5364 L-- A d9d6db73
+5365 L-- A d9d6db73
+5366 L-- A d9d6db73
+5367 L-- A d9d6db73
+5368 L-- A d9d6db73
+5369 L-- A d9d6db73
+5370 L-- A d9d6db73
+5371 L-- A d9d6db73
+5372 L-- A d9d6db73
+5373 L-- A d9d6db73
+5374 L-- A d9d6db73
+5375 L-- A d9d6db73
+5376 L-- A d9d6db73
+5377 L-- A d9d6db73
+5378 L-- A d9d6db73
+5379 L-- A d9d6db73
+5380 LF- A d9d6db73
+5381 L-- A d9d6db73
+5382 L-- A d9d6db73
+5383 L-- A d9d6db73
+5384 L-- A d9d6db73
+5385 L-- A d9d6db73
+5386 L-- A d9d6db73
+5387 L-- A d9d6db73
+5388 L-- A d9d6db73
+5389 L-- A d9d6db73
+5390 L-- A d9d6db73
+5391 L-- A d9d6db73
+5392 L-- A d9d6db73
+5393 L-- A d9d6db73
+5394 L-- A d9d6db73
+5395 L-- A d9d6db73
+5396 L-- A d9d6db73
+5397 L-- A d9d6db73
+5398 L-- A d9d6db73
+5399 L-- A d9d6db73
+5400 RF- A d9d6db73
+5401 R-- A d9d6db73
+5402 R-- A d9d6db73
+5403 R-- A d9d6db73
+5404 R-- A d9d6db73
+5405 R-- A d9d6db73
+5406 R-- A d9d6db73
+5407 R-- A d9d6db73
+5408 R-- A d9d6db73
+5409 R-- A d9d6db73
+5410 R-- A d9d6db73
+5411 R-- A d9d6db73
+5412 R-- A d9d6db73
+5413 R-- A d9d6db73
+5414 R-- A d9d6db73
+5415 R-- A d9d6db73
+5416 R-- A d9d6db73
+5417 R-- A d9d6db73
+5418 R-- A d9d6db73
+5419 R-- A d9d6db73
+5420 RF- A d9d6db73
+5421 R-- A d9d6db73
+5422 R-- A d9d6db73
+5423 R-- A d9d6db73
+5424 R-- A d9d6db73
+5425 R-- A d9d6db73
+5426 R-- A d9d6db73
+5427 R-- A d9d6db73
+5428 R-- A d9d6db73
+5429 R-- A d9d6db73
+5430 R-- A d9d6db73
+5431 R-- A d9d6db73
+5432 R-- A d9d6db73
+5433 R-- A d9d6db73
+5434 R-- A d9d6db73
+5435 R-- A d9d6db73
+5436 R-- A d9d6db73
+5437 R-- A d9d6db73
+5438 R-- A d9d6db73
+5439 R-- A d9d6db73
+5440 RF- A d9d6db73
+5441 R-- A d9d6db73
+5442 R-- A d9d6db73
+5443 R-- A d9d6db73
+5444 R-- A d9d6db73
+5445 R-- A d9d6db73
+5446 R-- A d9d6db73
+5447 R-- A d9d6db73
+5448 R-- A d9d6db73
+5449 R-- A d9d6db73
+5450 R-- A d9d6db73
+5451 R-- A d9d6db73
+5452 R-- A d9d6db73
+5453 R-- A d9d6db73
+5454 R-- A d9d6db73
+5455 R-- A d9d6db73
+5456 R-- A d9d6db73
+5457 R-- A d9d6db73
+5458 R-- A d9d6db73
+5459 R-- A d9d6db73
+5460 RF- A d9d6db73
+5461 R-- A d9d6db73
+5462 R-- A d9d6db73
+5463 R-- A d9d6db73
+5464 R-- A d9d6db73
+5465 R-- A d9d6db73
+5466 R-- A d9d6db73
+5467 R-- A d9d6db73
+5468 R-- A d9d6db73
+5469 R-- A d9d6db73
+5470 R-- A d9d6db73
+5471 R-- A d9d6db73
+5472 R-- A d9d6db73
+5473 R-- A d9d6db73
+5474 R-- A d9d6db73
+5475 R-- A d9d6db73
+5476 R-- A d9d6db73
+5477 R-- A d9d6db73
+5478 R-- A d9d6db73
+5479 R-- A d9d6db73
+5480 RF- A d9d6db73
+5481 R-- A d9d6db73
+5482 R-- A d9d6db73
+5483 R-- A d9d6db73
+5484 R-- A d9d6db73
+5485 R-- A d9d6db73
+5486 R-- A d9d6db73
+5487 R-- A d9d6db73
+5488 R-- A d9d6db73
+5489 R-- A d9d6db73
+5490 L-- A d9d6db73
+5491 L-- A d9d6db73
+5492 L-- A d9d6db73
+5493 L-- A d9d6db73
+5494 L-- A d9d6db73
+5495 L-- A d9d6db73
+5496 L-- A d9d6db73
+5497 L-- A d9d6db73
+5498 L-- A d9d6db73
+5499 L-- A d9d6db73
+5500 LF- A d9d6db73
+5501 L-- A d9d6db73
+5502 L-- A d9d6db73
+5503 L-- A d9d6db73
+5504 L-- A d9d6db73
+5505 L-- A d9d6db73
+5506 L-- A d9d6db73
+5507 L-- A d9d6db73
+5508 L-- A d9d6db73
+5509 L-- A d9d6db73
+5510 L-- A d9d6db73
+5511 L-- A d9d6db73
+5512 L-- A d9d6db73
+5513 L-- A d9d6db73
+5514 L-- A d9d6db73
+5515 L-- A d9d6db73
+5516 L-- A d9d6db73
+5517 L-- A d9d6db73
+5518 L-- A d9d6db73
+5519 L-- A d9d6db73
+5520 LF- A d9d6db73
+5521 L-- A d9d6db73
+5522 L-- A d9d6db73
+5523 L-- A d9d6db73
+5524 L-- A d9d6db73
+5525 L-- A d9d6db73
+5526 L-- A d9d6db73
+5527 L-- A d9d6db73
+5528 L-- A d9d6db73
+5529 L-- A d9d6db73
+5530 L-- A d9d6db73
+5531 L-- A d9d6db73
+5532 L-- A d9d6db73
+5533 L-- A d9d6db73
+5534 L-- A d9d6db73
+5535 L-- A d9d6db73
+5536 L-- A d9d6db73
+5537 L-- A d9d6db73
+5538 L-- A d9d6db73
+5539 L-- A d9d6db73
+5540 LF- A d9d6db73
+5541 L-- A d9d6db73
+5542 L-- A d9d6db73
+5543 L-- A d9d6db73
+5544 L-- A d9d6db73
+5545 L-- A d9d6db73
+5546 L-- A d9d6db73
+5547 L-- A d9d6db73
+5548 L-- A d9d6db73
+5549 L-- A d9d6db73
+5550 L-- A d9d6db73
+5551 L-- A d9d6db73
+5552 L-- A d9d6db73
+5553 L-- A d9d6db73
+5554 L-- A d9d6db73
+5555 L-- A d9d6db73
+5556 L-- A d9d6db73
+5557 L-- A d9d6db73
+5558 L-- A d9d6db73
+5559 L-- A d9d6db73
+5560 LF- A d9d6db73
+5561 L-- A d9d6db73
+5562 L-- A d9d6db73
+5563 L-- A d9d6db73
+5564 L-- A d9d6db73
+5565 L-- A d9d6db73
+5566 L-- A d9d6db73
+5567 L-- A d9d6db73
+5568 L-- A d9d6db73
+5569 L-- A d9d6db73
+5570 L-- A d9d6db73
+5571 L-- A d9d6db73
+5572 L-- A d9d6db73
+5573 L-- A d9d6db73
+5574 L-- A d9d6db73
+5575 L-- A d9d6db73
+5576 L-- A d9d6db73
+5577 L-- A d9d6db73
+5578 L-- A d9d6db73
+5579 L-- A d9d6db73
+5580 RF- A d9d6db73
+5581 R-- A d9d6db73
+5582 R-- A d9d6db73
+5583 R-- A d9d6db73
+5584 R-- A d9d6db73
+5585 R-- A d9d6db73
+5586 R-- A d9d6db73
+5587 R-- A d9d6db73
+5588 R-- A d9d6db73
+5589 R-- A d9d6db73
+5590 R-- A d9d6db73
+5591 R-- A d9d6db73
+5592 R-- A d9d6db73
+5593 R-- A d9d6db73
+5594 R-- A d9d6db73
+5595 R-- A d9d6db73
+5596 R-- A d9d6db73
+5597 R-- A d9d6db73
+5598 R-- A d9d6db73
+5599 R-- A d9d6db73
+5600 RF- A d9d6db73
+5601 R-- A d9d6db73
+5602 R-- A d9d6db73
+5603 R-- A d9d6db73
+5604 R-- A d9d6db73
+5605 R-- A d9d6db73
+5606 R-- A d9d6db73
+5607 R-- A d9d6db73
+5608 R-- A d9d6db73
+5609 R-- A d9d6db73
+5610 R-- A d9d6db73
+5611 R-- A d9d6db73
+5612 R-- A d9d6db73
+5613 R-- A d9d6db73
+5614 R-- A d9d6db73
+5615 R-- A d9d6db73
+5616 R-- A d9d6db73
+5617 R-- A d9d6db73
+5618 R-- A d9d6db73
+5619 R-- A d9d6db73
+5620 RF- A d9d6db73
+5621 R-- A d9d6db73
+5622 R-- A d9d6db73
+5623 R-- A d9d6db73
+5624 R-- A d9d6db73
+5625 R-- A d9d6db73
+5626 R-- A d9d6db73
+5627 R-- A d9d6db73
+5628 R-- A d9d6db73
+5629 R-- A d9d6db73
+5630 R-- A d9d6db73
+5631 R-- A d9d6db73
+5632 R-- A d9d6db73
+5633 R-- A d9d6db73
+5634 R-- A d9d6db73
+5635 R-- A d9d6db73
+5636 R-- A d9d6db73
+5637 R-- A d9d6db73
+5638 R-- A d9d6db73
+5639 R-- A d9d6db73
+5640 RF- A d9d6db73
+5641 R-- A d9d6db73
+5642 R-- A d9d6db73
+5643 R-- A d9d6db73
+5644 R-- A d9d6db73
+5645 R-- A d9d6db73
+5646 R-- A d9d6db73
+5647 R-- A d9d6db73
+5648 R-- A d9d6db73
+5649 R-- A d9d6db73
+5650 R-- A d9d6db73
+5651 R-- A d9d6db73
+5652 R-- A d9d6db73
+5653 R-- A d9d6db73
+5654 R-- A d9d6db73
+5655 R-- A d9d6db73
+5656 R-- A d9d6db73
+5657 R-- A d9d6db73
+5658 R-- A d9d6db73
+5659 R-- A d9d6db73
+5660 RF- A d9d6db73
+5661 R-- A d9d6db73
+5662 R-- A d9d6db73
+5663 R-- A d9d6db73
+5664 R-- A d9d6db73
+5665 R-- A d9d6db73
+5666 R-- A d9d6db73
+5667 R-- A d9d6db73
+5668 R-- A d9d6db73
+5669 R-- A d9d6db73
+5670 L-- A d9d6db73
+5671 L-- A d9d6db73
+5672 L-- A d9d6db73
+5673 L-- A d9d6db73
+5674 L-- A d9d6db73
+5675 L-- A d9d6db73
+5676 L-- A d9d6db73
+5677 L-- A d9d6db73
+5678 L-- A d9d6db73
+5679 L-- A d9d6db73
+5680 LF- A d9d6db73
+5681 L-- A d9d6db73
+5682 L-- A d9d6db73
+5683 L-- A d9d6db73
+5684 L-- A d9d6db73
+5685 L-- A d9d6db73
+5686 L-- A d9d6db73
+5687 L-- A d9d6db73
+5688 L-- A d9d6db73
+5689 L-- A d9d6db73
+5690 L-- A d9d6db73
+5691 L-- A d9d6db73
+5692 L-- A d9d6db73
+5693 L-- A d9d6db73
+5694 L-- A d9d6db73
+5695 L-- A d9d6db73
+5696 L-- A d9d6db73
+5697 L-- A d9d6db73
+5698 L-- A d9d6db73
+5699 L-- A d9d6db73
+5700 LF- A d9d6db73
+5701 L-- A d9d6db73
+5702 L-- A d9d6db73
+5703 L-- A d9d6db73
+5704 L-- A d9d6db73
+5705 L-- A d9d6db73
+5706 L-- A d9d6db73
+5707 L-- A d9d6db73
+5708 L-- A d9d6db73
+5709 L-- A d9d6db73
+5710 L-- A d9d6db73
+5711 L-- A d9d6db73
+5712 L-- A d9d6db73
+5713 L-- A d9d6db73
+5714 L-- A d9d6db73
+5715 L-- A d9d6db73
+5716 L-- A d9d6db73
+5717 L-- A d9d6db73
+5718 L-- A d9d6db73
+5719 L-- A d9d6db73
+5720 LF- A d9d6db73
+5721 L-- A d9d6db73
+5722 L-- A d9d6db73
+5723 L-- A d9d6db73
+5724 L-- A d9d6db73
+5725 L-- A d9d6db73
+5726 L-- A d9d6db73
+5727 L-- A d9d6db73
+5728 L-- A d9d6db73
+5729 L-- A d9d6db73
+5730 L-- A d9d6db73
+5731 L-- A d9d6db73
+5732 L-- A d9d6db73
+5733 L-- A d9d6db73
+5734 L-- A d9d6db73
+5735 L-- A d9d6db73
+5736 L-- A d9d6db73
+5737 L-- A d9d6db73
+5738 L-- A d9d6db73
+5739 L-- A d9d6db73
+5740 LF- A d9d6db73
+5741 L-- A d9d6db73
+5742 L-- A d9d6db73
+5743 L-- A d9d6db73
+5744 L-- A d9d6db73
+5745 L-- A d9d6db73
+5746 L-- A d9d6db73
+5747 L-- A d9d6db73
+5748 L-- A d9d6db73
+5749 L-- A d9d6db73
+5750 L-- A d9d6db73
+5751 L-- A d9d6db73
+5752 L-- A d9d6db73
+5753 L-- A d9d6db73
+5754 L-- A d9d6db73
+5755 L-- A d9d6db73
+5756 L-- A d9d6db73
+5757 L-- A d9d6db73
+5758 L-- A d9d6db73
+5759 L-- A d9d6db73
+5760 RF- A d9d6db73
+5761 R-- A d9d6db73
+5762 R-- A d9d6db73
+5763 R-- A d9d6db73
+5764 R-- A d9d6db73
+5765 R-- A d9d6db73
+5766 R-- A d9d6db73
+5767 R-- A d9d6db73
+5768 R-- A d9d6db73
+5769 R-- A d9d6db73
+5770 R-- A d9d6db73
+5771 R-- A d9d6db73
+5772 R-- A d9d6db73
+5773 R-- A d9d6db73
+5774 R-- A d9d6db73
+5775 R-- A d9d6db73
+5776 R-- A d9d6db73
+5777 R-- A d9d6db73
+5778 R-- A d9d6db73
+5779 R-- A d9d6db73
+5780 RF- A d9d6db73
+5781 R-- A d9d6db73
+5782 R-- A d9d6db73
+5783 R-- A d9d6db73
+5784 R-- A d9d6db73
+5785 R-- A d9d6db73
+5786 R-- A d9d6db73
+5787 R-- A d9d6db73
+5788 R-- A d9d6db73
+5789 R-- A d9d6db73
+5790 R-- A d9d6db73
+5791 R-- A d9d6db73
+5792 R-- A d9d6db73
+5793 R-- A d9d6db73
+5794 R-- A d9d6db73
+5795 R-- A d9d6db73
+5796 R-- A d9d6db73
+5797 R-- A d9d6db73
+5798 R-- A d9d6db73
+5799 R-- A d9d6db73
+5800 RF- A d9d6db73
+5801 R-- A d9d6db73
+5802 R-- A d9d6db73
+5803 R-- A d9d6db73
+5804 R-- A d9d6db73
+5805 R-- A d9d6db73
+5806 R-- A d9d6db73
+5807 R-- A d9d6db73
+5808 R-- A d9d6db73
+5809 R-- A d9d6db73
+5810 R-- A d9d6db73
+5811 R-- A d9d6db73
+5812 R-- A d9d6db73
+5813 R-- A d9d6db73
+5814 R-- A d9d6db73
+5815 R-- A d9d6db73
+5816 R-- A d9d6db73
+5817 R-- A d9d6db73
+5818 R-- A d9d6db73
+5819 R-- A d9d6db73
+5820 RF- A d9d6db73
+5821 R-- A d9d6db73
+5822 R-- A d9d6db73
+5823 R-- A d9d6db73
+5824 R-- A d9d6db73
+5825 R-- A d9d6db73
+5826 R-- A d9d6db73
+5827 R-- A d9d6db73
+5828 R-- A d9d6db73
+5829 R-- A d9d6db73
+5830 R-- A d9d6db73
+5831 R-- A d9d6db73
+5832 R-- A d9d6db73
+5833 R-- A d9d6db73
+5834 R-- A d9d6db73
+5835 R-- A d9d6db73
+5836 R-- A d9d6db73
+5837 R-- A d9d6db73
+5838 R-- A d9d6db73
+5839 R-- A d9d6db73
+5840 RF- A d9d6db73
+5841 R-- A d9d6db73
+5842 R-- A d9d6db73
+5843 R-- A d9d6db73
+5844 R-- A d9d6db73
+5845 R-- A d9d6db73
+5846 R-- A d9d6db73
+5847 R-- A d9d6db73
+5848 R-- A d9d6db73
+5849 R-- A d9d6db73
+5850 L-- A d9d6db73
+5851 L-- A d9d6db73
+5852 L-- A d9d6db73
+5853 L-- A d9d6db73
+5854 L-- A d9d6db73
+5855 L-- A d9d6db73
+5856 L-- A d9d6db73
+5857 L-- A d9d6db73
+5858 L-- A d9d6db73
+5859 L-- A d9d6db73
+5860 LF- A d9d6db73
+5861 L-- A d9d6db73
+5862 L-- A d9d6db73
+5863 L-- A d9d6db73
+5864 L-- A d9d6db73
+5865 L-- A d9d6db73
+5866 L-- A d9d6db73
+5867 L-- A d9d6db73
+5868 L-- A d9d6db73
+5869 L-- A d9d6db73
+5870 L-- A d9d6db73
+5871 L-- A d9d6db73
+5872 L-- A d9d6db73
+5873 L-- A d9d6db73
+5874 L-- A d9d6db73
+5875 L-- A d9d6db73
+5876 L-- A d9d6db73
+5877 L-- A d9d6db73
+5878 L-- A d9d6db73
+5879 L-- A d9d6db73
+5880 LF- A d9d6db73
+5881 L-- A d9d6db73
+5882 L-- A d9d6db73
+5883 L-- A d9d6db73
+5884 L-- A d9d6db73
+5885 L-- A d9d6db73
+5886 L-- A d9d6db73
+5887 L-- A d9d6db73
+5888 L-- A d9d6db73
+5889 L-- A d9d6db73
+5890 L-- A d9d6db73
+5891 L-- A d9d6db73
+5892 L-- A d9d6db73
+5893 L-- A d9d6db73
+5894 L-- A d9d6db73
+5895 L-- A d9d6db73
+5896 L-- A d9d6db73
+5897 L-- A d9d6db73
+5898 L-- A d9d6db73
+5899 L-- A d9d6db73
+5900 LF- A d9d6db73
+5901 L-- A d9d6db73
+5902 L-- A d9d6db73
+5903 L-- A d9d6db73
+5904 L-- A d9d6db73
+5905 L-- A d9d6db73
+5906 L-- A d9d6db73
+5907 L-- A d9d6db73
+5908 L-- A d9d6db73
+5909 L-- A d9d6db73
+5910 L-- A d9d6db73
+5911 L-- A d9d6db73
+5912 L-- A d9d6db73
+5913 L-- A d9d6db73
+5914 L-- A d9d6db73
+5915 L-- A d9d6db73
+5916 L-- A d9d6db73
+5917 L-- A d9d6db73
+5918 L-- A d9d6db73
+5919 L-- A d9d6db73
+5920 LF- A d9d6db73
+5921 L-- A d9d6db73
+5922 L-- A d9d6db73
+5923 L-- A d9d6db73
+5924 L-- A d9d6db73
+5925 L-- A d9d6db73
+5926 L-- A d9d6db73
+5927 L-- A d9d6db73
+5928 L-- A d9d6db73
+5929 L-- A d9d6db73
+5930 L-- A d9d6db73
+5931 L-- A d9d6db73
+5932 L-- A d9d6db73
+5933 L-- A d9d6db73
+5934 L-- A d9d6db73
+5935 L-- A d9d6db73
+5936 L-- A d9d6db73
+5937 L-- A d9d6db73
+5938 L-- A d9d6db73
+5939 L-- A d9d6db73
+5940 RF- A d9d6db73
+5941 R-- A d9d6db73
+5942 R-- A d9d6db73
+5943 R-- A d9d6db73
+5944 R-- A d9d6db73
+5945 R-- A d9d6db73
+5946 R-- A d9d6db73
+5947 R-- A d9d6db73
+5948 R-- A d9d6db73
+5949 R-- A d9d6db73
+5950 R-- A d9d6db73
+5951 R-- A d9d6db73
+5952 R-- A d9d6db73
+5953 R-- A d9d6db73
+5954 R-- A d9d6db73
+5955 R-- A d9d6db73
+5956 R-- A d9d6db73
+5957 R-- A d9d6db73
+5958 R-- A d9d6db73
+5959 R-- A d9d6db73
+5960 RF- A d9d6db73
+5961 R-- A d9d6db73
+5962 R-- A d9d6db73
+5963 R-- A d9d6db73
+5964 R-- A d9d6db73
+5965 R-- A d9d6db73
+5966 R-- A d9d6db73
+5967 R-- A d9d6db73
+5968 R-- A d9d6db73
+5969 R-- A d9d6db73
+5970 R-- A d9d6db73
+5971 R-- A d9d6db73
+5972 R-- A d9d6db73
+5973 R-- A d9d6db73
+5974 R-- A d9d6db73
+5975 R-- A d9d6db73
+5976 R-- A d9d6db73
+5977 R-- A d9d6db73
+5978 R-- A d9d6db73
+5979 R-- A d9d6db73
+5980 RF- A d9d6db73
+5981 R-- A d9d6db73
+5982 R-- A d9d6db73
+5983 R-- A d9d6db73
+5984 R-- A d9d6db73
+5985 R-- A d9d6db73
+5986 R-- A d9d6db73
+5987 R-- A d9d6db73
+5988 R-- A d9d6db73
+5989 R-- A d9d6db73
+5990 R-- A d9d6db73
+5991 R-- A d9d6db73
+5992 R-- A d9d6db73
+5993 R-- A d9d6db73
+5994 R-- A d9d6db73
+5995 R-- A d9d6db73
+5996 R-- A d9d6db73
+5997 R-- A d9d6db73
+5998 R-- A d9d6db73
+5999 R-- A d9d6db73
+6000 RF- A d9d6db73
