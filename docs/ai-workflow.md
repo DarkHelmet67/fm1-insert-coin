@@ -4,7 +4,7 @@ The significant decisions made with Claude, most recent first.
 
 | Date | Decision | Why |
 | --- | --- | --- |
-| 2026-10-25 | The whole repository in English: documentation, guides (with English file names), web pages (the installer defaults to English, Italian only for Italian browsers), pull requests | Luca: the project will be listed on an international site that collects FM-1 custom firmwares |
+| 2026-10-25 | The whole repository in English: documentation, guides (with English file names), web pages (the installer always starts in English, Italian with its language button), pull requests | Luca: the project will be listed on an international site that collects FM-1 custom firmwares |
 | 2026-10-25 | A preview of every PR on GitHub Pages in `pr-<number>/`, as in insert-coin: archive on the `gh-pages` branch, `preview.yml` on `ci`'s `workflow_run` (reusing the `site` artifact, no second build) and `pull_request_target` on close; it came with a separate PR to `main` | Luca's request: try the installer and the simulator before the merge. GitHub runs these workflows only from `main`'s copy, so they had to get there before the Space Invaders PR |
 | 2026-10-25 | Browser installer (Luca's request on the PR): Felucca's protocol copied from Skiff into `installer/vendor/`, our own single page for every game, the `.fwsc` on the site with `games.json` (SHA-256, identity) | As with SLOOP and Skiff: install with Chrome and a cable, no Python; the protocol is the one Dinghy already has in the firmware, so nothing to invent |
 | 2026-10-25 | MIDI ports paired by contained name, like SLOOP: the only change to Skiff's files | On Windows the output is called "MIDIOUT2 (Felucca)": Skiff's copy did not find the FM-1 |

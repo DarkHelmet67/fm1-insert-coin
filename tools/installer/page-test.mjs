@@ -41,7 +41,7 @@ const { chromium } = createRequire(import.meta.url)('playwright');
 const browser = await chromium.launch();
 const failures = [];
 try {
-  const page = await browser.newPage({ viewport: { width: 700, height: 1100 }, locale: 'en-US' });
+  const page = await browser.newPage({ viewport: { width: 700, height: 1100 }, locale: 'it-IT' }); // an Italian browser: the page must still start in English
   page.on('pageerror', (error) => failures.push(`page error: ${error.message}`));
   page.on('console', (message) => message.type() === 'error' && failures.push(`console: ${message.text()}`));
   await page.addInitScript(standIn);

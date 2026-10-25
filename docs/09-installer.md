@@ -24,7 +24,7 @@ Stage 1 works from the official V15 firmware just as from one of our games: that
 | `installer/vendor/fm1ota.js` | The protocol: identity, the two stages, resuming after a drop, the percentage | Leo Kuroshita (Felucca), from Skiff, GPL-3.0 |
 | `installer/vendor/fm1pkg.js` | The `.fwsc` package: identity, logical image, files and CRCs | Leo Kuroshita (Felucca), from Skiff, GPL-3.0 |
 | `installer/package.js` | Downloads the game's `.fwsc` and checks it (size, SHA-256, identity) before the synth sees a byte of it | Ours |
-| `installer/installer.js`, `texts.js`, `index.html`, `style.css` | The page: list of games, button, progress bar, messages in English (and Italian for Italian browsers) | Ours |
+| `installer/installer.js`, `texts.js`, `index.html`, `style.css` | The page: list of games, button, progress bar, messages in English (Italian with the language button) | Ours |
 
 The two Skiff modules are copied as they were, with a single change noted in [installer/UPSTREAM.md](../installer/UPSTREAM.md): on Windows the FM-1's MIDI output is called "MIDIOUT2 (Felucca)", not "Felucca", and Skiff's copy did not recognise it. Now an output counts if its name is the input's or contains it, as SLOOP's installer does.
 
