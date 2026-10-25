@@ -79,3 +79,9 @@ void set_tasks(PlayingState *state, int32_t on, int32_t off)
 {
     state->tasks = (uint8_t)((state->tasks | on) & ~off);
 }
+
+void show_message(PlayingState *state, MessageName name)
+{
+    const Message message = message_of(name);
+    state->messages = messages_show(&state->messages, &message);
+}

@@ -93,6 +93,9 @@ typedef struct {
 /** A game before its first frame, at `step` of the main program. */
 GAME_PRIVATE void empty_playing_state(PlayingState *state, int32_t step);
 
+/** Shows text `name` of the main program. */
+GAME_PRIVATE void show_message(PlayingState *state, MessageName name);
+
 /** Starts `sound` in this frame. */
 GAME_PRIVATE void play(PlayingState *state, uint32_t sound);
 

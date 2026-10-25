@@ -67,6 +67,12 @@ void console_colors(const Console *console, uint16_t out[FB_COLORS]);
  */
 void console_render(const Console *console, Framebuffer *screen, Framebuffer *game);
 
+/**
+ * What the game's sound chip plays in the last frame, or NULL: in the menu (the games are silent
+ * behind its picture) and for a game without a WSG chip.
+ */
+const WsgFrame *console_voices(const Console *console);
+
 /** The note keys to light: the game's, in a game. */
 uint32_t console_keys(const Console *console);
 

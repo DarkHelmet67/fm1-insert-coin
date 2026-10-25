@@ -8,6 +8,7 @@
 #include "../../sim/sim.h"
 
 #include "audio/mixer.h"
+#include "audio/wsg.h"
 #include "cartridges.h"
 #include "console.h"
 #include "screen/screen_push.h"
@@ -17,6 +18,9 @@ static Records saved;
 static Framebuffer frame;
 static Framebuffer spare;
 static Mixer mixer;
+static Wsg wsg;
+static WsgFrame voices;
+static const uint8_t *wsg_prom;
 static int32_t turns[FM1_ENCODER_COUNT];
 static uint32_t rgba[SIM_SCREEN * SIM_SCREEN];
 static int32_t samples[SIM_AUDIO_MAX];
@@ -45,6 +49,8 @@ SIM_EXPORT(sim_init) void sim_init(void)
         saved = records_empty();
     console_start(&console, CARTRIDGES, CARTRIDGE_COUNT, &saved);
     mixer = mixer_silent();
+    wsg = wsg_new();
+    voices = wsg_silent_frame();
 }
 
 /** Clicks of an encoder since the last frame, + clockwise. */
@@ -64,10 +70,15 @@ void sim_frame(uint32_t notes, uint32_t note_presses, uint32_t buttons, uint32_t
         turns[e] = 0;
     }
     console_step(&console, &panel);
-    const SoundEffect *effects = console_cartridge(&console)->sound_effects;
+    const Cartridge *cartridge = console_cartridge(&console);
     for (uint32_t name = 0; name < 32u; name++)
         if (console.sounds >> name & 1u)
-            mixer_play(&mixer, &effects[name]);
+            mixer_play(&mixer, &cartridge->sound_effects[name]);
+    /* the sound chip's voices of this frame, as audio_voices() on the synth */
+    const WsgFrame *frame = console_voices(&console);
+    voices = frame != 0 ? *frame : wsg_silent_frame();
+    wsg_prom = cartridge->wsg_prom;
+    wsg_start_frame(&wsg);
 }
 
 /** Draws the frame and returns the 240 x 240 RGBA pixels of the display. */
@@ -98,6 +109,8 @@ SIM_EXPORT(sim_audio) const int32_t *sim_audio(uint32_t n)
     for (uint32_t i = 0; i < n; i++)
         samples[i] = 0;
     mixer_render(&mixer, samples, n);
+    if (wsg_prom != 0)
+        wsg_render(&wsg, &voices, wsg_prom, samples, n);
     return samples;
 }
 

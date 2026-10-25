@@ -44,7 +44,7 @@ static void choose(PlayingState *state)
 }
 
 /** `l_1B00`: the bonus bee dives with the look of a special enemy, the bonus is armed. */
-static void launch(PlayingState *state)
+static void launch_clones(PlayingState *state)
 {
     Attacks *attacks = &state->attacks;
     GameObject *bee = object_ref(&state->objects, attacks->bonus_bee);
@@ -72,7 +72,7 @@ static void flash(PlayingState *state)
     int32_t timer = (attacks->bonus_bee_timer + 1) & 0xff;
     if (timer == 0) {
         if (task_on(state, TASK_FIRE))
-            launch(state);
+            launch_clones(state);
         else
             attacks->bonus_bee_timer = FLASH_AGAIN;
         return;

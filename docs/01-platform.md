@@ -19,7 +19,7 @@ static void app_main(void);                        /* the main loop: never retur
 
 ## The boundary with the hardware
 
-In this repository only `games/<game>/src/main.c` includes `platform.c`. Everything else, in `games/<game>/src/` and in `libs/`, is pure C: no registers, no screen, no global variables. `tools/build.py` compiles it file by file and links it into the firmware; `make test` compiles it on the computer with its tests.
+In this repository only `launcher/src/main.c` (in this step it was `games/<game>/src/main.c`; [guide 10](10-launcher.md) made one firmware of the games) includes `platform.c`. Everything else, in `games/<game>/src/`, `launcher/src/` and `libs/`, is pure C: no registers, no screen, no global variables. `tools/build.py` compiles it file by file and links it into the firmware; `make test` compiles it on the computer with its tests.
 
 The first pure module is the key map, in `libs/input/keymap.c`: given the set of keys held, it returns the actions (left, right, fire). Left and right together cancel out, as in the web version. Each game's keys live in its `config.h` (in step 1 as a `static const`, later moved to `config.c`):
 
@@ -43,7 +43,7 @@ make test
 
 ## Host mode
 
-`make host GAME=space-invaders` compiles the game with `-DDINGHY_HOST`: `platform.c` then includes `platform/tests/host.c`, a fake FM-1. Every call to `platform_poll()` is one millisecond; a script presses keys over time and asks for screenshots.
+`make host` compiles the firmware with `-DDINGHY_HOST`: `platform.c` then includes `platform/tests/host.c`, a fake FM-1. Every call to `platform_poll()` is one millisecond; a script presses keys over time and asks for screenshots.
 
 ```
 # games/space-invaders/scripts/title.txt

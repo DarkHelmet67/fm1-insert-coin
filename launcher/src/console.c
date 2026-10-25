@@ -112,6 +112,14 @@ void console_render(const Console *console, Framebuffer *screen, Framebuffer *ga
     menu_render(screen, &view, game);
 }
 
+const WsgFrame *console_voices(const Console *console)
+{
+    const Cartridge *cartridge = console_cartridge(console);
+    if (console_in_menu(console) || cartridge->voices == 0)
+        return 0;
+    return cartridge->voices(console->state.bytes);
+}
+
 uint32_t console_keys(const Console *console)
 {
     return console_in_menu(console) ? 0u : console_cartridge(console)->keys();

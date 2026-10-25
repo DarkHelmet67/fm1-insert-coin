@@ -88,3 +88,18 @@ The colour mode is not in the string: it is presentation.
 | `tracker` | 45000 | A player who follows the ball with the keys, aiming at five parts of the paddle in turn: it breaks through, speeds up, shrinks the paddle and gets the second wall (frame 44421) |
 
 The game starts with SERVE at frame 60; then SERVE comes whenever a ball is waiting, on the frames that are multiples of 50.
+
+## Galaga
+
+The frame line is the same, with `F` the fire button and `C` the coin; the screen is `A` (attract) or `P` (a game), and the numbers for human readers are the score, the stage, the reserve fighters and the phase of the main program. Galaga's state is far larger than the other games', so the state string is defined by its code rather than by a table: `stateString()` in `record-galaga.mjs` and `trace_state.c` in the C port write the same text. It is `A|hi=…|` followed by the attract screen (frame, stars, timers, step, texts, objects), or `P|hi=…|` followed by the game as fields separated by `|`: `f=` frame, `t=` timers, `ph=` phase, `tk=` tasks, `o=` the 64 objects, `sl=` the 12 flight slots, `bd=` bomb drift, `rp=` rocket paths, `fm=` formation, `sf=` `sc=` stars, `stg=` `rk=` `pa=` `lk=` stage, rank, parameters and looks, `la=` the wave launcher's tokens, `at=` attacks, `cp=` capture, the counters (`fh=`, `gl=`, `tl=`, `al=`, `cn=`, `rv=`, `bg=` ...), `ms=` the texts on screen, `sco=` the score and the sounds of the frame. Numbers are decimal, except codes and addresses, in hexadecimal as JavaScript's `toString(16)` writes them.
+
+| Trace | Frames | What it covers |
+| --- | --- | --- |
+| `idle` | 9000 | Nobody plays: the aliens take the three fighters, back to the attract screen |
+| `restless` | 9000 | Left and right in turn every 100 frames, firing every 12 |
+| `rescuer` | 19000 | A bot that dodges and aims: captured, rescued (double fighter), a bonus bee, stage 5 |
+| `survivor` | 21000 | The same bot, more careful: two challenging stages, stage 6 |
+
+The coin comes in at frame 60. The bot's moves depend on the state, so the trace keeps them: the C port replays the controls, it does not need the bot.
+
+**Sound traces.** Next to each trace, `<name>.sound` follows the sound board as main.ts drives it: in every frame the game's sound commands are written to the trigger registers (none on the attract screen), then the sound program ticks twice. The frame is written as the voices of both ticks, `frequency:volume:waveform,` six times, then `x` if the fighter explodes or `-`. A line `frame hash` gives the FNV-1a of the text of 60 frames (frames 1-60, 61-120, ...), so a difference is found to the second.

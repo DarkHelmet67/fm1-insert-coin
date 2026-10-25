@@ -14,6 +14,7 @@
 /** Each game's cartridge, from its cartridge.c. */
 extern const Cartridge SPACE_INVADERS_CARTRIDGE;
 extern const Cartridge BREAKOUT_CARTRIDGE;
+extern const Cartridge GALAGA_CARTRIDGE;
 
 /** The games in the menu's order. */
 extern const Cartridge *const CARTRIDGES[];

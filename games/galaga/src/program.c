@@ -23,13 +23,6 @@ static void go_to(PlayingState *state, int32_t step)
     state->phase = phase;
 }
 
-/** Shows one of the texts of the main program. */
-static void show_named(PlayingState *state, MessageName name)
-{
-    const Message message = message_of(name);
-    state->messages = messages_show(&state->messages, &message);
-}
-
 /** Frames since the phase started are not kept: the badges use the frame counter. */
 static int badge_due(const PlayingState *state)
 {
@@ -122,7 +115,7 @@ static void splash(PlayingState *state, int32_t then)
     set_up_stage(state);
     switch (then) {
     case THEN_PLAYER_UP:
-        show_named(state, MESSAGE_PLAYER_ONE_ABOVE);
+        show_message(state, MESSAGE_PLAYER_ONE_ABOVE);
         start_respawn(state);
         return;
     case THEN_RESPAWN:
@@ -241,7 +234,7 @@ static void ending(PlayingState *state)
 
 void start_intro(PlayingState *state)
 {
-    show_named(state, MESSAGE_PLAYER_ONE);
+    show_message(state, MESSAGE_PLAYER_ONE);
     state->timers = set_timer(&state->timers, 3, 8);
     go_to(state, STEP_INTRO);
     play(state, SOUND_START_THEME);

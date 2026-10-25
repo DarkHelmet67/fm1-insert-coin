@@ -76,12 +76,50 @@ static ScreenMap toy_screen_map(void)
     return screen_map_centered(64, 32);
 }
 
+/** The second toy has a sound chip, playing one note. */
+static const WsgFrame TOY_VOICES = {{{{1000u, 15u, 0u}}, {{1000u, 15u, 0u}}}};
+static const uint8_t TOY_PROM[WSG_PROM_SIZE] = {0};
+
+static const WsgFrame *toy_voices(const void *state)
+{
+    (void)state;
+    return &TOY_VOICES;
+}
+
 static const Cartridge TOY_A = {
-    "TOY A",    0x41u,      sizeof(Toy), 64, 32,           toy_screen_map, toy_start, toy_step,
-    toy_render, toy_colors, toy_sounds,  0,  toy_hi_score, toy_playing,    toy_keys,  0u};
+    .name = "TOY A",
+    .record_tag = 0x41u,
+    .state_size = sizeof(Toy),
+    .width = 64,
+    .height = 32,
+    .screen_map = toy_screen_map,
+    .start = toy_start,
+    .step = toy_step,
+    .render = toy_render,
+    .colors = toy_colors,
+    .sounds = toy_sounds,
+    .hi_score = toy_hi_score,
+    .playing = toy_playing,
+    .keys = toy_keys,
+};
 static const Cartridge TOY_B = {
-    "TOY B",    0x42u,      sizeof(Toy), 64, 32,           toy_screen_map, toy_start, toy_step,
-    toy_render, toy_colors, toy_sounds,  0,  toy_hi_score, toy_playing,    toy_keys,  0u};
+    .name = "TOY B",
+    .record_tag = 0x42u,
+    .state_size = sizeof(Toy),
+    .width = 64,
+    .height = 32,
+    .screen_map = toy_screen_map,
+    .start = toy_start,
+    .step = toy_step,
+    .render = toy_render,
+    .colors = toy_colors,
+    .sounds = toy_sounds,
+    .voices = toy_voices,
+    .wsg_prom = TOY_PROM,
+    .hi_score = toy_hi_score,
+    .playing = toy_playing,
+    .keys = toy_keys,
+};
 static const Cartridge *const TOYS[] = {&TOY_A, &TOY_B};
 
 static Console console;
@@ -188,6 +226,19 @@ static void the_menu_shows_the_game_and_the_menus_colours(void)
     CHECK_EQ(fb_get(&screen, 120, 88), 1); /* the middle of the picture: the toy's colour */
 }
 
+static void the_sound_chip_plays_only_in_its_game(void)
+{
+    Panel select = NOTHING;
+    select.turns[FM1_ENCODER_SELECT] = 1;
+    const Panel press = play();
+    start();
+    CHECK(console_voices(&console) == 0); /* TOY A has no chip */
+    console_step(&console, &select);
+    CHECK(console_voices(&console) == 0); /* TOY B, but behind the menu */
+    console_step(&console, &press);
+    CHECK(console_voices(&console) == &TOY_VOICES);
+}
+
 int main(void)
 {
     RUN(the_menu_runs_the_chosen_game_silently);
@@ -196,5 +247,6 @@ int main(void)
     RUN(a_record_is_kept_when_the_game_is_over);
     RUN(leaving_a_game_restarts_it_behind_the_menu);
     RUN(the_menu_shows_the_game_and_the_menus_colours);
+    RUN(the_sound_chip_plays_only_in_its_game);
     return check_report();
 }

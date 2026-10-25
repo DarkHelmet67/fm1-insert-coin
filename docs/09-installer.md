@@ -74,8 +74,8 @@ The installer works from the preview too: WebMIDI wants HTTPS, and Pages is HTTP
 The page loads JavaScript modules and the `.fwsc` with `fetch`, so it needs a server: from GitHub Pages it works, opened from disk it does not. Locally:
 
 ```sh
-make sim GAME=space-invaders
-python3 tools/build.py space-invaders     # or the .fwsc from the firmware artifact
+make sim
+python3 tools/build.py                    # or the .fwsc from the firmware artifact
 make installer                            # every build/*/*.fwsc -> build/site/installer/
 python3 -m http.server -d build/site      # then http://localhost:8000/installer/
 ```
@@ -90,8 +90,8 @@ The protocol is tested with a fake FM-1, `tools/installer/fake_fm1.mjs`, which r
 - **`tools/installer/page-test.mjs`** (Playwright, locally): the real page in Chromium with the fake FM-1 instead of WebMIDI, all the way to "Done!". The fake package is written by `tools/installer/fake_package.py`:
 
 ```sh
-python3 tools/installer/fake_package.py FM-1_950 build/fake/space-invaders.fwsc
-make sim GAME=space-invaders && make installer FWSC=build/fake/space-invaders.fwsc
+python3 tools/installer/fake_package.py FM-1_950 build/fake/insert-coin.fwsc
+make sim && make installer FWSC=build/fake/insert-coin.fwsc
 node tools/installer/page-test.mjs build/site
 ```
 

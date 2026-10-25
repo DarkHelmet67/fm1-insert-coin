@@ -87,13 +87,6 @@ Wait script_wait(int32_t name, int32_t line)
     return line < length ? (Wait)lines[line].wait : WAIT_PAUSE;
 }
 
-/** Shows one of the texts of the main program. */
-static void show_named(PlayingState *state, MessageName name)
-{
-    const Message message = message_of(name);
-    state->messages = messages_show(&state->messages, &message);
-}
-
 /** Shows `text` at a cell. */
 static void show_text(PlayingState *state, const char *text, int32_t column, int32_t row,
                       int32_t palette)
@@ -146,12 +139,12 @@ static void show_results(PlayingState *state)
     for (int32_t i = 0; i < SLOT_COUNT; i++)
         state->slots.list[i] = free_slot();
     state->messages = no_messages();
-    show_named(state, MESSAGE_RESULTS);
-    show_named(state, MESSAGE_SHOTS_FIRED);
+    show_message(state, MESSAGE_RESULTS);
+    show_message(state, MESSAGE_SHOTS_FIRED);
     show_number(state, state->shots, 20, shots.row, shots.palette);
-    show_named(state, MESSAGE_RESULT_HITS);
+    show_message(state, MESSAGE_RESULT_HITS);
     show_number(state, state->hits, 20, hits.row, hits.palette);
-    show_named(state, MESSAGE_HIT_MISS_RATIO);
+    show_message(state, MESSAGE_HIT_MISS_RATIO);
     show_text(state, hit_ratio(state->hits, state->shots, text), 20, ratio.row, 3);
     state->star_control.ship_on_screen = 0;
 }
@@ -184,13 +177,13 @@ void run_script_line(PlayingState *state, int32_t name, int32_t line)
         play(state, state->flying_hits == CHALLENGE_ALIENS ? SOUND_PERFECT : SOUND_CHALLENGE_END);
         break;
     case ACTION_HITS_TEXT:
-        show_named(state, MESSAGE_NUMBER_OF_HITS);
+        show_message(state, MESSAGE_NUMBER_OF_HITS);
         break;
     case ACTION_HITS_NUMBER:
         show_number(state, state->flying_hits, 21, message_of(MESSAGE_NUMBER_OF_HITS).row, 0);
         break;
     case ACTION_BONUS_TEXT:
-        show_named(state, MESSAGE_BONUS);
+        show_message(state, MESSAGE_BONUS);
         break;
     case ACTION_BONUS_POINTS:
         bonus_points(state);
@@ -201,17 +194,17 @@ void run_script_line(PlayingState *state, int32_t name, int32_t line)
         erase_row_of(state, MESSAGE_BONUS);
         break;
     case ACTION_PERFECT_ON:
-        show_named(state, MESSAGE_PERFECT);
+        show_message(state, MESSAGE_PERFECT);
         break;
     case ACTION_PERFECT_OFF:
         erase_row_of(state, MESSAGE_PERFECT);
         break;
     case ACTION_SPECIAL_BONUS:
-        show_named(state, MESSAGE_SPECIAL_BONUS);
+        show_message(state, MESSAGE_SPECIAL_BONUS);
         add_points(state, 10000);
         break;
     case ACTION_GAME_OVER:
-        show_named(state, MESSAGE_GAME_OVER);
+        show_message(state, MESSAGE_GAME_OVER);
         break;
     case ACTION_RESULTS:
         show_results(state);

@@ -5,6 +5,7 @@
   "screen_colour": "0x07E0",
   "games": {
     "space-invaders": "SPACE INVADERS",
-    "breakout": "BREAKOUT"
+    "breakout": "BREAKOUT",
+    "galaga": "GALAGA"
   }
 }

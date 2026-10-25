@@ -86,13 +86,14 @@ static void app_audio(int32_t *out, uint32_t n)
     audio_render(out, n);
 }
 
-/** Starts the sounds of a frame. */
+/** Starts the sounds of a frame, and gives the sound chip's voices of the game that has one. */
 static void play_sounds(void)
 {
-    const SoundEffect *effects = console_cartridge(&console)->sound_effects;
+    const Cartridge *cartridge = console_cartridge(&console);
     for (uint32_t name = 0; name < 32u; name++)
         if (console.sounds >> name & 1u)
-            audio_play(&effects[name]);
+            audio_play(&cartridge->sound_effects[name]);
+    audio_voices(console_voices(&console), cartridge->wsg_prom);
 }
 
 /** The panel since the last frame: presses gather until a frame uses them. */

@@ -27,7 +27,8 @@ typedef struct {
  * Draws the whole menu from scratch.
  * @param fb   a MENU_SIZE x MENU_SIZE screen
  * @param view what to show
- * @param game the chosen game's screen, drawn at half size; its colour indexes are the first 16
+ * @param game the chosen game's screen, drawn at half size; its colour indexes are below
+ *             MENU_GAME_COLORS
  */
 void menu_render(Framebuffer *fb, const MenuView *view, const Framebuffer *game);
 

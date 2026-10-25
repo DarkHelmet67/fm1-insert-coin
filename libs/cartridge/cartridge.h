@@ -15,6 +15,7 @@
 #include <stdint.h>
 
 #include "audio/sound.h"
+#include "audio/wsg.h"
 #include "cartridge/private.h"
 #include "input/fm1_panel.h"
 #include "screen/framebuffer.h"
@@ -53,6 +54,13 @@ typedef struct {
     uint32_t (*sounds)(const void *state);
     /** Its sound effects. */
     const SoundEffect *sound_effects;
+    /**
+     * What its sound chip plays in the last frame, for a game whose sound is a Namco WSG
+     * (Galaga); NULL for the others, which only have sound effects.
+     */
+    const WsgFrame *(*voices)(const void *state);
+    /** The waveform PROM of that chip, WSG_PROM_SIZE bytes; NULL without one. */
+    const uint8_t *wsg_prom;
     /** Its best score now. */
     int32_t (*hi_score)(const void *state);
     /** Whether a game is being played (PLAY blinks when not, a new record is saved when not). */

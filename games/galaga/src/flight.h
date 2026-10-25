@@ -7,10 +7,10 @@
  *
  * **Working copies.** The web version passes its state immutably, building a new copy at every
  * change. Galaga's state is several kilobytes and the FM-1 gives the firmware a stack of about
- * 24 KB, so the Galaga port cannot afford a copy per change: its modules receive a pointer to a
- * working copy and change it in place, and the copy is made once per frame, at the top
- * (game_step()). The modules stay pure in every other way: no globals, no hardware, the same
- * inputs always give the same changes.
+ * 24 KB, so the Galaga port cannot afford a copy per change: its modules receive a pointer to the
+ * game's state (the bytes the launcher lends the cartridge) and change it in place, one frame at
+ * a time (update_game()). The modules stay pure in every other way: no globals, no hardware, the
+ * same state and inputs always give the same changes.
  */
 #ifndef GALAGA_FLIGHT_H
 #define GALAGA_FLIGHT_H

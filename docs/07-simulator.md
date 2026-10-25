@@ -16,7 +16,7 @@ App app_step(const App *app, uint32_t notes, uint32_t note_presses, uint32_t but
 
 One frame of the cabinet: from keys to controls (`input_controls`), the game (`game_step`), the sounds (`sounds_for`), the colour switch with FX. Around it sit two thin shells:
 
-| | Firmware (`src/main.c`) | Simulator (`sim/sim.c`) |
+| | Firmware (`launcher/src/main.c`) | Simulator (`launcher/sim/sim.c`) |
 | --- | --- | --- |
 | Keys | `fm1_in.notes`, `fm1_input_edges()` | browser events, from `sim.js` |
 | Frame | `app_step` | `app_step` |
@@ -31,7 +31,7 @@ Everything between the two shells is identical: if the simulator behaves, so doe
 No Emscripten: the system clang with its WebAssembly linker (`wasm-ld`, package `lld`) is enough.
 
 ```sh
-make sim GAME=space-invaders      # -> build/site/space-invaders/index.html
+make sim      # -> build/site/simulator/index.html
 ```
 
 ```
@@ -46,13 +46,13 @@ The page is a single HTML file with the style, the script and the WebAssembly as
 
 ## The page does not know the game
 
-`sim/sim.js` only knows what an FM-1 looks like: 27 keys, the labels of the black keys, the buttons. It asks the game which keys it uses (`sim_game_keys`, for the LEDs), which button starts a game and which one switches the colours. Galaga and Breakout will use the same page with their own `sim.c`.
+`sim/sim.js` only knows what an FM-1 looks like: 27 keys, the labels of the black keys, the buttons. It asks the game which keys it uses (`sim_game_keys`, for the LEDs), which button starts a game and which one switches the colours. Since the launcher ([guide 10](10-launcher.md)) the page runs the whole firmware, menu and games, through `launcher/sim/sim.c`, and draws the seven encoders too.
 
 Time is the browser's (`requestAnimationFrame`), divided into 1/60-second frames with at most 4 to catch up, like `frame_clock` on the synth. Presses add up between one frame and the next: a very short tap is not lost.
 
 ## Trying it and checking it
 
-- **In the browser:** `build/site/space-invaders/index.html`; after the merge to `main`, on GitHub Pages.
+- **In the browser:** `build/site/simulator/index.html`; after the merge to `main`, on GitHub Pages.
 - **From a pull request:** the pull request's preview on GitHub Pages, in `pr-<number>/` ([guide 09](09-installer.md)); or the `simulator` artifact of GitHub Actions, which you download, unzip and open.
 - **Automatically, in CI:** `tools/sim/smoke.mjs` loads the WebAssembly in Node, presses PLAY, fires and checks screen and sound.
 - **Automatically, locally:** `tools/sim/test.mjs` opens the page in Chromium with Playwright, plays a few seconds with the keyboard, checks that it runs at 60 frames per second with no errors and saves the screenshots in `build/sim/`.

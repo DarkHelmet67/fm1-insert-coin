@@ -57,7 +57,7 @@ The same as the web version's, with one adaptation: the last two lines name the 
 
 ## The high score
 
-The web version saves the high score in the browser with `@arcade/storage`; here it goes into the synth's flash, with Dinghy's `settings_save()`, through `libs/storage/hi_score_fm1.h`:
+The web version saves the high score in the browser with `@arcade/storage`; here it goes into the synth's flash, with Dinghy's `settings_save()`, through `libs/storage/hi_score_fm1.h` (since [guide 10](10-launcher.md) the launcher keeps one record per game in `launcher/src/records.c`, with the same rules):
 
 - the high score is loaded at power-on (`hi_score_load()`, 0 if there is nothing or if the data belongs to another firmware);
 - it is saved **after** the game, when game over appears: erasing a flash sector stops the interrupts for about 50 ms, and during play you would see a stutter;
@@ -88,7 +88,7 @@ When the loop catches up several frames (after a save, for example), a press cou
 ## Trying it
 
 ```sh
-make host GAME=space-invaders
+make host
 ```
 
-The script `games/space-invaders/scripts/demo.txt` presses PLAY, moves, fires and switches to black and white: the pictures above come from there.
+The script `launcher/scripts/demo.txt` enters Space Invaders from the menu, presses PLAY, moves, fires and switches to black and white (then plays the other games): the pictures above come from there.

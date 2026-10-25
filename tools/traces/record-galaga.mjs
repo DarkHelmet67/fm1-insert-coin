@@ -3,7 +3,8 @@
  * Records reference traces from the web version of Galaga (insert-coin, TypeScript): the game is
  * played frame by frame with scripted controls, and every frame's whole state is written as a
  * short line with a hash (docs/03-traces.md, tools/traces/FORMAT.md). The C port replays the same
- * controls and must produce the same lines.
+ * controls and must produce the same lines. Next to each trace, a sound trace follows the sound
+ * board: what the three voices of the WSG chip play, as a hash every second (FORMAT.md).
  *
  *   node tools/traces/record-galaga.mjs INSERT_COIN_DIR [OUT_DIR]   all the traces
  *   node tools/traces/record-galaga.mjs INSERT_COIN_DIR --dump NAME FRAME
@@ -35,6 +36,9 @@ const vite = await createServer({
 const load = (name) => vite.ssrLoadModule(join(gameDir, name));
 const { createGame, updateGame } = await load('game.ts');
 const { FIGHTER, FIRST_BOMB, objectAt } = await load('objects.ts');
+const { NO_SOUND_COMMANDS, soundCommands } = await load('sound-commands.ts');
+const { tickSound } = await load('sound-program.ts');
+const { newSoundState } = await load('sound-state.ts');
 
 // ---- the state as one canonical string (tools/traces/FORMAT.md)
 
@@ -325,17 +329,54 @@ const SCRIPTS = {
   survivor: { script: dodger({ look: 60, width: 22 }), frames: 21000 },
 };
 
-/** Plays a script; returns the lines (and the full state string, when asked for one frame). */
+// ---- the sound board, as sound-system.ts without the chip's samples
+
+/** Frames hashed together in a line of the sound trace. */
+const SOUND_LINE_FRAMES = 60;
+
+/**
+ * One frame of the sound board, as main.ts drives it: the trigger writes, then two ticks of the
+ * sound program. Returns the memory after it and the frame as text: the voices of both ticks
+ * (`frequency:volume:waveform,`) and the explosion (`x` or `-`).
+ */
+const soundFrame = (sound, g) => {
+  const commands = g.screen === 'playing' ? soundCommands(g.playing) : NO_SOUND_COMMANDS;
+  const triggers = [...sound.triggers];
+  commands.writes.forEach(([effect, value]) => {
+    triggers[effect] = value;
+  });
+  const first = tickSound({ ...sound, triggers }, commands.sign);
+  const second = tickSound(first.sound, commands.sign);
+  const text = [...first.voices, ...second.voices]
+    .map((v) => `${v.frequency}:${v.volume}:${v.waveform},`)
+    .join('');
+  return { sound: second.sound, text: `${text}${commands.explosion ? 'x' : '-'}` };
+};
+
+/**
+ * Plays a script; returns the lines of the trace and of the sound trace (or the full state string,
+ * when asked for one frame).
+ */
 const play = ({ script, frames }, dumpFrame) => {
   let g = createGame(0);
+  let sound = newSoundState();
+  let heard = '';
   const lines = [`# initial ${fnv1a(stateString(g))}`];
+  const soundLines = [];
   for (let frame = 1; frame <= frames; frame++) {
     const controls = script(frame, g);
     g = updateGame(g, controls);
     if (frame === dumpFrame) return stateString(g);
     lines.push(frameLine(frame, controls, g));
+    const board = soundFrame(sound, g);
+    sound = board.sound;
+    heard += board.text;
+    if (frame % SOUND_LINE_FRAMES === 0) {
+      soundLines.push(`${frame} ${fnv1a(heard)}`);
+      heard = '';
+    }
   }
-  return lines;
+  return { lines, soundLines };
 };
 
 const commit = execFileSync('git', ['-C', insertCoin, 'rev-parse', 'HEAD']).toString().trim();
@@ -350,8 +391,13 @@ if (rest[0] === '--dump') {
       `# Galaga reference trace "${name}", recorded from insert-coin ${commit}`,
       '# by tools/traces/record-galaga.mjs; format in tools/traces/FORMAT.md',
     ];
-    const lines = play(entry);
+    const { lines, soundLines } = play(entry);
     writeFileSync(join(outDir, `${name}.trace`), [...header, ...lines, ''].join('\n'));
+    const soundHeader = [
+      `# Galaga sound trace "${name}", recorded from insert-coin ${commit}`,
+      '# by tools/traces/record-galaga.mjs; format in tools/traces/FORMAT.md',
+    ];
+    writeFileSync(join(outDir, `${name}.sound`), [...soundHeader, ...soundLines, ''].join('\n'));
     console.log(`${name}: ${lines.length - 1} frames, last: ${lines.at(-1)}`);
   }
 }

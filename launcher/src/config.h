@@ -26,12 +26,12 @@
 #define LEAVE_FRAMES 120u
 
 /**
- * The menu's colour indexes. The first 16 are the chosen game's own colours, for its picture;
- * the menu's own come after them.
+ * The menu's colour indexes. The first 112 are the chosen game's own colours, for its picture
+ * (Galaga needs 97 of them, with its stars); the menu's own come after them.
  */
 enum {
     MENU_COLOR_BACKGROUND = 0,
-    MENU_COLOR_TEXT = 16,
+    MENU_COLOR_TEXT = 112,
     MENU_COLOR_TITLE,
     MENU_COLOR_DIM,
     MENU_COLOR_FRAME,
@@ -39,9 +39,9 @@ enum {
 };
 
 /** How many of the menu's colours are the chosen game's. */
-#define MENU_GAME_COLORS 16u
+#define MENU_GAME_COLORS 112u
 
-/** The menu's own colours, at their indexes (the first 16 are taken from the game). */
+/** The menu's own colours, at their indexes (the first 112 are taken from the game). */
 extern const uint16_t MENU_COLORS[FB_COLORS];
 
 /** The words of the menu. */

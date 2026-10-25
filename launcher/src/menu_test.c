@@ -67,7 +67,7 @@ static void the_palette_is_the_game_then_the_menu(void)
     uint16_t game_colors[FB_COLORS] = {0};
     uint16_t out[FB_COLORS];
     game_colors[3] = 0xABCD;
-    game_colors[MENU_COLOR_TEXT] = 0x1111; /* past the 16 a game may use: ignored */
+    game_colors[MENU_COLOR_TEXT] = 0x1111; /* past the 112 a game may use: ignored */
     menu_colors(game_colors, out);
     CHECK_EQ(out[3], 0xABCD);
     CHECK_EQ(out[MENU_COLOR_TEXT], MENU_COLORS[MENU_COLOR_TEXT]);
