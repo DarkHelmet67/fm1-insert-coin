@@ -3,7 +3,7 @@
  * Renders the sound effects of the web version of Space Invaders (insert-coin) to WAV files, with
  * the web version's own synthesizer (packages/audio/src/synth.ts) running in Chromium's
  * OfflineAudioContext. compare.py then measures the C synthesizer against these files
- * (docs/06-suoni.md).
+ * (docs/06-sounds.md).
  *
  *   node tools/sounds/render-web-sounds.mjs INSERT_COIN_DIR OUT_DIR
  *

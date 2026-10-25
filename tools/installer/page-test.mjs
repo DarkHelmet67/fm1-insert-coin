@@ -41,7 +41,7 @@ const { chromium } = createRequire(import.meta.url)('playwright');
 const browser = await chromium.launch();
 const failures = [];
 try {
-  const page = await browser.newPage({ viewport: { width: 700, height: 1100 }, locale: 'it-IT' });
+  const page = await browser.newPage({ viewport: { width: 700, height: 1100 }, locale: 'en-US' });
   page.on('pageerror', (error) => failures.push(`page error: ${error.message}`));
   page.on('console', (message) => message.type() === 'error' && failures.push(`console: ${message.text()}`));
   await page.addInitScript(standIn);
@@ -55,7 +55,7 @@ try {
   if (games.length === 0) failures.push('no game in the list');
 
   await page.click('#go');
-  await page.waitForFunction(() => /Fatto/.test(document.getElementById('status').textContent), null, { timeout: 60000 });
+  await page.waitForFunction(() => /Done/.test(document.getElementById('status').textContent), null, { timeout: 60000 });
   const device = await page.evaluate(() => ({ bad: window.fakeDevice.bad, history: window.fakeDevice.history }));
   if (device.bad) failures.push(`${device.bad} wrong answers to the FM-1`);
   console.log(`games: ${games.join(', ')}; FM-1: ${device.history.join(' > ')}`);

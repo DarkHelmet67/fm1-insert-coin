@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-only
-"""Compares the sound effects of the C synthesizer with the web version's (docs/06-suoni.md).
+"""Compares the sound effects of the C synthesizer with the web version's (docs/06-sounds.md).
 
     python3 tools/sounds/compare.py WEB_DIR C_DIR
 

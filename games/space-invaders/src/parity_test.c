@@ -2,7 +2,7 @@
 /**
  * @file
  * The parity test: replays the reference traces recorded from the web version
- * (games/space-invaders/traces, docs/03-tracce.md) and checks, frame after frame, that the C
+ * (games/space-invaders/traces, docs/03-traces.md) and checks, frame after frame, that the C
  * game reaches exactly the same state. Run from the repository root (make test does).
  * On the first difference it prints the frame and the C state string: compare it with
  *   node tools/traces/record-space-invaders.mjs INSERT_COIN_DIR --dump TRACE FRAME

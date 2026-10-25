@@ -1,91 +1,93 @@
-# 09 · L'installer nel browser
+# 09 · The browser installer
 
-Per installare un gioco sul synth bastano Chrome (o Edge) e un cavo USB: si apre la [pagina dell'installer](https://darkhelmet67.github.io/fm1-insert-coin/installer/), si sceglie il gioco e si preme **Installa**. Niente Python, niente programmi da scaricare. È la stessa comodità degli installer di [SLOOP](https://isod89.github.io/sloop-fm1/webapp/installer/) e [Skiff](https://illuminus5.github.io/skiff/webapp/installer/), richiesta da Luca guardando la pull request di Space Invaders.
+To install a game on the synth all you need is Chrome (or Edge) and a USB cable: open the [installer page](https://darkhelmet67.github.io/fm1-insert-coin/installer/), choose the game and press **Install**. No Python, no programs to download. It is the same convenience as the installers of [SLOOP](https://isod89.github.io/sloop-fm1/webapp/installer/) and [Skiff](https://illuminus5.github.io/skiff/webapp/installer/), asked for by Luca while reviewing the Space Invaders pull request.
 
-<p align="center"><img src="images/installer.png" width="480" alt="La pagina dell'installer a fine installazione, con Space Invaders scelto"></p>
+<p align="center"><img src="images/installer.png" width="480" alt="The installer page at the end of an install, with Space Invaders chosen"></p>
 
-## Come parla con il synth
+## How it talks to the synth
 
-Il browser vede l'FM-1 come un dispositivo MIDI (WebMIDI, con il permesso SysEx). L'aggiornamento è il protocollo di Felucca, che Dinghy ha già dentro `platform/` e che anche `platform/tools/fm1_install.py` parla da riga di comando. Funziona in due tempi, e in entrambi è il synth a chiedere i pezzi del pacchetto, 512 byte alla volta, e la pagina a rispondere:
+The browser sees the FM-1 as a MIDI device (WebMIDI, with SysEx permission). The update is Felucca's protocol, which Dinghy already carries in `platform/` and which `platform/tools/fm1_install.py` also speaks from the command line. It works in two stages, and in both it is the synth that asks for pieces of the package, 512 bytes at a time, and the page that answers:
 
-| Tempo | Chi chiede | Cosa succede |
+| Stage | Who asks | What happens |
 | --- | --- | --- |
-| 0 | La pagina | Domanda di identità: l'FM-1 risponde, per esempio `FM-1_015` (il firmware ufficiale V15) |
-| 1 | Il firmware che gira ora | Legge qualche pezzo del pacchetto e si riavvia come caricatore di aggiornamento (per Space Invaders `ota-FM-1_950`, porta USB "Felucca Update") |
-| 2 | Il caricatore | Legge tutto il pacchetto e lo scrive nella flash; l'intestazione del gioco per ultima |
-| 3 | Il gioco | L'FM-1 si riavvia e la pagina controlla che dica l'identità del pacchetto (`FM-1_950`) |
+| 0 | The page | Identity query: the FM-1 answers, for example `FM-1_015` (the official V15 firmware) |
+| 1 | The firmware running now | Reads a few pieces of the package and restarts as the update loader (for Space Invaders `ota-FM-1_950`, USB port "Felucca Update") |
+| 2 | The loader | Reads the whole package and writes it to flash; the game's header last |
+| 3 | The game | The FM-1 restarts and the page checks that it reports the package's identity (`FM-1_950`) |
 
-Il primo tempo funziona dal firmware ufficiale V15 come da un nostro gioco: per questo l'installazione parte da qualsiasi stato. Se il cavo si stacca durante il secondo tempo, l'FM-1 resta nel caricatore (scrivendo l'intestazione per ultima, non parte un gioco a metà): la pagina aspetta che torni e riprende; se la pagina è stata chiusa, alla prossima pressione di Installa trova l'FM-1 nel caricatore e finisce la scrittura.
+Stage 1 works from the official V15 firmware just as from one of our games: that is why the install starts from any state. If the cable comes out during stage 2, the FM-1 stays in the loader (with the header written last, a half-written game never starts): the page waits for it to come back and carries on; if the page was closed, the next press of Install finds the FM-1 in the loader and finishes the write.
 
-## Codice nostro e codice di altri
+## Our code and other people's
 
-| File | Cosa fa | Di chi |
+| File | What it does | By |
 | --- | --- | --- |
-| `installer/vendor/fm1ota.js` | Il protocollo: identità, i due tempi, la ripresa dopo uno stacco, la percentuale | Leo Kuroshita (Felucca), da Skiff, GPL-3.0 |
-| `installer/vendor/fm1pkg.js` | Il pacchetto `.fwsc`: identità, immagine logica, file e CRC | Leo Kuroshita (Felucca), da Skiff, GPL-3.0 |
-| `installer/package.js` | Scarica il `.fwsc` del gioco e lo controlla (dimensione, SHA-256, identità) prima che il synth ne veda un byte | Nostro |
-| `installer/installer.js`, `texts.js`, `index.html`, `style.css` | La pagina: elenco dei giochi, pulsante, barra, messaggi in italiano e inglese | Nostro |
+| `installer/vendor/fm1ota.js` | The protocol: identity, the two stages, resuming after a drop, the percentage | Leo Kuroshita (Felucca), from Skiff, GPL-3.0 |
+| `installer/vendor/fm1pkg.js` | The `.fwsc` package: identity, logical image, files and CRCs | Leo Kuroshita (Felucca), from Skiff, GPL-3.0 |
+| `installer/package.js` | Downloads the game's `.fwsc` and checks it (size, SHA-256, identity) before the synth sees a byte of it | Ours |
+| `installer/installer.js`, `texts.js`, `index.html`, `style.css` | The page: list of games, button, progress bar, messages in English (and Italian for Italian browsers) | Ours |
 
-I due moduli di Skiff sono copiati com'erano, con una sola modifica annotata in [installer/UPSTREAM.md](../installer/UPSTREAM.md): su Windows l'uscita MIDI dell'FM-1 si chiama "MIDIOUT2 (Felucca)" e non "Felucca", e la copia di Skiff non la riconosceva. Ora un'uscita vale se il suo nome è quello dell'ingresso o lo contiene, come fa l'installer di SLOOP.
+The two Skiff modules are copied as they were, with a single change noted in [installer/UPSTREAM.md](../installer/UPSTREAM.md): on Windows the FM-1's MIDI output is called "MIDIOUT2 (Felucca)", not "Felucca", and Skiff's copy did not recognise it. Now an output counts if its name is the input's or contains it, as SLOOP's installer does.
 
-Due regole di prudenza, prese da SLOOP: la pagina non scrive mai su un FM-1 che non sia un FM-1 (un SMK-37, per esempio), e non completa un aggiornamento cominciato dal firmware ufficiale (il suo caricatore, `ota-FM-1_015`, potrebbe disporre la flash in un altro modo): quello si finisce con M-UPGRADE di M-VAVE.
+Two cautious rules, taken from SLOOP: the page never writes to a device that is not an FM-1 (an SMK-37, for example), and it does not finish an update started by the official firmware (its loader, `ota-FM-1_015`, may lay the flash out differently): that one is finished with M-VAVE's M-UPGRADE.
 
-## Una pagina per tutti i giochi
+## One page for every game
 
-La pagina non conosce Space Invaders. Legge `games.json`, scritto da `tools/installer/bundle.py` con una riga per ogni pacchetto costruito:
+The page does not know Space Invaders. It reads `games.json`, written by `tools/installer/bundle.py` with one line per package built:
 
 ```json
 { "game": "space-invaders", "name": "SPACE INVADERS", "product": "FM-1_950",
   "pkg": "../firmware/space-invaders.fwsc", "sha256": "…", "size": 123456 }
 ```
 
-`bundle.py` controlla ogni pacchetto come lo controlla `fm1_install.py` (identità, caricatore di Felucca dentro, intestazione, elenco dei file e CRC di ognuno) e lo copia in `firmware/`. Quando arriveranno Galaga e Breakout compariranno da soli nell'elenco, con il link al simulatore e al `.fwsc` da scaricare.
+`bundle.py` checks every package as `fm1_install.py` checks it (identity, Felucca's loader inside, header, file list and the CRC of each file) and copies it to `firmware/`. When Galaga and Breakout arrive they will show up in the list by themselves, with the link to the simulator and to the `.fwsc` to download.
 
-## Sul sito
+## On the site
 
-Il sito di GitHub Pages ora si costruisce in tre lavori della CI:
-
-```
-firmware ──┐                     ┌── publish ── pages          (push su main: la radice del sito)
-           ├── site (artefatto) ─┤
-simulator ─┘                     └── preview.yml               (PR pronta: la cartella pr-<numero>/)
-```
-
-Il lavoro `site` scarica gli artefatti `simulator` e `firmware`, aggiunge installer e pacchetti con `bundle.py` e carica il risultato come artefatto `site`. Struttura:
+The GitHub Pages site is now built by three CI jobs:
 
 ```
-index.html                  l'elenco dei giochi e il link all'installer
-space-invaders/index.html   il simulatore
-installer/                  la pagina, i suoi moduli, games.json
+firmware ──┐                      ┌── publish ── pages          (push to main: the root of the site)
+           ├── site (artifact) ───┤
+simulator ─┘                      └── preview.yml               (PR ready: the pr-<number>/ folder)
+```
+
+The `site` job downloads the `simulator` and `firmware` artifacts, adds the installer and the packages with `bundle.py` and uploads the result as the `site` artifact. Layout:
+
+```
+index.html                  the list of games and the link to the installer
+space-invaders/index.html   the simulator
+installer/                  the page, its modules, games.json
 firmware/space-invaders.fwsc
 ```
 
-### L'anteprima di una pull request
+### The preview of a pull request
 
-Per provare sul synth prima del merge (richiesta di Luca), ogni pull request pronta per la revisione ha il suo sito in `https://darkhelmet67.github.io/fm1-insert-coin/pr-<numero>/`, con simulatore, installer e pacchetti della PR; un commento sulla PR dà il link. È lo schema delle anteprime di insert-coin:
+To try on the synth before the merge (Luca's request), every pull request ready for review gets its own site at `https://darkhelmet67.github.io/fm1-insert-coin/pr-<number>/`, with the pull request's simulator, installer and packages; a comment on the pull request gives the link. It is the same design as insert-coin's previews:
 
-- **Un archivio.** Pages pubblica una cartella intera per volta: per tenere insieme il sito di `main` e le anteprime, il sito pubblicato vive sul branch `gh-pages`. `.github/actions/publish-pages` cambia solo la sua parte: la radice per `main` (lavoro `publish` di `ci.yml`), `pr-<numero>/` per una PR, poi si pubblica tutto l'archivio.
-- **Chi pubblica.** `.github/workflows/preview.yml` parte quando `ci` finisce verde su una PR di questo repository, aperta e non in bozza, ancora al commit costruito: scarica l'artefatto `site` di quell'esecuzione e lo copia in `pr-<numero>/`. Quando la PR si chiude, toglie la cartella e aggiorna il commento.
-- **Sicurezza.** `preview.yml` gira sempre nella copia di `main` (`workflow_run` e `pull_request_target`), con i permessi di scrittura, e non esegue mai il codice della PR: copia solo i file costruiti. Le PR dai fork non hanno anteprima.
-- **Un passo alla volta.** Tutte le pubblicazioni condividono il gruppo di concorrenza `pages`.
+- **An archive.** Pages publishes one whole folder at a time: to keep `main`'s site and the previews together, the published site lives on the `gh-pages` branch. `.github/actions/publish-pages` changes only its own part: the root for `main` (the `publish` job of `ci.yml`), `pr-<number>/` for a pull request, then the whole archive is published.
+- **Who publishes.** `.github/workflows/preview.yml` starts when `ci` ends green on a pull request of this repository, open and not a draft, still at the commit that was built: it downloads that run's `site` artifact and copies it to `pr-<number>/`. When the pull request is closed, it removes the folder and updates the comment.
+- **Safety.** `preview.yml` always runs from `main`'s copy (`workflow_run` and `pull_request_target`), with write permissions, and never runs the pull request's code: it only copies the built files. Pull requests from forks get no preview.
+- **One step at a time.** Every publication shares the `pages` concurrency group.
 
-L'installer funziona anche dall'anteprima: WebMIDI vuole HTTPS, e Pages lo è.
+The installer works from the preview too: WebMIDI wants HTTPS, and Pages is HTTPS.
 
-La pagina carica moduli JavaScript e il `.fwsc` con `fetch`, quindi vuole un server: da GitHub Pages funziona, aperta dal disco no. In locale:
+The page loads JavaScript modules and the `.fwsc` with `fetch`, so it needs a server: from GitHub Pages it works, opened from disk it does not. Locally:
 
 ```sh
 make sim GAME=space-invaders
-python3 tools/build.py space-invaders     # oppure il .fwsc dall'artefatto firmware
-make installer                            # tutti i build/*/*.fwsc -> build/site/installer/
-python3 -m http.server -d build/site      # poi http://localhost:8000/installer/
+python3 tools/build.py space-invaders     # or the .fwsc from the firmware artifact
+make installer                            # every build/*/*.fwsc -> build/site/installer/
+python3 -m http.server -d build/site      # then http://localhost:8000/installer/
 ```
 
-## Provarlo senza synth
+WebMIDI also works on `localhost`, so the local page can install on a real FM-1.
 
-Il protocollo si prova con un FM-1 finto, `tools/installer/fake_fm1.mjs`, che sostituisce WebMIDI e si comporta come quello di `platform/tests/install_test.py`: risponde all'identità, chiede i pezzi nei due tempi, si riavvia con nomi USB diversi, può staccare il cavo a metà.
+## Trying it without a synth
 
-- **`make installer-test`** (anche in CI, nel lavoro `host`): i controlli del pacchetto e cinque installazioni complete. Dal firmware ufficiale V15; con i nomi delle porte di Windows; con il cavo staccato a metà scrittura e ripresa; da un aggiornamento interrotto prima; su un SMK-37, rifiutata prima di inviare qualsiasi cosa. Ogni risposta al synth è confrontata byte per byte con il pacchetto.
-- **`tools/installer/page-test.mjs`** (Playwright, in locale): la pagina vera in Chromium con l'FM-1 finto al posto di WebMIDI, fino a "Fatto!". Il pacchetto finto lo scrive `tools/installer/fake_package.py`:
+The protocol is tested with a fake FM-1, `tools/installer/fake_fm1.mjs`, which replaces WebMIDI and behaves like the one in `platform/tests/install_test.py`: it answers the identity query, asks for the pieces in the two stages, restarts under different USB names, can pull the cable halfway.
+
+- **`make installer-test`** (also in CI, in the `host` job): the package checks and five complete installs. From the official V15 firmware; with Windows' port names; with the cable pulled halfway through the write, then resumed; from an update cut off earlier; on an SMK-37, refused before anything is sent. Every answer to the synth is compared byte by byte with the package.
+- **`tools/installer/page-test.mjs`** (Playwright, locally): the real page in Chromium with the fake FM-1 instead of WebMIDI, all the way to "Done!". The fake package is written by `tools/installer/fake_package.py`:
 
 ```sh
 python3 tools/installer/fake_package.py FM-1_950 build/fake/space-invaders.fwsc
@@ -93,4 +95,4 @@ make sim GAME=space-invaders && make installer FWSC=build/fake/space-invaders.fw
 node tools/installer/page-test.mjs build/site
 ```
 
-Il finto non sostituisce la prova sul synth vero: dice che la pagina parla il protocollo come `fm1_install.py`, che Dinghy ha già provato sull'FM-1.
+The fake does not replace a test on the real synth: it shows that the page speaks the protocol like `fm1_install.py`, which Dinghy has already tested on the FM-1.

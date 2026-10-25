@@ -5,7 +5,7 @@
 #   make format / format-check   clang-format on our sources (platform/ is Dinghy's and keeps its style)
 #   make traces INSERT_COIN=dir  the reference traces, recorded again from a checkout of insert-coin
 #   make sim GAME=space-invaders  the browser simulator: build/site/<game>/index.html (needs clang and wasm-ld)
-#   make sounds INSERT_COIN=dir  the sound effects of C and web side by side, measured (docs/06-suoni.md)
+#   make sounds INSERT_COIN=dir  the sound effects of C and web side by side, measured (docs/06-sounds.md)
 #   make installer               the web installer and the built packages on the site: build/site/installer/
 #   make installer-test          the installer against a fake FM-1 (needs node)
 # The firmware itself (.fwsc): python3 tools/build.py GAME (see README.md).

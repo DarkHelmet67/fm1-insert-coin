@@ -1,8 +1,8 @@
-# Formato delle tracce di riferimento
+# Format of the reference traces
 
-Una traccia registra una partita della versione web, fotogramma per fotogramma. Il porting in C rigioca gli stessi comandi e deve scrivere le stesse righe. Questo file è la specifica condivisa dal registratore (`record-space-invaders.mjs`) e dal confronto in C.
+A trace records a game of the web version, frame by frame. The C port replays the same controls and must write the same lines. This file is the specification shared by the recorder (`record-space-invaders.mjs`) and the C comparison.
 
-## Il file
+## The file
 
 ```
 # Space Invaders reference trace "aiming", recorded from insert-coin ddf125b3...
@@ -13,50 +13,50 @@ Una traccia registra una partita della versione web, fotogramma per fotogramma. 
 1234 RF- P 0b4bf1d3 s=650 l=2 r=1 n=18
 ```
 
-Le righe che iniziano con `#` sono commenti; `# initial` dà l'hash dello stato prima del primo fotogramma. Ogni altra riga è un fotogramma:
+Lines starting with `#` are comments; `# initial` gives the hash of the state before the first frame. Every other line is a frame:
 
-| Campo | Significato |
+| Field | Meaning |
 | --- | --- |
-| `1234` | Il numero del fotogramma, da 1 |
-| `RF-` | I comandi dati in quel fotogramma: direzione `L`, `R` o `-`; fuoco `F` o `-`; moneta `C` o `-`. Il fuoco e la moneta sono già fronti di pressione, come `Controls` della versione web |
-| `P` | La schermata dopo il fotogramma: `A` attract, `P` partita, `G` game over |
-| `0b4bf1d3` | FNV-1a a 32 bit, in esadecimale, della stringa di stato qui sotto |
-| `s= l= r= n=` | Punteggio, cannoni, round, invasori rimasti: solo per chi legge, il confronto li ignora |
+| `1234` | The frame number, from 1 |
+| `RF-` | The controls given in that frame: direction `L`, `R` or `-`; fire `F` or `-`; coin `C` or `-`. Fire and coin are already press edges, like `Controls` in the web version |
+| `P` | The screen after the frame: `A` attract, `P` playing, `G` game over |
+| `0b4bf1d3` | 32-bit FNV-1a, in hexadecimal, of the state string below |
+| `s= l= r= n=` | Score, cannons, round, invaders left: for human readers only, the comparison ignores them |
 
-## La stringa di stato
+## The state string
 
-Testo ASCII, numeri interi in decimale. Una schermata è una di queste:
+ASCII text, integers in decimal. A screen is one of these:
 
 ```
-A|hi=<record>
-P|hi=<record>|rec=<record da battere>|<partita>
-O|hi=<record>|left=<fotogrammi di game over rimasti>|<partita>
+A|hi=<high score>
+P|hi=<high score>|rec=<record to beat>|<game>
+O|hi=<high score>|left=<game over frames left>|<game>
 ```
 
-La partita è una serie di campi separati da `;`, in quest'ordine:
+The game is a series of fields separated by `;`, in this order:
 
-| Campo | Contenuto |
+| Field | Content |
 | --- | --- |
-| `r=` `s=` `l=` | Round, punteggio, cannoni compreso quello in gioco |
-| `xl=` | 1 se il cannone extra è già stato dato |
-| `sf=` | Colpi sparati nella partita |
-| `c=` | Bordo sinistro del cannone |
-| `ce=` | Fotogrammi di esplosione del cannone rimasti, o `-` |
-| `sh=` | Il colpo del cannone `x:y`, o `-` |
-| `fl=` | La formazione: `cursore:direzione:discesa(0/1):nota:attesa:` e poi gli invasori in ordine di marcia, separati da `,`, ognuno `<tipo><riga>.<colonna>@<x>:<y>:<fotogramma>` con tipo `s` squid, `c` crab, `o` octopus |
-| `b=` | Le bombe: `turno:indice plunger:indice squiggly:` e poi le bombe attive `<tipo>@<x>:<y>:<passi>`, tipo `r` rolling, `p` plunger, `q` squiggly |
-| `sd=` | Gli scudi, separati da `,`: `x:y:` e la bitmap 22 × 16 riga per riga, ogni riga in 6 cifre esadecimali (bit più significativo a sinistra, gli ultimi 2 bit a zero) |
-| `u=` | Il disco volante: `conto alla rovescia:` e poi `x:direzione:età` o `-` |
-| `e=` | Gli effetti, separati da `,`: `<tipo>@<x>:<y>:<fotogrammi>` con `:<punti>` per il disco volante; tipo `alien`, `shot`, `bomb`, `ufo` |
+| `r=` `s=` `l=` | Round, score, cannons including the one in play |
+| `xl=` | 1 if the extra cannon has already been given |
+| `sf=` | Shots fired in the game |
+| `c=` | The cannon's left edge |
+| `ce=` | Cannon explosion frames left, or `-` |
+| `sh=` | The cannon's shot `x:y`, or `-` |
+| `fl=` | The formation: `cursor:direction:descending(0/1):note:wait:` then the invaders in marching order, separated by `,`, each `<kind><row>.<column>@<x>:<y>:<frame>` with kind `s` squid, `c` crab, `o` octopus |
+| `b=` | The bombs: `turn:plunger index:squiggly index:` then the active bombs `<kind>@<x>:<y>:<steps>`, kind `r` rolling, `p` plunger, `q` squiggly |
+| `sd=` | The shields, separated by `,`: `x:y:` and the 22 × 16 bitmap row by row, each row as 6 hex digits (most significant bit on the left, the last 2 bits zero) |
+| `u=` | The flying saucer: `countdown:` then `x:direction:age` or `-` |
+| `e=` | The effects, separated by `,`: `<kind>@<x>:<y>:<frames>` with `:<points>` for the saucer; kind `alien`, `shot`, `bomb`, `ufo` |
 
-Lo stato dell'attract (il tempo dell'animazione) e il modo colore non entrano nella stringa: sono presentazione, non logica.
+The attract state (the animation timer) and the colour mode are not in the string: they are presentation, not logic.
 
-## Le partite registrate
+## The recorded games
 
-| Traccia | Fotogrammi | Cosa copre |
+| Trace | Frames | What it covers |
 | --- | --- | --- |
-| `idle` | 6000 | Nessuno gioca: le bombe distruggono i tre cannoni, game over, ritorno all'attract |
-| `restless` | 6000 | Avanti e indietro, un colpo ogni 20 fotogrammi |
-| `aiming` | 20000 | Un giocatore che mira e schiva: secondo round, cannone extra, disco volante |
+| `idle` | 6000 | Nobody plays: bombs destroy the three cannons, game over, back to the attract screen |
+| `restless` | 6000 | Back and forth, one shot every 20 frames |
+| `aiming` | 20000 | A player who aims and dodges: second round, extra cannon, flying saucer |
 
-La moneta arriva sempre al fotogramma 60.
+The coin always comes in at frame 60.

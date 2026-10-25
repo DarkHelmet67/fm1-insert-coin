@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 /**
- * The installer's words, in Italian and in English. The error codes of vendor/fm1ota.js (notfound, model, lost,
+ * The installer's words, in English and in Italian (for an Italian browser). The error codes of vendor/fm1ota.js (notfound, model, lost,
  * stopped, noloader, noreturn, mismatch, badreq) have a sentence each, as in Skiff's page.
  */
 

@@ -2,7 +2,7 @@
 /**
  * Records reference traces from the web version of Space Invaders (insert-coin, TypeScript): the
  * game is played frame by frame with scripted controls, and every frame's whole state is written
- * as a short line with a hash (docs/03-tracce.md, tools/traces/FORMAT.md). The C port replays the
+ * as a short line with a hash (docs/03-traces.md, tools/traces/FORMAT.md). The C port replays the
  * same controls and must produce the same lines.
  *
  *   node tools/traces/record-space-invaders.mjs INSERT_COIN_DIR [OUT_DIR]   all the traces

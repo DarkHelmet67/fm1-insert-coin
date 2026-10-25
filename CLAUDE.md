@@ -1,60 +1,60 @@
-# Linee guida per lo sviluppo (umani e AI)
+# Development guidelines (humans and AI)
 
-Queste regole valgono per chiunque scriva codice in questo repository, persone o assistenti AI. Alcune sono verificate automaticamente (`make format-check`, i warning trattati come errori, i controlli di `tools/build.py`); le altre si controllano in revisione.
+These rules apply to everyone who writes code in this repository, people or AI assistants. Some are checked automatically (`make format-check`, warnings treated as errors, the checks in `tools/build.py`); the others are checked in review.
 
 ## AI for humans
 
-Il codice di questo progetto sarà letto da persone: **code for humans, not for AI**.
+The code of this project will be read by people: **code for humans, not for AI**.
 
-- Usare pattern noti e C semplice, non soluzioni "furbe".
-- Niente codice monolitico: file e funzioni piccoli, con una sola responsabilità. Un file che supera un paio di centinaia di righe va diviso.
-- Tante piccole funzioni helper, facili da testare unitariamente.
-- Commentare le parti più complesse spiegando il _perché_, non il _cosa_.
+- Use well-known patterns and simple C, not "clever" solutions.
+- No monolithic code: small files and functions, each with a single responsibility. A file past a couple of hundred lines should be split.
+- Many small helper functions, easy to unit test.
+- Comment the more complex parts, explaining the _why_, not the _what_.
 
-## Regole di sviluppo
+## Development rules
 
-| Regola | Come si applica | Controllo |
+| Rule | How it applies | Check |
 | --- | --- | --- |
-| Logica pura, separata dall'hardware | Solo `main.c` di ogni gioco parla con l'FM-1 (include `platform.c`), aiutato dai file `libs/*/*_fm1.h` che include dopo `platform.c`. Tutti i file `.c` di `games/*/src/` e `libs/` sono C senza hardware, compilati a parte e testati sul computer | `tools/build.py` compila questi moduli uno per uno; i registri si toccano solo in `platform/firmware/hal/` |
-| Stile funzionale | Lo stato si passa come `const T *` e una funzione restituisce il nuovo stato (`GameState game_step(const GameState *s, uint32_t actions)`); niente variabili globali nei moduli puri | Revisione |
-| Solo numeri interi | Niente `float` né `double`, niente divisione a 64 bit: il chip non ha FPU né libgcc. Punto fisso (Q15, Q16) dove serve | Il link del firmware fallisce |
-| Ogni funzione, struct ed enum ha un commento Doxygen | `/** ... */` con una riga che dice cosa fa; `@param`/`@returns` quando non sono ovvi | Revisione |
-| Warning zero | `-std=c99 -Wall -Wextra -Werror` per i test sul computer | `make test` |
-| Formattazione | clang-format con `.clang-format` | `make format-check` |
-| Valori incerti in un solo file | Tutto ciò che è una scelta e non un fatto dell'originale (tasti, colori, tempi stimati) sta in `games/<gioco>/src/config.h` | Revisione |
+| Pure logic, separate from the hardware | Only each game's `main.c` talks to the FM-1 (it includes `platform.c`), helped by the `libs/*/*_fm1.h` files it includes after `platform.c`. Every `.c` file in `games/*/src/` and `libs/` is C with no hardware, compiled on its own and tested on the computer | `tools/build.py` compiles these modules one by one; registers are touched only in `platform/firmware/hal/` |
+| Functional style | State is passed as `const T *` and a function returns the new state (`GameState game_step(const GameState *s, uint32_t actions)`); no global variables in pure modules | Review |
+| Integers only | No `float` or `double`, no 64-bit division: the chip has no FPU and no libgcc. Fixed point (Q15, Q16) where needed | The firmware link fails |
+| Every function, struct and enum has a Doxygen comment | `/** ... */` with a line saying what it does; `@param`/`@returns` when they are not obvious | Review |
+| Zero warnings | `-std=c99 -Wall -Wextra -Werror` for the tests on the computer | `make test` |
+| Formatting | clang-format with `.clang-format` | `make format-check` |
+| Uncertain values in a single file | Everything that is a choice rather than a fact of the original (keys, colours, estimated timings) lives in `games/<game>/src/config.h` | Review |
 
-### Eccezioni consentite
+### Allowed exceptions
 
-- **`main.c` è il guscio imperativo.** Il ciclo principale, lo schermo, i LED e l'interrupt audio tengono stato in variabili `static`: è il confine con l'hardware, come il game loop della versione web.
-- **I file `*_fm1.h`.** Il codice di collegamento riusato da più giochi (per esempio l'invio dello schermo al display) sta in `libs/<modulo>/<nome>_fm1.h`, con funzioni `static`: si include solo da `main.c`, dopo `platform.c`, e non si compila da solo.
-- **Il framebuffer.** Disegnare significa scrivere pixel in un buffer: le funzioni di disegno ricevono il buffer da modificare, e solo quello.
-- **Le voci del sintetizzatore.** `voice_render()` e `mixer_render()` girano nell'interrupt audio, 44.100 volte al secondo: ricevono la voce (o il mixer) e il buffer da modificare, come il disegno. La scelta di *quali* suoni suonare resta pura (`sounds_for()`).
-- **`platform/` è di Dinghy.** Si copia com'è dal progetto originale e non segue le nostre regole né il nostro stile; ogni modifica va annotata in `platform/UPSTREAM.md`.
-- **Test.** Nei file `*_test.c` le fixture mutabili sono ammesse.
-- **Il simulatore.** `games/<gioco>/sim/sim.c` è il guscio per il browser, come `main.c` per il synth: stato in variabili `static`, funzioni esportate con `SIM_EXPORT`. `sim/sim.js` è JavaScript per la pagina.
-- **L'installer web.** `installer/*.js` è JavaScript per la pagina; `installer/vendor/` è di Felucca (da Skiff) e, come `platform/`, si copia com'è: ogni modifica va annotata in `installer/UPSTREAM.md`.
-- **Il registratore delle tracce.** `tools/traces/*.mjs` è JavaScript per Node: carica la versione TypeScript da una copia di insert-coin e scrive le tracce. Non fa parte del firmware.
+- **`main.c` is the imperative shell.** The main loop, the screen, the LEDs and the audio interrupt keep state in `static` variables: it is the boundary with the hardware, like the web version's game loop.
+- **The `*_fm1.h` files.** Glue code reused by several games (for example sending the screen to the display) lives in `libs/<module>/<name>_fm1.h`, with `static` functions: it is included only from `main.c`, after `platform.c`, and never compiled on its own.
+- **The framebuffer.** Drawing means writing pixels into a buffer: the drawing functions receive the buffer to change, and only that.
+- **The synthesizer voices.** `voice_render()` and `mixer_render()` run in the audio interrupt, 44,100 times a second: they receive the voice (or the mixer) and the buffer to change, like drawing. Choosing *which* sounds to play stays pure (`sounds_for()`).
+- **`platform/` belongs to Dinghy.** It is copied as it comes from the original project and follows neither our rules nor our style; every change must be noted in `platform/UPSTREAM.md`.
+- **Tests.** Mutable fixtures are allowed in `*_test.c` files.
+- **The simulator.** `games/<game>/sim/sim.c` is the browser shell, as `main.c` is the synth's: state in `static` variables, functions exported with `SIM_EXPORT`. `sim/sim.js` is JavaScript for the page.
+- **The web installer.** `installer/*.js` is JavaScript for the page; `installer/vendor/` belongs to Felucca (from Skiff) and, like `platform/`, is copied as it comes: every change must be noted in `installer/UPSTREAM.md`.
+- **The trace recorder.** `tools/traces/*.mjs` is JavaScript for Node: it loads the TypeScript version from a checkout of insert-coin and writes the traces. It is not part of the firmware.
 
-Se una regola diventa un ostacolo reale, si discute e si aggiorna questo file.
+If a rule becomes a real obstacle, discuss it and update this file.
 
-## Struttura e convenzioni
+## Structure and conventions
 
-- Codice e commenti in inglese, documentazione (`README.md`, `docs/`) in italiano.
-- `platform/` è Dinghy, `libs/` il nostro codice condiviso tra i giochi, `games/<gioco>/` un gioco con il suo `firmware.json` (identità del pacchetto, nome sulla schermata di aggiornamento).
-- Il codice condiviso in `libs/` non include mai da `games/`.
-- Ogni gioco è il porting fedele della versione web di [insert-coin](https://github.com/DarkHelmet67/insert-coin): la logica in TypeScript è la specifica, e la parità si verifica con tracce registrate fotogramma per fotogramma. Il TypeScript non entra in questo repository: entrano solo le tracce, come file di test.
-- Ogni nuovo modulo arriva con i suoi test (`modulo_test.c` accanto a `modulo.c`) e con la sua guida in `docs/`.
-- Ogni decisione significativa presa con l'AI va nel [diario AI](docs/ai-workflow.md).
-- Ogni modifica significativa va riportata nel [prompt unico](docs/prompt-unico.md), che deve sempre poter ricreare il progetto com'è.
+- **Everything in English:** code, comments, documentation (`README.md`, `docs/`), web pages, commit messages and pull requests. The project is shared with the international FM-1 community.
+- `platform/` is Dinghy, `libs/` our code shared by the games, `games/<game>/` one game with its `firmware.json` (package identity, name on the update screen).
+- Shared code in `libs/` never includes from `games/`.
+- Every game is a faithful port of the web version in [insert-coin](https://github.com/DarkHelmet67/insert-coin): the TypeScript logic is the specification, and parity is checked with traces recorded frame by frame. The TypeScript does not enter this repository: only the traces do, as test files.
+- Every new module comes with its tests (`module_test.c` next to `module.c`) and with its guide in `docs/`.
+- Every significant decision made with the AI goes in the [AI diary](docs/ai-workflow.md).
+- Every significant change goes in the [single prompt](docs/single-prompt.md), which must always be able to recreate the project as it is.
 
-## Licenza
+## License
 
-Tutto il repository è GPL-3.0, come Dinghy da cui deriva: chi riceve un `.fwsc` ha diritto al sorgente. Ogni file C nuovo inizia con `/* SPDX-License-Identifier: GPL-3.0-only */`. I crediti stanno in [LICENSING.md](LICENSING.md).
+The whole repository is GPL-3.0, like Dinghy, which it derives from: whoever receives a `.fwsc` is entitled to the source. Every new C file starts with `/* SPDX-License-Identifier: GPL-3.0-only */`. The credits are in [LICENSING.md](LICENSING.md).
 
-## Prima di ogni commit
+## Before every commit
 
 ```bash
-make format-check && make test && make host GAME=<gioco>
+make format-check && make test && make host GAME=<game>
 ```
 
-Il firmware (`python3 tools/build.py <gioco>`) richiede la toolchain JieLi; lo costruisce comunque GitHub Actions a ogni push.
+The firmware (`python3 tools/build.py <game>`) needs the JieLi toolchain; GitHub Actions builds it anyway on every push.

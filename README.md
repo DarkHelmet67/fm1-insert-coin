@@ -1,63 +1,63 @@
 # fm1-insert-coin
 
-Giochi arcade degli anni '80 come firmware per il sintetizzatore tascabile **M-Vave FM-1**.
+1980s arcade games as firmware for the **M-Vave FM-1** pocket synthesizer.
 
-L'FM-1 è un synth FM da pochi euro con uno schermo a colori 240 × 240, 27 tasti, 14 pulsanti e 7 encoder. Da quando il produttore ha aperto il firmware, la community ne ha scritti più di cento, quasi tutti strumenti musicali; qualcuno ci ha fatto girare Doom. Qui ci girano i classici arcade, ricostruiti fedelmente a partire dalle ricerche su hardware e software originali.
+The FM-1 is an inexpensive FM synth with a 240 × 240 colour screen, 27 keys, 14 buttons and 7 encoders. Since its maker opened the firmware, the community has written more than a hundred of them, nearly all musical instruments; someone even got Doom running. This repository runs arcade classics on it, faithfully rebuilt from research on the original hardware and software.
 
-<p align="center"><img src="docs/images/space-invaders-partita.png" width="240" alt="Una partita di Space Invaders sull'FM-1, in modalità host"></p>
+<p align="center"><img src="docs/images/space-invaders-game.png" width="240" alt="A game of Space Invaders on the FM-1, in host mode"></p>
 
-## I giochi
+## The games
 
-| Gioco | Stato | Comandi |
+| Game | Status | Controls |
 | --- | --- | --- |
-| Space Invaders (Taito, 1978) | Giocabile, con i suoni, il simulatore e l'installer nel browser | OP1 OP2 OP3 sinistra, OP4 OP5 fuoco, OP6 PIT GLO destra, PLAY per iniziare, FX colori |
-| Galaga (Namco, 1981) | Previsto | Come Space Invaders |
-| Breakout (Atari, 1976) | Previsto | Encoder SELECT (destrorsi) o KNOB1 (mancini) |
+| Space Invaders (Taito, 1978) | Playable, with sound, a browser simulator and a browser installer | OP1 OP2 OP3 left, OP4 OP5 fire, OP6 PIT GLO right, PLAY to start, FX colours |
+| Galaga (Namco, 1981) | Planned | Same as Space Invaders |
+| Breakout (Atari, 1976) | Planned | SELECT encoder (right-handed) or KNOB1 (left-handed) |
 
-I giochi sono il porting in C della versione web di [insert-coin](https://github.com/DarkHelmet67/insert-coin), giocabile su [darkhelmet67.github.io/insert-coin](https://darkhelmet67.github.io/insert-coin/). La logica TypeScript è la specifica: il C deve fare la stessa partita, fotogramma per fotogramma.
+The games are C ports of the web version in [insert-coin](https://github.com/DarkHelmet67/insert-coin), playable at [darkhelmet67.github.io/insert-coin](https://darkhelmet67.github.io/insert-coin/). The TypeScript logic is the specification: the C code must play the same game, frame by frame.
 
-## Come si gioca a Space Invaders
+## How to play Space Invaders
 
-| Comando | Sul synth | Nel simulatore, dal computer |
+| Action | On the synth | In the simulator, from a computer |
 | --- | --- | --- |
-| Sinistra | OP1, OP2, OP3 | Freccia sinistra, A |
-| Fuoco | OP4, OP5 | Spazio, W |
-| Destra | OP6, PIT, GLO | Freccia destra, D |
-| Inizia la partita | PLAY (lampeggia) | Invio, C |
-| Colori o bianco e nero | FX | V |
+| Left | OP1, OP2, OP3 | Left arrow, A |
+| Fire | OP4, OP5 | Space, W |
+| Right | OP6, PIT, GLO | Right arrow, D |
+| Start a game | PLAY (blinking) | Enter, C |
+| Colour or black and white | FX | V |
 
-Il record resta nella memoria del synth anche da spento.
+The high score stays in the synth's memory, even when it is switched off.
 
-## Installare un gioco sul synth
+## Installing a game on the synth
 
-> Installare un firmware di terze parti è a tuo rischio. Prima salva i tuoi progetti e i suoni con il Workbench ufficiale.
+> Installing third-party firmware is at your own risk. Back up your projects and sounds with the official Workbench first.
 
-**Dal browser (il modo più semplice).** Apri l'[installer](https://darkhelmet67.github.io/fm1-insert-coin/installer/) con Chrome o Edge sul computer, collega l'FM-1 acceso con un cavo USB dati, scegli il gioco e premi **Installa**. Parte anche dal firmware ufficiale V15 e, se il cavo si stacca, riprende da dove era ([guida 09](docs/09-installer.md)).
+**From the browser (the easiest way).** Open the [installer](https://darkhelmet67.github.io/fm1-insert-coin/installer/) in Chrome or Edge on a computer, connect the FM-1 (switched on) with a USB data cable, choose the game and press **Install**. It works from the official V15 firmware too, and if the cable comes out it carries on where it stopped ([guide 09](docs/09-installer.md)).
 
-**Da riga di comando.** Scarica il `.fwsc` del gioco dall'installer (o dagli artefatti di [GitHub Actions](../../actions)) e installa con `python3 platform/tools/fm1_install.py space-invaders.fwsc` (serve `pip3 install mido python-rtmidi`). Funziona anche dal [FM-1 Firmware Hub](https://thefirmwarehub.com).
+**From the command line.** Download the game's `.fwsc` from the installer page (or from the [GitHub Actions](../../actions) artifacts) and install it with `python3 platform/tools/fm1_install.py space-invaders.fwsc` (needs `pip3 install mido python-rtmidi`). The [FM-1 Firmware Hub](https://thefirmwarehub.com) works as well.
 
-**Per tornare al firmware ufficiale V15:** M-UPGRADE di M-VAVE con il file FM-1 V15 dal loro sito, oppure lo stesso hub, voce "FM-1 V15".
+**Back to the official V15 firmware:** M-VAVE's M-UPGRADE with the FM-1 V15 file from their site, or the same hub, entry "FM-1 V15".
 
-Se qualcosa va storto, tieni premuto **OCT-** mentre accendi: l'FM-1 parte nella modalità di recupero USB, dove l'installazione funziona sempre.
+If something goes wrong, hold **OCT-** while switching on: the FM-1 starts in USB rescue mode, where installing always works.
 
-## Provare senza synth
+## Trying it without a synth
 
-**Nel browser.** Il [simulatore](https://darkhelmet67.github.io/fm1-insert-coin/) fa girare lo stesso codice C del firmware, compilato in WebAssembly: schermo, tastiera, pulsanti e suono dell'FM-1, con il mouse, le dita o la tastiera del computer ([guida 07](docs/07-simulatore.md)).
+**In the browser.** The [simulator](https://darkhelmet67.github.io/fm1-insert-coin/) runs the same C code as the firmware, compiled to WebAssembly: the FM-1's screen, keyboard, buttons and sound, played with the mouse, your fingers or the computer keyboard ([guide 07](docs/07-simulator.md)). Every pull request also gets its own preview of the site at `/pr-<number>/`.
 
-**Sul computer.** La modalità host di [Dinghy](https://github.com/zvenson/dinghy) fa girare il firmware: lo schermo diventa una serie di PNG, il suono un WAV, i tasti arrivano da uno script.
+**On the computer.** [Dinghy](https://github.com/zvenson/dinghy)'s host mode runs the firmware: the screen becomes a series of PNGs, the sound a WAV, and the keys come from a script.
 
 ```sh
 pip3 install Pillow
-make test                         # i test unitari
-make host GAME=space-invaders     # -> build/host/space-invaders-*.png e .wav
-make sim GAME=space-invaders      # -> build/site/space-invaders/index.html (serve clang con lld)
+make test                         # the unit tests
+make host GAME=space-invaders     # -> build/host/space-invaders-*.png and .wav
+make sim GAME=space-invaders      # -> build/site/space-invaders/index.html (needs clang with lld)
 ```
 
-Serve solo un compilatore C (Linux o macOS).
+All it takes is a C compiler (Linux or macOS). On macOS the simulator needs Homebrew's clang, since Apple's cannot target WebAssembly: `brew install llvm lld`, then `PATH="$(brew --prefix lld)/bin:$PATH" make sim WASM_CC="$(brew --prefix llvm)/bin/clang"`.
 
-## Costruire il firmware
+## Building the firmware
 
-Il firmware si costruisce con la toolchain JieLi (Linux x86-64; su macOS lo script usa Docker da solo) e tre file dell'SDK AC79:
+The firmware is built with the JieLi toolchain (Linux x86-64; on macOS the script uses Docker by itself) and three files of the AC79 SDK:
 
 ```sh
 pip3 install Pillow
@@ -68,43 +68,43 @@ export JIELI_TOOLCHAIN=~/.jieli/toolchain AC79_SDK=~/fw-AC79_AIoT_SDK
 python3 tools/build.py space-invaders   # -> build/space-invaders/space-invaders.fwsc
 ```
 
-GitHub Actions fa lo stesso a ogni push e allega i `.fwsc` all'esecuzione.
+GitHub Actions does the same on every push and attaches the `.fwsc` files to the run.
 
-## Com'è fatto
+## How it is built
 
 ```
-platform/   Dinghy: avvio, USB, aggiornamento, tasti, schermo, audio, flash, modalità host (non si tocca)
-libs/       il codice condiviso tra i giochi, in C puro e testato: screen, font, sprite, input, clock,
+platform/   Dinghy: boot, USB, updates, keys, screen, audio, flash, host mode (left untouched)
+libs/       code shared by the games, plain tested C: screen, font, sprite, input, clock,
             audio, storage, trace
-games/      un gioco per cartella: src/main.c parla con l'FM-1, sim/sim.c con il browser, il resto è
-            logica pura; traces/ le partite registrate dalla versione web
-sim/        la pagina del simulatore, uguale per tutti i giochi
-installer/  la pagina dell'installer web; vendor/ il protocollo di aggiornamento di Felucca (da Skiff)
-tools/      build.py (il firmware), ppm_to_png.py (gli screenshot), traces/ (il registratore delle
-            tracce), sounds/ (il confronto dei suoni), sim/ (pagina e prove del simulatore),
-            installer/ (il sito con i pacchetti, l'FM-1 finto per le prove)
-docs/       le guide, passo dopo passo
+games/      one game per folder: src/main.c talks to the FM-1, sim/sim.c to the browser, the rest is
+            pure logic; traces/ holds games recorded from the web version
+sim/        the simulator page, the same for every game
+installer/  the web installer page; vendor/ holds Felucca's update protocol (from Skiff)
+tools/      build.py (the firmware), ppm_to_png.py (screenshots), traces/ (the trace recorder),
+            sounds/ (the sound comparison), sim/ (simulator page and tests),
+            installer/ (the site with the packages, the fake FM-1 for tests)
+docs/       the guides, step by step
 ```
 
-## Guide
+## Guides
 
 | | |
 | --- | --- |
-| [00 Introduzione](docs/00-introduzione.md) | Perché un synth, perché il C, il piano |
-| [01 La piattaforma](docs/01-piattaforma.md) | Dinghy, la modalità host, la build, il primo firmware |
-| [02 Lo schermo](docs/02-schermo.md) | Risoluzioni diverse sul display 240 × 240, solo le righe cambiate, 60 Hz |
-| [03 Le tracce](docs/03-tracce.md) | Partite registrate dalla versione web, per dimostrare che il C è lo stesso gioco |
-| [04 La logica](docs/04-logica.md) | Space Invaders in C, modulo per modulo, identico alla versione web su 32.000 fotogrammi |
-| [05 Grafica e comandi](docs/05-grafica-e-controlli.md) | Disegnare tutto e inviare poco, i tasti del synth, il record nella flash |
-| [06 I suoni](docs/06-suoni.md) | Un sintetizzatore a interi con gli stessi numeri del web, misurato contro Web Audio |
-| [07 Il simulatore](docs/07-simulatore.md) | Lo stesso C in WebAssembly, in una pagina che si apre anche dal disco |
-| [08 Riepilogo](docs/08-riepilogo.md) | Come si tiene insieme, cosa è verificato, come aggiungere un gioco |
-| [09 L'installer](docs/09-installer.md) | Installare dal browser con WebMIDI, il protocollo di Felucca, le prove con un FM-1 finto |
-| [Diario AI](docs/ai-workflow.md) | Le decisioni prese con Claude |
-| [Prompt unico](docs/prompt-unico.md) | Il prompt che ricrea il progetto |
+| [00 Introduction](docs/00-introduction.md) | Why a synth, why C, the plan |
+| [01 The platform](docs/01-platform.md) | Dinghy, host mode, the build, the first firmware |
+| [02 The screen](docs/02-screen.md) | Different resolutions on the 240 × 240 display, only the changed rows, 60 Hz |
+| [03 The traces](docs/03-traces.md) | Games recorded from the web version, to prove the C code is the same game |
+| [04 The logic](docs/04-logic.md) | Space Invaders in C, module by module, identical to the web version over 32,000 frames |
+| [05 Graphics and controls](docs/05-graphics-and-controls.md) | Draw everything, send little; the synth's keys; the high score in flash |
+| [06 Sounds](docs/06-sounds.md) | An integer synthesizer with the web version's numbers, measured against Web Audio |
+| [07 The simulator](docs/07-simulator.md) | The same C code in WebAssembly, in a page that also opens from disk |
+| [08 Summary](docs/08-summary.md) | How it fits together, what is verified, how to add a game |
+| [09 The installer](docs/09-installer.md) | Installing from the browser with WebMIDI, Felucca's protocol, tests with a fake FM-1, PR previews |
+| [AI diary](docs/ai-workflow.md) | The decisions made with Claude |
+| [Single prompt](docs/single-prompt.md) | The prompt that recreates the project |
 
-Le regole di sviluppo sono in [CLAUDE.md](CLAUDE.md).
+The development rules are in [CLAUDE.md](CLAUDE.md).
 
-## Licenza
+## License
 
-GPL-3.0-only, come Dinghy da cui deriva. Crediti e materiale di terzi in [LICENSING.md](LICENSING.md).
+GPL-3.0-only, like Dinghy, which it derives from. Credits and third-party material in [LICENSING.md](LICENSING.md).

@@ -16,8 +16,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 
 HELP = (
-    "Tasti del synth: OP1-OP3 sinistra, OP4-OP5 fuoco, OP6-PIT-GLO destra, PLAY per iniziare, "
-    "FX colori o bianco e nero. Dal computer: frecce o A/D, spazio, Invio, V."
+    "Synth keys: OP1-OP3 left, OP4-OP5 fire, OP6-PIT-GLO right, PLAY to start, "
+    "FX colour or black and white. From a computer: arrows or A/D, space, Enter, V."
 )
 
 
@@ -46,12 +46,12 @@ def index(out):
     )
     # the installer is on the site once tools/installer/bundle.py has put it there (with the packages)
     installer = (
-        '<p><a href="installer/">Installa un gioco sul tuo FM-1</a>: dal browser, con il cavo USB.</p>\n'
+        '<p><a href="installer/">Install a game on your FM-1</a>: from the browser, with a USB cable.</p>\n'
         if (out / "installer" / "index.html").exists()
         else ""
     )
     return f"""<!doctype html>
-<html lang="it">
+<html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>fm1-insert-coin</title>
 <style>
@@ -63,12 +63,12 @@ p {{ color: var(--muted); }}
 </style></head>
 <body><main>
 <h1>fm1-insert-coin</h1>
-<p>Giochi arcade degli anni '80 come firmware per il synth M-Vave FM-1. Qui girano nel browser,
-con lo stesso codice C del firmware compilato in WebAssembly.</p>
+<p>1980s arcade games as firmware for the M-Vave FM-1 synth. Here they run in the browser,
+with the same C code as the firmware, compiled to WebAssembly.</p>
 <ul>
 {items}
 </ul>
-{installer}<p><a href="https://github.com/DarkHelmet67/fm1-insert-coin">Il codice su GitHub</a></p>
+{installer}<p><a href="https://github.com/DarkHelmet67/fm1-insert-coin">The source code on GitHub</a></p>
 </main></body></html>
 """
 
