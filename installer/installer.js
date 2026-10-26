@@ -5,7 +5,8 @@
  * The update itself is Felucca's USB-MIDI protocol, as Skiff's web installer speaks it (vendor/fm1ota.js): the
  * firmware running on the FM-1 (the official one or one of ours) checks the package and starts the update loader,
  * the loader reads the whole package and writes it, the FM-1 restarts with the new game. In both steps the synth
- * asks for pieces of the package and the page answers. Nothing is sent anywhere but to the synth.
+ * asks for pieces of the package and the page answers. Nothing is sent anywhere but to the synth, except, on the
+ * published site, three anonymous counts (countEvent).
  */
 import { IS_OTA, Updater, sameModel } from "./vendor/fm1ota.js";
 import { isOurLoader, loadImage } from "./package.js";
@@ -17,6 +18,18 @@ const $ = (id) => document.getElementById(id);
 const state = { lang: "en", status: null, games: [], writing: false };
 
 const t = (key) => TEXTS[state.lang][key];
+
+/**
+ * Counts an event on GoatCounter: an install started or finished, a package downloaded (docs/13-analytics.md). Only
+ * the event's name and the game travel; without the counter (previews, localhost, tests) it does nothing.
+ * @param {string} name the event, for example "install-done"
+ * @param {string} game the package, for example "insert-coin"
+ */
+const countEvent = (name, game) => {
+  const counter = window.goatcounter;
+  if (counter && typeof counter.count === "function")
+    counter.count({ path: `${name}/${game}`, title: `${name} ${game}`, event: true });
+};
 
 /**
  * Shows a sentence of texts.js on the status line.
@@ -66,6 +79,7 @@ const renderGames = () => {
     row.querySelector(".play").textContent = t("play");
     row.querySelector(".download").href = entry.pkg;
     row.querySelector(".download").textContent = t("download");
+    row.querySelector(".download").addEventListener("click", () => countEvent("download", entry.game));
     $("games").append(row);
   }
 };
@@ -92,6 +106,7 @@ const onStep = (key, value) => {
   if (key === "verify") $("bar").value = Math.min(5, (value * 5) / 80);
   if (key === "write") $("bar").value = 5 + value * 0.95;
   if (key === "done") $("bar").value = 100;
+  if (key === "done") countEvent("install-done", selectedGame()?.game ?? "");
   if (key === "write") say("write", ` ${value}%`);
   else if (key === "resume") say("resume", `${value}`);
   else if (key === "done") say("done", value);
@@ -127,6 +142,7 @@ $("go").addEventListener("click", async () => {
   if (state.writing || !entry) return;
   lock(true);
   $("bar").value = 0;
+  countEvent("install-start", entry.game);
   try {
     let midi;
     try {

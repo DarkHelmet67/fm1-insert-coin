@@ -42,7 +42,7 @@ If a rule becomes a real obstacle, discuss it and update this file.
 ## Structure and conventions
 
 - **Everything in English:** code, comments, documentation (`README.md`, `docs/`), web pages, commit messages and pull requests. The project is shared with the international FM-1 community.
-- `platform/` is Dinghy, `libs/` our code shared by the games, `launcher/` the firmware's menu with its `firmware.json` (package identity, name on the update screen, list of games), `games/<game>/` one game as a cartridge (`src/cartridge.c`) compiled as one file (`unity.c`).
+- `platform/` is Dinghy, `libs/` our code shared by the games, `launcher/` the firmware's menu with its `firmware.json` (package identity, name on the update screen, list of games), `games/<game>/` one game as a cartridge (`src/cartridge.c`) compiled as one file (`unity.c`), `site/` what every page of the published site shares (the visitor counter, `analytics.html`).
 - A new module of a game goes in its `unity.c` too.
 - Shared code in `libs/` never includes from `games/`.
 - Every game is a faithful port of the web version in [insert-coin](https://github.com/DarkHelmet67/insert-coin): the TypeScript logic is the specification, and parity is checked with traces recorded frame by frame. The TypeScript does not enter this repository: only the traces do, as test files.
