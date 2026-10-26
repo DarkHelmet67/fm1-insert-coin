@@ -8,7 +8,24 @@ body { margin: 0; padding: 32px 16px; background: var(--page); color: var(--text
 main { max-width: 640px; margin: 0 auto; }
 a { color: var(--link); }
 p { color: var(--muted); }
-</style></head>
+</style>
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<script>
+  /*
+   * Visits counted by GoatCounter (docs/13-analytics.md): no cookies, no personal data. Only the published site
+   * counts: not the previews of pull requests, not a copy opened from disk or from localhost (nor the tests).
+   */
+  (function () {
+    var published = location.hostname === "darkhelmet67.github.io" && !/\/pr-\d+\//.test(location.pathname);
+    if (!published) return;
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://gc.zgo.at/count.js";
+    script.dataset.goatcounter = "https://darkhelmet67.goatcounter.com/count";
+    document.head.appendChild(script);
+  })();
+</script>
+</head>
 <body><main>
 <h1>fm1-insert-coin</h1>
 <p>1980s arcade games as firmware for the M-Vave FM-1 synth: one firmware, a menu, these games.
