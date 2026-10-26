@@ -7,6 +7,7 @@
 
 #include "bombs.h"
 #include "cannon.h"
+#include "cartridge/private.h"
 #include "controls.h"
 #include "effects.h"
 #include "fleet.h"
@@ -34,15 +35,15 @@ typedef struct {
 } PlayingState;
 
 /** A new game: three cannons, the formation of `round`, four intact shields. */
-PlayingState playing_initial(uint32_t round);
+GAME_PRIVATE PlayingState playing_initial(uint32_t round);
 
 /** Whether the game has ended: no cannons left after the last explosion, or the invaders landed. */
-int playing_is_over(const PlayingState *state);
+GAME_PRIVATE int playing_is_over(const PlayingState *state);
 
 /**
  * The game one frame later. Like the original, the logic advances in whole frames (1/60 s):
  * the formation moves one invader per frame and every bomb moves once every 3 frames.
  */
-PlayingState playing_step(const PlayingState *state, const Controls *controls);
+GAME_PRIVATE PlayingState playing_step(const PlayingState *state, const Controls *controls);
 
 #endif

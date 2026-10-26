@@ -1,0 +1,68 @@
+# The menu, PLAY (button 12) to enter Space Invaders, PLAY again for a game, a few shots (OP4 =
+# 1 << 8) while moving right (OP6 = 1 << 13) and left (OP1 = 1 << 1), FX (button 2) for the black
+# and white monitor, then PLAY held for two seconds: back to the menu. SELECT (encoder 0) one click
+# on: Breakout. PLAY to enter it, PLAY for a game, PLAY to serve, then the paddle follows KNOB1
+# (encoder 2) and PRESETS (encoder 6), each a few clicks at a time. PLAY held again, SELECT one
+# more click: Galaga. PLAY to enter it, PLAY for a game, then shots (OP4) while moving left (OP1)
+# and right (OP6) once the stage has begun. Times in ms.
+700 shot
+1000 btn 12
+1500 shot
+1800 btn 12
+2400 shot
+2500 keys 0x100
+2550 keys 0
+2700 keys 0x2000
+3400 keys 0x2100
+3450 keys 0x2000
+4200 keys 0x2100
+4250 keys 0x2000
+4700 shot
+5000 keys 0x2
+5600 keys 0x102
+5650 keys 0x2
+6200 keys 0
+6300 btn 2
+6500 shot
+6600 btndown 12
+8900 btnup 12
+9200 shot
+9400 enc 0 1
+9900 shot
+10000 btn 12
+10500 shot
+10600 btn 12
+11100 btn 12
+11500 enc 2 -5
+12000 enc 6 8
+12500 enc 2 -4
+13000 enc 2 6
+13500 enc 6 -6
+14000 enc 2 3
+14400 shot
+15000 enc 6 -5
+15500 shot
+15600 btndown 12
+17800 btnup 12
+18000 enc 0 1
+18500 shot
+19000 btn 12
+19500 shot
+19600 btn 12
+21000 shot
+24500 shot
+25000 keys 0x2
+25600 keys 0x102
+25650 keys 0x2
+26200 keys 0x2000
+26600 keys 0x2100
+26650 keys 0x2000
+27200 keys 0x2100
+27250 keys 0x2000
+27600 keys 0
+28000 shot
+28500 keys 0x100
+28550 keys 0
+29500 shot
+32000 shot
+32100 end

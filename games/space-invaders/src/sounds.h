@@ -11,6 +11,7 @@
 #include <stdint.h>
 
 #include "audio/sound.h"
+#include "cartridge/private.h"
 #include "game.h"
 
 /** The sound effects of the game. */
@@ -34,9 +35,9 @@ typedef enum {
 #define SOUND_BIT(name) (1u << (name))
 
 /** The effect of each sound, synthesized from a few numbers measured on the original. */
-extern const SoundEffect SOUND_EFFECTS[SOUND_COUNT];
+GAME_EXTERN const SoundEffect SOUND_EFFECTS[SOUND_COUNT];
 
 /** The sounds to play for the frame that turned `previous` into `next`, as SOUND_BIT()s. */
-uint32_t sounds_for(const GameState *previous, const GameState *next);
+GAME_PRIVATE uint32_t sounds_for(const GameState *previous, const GameState *next);
 
 #endif

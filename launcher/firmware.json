@@ -1,0 +1,11 @@
+{
+  "package": "insert-coin",
+  "identity": "FM-1_95",
+  "screen_name": "INSERT COIN",
+  "screen_colour": "0x07E0",
+  "games": {
+    "space-invaders": "SPACE INVADERS",
+    "breakout": "BREAKOUT",
+    "galaga": "GALAGA"
+  }
+}

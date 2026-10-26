@@ -1,6 +1,6 @@
 # Format of the reference traces
 
-A trace records a game of the web version, frame by frame. The C port replays the same controls and must write the same lines. This file is the specification shared by the recorder (`record-space-invaders.mjs`) and the C comparison.
+A trace records a game of the web version, frame by frame. The C port replays the same controls and must write the same lines. This file is the specification shared by the recorders (`record-space-invaders.mjs`, `record-breakout.mjs`) and the C comparisons. The file and the frame lines are the same for every game; the state string is each game's own.
 
 ## The file
 
@@ -60,3 +60,46 @@ The attract state (the animation timer) and the colour mode are not in the strin
 | `aiming` | 20000 | A player who aims and dodges: second round, extra cannon, flying saucer |
 
 The coin always comes in at frame 60.
+
+## Breakout
+
+The frame line is the same, with `F` meaning SERVE and the coin always `-`; the screen is `A` (attract) or `P` (a game), and the numbers for human readers are the score, the ball number and the phase. The state string is one line of fields separated by `|`:
+
+| Field | Content |
+| --- | --- |
+| `A` or `P` | Attract mode or a game |
+| `pl=` | The play: `r` ready, `s:<frames left>:<frame SERVE was pressed>` serving, `o` game over, or `i:<x>:<y>:<dir x>:<dir y>:<hits>:<fast>:<outer>:<can hit a brick>` a ball in play, its position in **fifths of a pixel** |
+| `w=` | The wall: 28 hex digits, four bricks a digit, row by row from the top left |
+| `s=` `b=` | Score, ball number |
+| `sh=` `rf=` | 1 if the paddle is shrunk, 1 if the second wall has been given |
+| `p=` | The paddle `x:width` |
+| `clk=` | The frame counter |
+| `hi=` `rec=` | The record, and the record to beat in this game |
+| `t=` | The brick ticks: `owed:played:wait` |
+
+The colour mode is not in the string: it is presentation.
+
+**The ball on exact fifths.** The ball's speeds are multiples of 0.2 pixels, so the C port counts fifths of a pixel in integers, exactly. The web version adds them in floating point, and the error grows: after enough frames a ball that should be at 218.8 is at 218.79999999999998, one more step of 1.2 takes it to 219.99999999999997, and the ball, which should touch the right wall (`x + 4 >= 224`), misses it by a hair and flies on for one more frame. That is not a rule of the game, only a rounding accident. The recorder therefore puts the ball back on the nearest fifth after every frame, so the traces record the game the TypeScript means to play, and the C port matches them exactly. It is the only liberty the recorder takes.
+
+| Trace | Frames | What it covers |
+| --- | --- | --- |
+| `idle` | 6000 | Nobody plays: three balls served and lost, back to the attract mode, which plays by itself |
+| `restless` | 6000 | The paddle left and right in turn every 70 frames |
+| `tracker` | 45000 | A player who follows the ball with the keys, aiming at five parts of the paddle in turn: it breaks through, speeds up, shrinks the paddle and gets the second wall (frame 44421) |
+
+The game starts with SERVE at frame 60; then SERVE comes whenever a ball is waiting, on the frames that are multiples of 50.
+
+## Galaga
+
+The frame line is the same, with `F` the fire button and `C` the coin; the screen is `A` (attract) or `P` (a game), and the numbers for human readers are the score, the stage, the reserve fighters and the phase of the main program. Galaga's state is far larger than the other games', so the state string is defined by its code rather than by a table: `stateString()` in `record-galaga.mjs` and `trace_state.c` in the C port write the same text. It is `A|hi=…|` followed by the attract screen (frame, stars, timers, step, texts, objects), or `P|hi=…|` followed by the game as fields separated by `|`: `f=` frame, `t=` timers, `ph=` phase, `tk=` tasks, `o=` the 64 objects, `sl=` the 12 flight slots, `bd=` bomb drift, `rp=` rocket paths, `fm=` formation, `sf=` `sc=` stars, `stg=` `rk=` `pa=` `lk=` stage, rank, parameters and looks, `la=` the wave launcher's tokens, `at=` attacks, `cp=` capture, the counters (`fh=`, `gl=`, `tl=`, `al=`, `cn=`, `rv=`, `bg=` ...), `ms=` the texts on screen, `sco=` the score and the sounds of the frame. Numbers are decimal, except codes and addresses, in hexadecimal as JavaScript's `toString(16)` writes them.
+
+| Trace | Frames | What it covers |
+| --- | --- | --- |
+| `idle` | 9000 | Nobody plays: the aliens take the three fighters, back to the attract screen |
+| `restless` | 9000 | Left and right in turn every 100 frames, firing every 12 |
+| `rescuer` | 19000 | A bot that dodges and aims: captured, rescued (double fighter), a bonus bee, stage 5 |
+| `survivor` | 21000 | The same bot, more careful: two challenging stages, stage 6 |
+
+The coin comes in at frame 60. The bot's moves depend on the state, so the trace keeps them: the C port replays the controls, it does not need the bot.
+
+**Sound traces.** Next to each trace, `<name>.sound` follows the sound board as main.ts drives it: in every frame the game's sound commands are written to the trigger registers (none on the attract screen), then the sound program ticks twice. The frame is written as the voices of both ticks, `frequency:volume:waveform,` six times, then `x` if the fighter explodes or `-`. A line `frame hash` gives the FNV-1a of the text of 60 frames (frames 1-60, 61-120, ...), so a difference is found to the second.

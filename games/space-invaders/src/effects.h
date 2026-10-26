@@ -10,6 +10,7 @@
 #include <stdint.h>
 
 #include "aliens.h"
+#include "cartridge/private.h"
 
 /** The kinds of effect. */
 typedef enum { EFFECT_ALIEN, EFFECT_SHOT, EFFECT_BOMB, EFFECT_UFO } EffectKind;
@@ -36,21 +37,21 @@ typedef struct {
 } Effects;
 
 /** How many frames an effect of `kind` stays on screen: a new one has exactly these left. */
-uint32_t effect_frames(EffectKind kind);
+GAME_PRIVATE uint32_t effect_frames(EffectKind kind);
 
 /** No effects. */
-Effects effects_none(void);
+GAME_PRIVATE Effects effects_none(void);
 
 /** A new effect of `kind` at (x, y), lasting as long as its kind does. */
-Effect effect_create(EffectKind kind, int32_t x, int32_t y, int32_t points);
+GAME_PRIVATE Effect effect_create(EffectKind kind, int32_t x, int32_t y, int32_t points);
 
 /** An explosion centred on the invader that was hit. */
-Effect effect_explode_alien(const Alien *alien);
+GAME_PRIVATE Effect effect_explode_alien(const Alien *alien);
 
 /** The effects with one more at the end (dropped when the list is full). */
-Effects effects_add(const Effects *effects, Effect effect);
+GAME_PRIVATE Effects effects_add(const Effects *effects, Effect effect);
 
 /** Ages the effects by one frame and removes the ones that have finished. */
-Effects effects_step(const Effects *effects);
+GAME_PRIVATE Effects effects_step(const Effects *effects);
 
 #endif

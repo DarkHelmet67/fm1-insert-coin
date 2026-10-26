@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: GPL-3.0-only
-"""Builds the browser simulator's page of a game: one HTML file with everything inside
-(style, script, and the game's WebAssembly as base64), so it also opens from disk.
+"""Builds the browser simulator's page: one HTML file with everything inside (style, script, and the firmware's
+WebAssembly as base64), so it also opens from disk.
 
-    python3 tools/sim/bundle.py GAME WASM OUT_DIR
+    python3 tools/sim/bundle.py WASM OUT_DIR
 
-Writes OUT_DIR/GAME/index.html and OUT_DIR/index.html, the list of every game in OUT_DIR (and the link to the
-installer, when tools/installer/bundle.py has put it in OUT_DIR).
+Writes OUT_DIR/simulator/index.html and OUT_DIR/index.html, the site's front page with the games (and the link to
+the installer, when tools/installer/bundle.py has put it in OUT_DIR).
 """
 import base64
 import html
@@ -16,17 +16,25 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 
 HELP = (
-    "Synth keys: OP1-OP3 left, OP4-OP5 fire, OP6-PIT-GLO right, PLAY to start, "
-    "FX colour or black and white. From a computer: arrows or A/D, space, Enter, V."
+    "Menu: turn SELECT, PRESETS or ALGORITHM to choose, PLAY to start; hold PLAY in a game to come back. "
+    "Space Invaders: OP1-OP3 left, OP4-OP5 fire, OP6-PIT-GLO right, FX colour or black and white. "
+    "Breakout: any knob. Turn a knob with the mouse wheel or by dragging it. "
+    "From a computer: Up and Down choose, arrows or A/D steer, space fires, Enter is PLAY, V is FX."
 )
 
+#: The folder of the simulator on the site.
+SIMULATOR = "simulator"
 
-def page(game, wasm):
-    info = json.loads((ROOT / "games" / game / "firmware.json").read_text())
+
+def firmware_info():
+    """the launcher's firmware.json: the package name and its screen name"""
+    return json.loads((ROOT / "launcher" / "firmware.json").read_text())
+
+
+def page(wasm):
     shell = (ROOT / "sim" / "shell.html").read_text()
     parts = {
-        "{{TITLE}}": html.escape(info["screen_name"]),
-        "{{GAME}}": game,
+        "{{TITLE}}": html.escape(firmware_info()["screen_name"]),
         "{{HELP}}": html.escape(HELP),
         "{{STYLE}}": (ROOT / "sim" / "style.css").read_text(),
         "{{SCRIPT}}": (ROOT / "sim" / "sim.js").read_text(),
@@ -38,15 +46,16 @@ def page(game, wasm):
 
 
 def index(out):
-    games = sorted(p.parent.name for p in out.glob("*/index.html") if (ROOT / "games" / p.parent.name).is_dir())
-    items = "\n".join(
-        '<li><a href="%s/">%s</a></li>'
-        % (g, html.escape(json.loads((ROOT / "games" / g / "firmware.json").read_text())["screen_name"]))
-        for g in games
+    games = firmware_info()["games"]
+    items = "\n".join("<li>%s</li>" % html.escape(name) for name in games.values())
+    simulator = (
+        f'<p><a href="{SIMULATOR}/">Play them in the browser</a>: the simulator runs the firmware, menu included.</p>\n'
+        if (out / SIMULATOR / "index.html").exists()
+        else ""
     )
     # the installer is on the site once tools/installer/bundle.py has put it there (with the packages)
     installer = (
-        '<p><a href="installer/">Install a game on your FM-1</a>: from the browser, with a USB cable.</p>\n'
+        '<p><a href="installer/">Install the games on your FM-1</a>: from the browser, with a USB cable.</p>\n'
         if (out / "installer" / "index.html").exists()
         else ""
     )
@@ -63,24 +72,24 @@ p {{ color: var(--muted); }}
 </style></head>
 <body><main>
 <h1>fm1-insert-coin</h1>
-<p>1980s arcade games as firmware for the M-Vave FM-1 synth. Here they run in the browser,
-with the same C code as the firmware, compiled to WebAssembly.</p>
+<p>1980s arcade games as firmware for the M-Vave FM-1 synth: one firmware, a menu, these games.
+In the browser they run with the same C code as the firmware, compiled to WebAssembly.</p>
 <ul>
 {items}
 </ul>
-{installer}<p><a href="https://github.com/DarkHelmet67/fm1-insert-coin">The source code on GitHub</a></p>
+{simulator}{installer}<p><a href="https://github.com/DarkHelmet67/fm1-insert-coin">The source code on GitHub</a></p>
 </main></body></html>
 """
 
 
-def main(game, wasm, out_dir):
+def main(wasm, out_dir):
     out = Path(out_dir)
-    (out / game).mkdir(parents=True, exist_ok=True)
-    (out / game / "index.html").write_text(page(game, wasm))
+    (out / SIMULATOR).mkdir(parents=True, exist_ok=True)
+    (out / SIMULATOR / "index.html").write_text(page(wasm))
     (out / "index.html").write_text(index(out))
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 3:
         sys.exit(__doc__)
     main(*sys.argv[1:])

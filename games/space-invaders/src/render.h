@@ -7,13 +7,14 @@
 #ifndef RENDER_H
 #define RENDER_H
 
+#include "cartridge/private.h"
 #include "game.h"
 #include "screen/framebuffer.h"
 
 /** Draws the whole frame from scratch: the framebuffer is the only thing it changes. */
-void render_game(Framebuffer *fb, const GameState *state);
+GAME_PRIVATE void render_game(Framebuffer *fb, const GameState *state);
 
 /** The score with four digits, like the original display: 120 becomes "0120". */
-void format_score(int32_t score, char out[12]);
+GAME_PRIVATE void format_score(int32_t score, char out[12]);
 
 #endif

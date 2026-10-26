@@ -5,6 +5,7 @@
 
 #include <stdint.h>
 
+#include "cartridge/private.h"
 #include "fleet.h"
 
 /** A bomb dropped by an invader. */
@@ -32,24 +33,24 @@ typedef struct {
 } BombContext;
 
 /** No bombs on screen. */
-Bombs bombs_none(void);
+GAME_PRIVATE Bombs bombs_none(void);
 
 /** Pixels a bomb falls at each of its steps: 4, or 5 when 8 invaders or fewer are left. */
-int32_t bomb_speed(uint32_t aliens_left);
+GAME_PRIVATE int32_t bomb_speed(uint32_t aliens_left);
 
 /** How many steps the falling bombs must have taken before a new one can drop. */
-uint32_t reload_steps(int32_t score);
+GAME_PRIVATE uint32_t reload_steps(int32_t score);
 
 /** Index in the fleet of the lowest invader of `column`, or -1 when the column is empty. */
-int32_t lowest_in_column(const Fleet *fleet, uint32_t column);
+GAME_PRIVATE int32_t lowest_in_column(const Fleet *fleet, uint32_t column);
 
 /** The column right above `x`, or 0 when no invader is there: the rolling bomb aims there. */
-uint32_t column_above(const Fleet *fleet, int32_t x);
+GAME_PRIVATE uint32_t column_above(const Fleet *fleet, int32_t x);
 
 /** Advances the bombs by one frame: the kind whose turn it is either falls or tries to drop. */
-Bombs bombs_step(const Bombs *bombs, const BombContext *context);
+GAME_PRIVATE Bombs bombs_step(const Bombs *bombs, const BombContext *context);
 
 /** Removes the bomb at `index`, keeping the order of the others. */
-Bombs bombs_remove(const Bombs *bombs, uint32_t index);
+GAME_PRIVATE Bombs bombs_remove(const Bombs *bombs, uint32_t index);
 
 #endif

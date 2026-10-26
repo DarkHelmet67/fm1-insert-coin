@@ -32,11 +32,8 @@ jobs:
       - name: Web installer on a fake FM-1
         run: node tools/installer/test.mjs
 
-      - name: Every game on a fake FM-1
-        run: |
-          for g in games/*/firmware.json; do
-            make host GAME="$(basename "$(dirname "$g")")"
-          done
+      - name: The firmware on a fake FM-1
+        run: make host
 
       - uses: actions/upload-artifact@v4
         with:
@@ -64,12 +61,10 @@ jobs:
           done
           test -d ~/fw-AC79_AIoT_SDK
 
-      - name: Every game as a firmware
+      - name: The firmware, with every game
         run: |
           export JIELI_TOOLCHAIN="$HOME/.jieli/toolchain" AC79_SDK="$HOME/fw-AC79_AIoT_SDK"
-          for g in games/*/firmware.json; do
-            python3 tools/build.py "$(basename "$(dirname "$g")")"
-          done
+          python3 tools/build.py
 
       - uses: actions/upload-artifact@v4
         with:
@@ -85,13 +80,10 @@ jobs:
       - name: Tools
         run: sudo apt-get install -y clang lld
 
-      - name: Every game as a browser simulator
+      - name: The firmware as a browser simulator
         run: |
-          for g in games/*/sim/sim.c; do
-            game="$(basename "$(dirname "$(dirname "$g")")")"
-            make sim GAME="$game"
-            node tools/sim/smoke.mjs "build/sim/$game.wasm"
-          done
+          make sim
+          node tools/sim/smoke.mjs build/sim/insert-coin.wasm
 
       - uses: actions/upload-artifact@v4
         with:

@@ -55,16 +55,16 @@ static const Sound NEW_RECORD[] = {
 };
 
 /** One note of the march: a low sawtooth softened by a filter, held steady and cut short. */
-#define MARCH_NOTE(hz)                                                                             \
-    {                                                                                              \
-        SOUND_TONE, WAVE_SAWTOOTH, 0, CURVE_LINEAR, hz, hz, 500, 0, 100, 75, 350                   \
-    }
+/* (clang-format 18 and 21 lay out a braced macro differently: kept as it is) */
+/* clang-format off */
+#define MARCH_NOTE(hz) {SOUND_TONE, WAVE_SAWTOOTH, 0, CURVE_LINEAR, hz, hz, 500, 0, 100, 75, 350}
+/* clang-format on */
 static const Sound MARCH_0[] = {MARCH_NOTE(60)};
 static const Sound MARCH_1[] = {MARCH_NOTE(56)};
 static const Sound MARCH_2[] = {MARCH_NOTE(52)};
 static const Sound MARCH_3[] = {MARCH_NOTE(69)};
 
-const SoundEffect SOUND_EFFECTS[SOUND_COUNT] = {
+GAME_PRIVATE const SoundEffect SOUND_EFFECTS[SOUND_COUNT] = {
     [SOUND_COIN] = SOUND_EFFECT(COIN),
     [SOUND_SHOT] = SOUND_EFFECT(SHOT),
     [SOUND_ALIEN_HIT] = SOUND_EFFECT(ALIEN_HIT),

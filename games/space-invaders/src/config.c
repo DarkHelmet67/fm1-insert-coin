@@ -1,15 +1,15 @@
 /* SPDX-License-Identifier: GPL-3.0-only */
 #include "config.h"
 
-const KeyMap CONTROLS = {
+GAME_PRIVATE const KeyMap CONTROLS = {
     .left = FM1_KEY_BIT(FM1_KEY_OP1) | FM1_KEY_BIT(FM1_KEY_OP2) | FM1_KEY_BIT(FM1_KEY_OP3),
     .fire = FM1_KEY_BIT(FM1_KEY_OP4) | FM1_KEY_BIT(FM1_KEY_OP5),
     .right = FM1_KEY_BIT(FM1_KEY_OP6) | FM1_KEY_BIT(FM1_KEY_PIT) | FM1_KEY_BIT(FM1_KEY_GLO),
 };
 
-const RowRange SHOWN_ROWS[2] = {{8u, 239u}, {243u, 250u}};
+GAME_PRIVATE const RowRange SHOWN_ROWS[2] = {{8u, 239u}, {243u, 250u}};
 
-const uint16_t COLORS[FB_COLORS] = {
+GAME_PRIVATE const uint16_t COLORS[FB_COLORS] = {
     [COLOR_BACKGROUND] = RGB565(0x00, 0x00, 0x00),
     [COLOR_TEXT] = RGB565(0xFF, 0xFF, 0xFF),
     [COLOR_CANNON] = RGB565(0x30, 0xFF, 0x30),
@@ -23,7 +23,7 @@ const uint16_t COLORS[FB_COLORS] = {
 /** The monitor's white. */
 #define MONO RGB565(0xFF, 0xFF, 0xFF)
 
-const uint16_t MONO_COLORS[FB_COLORS] = {
+GAME_PRIVATE const uint16_t MONO_COLORS[FB_COLORS] = {
     [COLOR_BACKGROUND] = RGB565(0x00, 0x00, 0x00),
     [COLOR_TEXT] = MONO,
     [COLOR_CANNON] = MONO,

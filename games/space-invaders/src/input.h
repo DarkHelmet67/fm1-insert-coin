@@ -5,6 +5,7 @@
 
 #include <stdint.h>
 
+#include "cartridge/private.h"
 #include "controls.h"
 #include "input/keymap.h"
 
@@ -17,7 +18,7 @@
  * @param button_presses the buttons pressed since the previous frame (fm1_input_edges)
  * @param coin_button the id of the button that inserts the coin
  */
-Controls input_controls(const KeyMap *map, uint32_t notes, uint32_t note_presses,
-                        uint32_t button_presses, uint32_t coin_button);
+GAME_PRIVATE Controls input_controls(const KeyMap *map, uint32_t notes, uint32_t note_presses,
+                                     uint32_t button_presses, uint32_t coin_button);
 
 #endif

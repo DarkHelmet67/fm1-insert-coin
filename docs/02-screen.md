@@ -28,32 +28,46 @@ Columns are never a problem: every game is at most 228 pixels wide. Rows are. Sc
 
 ## The link to the hardware
 
-The three libraries are pure C, with their tests. What talks to the display is `libs/screen/screen_fm1.h`, included by `main.c` after `platform.c`. `screen_push()` walks the bands, colours each one into a buffer and hands it to `lcd_blit()`:
+The three libraries are pure C, with their tests. What talks to the display is `libs/screen/screen_fm1.h`, included by `main.c` after `platform.c`. `screen_push_band()` sends one band per call: it finds the next band from where the last one ended, colours it into a buffer and hands it to `lcd_blit()`; when no band is left, it forgets the changes and starts again from the top.
 
 ```c
-for (ScreenBand band = screen_next_band(fb, map, 0u, SCREEN_BAND_ROWS); band.count;
-     band = screen_next_band(fb, map, band.y + band.count, SCREEN_BAND_ROWS)) {
-    uint16_t *px = screen_band_px[which];
-    for (uint32_t r = 0; r < band.count; r++)
-        screen_render_row(fb, map, band.y + r, palette, &px[r * map->width]);
-    lcd_blit(map->dest_x, band.y, map->width, band.count, px);
-    which ^= 1u;
+const ScreenBand band = screen_next_band(fb, map, screen_from, SCREEN_BAND_ROWS);
+if (band.count == 0) {
+    fb_clear_dirty(fb);
+    screen_from = 0;
+    return 0;
 }
+uint16_t *px = screen_band_px[screen_which];
+for (uint32_t r = 0; r < band.count; r++)
+    screen_render_row(fb, map, band.y + r, palette, &px[r * map->width]);
+lcd_blit(map->dest_x, band.y, map->width, band.count, px);
+screen_which ^= 1u;
+screen_from = band.y + band.count;
+return 1;
 ```
+
+One band at a time, because a screen that changes everywhere takes longer than a frame to send (Galaga's stars move on every row). The main loop sends a band, checks whether a frame is due, sends the next: the game keeps its 60 frames a second, and its sound with it, while the display catches up. A new frame is drawn only once the previous one is all on the display, so it never shows half old and half new.
 
 `lcd_blit()` returns at once and leaves the work to the DMA, which keeps reading the buffer. That is why there are two buffers: while one travels, the other fills. The next call to `lcd_blit()` waits for the previous transfer to end, so a buffer is never rewritten while in flight. The colours go through `screen_palette()`, which puts them in the display's byte order.
 
 ## Time
 
-The original game runs at 60 frames per second; the FM-1 counts milliseconds. `frame_clock_frames(ms)` (`libs/clock/`) says how many frames they are worth: exactly 60 every 1000 ms, with no drift and without the 64-bit division the chip cannot do. The main loop runs the frames that are due, at most four in a row if it fell behind (for example during a flash save), then sends the changed rows.
+The original game runs at 60 frames per second; the FM-1 counts milliseconds. `frame_clock_frames(ms)` (`libs/clock/`) says how many frames they are worth: exactly 60 every 1000 ms, with no drift and without the 64-bit division the chip cannot do. The main loop runs the frames that are due, at most four in a row if it fell behind (for example during a flash save), draws the latest once the display has the previous one, then sends a band.
 
 ```c
 const uint32_t due = frame_clock_frames(fm1_ms);
 if (due - done > MAX_CATCH_UP)
     done = due - MAX_CATCH_UP;
-for (; done != due; done++)
-    step(keymap_actions(&CONTROLS, notes));
-screen_push(&screen, &map, palette);
+if (done != due) {
+    for (; done != due; done++)
+        console_step(&console, &panel);
+    drawn = 0;
+}
+if (!drawn && !sending) {
+    draw_frame(shown_palette);
+    drawn = 1;
+}
+sending = screen_push_band(&front, &map, shown_palette);
 ```
 
 ## On macOS

@@ -42,9 +42,9 @@ typedef struct {
 } SoundEffect;
 
 /** An effect made of the sounds of an array. */
-#define SOUND_EFFECT(array)                                                                        \
-    {                                                                                              \
-        (array), (uint8_t)(sizeof(array) / sizeof((array)[0]))                                     \
-    }
+/* (clang-format 18 and 21 lay out a braced macro differently: kept as it is) */
+/* clang-format off */
+#define SOUND_EFFECT(array) {(array), (uint8_t)(sizeof(array) / sizeof((array)[0]))}
+/* clang-format on */
 
 #endif
