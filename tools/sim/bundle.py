@@ -31,6 +31,15 @@ def firmware_info():
     return json.loads((ROOT / "launcher" / "firmware.json").read_text())
 
 
+#: Where a page wants the visit counter (site/analytics.html): an HTML comment, so the page also works without it.
+ANALYTICS = "<!-- analytics -->"
+
+
+def analytics():
+    """site/analytics.html: GoatCounter, only on the published site (docs/13-analytics.md)"""
+    return (ROOT / "site" / "analytics.html").read_text().strip()
+
+
 def page(wasm):
     shell = (ROOT / "sim" / "shell.html").read_text()
     parts = {
@@ -42,7 +51,7 @@ def page(wasm):
     }
     for key, value in parts.items():
         shell = shell.replace(key, value)
-    return shell
+    return shell.replace(ANALYTICS, analytics())
 
 
 def index(out):
@@ -69,7 +78,9 @@ body {{ margin: 0; padding: 32px 16px; background: var(--page); color: var(--tex
 main {{ max-width: 640px; margin: 0 auto; }}
 a {{ color: var(--link); }}
 p {{ color: var(--muted); }}
-</style></head>
+</style>
+{analytics()}
+</head>
 <body><main>
 <h1>fm1-insert-coin</h1>
 <p>1980s arcade games as firmware for the M-Vave FM-1 synth: one firmware, a menu, these games.

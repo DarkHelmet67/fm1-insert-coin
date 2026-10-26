@@ -109,6 +109,7 @@ docs/       the guides, step by step
 | [10 The launcher](docs/10-launcher.md) | One firmware, a menu of games, games as cartridges, the unity build |
 | [11 Breakout](docs/11-breakout.md) | A paddle on any encoder, the ball in exact fifths of a pixel |
 | [12 Galaga](docs/12-galaga.md) | 60 modules, 58,000 frames of parity, 288 rows on 240, the WSG sound chip |
+| [13 Counting visitors](docs/13-analytics.md) | GoatCounter on the published site: visits, installs and downloads, no cookies |
 | [AI diary](docs/ai-workflow.md) | The decisions made with Claude |
 | [Single prompt](docs/single-prompt.md) | The prompt that recreates the project |
 

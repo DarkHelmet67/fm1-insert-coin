@@ -63,6 +63,8 @@ def main(out_dir, packages):
     games = sorted((entry(Path(p), out) for p in packages), key=lambda g: g["game"])
     for name in PAGE_FILES:
         shutil.copyfile(ROOT / "installer" / name, out / "installer" / name)
+    page = (ROOT / "installer" / "index.html").read_text()
+    (out / "installer" / "index.html").write_text(page.replace(sim_bundle.ANALYTICS, sim_bundle.analytics()))
     (out / "installer" / "games.json").write_text(json.dumps(games, indent=2) + "\n")
     (out / "index.html").write_text(sim_bundle.index(out))
     for g in games:
